@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server"
   },
-  "author": "Akshay B Bistagond,Abhishek Chavan,Diptesh Baneerji",
+  "author": "Akshay B Bistagond, Abhishek Chavan, Diptesh Baneerjee",
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1"
