@@ -1,4 +1,5 @@
 import Login from "./Login";
+import Chat from "client\src\Components\Chat\Chat.js";
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <header className="App-header">
         <h1> VroCode </h1>
         <Login/>
+        <Chat/>
       </header>
     </div>
   );
