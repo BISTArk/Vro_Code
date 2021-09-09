@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <h1> VroCode </h1>
         <Login/>
-        <Chat/>
+        {/* <Chat/> */}
       </header>
     </div>
   );
