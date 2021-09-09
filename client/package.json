@@ -12,6 +12,8 @@
     "react-scripts": "4.0.3",
     "react-use-localstorage": "^3.5.3",
     "use-clippy": "^1.0.8",
+    "use-immer": "^0.6.0",
+    "use-socket.io-client": "^1.1.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
