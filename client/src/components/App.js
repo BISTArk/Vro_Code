@@ -1,5 +1,7 @@
 import Login from "./Login";
-import Chat from "client\src\Components\Chat\Chat.js";
+import React from "react";
+// import Chat from "./Chat/Chat";
+
 
 function App() {
   return (

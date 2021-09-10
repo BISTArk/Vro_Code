@@ -9,7 +9,6 @@
   "author": "Akshay B Bistagond, Abhishek Chavan, Diptesh Baneerjee",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1",
-    "reactstrap": "^8.10.0"
+    "express": "^4.17.1"
   }
 }

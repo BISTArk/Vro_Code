@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-class Login extends Component {
+export class Login extends Component {
 
     state = {email : "" , password : ""};
 
@@ -17,27 +17,27 @@ class Login extends Component {
         return (
             <div className="Login">
                 <Form onSubmit={this.handleSubmit}>
-                    <Form.Group size="lg" controlId="email">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
+                    <FormGroup size="lg" controlId="email">
+                    <Label>Email</Label>
+                    <Input
                         autoFocus
                         type="email"
                         value={this.state.email}
                         onChange={(e) => this.setState({email:e.target.value})}
                     />
-                    </Form.Group>
-                    <Form.Group size="lg" controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
+                    </FormGroup>
+                    <FormGroup size="lg" controlId="password">
+                    <Label>Password</Label>
+                    <Input
                         type="password"
                         value={this.state.password}
                         onChange={(e) => this.setState({password:e.target.value})}
                     />
-                    </Form.Group>
-                    <Button block size = "lg" class = "reg-btn" type = "submit" disabled = {!this.validateForm()}>
+                    </FormGroup>
+                    <Button block size = "lg" className = "reg-btn" type = "submit" disabled = {!this.validateForm()}>
                         Register
                         </Button>
-                    <Button block size = "lg" class = "login-btn" type="submit" disabled={!this.validateForm()}>
+                    <Button block size = "lg" className = "login-btn" type="submit" disabled={!this.validateForm()}>
                     Login
                     </Button>
                 </Form>
