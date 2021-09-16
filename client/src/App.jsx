@@ -1,4 +1,4 @@
-import Login from "./Login";
+import Login from "./components/Login/Login";
 import React from "react";
 // import Chat from "./Chat/Chat";
 

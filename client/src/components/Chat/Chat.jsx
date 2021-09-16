@@ -5,7 +5,7 @@ import { useImmer } from 'use-immer';
 import { useOnlineStatus, useWindowSize } from '@withvoid/melting-pot';
 import useClippy from 'use-clippy';
 
-import './index.css';
+import './Chat.scss';
 
 const Messages = props => { 
   const [ clipboard, setClipboard ] = useClippy();
