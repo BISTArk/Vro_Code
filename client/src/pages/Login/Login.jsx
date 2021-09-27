@@ -1,42 +1,43 @@
-import "./login.css";
-
+import "./login.css"
 export default function Login() {
   return (
     <div className="login">
-      <div className="loginWrapper">
-        <div className="loginLeft">
-          
-    
-        </div>
-        <center>
-       <div className="loginRight">
-          
           <div className="loginBox">
-           <h3 className="loginLogo">Create Account</h3>
-           <h1 className="vroCode">VroCode</h1>
-           <form action="">
-            <p className="input-text">Name</p>
-            <input placeholder="Enter Name" className="loginInput"/>
-            <p className="input-text">Username</p>
-            <input placeholder="Enter username" className="loginInput"/>  
-            <p className="input-text">Email address</p>  
-            <input placeholder="Enter Valid email" className="loginInput" />
-            <p className="input-text">Password</p>
-            <input placeholder="Enter a password" className="loginInput" />
-            <button className="loginButton">Log In</button>
-            <span className="alreadyMember">Already a member?</span>
-            <button className="SignUp">
-              Sign Up
-            </button>
-            </form>
-            <img src="images/login-paint-png.png" alt="vrocode-art" />
+           <div className="login-left">
+             <h3 className="loginLogo">Create Account</h3>
+             <form action="" className="login-form">
+              <div className="login-names">
+                <div className="form-field">
+                  <label htmlFor="name" className="input-text">Name</label>
+                  <input type="text" name="name" placeholder="Enter Name" className="loginInput"/>
+                </div>
+                <div className="form-field">
+                  <label htmlFor="username" className="input-text">Username</label>
+                  <input type="text" name="username" placeholder="Enter username" className="loginInput"/>
+                </div>
+              </div>
+              <div className="form-field">
+                <label htmlFor="email" className="input-text">Email address</label>
+                <input type="email" name="email" placeholder="Enter Valid email" className="loginInput" />
+              </div>
+              <div className="form-field">
+                <label htmlFor="password" className="input-text">Password</label>
+                <input type="password" name="password" placeholder="Enter a password" className="loginInput" />
+              </div>
+              <div className="form-btns">
+                <button className="SignUp">Sign Up</button>
+                <div className="login-btn">
+                  <span className="alreadyMember">Already a member?</span>
+                  <button className="loginButton">Log In</button>
+                </div>
+              </div>
+              </form>
+           </div>
+           <div className="login-right">
+             <h1 className="vroCode">VroCode</h1>
+              <img src="images/login-paint.svg" alt="vrocode-art" />
+           </div>
           </div>
-        
-        </div>
-        </center>
-        
-      </div>
-      
     </div>
   );
 }
