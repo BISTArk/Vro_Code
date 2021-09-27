@@ -1,51 +1,42 @@
-import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import "./login.css";
 
-export class Login extends Component {
-
-    state = {email : "" , password : ""};
-
-    validateForm = ()=> {
-        return this.state.email.length > 0 && this.state.password.length > 0;
-      }
-
-    handleSubmit = (e) =>{
-        e.preventDefault();
-    }
-
-    render() {
-        return (
-            <div className="Login">
-                <Form onSubmit={this.handleSubmit}>
-                    <FormGroup size="lg" controlId="email">
-                    <Label>Email</Label>
-                    <Input
-                        autoFocus
-                        type="email"
-                        value={this.state.email}
-                        onChange={(e) => this.setState({email:e.target.value})}
-                    />
-                    </FormGroup>
-                    <FormGroup size="lg" controlId="password">
-                    <Label>Password</Label>
-                    <Input
-                        type="password"
-                        value={this.state.password}
-                        onChange={(e) => this.setState({password:e.target.value})}
-                    />
-                    </FormGroup>
-                    <Button block size = "lg" className = "reg-btn" type = "submit" disabled = {!this.validateForm()}>
-                        Register
-                        </Button>
-                    <Button block size = "lg" className = "login-btn" type="submit" disabled={!this.validateForm()}>
-                    Login
-                    </Button>
-                </Form>
-            </div>
-        )
-    }
-};
-
-export default Login
-
-
+export default function Login() {
+  return (
+    <div className="login">
+      <div className="loginWrapper">
+        <div className="loginLeft">
+          
+    
+        </div>
+        <center>
+       <div className="loginRight">
+          
+          <div className="loginBox">
+           <h3 className="loginLogo">Create Account</h3>
+           <h1 className="vroCode">VroCode</h1>
+           <form action="">
+            <p className="input-text">Name</p>
+            <input placeholder="Enter Name" className="loginInput"/>
+            <p className="input-text">Username</p>
+            <input placeholder="Enter username" className="loginInput"/>  
+            <p className="input-text">Email address</p>  
+            <input placeholder="Enter Valid email" className="loginInput" />
+            <p className="input-text">Password</p>
+            <input placeholder="Enter a password" className="loginInput" />
+            <button className="loginButton">Log In</button>
+            <span className="alreadyMember">Already a member?</span>
+            <button className="SignUp">
+              Sign Up
+            </button>
+            </form>
+            <img src="images/login-paint-png.png" alt="vrocode-art" />
+          </div>
+        
+        </div>
+        </center>
+        
+      </div>
+      
+    </div>
+  );
+}
