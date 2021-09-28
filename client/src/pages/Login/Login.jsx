@@ -1,4 +1,5 @@
 import "./login.css"
+import vectorArt from './images/login-paint.svg'
 export default function Login() {
   return (
     <div className="login">
@@ -27,15 +28,17 @@ export default function Login() {
               <div className="form-btns">
                 <button className="SignUp">Sign Up</button>
                 <div className="login-btn">
-                  <span className="alreadyMember">Already a member?</span>
+                  
                   <button className="loginButton">Log In</button>
                 </div>
+                
               </div>
+              <span className="alreadyMember">Already a member?</span>
               </form>
            </div>
            <div className="login-right">
              <h1 className="vroCode">VroCode</h1>
-              <img src="images/login-paint.svg" alt="vrocode-art" />
+              <img src={vectorArt} alt="vrocode-art" className="vector"/>
            </div>
           </div>
     </div>
