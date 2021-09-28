@@ -1,4 +1,5 @@
-import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login"
 import TopBar from "./components/TopBar/TopBar";
 import React from "react";
 // import Chat from "./Chat/Chat";
@@ -11,6 +12,8 @@ function App() {
         {/* <TopBar/> */}
         {/* <h1> VroCode </h1> */}
         <Login/>
+       
+        
         {/* <Chat/> */}
       </header>
     </div>
