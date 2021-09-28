@@ -11,8 +11,8 @@ function App() {
       <header className="App-header">
         {/* <TopBar/> */}
         {/* <h1> VroCode </h1> */}
-        <Login/>
-       
+        <Register/>
+        {/*<Register/> */}
         
         {/* <Chat/> */}
       </header>

@@ -19,11 +19,11 @@ export default function Register() {
               </div>
               <div className="form-field">
                 <label htmlFor="email" className="input-text">Email address</label>
-                <input type="email" name="email" placeholder="Enter Valid email" className="loginInput" />
+                <input type="email" name="email"placeholder="Enter Valid email" className="loginInput1" />
               </div>
               <div className="form-field">
                 <label htmlFor="password" className="input-text">Password</label>
-                <input type="password" name="password" placeholder="Enter a password" className="loginInput" />
+                <input type="password" name="password" placeholder="Enter a password" className="loginInput1" />
               </div>
               <div className="form-btns">
                 <button className="SignUp">Sign Up</button>
