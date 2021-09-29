@@ -1,12 +1,9 @@
-
-
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.login {
+.register {
     width: 100vw;
     height: 100vh;
     background-image: url(images/login-bg.png);
@@ -17,7 +14,7 @@
     justify-content: center;
   }
 
-  .loginLogo {
+  .CreateAccount {
 
     font-size: 2.5rem;
     font-family: 'Poppins', sans-serif;
@@ -27,7 +24,7 @@
     
   }
   
-  .loginBox{
+  .RegBox{
       height: 72%;
       width: 72%;
       padding: 50px;
@@ -41,29 +38,29 @@
       display: flex;
   }
 
-  .login-left{
+  .Reg-left{
       width: 50%;
       height: 100%;
       display: flex;
       flex-direction: column;
   }
 
-  .login-right{
+  .Reg-right{
     width: 50%;
     height: 100%;
 }
 
-.login-form{
+.Reg-form{
     margin-top: 3%;
     display: flex;
     flex-direction: column;
 }
 
-.login-names{
+.Reg-names{
     display: flex;
 }
 
-.form-field{
+.form-field-reg{
     display: flex;
     flex-direction: column;
     padding: 1.2%;
@@ -82,7 +79,7 @@
    
 }
   
-  .loginInput{
+  .RegInput{
       height: 35px;
       width: 45%;
       border-radius: 10px;
@@ -93,10 +90,10 @@
       margin: 3px;
       padding-left: 10px;
   }
-.loginInput1
+.RegInput1
 {
     height: 35px;
-      width: 94%;
+      width: 96%;
       border-radius: 10px;
       border: 1px solid #1E3163;
       font-size: 15px;
@@ -105,13 +102,14 @@
       margin: 3px;
       padding-left: 10px;
 }
-  .login-names .loginInput{
+
+  .Reg-names .RegInput{
       width:100%;
       
      
   }
   
-  .loginInput:focus{
+  .RegInput,.RegInput1:focus{
       outline: none;
   }
 
