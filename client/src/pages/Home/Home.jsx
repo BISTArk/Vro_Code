@@ -1,9 +1,11 @@
+import TopBar from "../../components/TopBar/TopBar";
 import "./Home.scss";
 
 function Home() {
     return (
         <div>
-            Home
+            <TopBar/>
+            HOME
         </div>
     )
 }

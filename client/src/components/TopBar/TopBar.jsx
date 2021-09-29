@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import SearchBar from "../SearchBar/SearchBar";
-import { Notifications, Person, Chat, Code } from "@material-ui/icons";
-import "./topbar.css";
+import { Notifications, Person, Chat, Code, Search } from "@material-ui/icons";
+import profile from "../../pages/Login/images/login-bg.png"
+import "./topbar.scss";
+import {NavLink as Link } from "react-router-dom";
 
 export class TopBar extends Component {
   handleFormSubmit = (text) => {
@@ -10,30 +11,46 @@ export class TopBar extends Component {
 
   render() {
     return (
-      <div className="topbar">
-        <div className="topbar-logo">VROCODE</div>
-        <div className="topbar-search">
-          <SearchBar onFormSubmit={this.handleFormSubmit} />
+      <div className="topbarContainer">
+      <div className="topbarLeft">
+        <span className="topbarLogo">VRO CODE</span>
+      </div>
+      <div className="topbarMiddle">
+        <div className="searchBar">
+          <Search className="searchIcon"/>
+          <input
+            type="text"
+            placeholder="Friends,Posts ..."
+            className="searchInput"
+          />
         </div>
-        <div className="topbar-right">
-          <div className="topbar-notification">
+      </div>
+      <div className="topbarRight">
+        {/* <div className="topbarlinks">
+          <span className="topbarlink">HomePage</span>
+          <span className="topbarlink">TimeLine</span>
+        </div> */}
+        <div className="topbarIcons">
+          <div className="topbarIconItem">
             <Notifications />
             <span className="topbarNotConut">1</span>
           </div>
-          <div className="topbar-code">
+          <div className="topbarIconItem">
             <Code />
             <span className="topbarNotConut">1</span>
           </div>
-          <div className="topbar-person">
+          <div className="topbarIconItem">
             <Person />
             <span className="topbarNotConut">1</span>
           </div>
-          <div className="topbar-Chat">
+          <div className="topbarIconItem">
             <Chat />
             <span className="topbarNotConut">1</span>
           </div>
         </div>
+        <Link to="/profile"><img src={profile} alt="HELLO" className="topbarProfile" /></Link>
       </div>
+    </div>
     );
   }
 }

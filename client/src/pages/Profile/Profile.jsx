@@ -1,9 +1,15 @@
-import "./Profile.scss";
+import "./profile.scss";
 
 function Profile() {
     return (
         <div>
-            Profile
+            Profileadbabdabwdubawjd<br></br>
+            Profileadbabdabwdubawjd<br></br>
+            Profileadbabdabwdubawjd<br></br>
+            Profileadbabdabwdubawjd<br></br>
+            Profileadbabdabwdubawjd<br></br>
+            Profileadbabdabwdubawjd<br></br>
+            Profileadbabdabwdubawjd<br></br>
         </div>
     )
 }
