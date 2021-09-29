@@ -1,16 +1,9 @@
-
-/*@font-face {
-    font-family: poppins;
-    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800;900&display=swap');
-    
-}*/
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.login {
+.register {
     width: 100vw;
     height: 100vh;
     background-image: url(images/login-bg.png);
@@ -21,7 +14,7 @@
     justify-content: center;
   }
 
-  .loginLogo {
+  .CreateAccount {
 
     font-size: 2.5rem;
     font-family: 'Poppins', sans-serif;
@@ -31,7 +24,7 @@
     
   }
   
-  .loginBox{
+  .RegBox{
       height: 72%;
       width: 72%;
       padding: 50px;
@@ -45,29 +38,29 @@
       display: flex;
   }
 
-  .login-left{
+  .Reg-left{
       width: 50%;
       height: 100%;
       display: flex;
       flex-direction: column;
   }
 
-  .login-right{
+  .Reg-right{
     width: 50%;
     height: 100%;
 }
 
-.login-form{
+.Reg-form{
+    margin-top: 3%;
     display: flex;
     flex-direction: column;
 }
 
-.login-names{
+.Reg-names{
     display: flex;
 }
 
-.form-field{
-    
+.form-field-reg{
     display: flex;
     flex-direction: column;
     padding: 1.2%;
@@ -86,7 +79,7 @@
    
 }
   
-  .loginInput{
+  .RegInput{
       height: 35px;
       width: 45%;
       border-radius: 10px;
@@ -97,14 +90,26 @@
       margin: 3px;
       padding-left: 10px;
   }
+.RegInput1
+{
+    height: 35px;
+      width: 96%;
+      border-radius: 10px;
+      border: 1px solid #1E3163;
+      font-size: 15px;
+      font-family: poppins;
+      font-weight: 200;
+      margin: 3px;
+      padding-left: 10px;
+}
 
-  .login-names .loginInput{
+  .Reg-names .RegInput{
       width:100%;
       
      
   }
   
-  .loginInput:focus{
+  .RegInput,.RegInput1:focus{
       outline: none;
   }
 
@@ -174,29 +179,4 @@
       font-size: 15px;
       font-family: poppins;
       font-weight: 300;
-  }
-  .title-read{
-      display: flex;
-      flex-direction: row;
-      column-gap: 10%;
-      margin-left: 2%;
-      justify-content:flex-start;
-  }
-  .forgot-pass{
-    margin-top: 2%;
-    text-align: center;
-    color: #1E3163;
-    font-family: poppins;
-    font-weight: 200;
-    font-size: 80%;
-    cursor: pointer;
-  }
-  .NewMember{
-    margin-top: 2%;
-    text-align: center;
-    color: #1E3163;
-    font-family: poppins;
-    font-weight: 200;
-    font-size: 80%;
-    cursor:pointer;
   }
