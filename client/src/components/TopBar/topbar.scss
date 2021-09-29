@@ -1,10 +1,11 @@
 *{
     margin: 0;
     box-sizing: border-box;
+    font-family:'Poppins', sans-serif;
 }
 
 .topbarContainer{
-    height: 50px;
+    height: 65px;
     width: 100%;
     background-color: white;
     color: black;
@@ -16,8 +17,9 @@
     .topbarLeft{
         flex: 3;
         .topbarLogo{
-            font-size: 24px;
-            margin-left: 20px;
+            font-family: 'Bukhari Script', sans-serif;
+            font-size: 200%;    
+            margin-left: 40%;
             font-weight: bold;
             cursor: pointer;
         }
@@ -32,7 +34,7 @@
             background-color: white;
             border-radius: 30px;
             display: flex;
-            box-shadow: inset 3px 3px 8px gray, inset -5px -5px 10px white;
+            box-shadow: inset 3px 3px 8px rgb(194, 194, 194), inset -5px -5px 10px white;
             align-items: center;
 
             .searchIcon{
@@ -41,6 +43,7 @@
             }
 
             .searchInput{
+                font-family: 'Poppins', sans-serif;
                 border: none;
                 width: 75%;
                 height: 90%;
@@ -68,10 +71,12 @@
         .topbarIcons{
             display: flex;
             .topbarIconItem{
+               
                 position: relative;
                 margin-right: 15px;
                 cursor: pointer;
                 .topbarNotConut{
+                    font-family: 'Poppins', sans-serif;
                     width: 15px;
                     height: 15px;
                     position: absolute;
@@ -90,12 +95,12 @@
         }
 
         .topbarProfile{
-            width: 32px;
-            height: 32px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             object-fit: cover;
-            border: 1px solid black;
             cursor: pointer;
+            margin-right: 50px;
         }
     }
 }
