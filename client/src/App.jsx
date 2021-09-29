@@ -8,9 +8,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <TopBar/> */}
+        <TopBar/>
         {/* <h1> VroCode </h1> */}
-        <Login/>
+        {/* <Login/> */}
         {/* <Chat/> */}
       </header>
     </div>

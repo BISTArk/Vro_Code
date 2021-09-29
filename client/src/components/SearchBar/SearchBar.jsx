@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./searchbar.css"
 
 export class SearchBar extends Component {
   state = { text: "" };
@@ -14,11 +15,11 @@ export class SearchBar extends Component {
       <div className="searchbar">
         <form className="searchbar-form" onSubmit={this.onFormSubmit}>
           <div >
-            <label>Search Videos</label>
             <input
               type="text"
               value={this.state.text}
               onChange={(e) => this.setState({ text: e.target.value })}
+              placeholder="🔍 Search"
             />
           </div>
         </form>
