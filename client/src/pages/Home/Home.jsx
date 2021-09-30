@@ -9,6 +9,7 @@ function Home() {
             <TopBar/>
             <Chat />
             <Feed/>
+            {/* <Chat /> */}
             HOME
         </div>
     )
