@@ -2,7 +2,7 @@
 import {React} from "react";
 import { ChatEngine } from "react-chat-engine";
 import TopBar from "../../components/TopBar/TopBar";
-import Chatfeed from "../../components/Chat/ChatFeed.jsx";
+//import Chatfeed from "../../components/Chat/ChatFeed.jsx";
 import "./Chat.css";
 
 const Chat = ()=>{
