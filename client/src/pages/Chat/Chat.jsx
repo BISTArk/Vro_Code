@@ -8,9 +8,6 @@ import "./Chat.css";
 const Chat = ()=>{
   return (
    
-  
-   
-      
     <ChatEngine
       height="100vh"
       userName="seiphonx"
