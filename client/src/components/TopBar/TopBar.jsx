@@ -13,7 +13,9 @@ export class TopBar extends Component {
     return (
       <div className="topbarContainer">
       <div className="topbarLeft">
+        <Link to="/Home">
         <span className="topbarLogo">VroCode</span>
+        </Link>
       </div>
       <div className="topbarMiddle">
         <div className="searchBar">
