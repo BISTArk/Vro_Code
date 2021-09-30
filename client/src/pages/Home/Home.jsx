@@ -7,9 +7,6 @@ function Home() {
     return (
         <div>
             <TopBar/>
-            <Chat />
-            <Feed/>
-            {/* <Chat /> */}
             HOME
         </div>
     )
