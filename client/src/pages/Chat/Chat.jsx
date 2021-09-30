@@ -1,11 +1,18 @@
-import "./Chat.scss";
+//import _default from "@ant-design/icons/lib/icons/AccountBookFilled";
+import { ChatEngine } from "react-chat-engine";
+//import Chatfeed from "client/src/components/Chat/ChatFeed.jsx";
+import "./Chat.css";
 
-function Chat() {
-    return (
-        <div>
-            Chat
-        </div>
-    )
-}
+const Chat = () => {
+  return (
+    <ChatEngine
+      height="100vh"
+      userName="bdiptesh99"
+      userSecret="12345"
+      projectID="df5ae1a6-d0d3-4329-929b-d798827ddc4f"
+      //renderChatFeed={(chatAppProps) => <Chatfeed {...chatAppProps} />}
+    />
+  );
+};
 
-export default Chat
+export default Chat;
