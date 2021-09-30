@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Notifications, Person, Chat, Code, Search } from "@material-ui/icons";
-import profile from "../../pages/Login/images/profile-sample.jfif"
+import { Notifications, Person, Chat as ChatIcon, Code, Search } from "@material-ui/icons";
+import profile from "../../pages/Login/images/profile-sample.jfif";
 import "./topbar.scss";
 import {NavLink as Link } from "react-router-dom";
 
@@ -44,7 +44,7 @@ export class TopBar extends Component {
             <span className="topbarNotConut">1</span>
           </div>
           <div className="topbarIconItem">
-            <Chat />
+            <ChatIcon />
             <span className="topbarNotConut">1</span>
           </div>
         </div>
