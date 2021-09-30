@@ -1,8 +1,8 @@
 //import _default from "@ant-design/icons/lib/icons/AccountBookFilled";
 import {React} from "react";
 import { ChatEngine } from "react-chat-engine";
-//import Chatfeed from "client/src/components/Chat/ChatFeed.jsx";
 import TopBar from "../../components/TopBar/TopBar";
+import Chatfeed from "../../components/Chat/ChatFeed.jsx";
 import "./Chat.css";
 
 const Chat = ()=>{
