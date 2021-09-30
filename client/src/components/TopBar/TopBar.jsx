@@ -11,6 +11,7 @@ export class TopBar extends Component {
 
   render() {
     return (
+    
       <div className="topbarContainer">
       <div className="topbarLeft">
         <span className="topbarLogo">VroCode</span>
