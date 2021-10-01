@@ -5,9 +5,9 @@ import "./Home.scss";
 
 function Home() {
     return (
-        <div>
-            <TopBar/>
-            HOME
+        <div className="home">
+            <TopBar/> 
+            <Feed/>
         </div>
     )
 }
