@@ -1,13 +1,12 @@
 import "./Post.scss";
 
-import img from "../../pages/Login/images/login-bg.png";
 import { CommentOutlined, FavoriteBorderOutlined, GitHub, ShareOutlined, TurnedInNot } from "@material-ui/icons";
 
 function Post(props) {
   return (
     <div className="post">
       <div className="details">
-        <div className="profilepic-container"><img src={img} alt="Ishan" className="profilepic" /></div>
+        <div className="profilepic-container"><img src={props.img} alt="Ishan" className="profilepic" /></div>
         <div className="details-text">
           <div className="username">{props.username}</div>
           <div className="postedon">Posted on {props.postedon}</div>
@@ -20,7 +19,6 @@ function Post(props) {
           <FavoriteBorderOutlined/>
           <CommentOutlined/>
           <ShareOutlined/>
-
         </div>
         <div className="github">
           <GitHub/>
