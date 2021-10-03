@@ -3,6 +3,7 @@ import { Notifications, Person, Chat as ChatIcon, Code, Search } from "@material
 import profile from "../../pages/Login/images/profile-sample.jfif";
 import "./topbar.scss";
 import {NavLink as Link } from "react-router-dom";
+import Home from "../../pages/Home/Home"
 
 export class TopBar extends Component {
   handleFormSubmit = (text) => {
@@ -14,7 +15,9 @@ export class TopBar extends Component {
     
       <div className="topbarContainer">
       <div className="topbarLeft">
+        <Link to="/" style={{ textDecoration: 'none' , color: 'black'}}>
         <span className="topbarLogo">VroCode</span>
+        </Link>
       </div>
       <div className="topbarMiddle">
         <div className="searchBar">

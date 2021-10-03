@@ -1,15 +1,11 @@
 import "./profile.scss";
-
+import Topbar from "../../components/TopBar/TopBar";
 function Profile() {
     return (
         <div>
+            <Topbar/>
             Profileadbabdabwdubawjd<br></br>
-            Profileadbabdabwdubawjd<br></br>
-            Profileadbabdabwdubawjd<br></br>
-            Profileadbabdabwdubawjd<br></br>
-            Profileadbabdabwdubawjd<br></br>
-            Profileadbabdabwdubawjd<br></br>
-            Profileadbabdabwdubawjd<br></br>
+           
         </div>
     )
 }
