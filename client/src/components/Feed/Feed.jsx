@@ -2,6 +2,8 @@ import { useState } from "react";
 import Post from "../Post/Post";
 import img from "../../pages/Login/images/login-bg.png";
 import "./Feed.scss";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCode } from '@fortawesome/free-solid-svg-icons'
 import { Code, GitHub, Image } from "@material-ui/icons";
 
 function Feed() {
@@ -14,12 +16,12 @@ function Feed() {
           <div className="profilepic-container">
             <img src={img} alt="Ishan" className="profilepic" />
           </div>
-          <textarea name="postDesc" id="postDesc" className="posttext" value={postDesc} onChange={(e)=>{setPostDesc(e.target.value)}} placeholder="Wassaaa Vro?...."></textarea>
+          <textarea name="postDesc" id="postDesc" className="posttext" value={postDesc} onChange={(e)=>{setPostDesc(e.target.value)}} placeholder="Start a Post"></textarea>
         </div>
         <div className="post-btns">
             <div className="post-upload">
                 <div className="upload-option">
-                    <Code/>
+                    <FontAwesomeIcon icon={faCode}/>
                     <span>Code</span>
                 </div>
                 <div className="upload-option">
