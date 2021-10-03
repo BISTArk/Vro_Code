@@ -3,7 +3,7 @@ import { Notifications, Person, Chat as ChatIcon, Code, Search } from "@material
 import profile from "../../pages/Login/images/profile-sample.jfif";
 import "./topbar.scss";
 import {NavLink as Link } from "react-router-dom";
-import Home from "../../pages/Home/Home"
+//import Home from "../../pages/Home/Home"
 
 export class TopBar extends Component {
   handleFormSubmit = (text) => {

@@ -1,0 +1,91 @@
+.feed {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .makepost {
+    border-radius: 15px;
+    background-color: white;
+    max-width: 100%;
+    padding: 5%;
+    margin: 2% 5%;
+
+    .post-details {
+      display: flex;
+
+      .profilepic-container {
+        flex: 1;
+        width: 2%;
+        height: 2%;
+        padding: 1% 0%;
+
+        border-radius: 50%;
+        cursor: pointer;
+        border: 1px solid #af94ee;
+        .profilepic {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          z-index: -1;
+        }
+      }
+
+      .posttext {
+        flex: 11;
+        border-radius: 20px;
+        padding: 2%;
+        margin: 0 2%;
+        height: auto;
+      }
+    }
+    .post-btns {
+      display: flex;
+      justify-content: space-between;
+      margin: 2% 0%;
+      .post-upload {
+        display: flex;
+        flex: 10;
+        .upload-option {
+          margin-right: 5%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: auto;
+
+          span {
+            margin: 0 5%;
+            white-space: nowrap;
+          }
+        }
+      }
+
+      .post-btn {
+        flex: 2;
+        border-radius: 20px;
+        background-color: #322a3f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: white;
+      }
+    }
+  }
+
+  .divider {
+    margin: 0px 10px;
+    background-color: #af94ee;
+    width: 40%;
+    display: flex;
+    height: 5px;
+  }
+
+  .posts {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px;
+    width: 100%;
+  }
+}
