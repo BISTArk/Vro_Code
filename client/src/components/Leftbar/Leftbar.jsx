@@ -1,4 +1,4 @@
-import "./Leftbar.scss";
+import "./Leftbar.css";
 import {Home, 
     MenuBookOutlined,
     BookmarkBorderOutlined,
@@ -23,7 +23,7 @@ export default function Leftbar(){
                         <span className = "leftbarListText">Courses</span>
                     </li>
                     <li className = "leftbarListItem">
-                        <FontAwesomeIcon icon={faCode} />
+                        <FontAwesomeIcon icon={faCode} className="leftbarIcon1"/>
                         <span className = "leftbarListText">Challenges</span>
                     </li>
                     <li className = "leftbarListItem">
@@ -32,6 +32,7 @@ export default function Leftbar(){
                     </li>
                     
                 </ul>
+                
             </div>
         </div>
     );
