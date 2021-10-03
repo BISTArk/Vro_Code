@@ -34,10 +34,12 @@
     display: flex;
     align-items: center;
     margin-bottom: 2%;
+    cursor: pointer;
   }
 
   .leftbarIcon{
       margin-right: 1.2%;
+      
   }
   .leftbarIcon1{
     margin-right: 1.4%;
