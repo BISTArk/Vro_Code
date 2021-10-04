@@ -12,6 +12,7 @@
     overflow-y: scroll;
     overflow:hidden;
     
+    
    
 
 }
@@ -22,6 +23,7 @@
     margin-top: 5%;
     text-align: center;
     transition: 0.5s;
+    
 
 
 }
