@@ -40,8 +40,8 @@ export default function LeftBarHome(){
                             </div>
                     </div>
                </div>
-               <div className = "courseAds">
-
+               <div className = "courseAds-container">
+                    <h2 className = "CourseHeading">Courses</h2>
                </div>
                </Link>
            </div>
