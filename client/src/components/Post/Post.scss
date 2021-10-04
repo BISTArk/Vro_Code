@@ -23,23 +23,26 @@
 
       border-radius: 50%;
       cursor: pointer;
-      border: 1px solid #af94ee;
+    
       .profilepic {
         width: 100%;
         height: 100%;
         overflow: hidden;
         z-index: -1;
+        border-radius: 50%;
+        
       }
     }
 
     .details-text {
       flex: 10;
-      margin-left: 5px;
+      margin-left: 2%;
 
       .username {
         font-weight: bold;
         cursor: pointer;
         font-size: 1.1rem;
+       
       }
 
       .postedon {
@@ -72,7 +75,7 @@
       }
     }
     .github {
-      flex: 1;
+      flex: 0.7;
       cursor: pointer;
     }
   }

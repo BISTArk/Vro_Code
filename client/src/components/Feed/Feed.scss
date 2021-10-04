@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family:'Poppins', sans-serif;
+}
 .feed {
   width: 50%;
   display: flex;
@@ -21,14 +26,15 @@
         height: 2%;
         padding: 1% 0%;
 
-        border-radius: 50%;
+     
         cursor: pointer;
-        border: 1px solid #af94ee;
+     
         .profilepic {
           width: 100%;
           height: 100%;
           overflow: hidden;
           z-index: -1;
+          border-radius: 50%;
         }
       }
 
@@ -38,6 +44,7 @@
         padding: 2%;
         margin: 0 2%;
         height: auto;
+        resize: none;
       }
     }
     .post-btns {
@@ -68,8 +75,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
+        font-size: 1.1rem;
+        font-weight: 500;
         color: white;
+        padding: 2%;
       }
     }
   }
