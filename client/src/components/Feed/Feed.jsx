@@ -25,15 +25,15 @@ function Feed() {
                     <span>Code</span>
                 </div>
                 <div className="upload-option">
-                    <Image/>
+                    <Image className="svg-icon"/>
                     <span>Photo/video</span>
                 </div>
                 <div className="upload-option">
-                <GitHub/>
-                    <span>Share GitHub</span>
+                <GitHub className="svg-icon"/>
+                    <span>GitHub</span>
                 </div>
             </div>
-            <div className="post-btn">
+            <div className="post-btn ">
                 Post
             </div>
         </div>
