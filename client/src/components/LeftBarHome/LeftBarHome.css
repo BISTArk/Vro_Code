@@ -16,15 +16,9 @@
 }
 .ProfileCard{
     background-image: linear-gradient(#A04B83,#461658 );
-<<<<<<< HEAD
     border-radius: 20px;
     padding: 10%;
     margin-top: 10%;
-=======
-    border-radius: 5%;
-    padding: 5% 1% 5% 1%;
-    margin-top: 5%;
->>>>>>> 10b3b93dc0486d232a7713058137ac70b8b4d79d
     text-align: center;
     transition: 0.5s;
 
