@@ -5,15 +5,43 @@
 }
 .LeftBarHome{
     background-color: white;
-    width: 25%;
+    width: 30%;
     padding: 20px;
     height: 50%;
     overflow-y: scroll;
     overflow:hidden;
+ }
+ .Course1, .Course2{
+     background-color: rgb(236, 236, 236);
+     margin-top:30px;
+     display: flex;
+     flex-direction: row;
+     gap: 20px;
+     border-radius: 10px;
+     padding: 15px ;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+ }
+ .Course1:hover,.Course2:hover{
+    box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.7);
+ }
+ .courseLogo{
     
-   
-
+    width: 20%;
+    height: 20%;
+ }
+ h3{
+     text-decoration: none;
+ }
+ a{
+    text-decoration: none;
 }
+.courseName{
+     font-size: 15px;
+     text-decoration: none;
+     color: #000;
+ }
 .ProfileCard{
     background-image: linear-gradient(#A04B83,#461658 );
     border-radius: 20px;
@@ -21,8 +49,6 @@
     margin-top: 10%;
     text-align: center;
     transition: 0.5s;
-
-
 }
 .ProfileCard:hover{
     box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.7);
@@ -35,7 +61,7 @@
 }
 .ProfileImage{
     margin-top: 5%;
-    width: 30%;
+    width: 40%;
     border-radius: 50%;
     
    
@@ -119,9 +145,7 @@
     font-weight: 300;
     color: white;
 }
-.courseAds-container{
-    
-}
+
 .CourseHeading{
     text-align: center;
 }

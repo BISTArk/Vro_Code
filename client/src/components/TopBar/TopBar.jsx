@@ -42,10 +42,12 @@ export class TopBar extends Component {
             <Notifications />
             <span className="topbarNotConut">5</span>
           </div>
+          <Link to="/Code" style={{textDecoration: 'none', color: 'black'}}>
           <div className="topbarIconItem">
             <FontAwesomeIcon icon={faCode} />
             <span className="topbarNotConut">1</span>
           </div>
+          </Link>
           <div className="topbarIconItem">
             <Person />
             <span className="topbarNotConut">1</span>

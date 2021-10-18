@@ -1,9 +1,12 @@
 import "./LeftBarHome.css";
 import image from "../../pages/Login/images/profile-sample.jfif";
+import courseLogo1 from "../../assets/images/udemy.png"
+import courseLogo2 from "../../assets/images/coursera.png"
 import rank from "../../assets/images/Rank7.png";
 import {NavLink as Link } from "react-router-dom";
 export default function LeftBarHome(){
-    return(
+
+     return(
         <div className = "LeftBarHome">
            <div className = "leftbarWrapper">
                <Link to="/profile" style={{ textDecoration: 'none' , color: 'black'}}>
@@ -40,10 +43,21 @@ export default function LeftBarHome(){
                             </div>
                     </div>
                </div>
+               <br />
+               </Link>
                <div className = "courseAds-container">
                     <h2 className = "CourseHeading">Courses</h2>
+                    <div className = "Course1">
+                        <img src={courseLogo1} alt="C-logo1"className ="courseLogo"/>
+                        <a href="https://www.udemy.com/course/the-web-developer-bootcamp/" target="_blank"><h3 className = "courseName">Web Development Bootcamp</h3></a>
+                    </div>
+
+                    <div className = "Course2">
+                        <img src={courseLogo2} alt="C-logo2"className ="courseLogo"/>
+                        <a href="https://www.udemy.com/course/the-web-developer-bootcamp/" target="_blank"><h3 className = "courseName">Web Development Bootcamp</h3></a>
+                    </div>
                </div>
-               </Link>
+              
            </div>
          
         </div>

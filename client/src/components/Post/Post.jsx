@@ -3,6 +3,7 @@ import "./Post.scss";
 import { CommentOutlined, FavoriteBorderOutlined, GitHub, ShareOutlined, TurnedInNot } from "@material-ui/icons";
 
 function Post(props) {
+
   return (
     <div className="post">
       <div className="details">

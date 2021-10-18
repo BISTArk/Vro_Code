@@ -3,8 +3,11 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
+.svg-icon{
+  transform: scale(0.9);
+}
 .feed {
-  width: 50%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,6 +47,10 @@
         margin: 0 2%;
         height: auto;
         resize: none;
+        
+      }
+      .posttext:focus{
+        outline: none;
       }
     }
     .post-btns {
@@ -71,7 +78,7 @@
       .post-btn {
         flex: 2;
         border-radius: 20px;
-        background-color: #322a3f;
+        background-color: #461658;
         display: flex;
         align-items: center;
         justify-content: center;
