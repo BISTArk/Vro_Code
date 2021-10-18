@@ -1,18 +1,23 @@
 .RightBarHome {
+ 
   width: 25%;
   background-color: white;
 
   .leaderboard {
+  
     width: 90%;
-    margin: 5%;
+    margin: 55% 0 0 5%;
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(#a04b83, #461658);
     border-radius: 20px;
     padding: 10%;
+    transition: 0.7s;
     color: white;
 
     h1 {
+      margin-top: 1%;
+      font-size: 1.4rem;
     }
 
     .leaderRow {
@@ -25,7 +30,7 @@
         flex: 4;
 
         img {
-          width: 100%;
+          width: 70%;
           border-radius: 50%;
         }
       }
@@ -52,5 +57,8 @@
         flex: 2;
       }
     }
+  }
+  .leaderboard:hover{
+    box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.7);
   }
 }
