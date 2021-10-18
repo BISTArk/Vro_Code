@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {  Notifications, Person, Search } from "@material-ui/icons";
+import {  Notifications, Person, Search, MenuBookOutlined } from "@material-ui/icons";
 import profile from "../../pages/Login/images/profile-sample.jfif";
 import "./topbar.scss";
 import {NavLink as Link } from "react-router-dom";
@@ -45,7 +45,7 @@ export class TopBar extends Component {
           <Link to="/Code" style={{textDecoration: 'none', color: 'black'}}>
           <div className="topbarIconItem">
             <FontAwesomeIcon icon={faCode} />
-            <span className="topbarNotConut">1</span>
+         
           </div>
           </Link>
           <div className="topbarIconItem">
@@ -58,6 +58,14 @@ export class TopBar extends Component {
             <span className="topbarNotConut">1</span>
             </Link>
           </div>
+
+          <div className="topbarIconItem">
+            <Link to="/Courses" style={{textDecoration: 'none', color: 'black'}}>
+            <MenuBookOutlined className = "leftbarIcon" />
+           
+            </Link>
+          </div>
+
         </div>
         <Link to="/profile"><img src={profile} alt="profile-img" className="topbarProfile" /></Link>
       </div>
