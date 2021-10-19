@@ -36,7 +36,6 @@ export class TopBar extends Component {
           <span className="topbarlink">HomePage</span>
           <span className="topbarlink">TimeLine</span>
         </div> */}
-<<<<<<< HEAD
           <div className="topbarIcons">
             <div className="topbarIconItem">
               <Link to="/Notification">
@@ -49,7 +48,6 @@ export class TopBar extends Component {
                 <FontAwesomeIcon icon={faCode} />
                 <span className="topbarNotConut">1</span>
               </div>
-=======
         <div className="topbarIcons">
           <div className="topbarIconItem">
             <Notifications />
@@ -69,7 +67,6 @@ export class TopBar extends Component {
             <Link to="/Chat" style={{textDecoration: 'none', color: 'black'}}>
             <FontAwesomeIcon icon={faFacebookMessenger} />
             <span className="topbarNotConut">1</span>
->>>>>>> f1c31e0e7bb79d31a5842018ec2f637fe193e705
             </Link>
             <div className="topbarIconItem">
               <Person />
