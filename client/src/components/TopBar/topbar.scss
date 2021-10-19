@@ -23,6 +23,8 @@
             margin-left: 40%;
             font-weight: bold;
             cursor: pointer;
+            user-select: none;
+          
            
         }
     }
@@ -107,6 +109,12 @@
             object-fit: cover;
             cursor: pointer;
             margin-right: 50px;
+            user-drag: none;
+            -webkit-user-drag: none;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
         }
     }
 }

@@ -61,7 +61,7 @@ export class TopBar extends Component {
 
           <div className="topbarIconItem">
             <Link to="/Courses" style={{textDecoration: 'none', color: 'black'}}>
-            <MenuBookOutlined className = "leftbarIcon" />
+            <MenuBookOutlined  />
            
             </Link>
           </div>
