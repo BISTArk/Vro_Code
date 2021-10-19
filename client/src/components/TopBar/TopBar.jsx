@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import { Notifications, Person, Search } from "@material-ui/icons";
+=======
+import {  Notifications, Person, Search, MenuBookOutlined } from "@material-ui/icons";
+>>>>>>> f1c31e0e7bb79d31a5842018ec2f637fe193e705
 import profile from "../../pages/Login/images/profile-sample.jfif";
 import "./topbar.scss";
 import { NavLink as Link } from "react-router-dom";
@@ -32,6 +36,7 @@ export class TopBar extends Component {
           <span className="topbarlink">HomePage</span>
           <span className="topbarlink">TimeLine</span>
         </div> */}
+<<<<<<< HEAD
           <div className="topbarIcons">
             <div className="topbarIconItem">
               <Link to="/Notification">
@@ -44,6 +49,27 @@ export class TopBar extends Component {
                 <FontAwesomeIcon icon={faCode} />
                 <span className="topbarNotConut">1</span>
               </div>
+=======
+        <div className="topbarIcons">
+          <div className="topbarIconItem">
+            <Notifications />
+            <span className="topbarNotConut">5</span>
+          </div>
+          <Link to="/Code" style={{textDecoration: 'none', color: 'black'}}>
+          <div className="topbarIconItem">
+            <FontAwesomeIcon icon={faCode} />
+         
+          </div>
+          </Link>
+          <div className="topbarIconItem">
+            <Person />
+            <span className="topbarNotConut">1</span>
+          </div>
+          <div className="topbarIconItem">
+            <Link to="/Chat" style={{textDecoration: 'none', color: 'black'}}>
+            <FontAwesomeIcon icon={faFacebookMessenger} />
+            <span className="topbarNotConut">1</span>
+>>>>>>> f1c31e0e7bb79d31a5842018ec2f637fe193e705
             </Link>
             <div className="topbarIconItem">
               <Person />
@@ -59,9 +85,20 @@ export class TopBar extends Component {
               </Link>
             </div>
           </div>
+<<<<<<< HEAD
           <Link to="/profile">
             <img src={profile} alt="profile-img" className="topbarProfile" />
           </Link>
+=======
+
+          <div className="topbarIconItem">
+            <Link to="/Courses" style={{textDecoration: 'none', color: 'black'}}>
+            <MenuBookOutlined className = "leftbarIcon" />
+           
+            </Link>
+          </div>
+
+>>>>>>> f1c31e0e7bb79d31a5842018ec2f637fe193e705
         </div>
       </div>
     );

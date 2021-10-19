@@ -11,7 +11,11 @@ import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
 import Chat from "./pages/Chat/Chat";
 import Code from "./pages/Code/Code"
+<<<<<<< HEAD
 import Notification from "./pages/Notification/Notification";
+=======
+import Courses from "./pages/Courses/Courses"
+>>>>>>> f1c31e0e7bb79d31a5842018ec2f637fe193e705
 
 function App() {
   return (
@@ -38,8 +42,13 @@ function App() {
         <Route exact path="/code">
           <Code />
         </Route>
+<<<<<<< HEAD
         <Route exact path="/notification">
           <Notification />
+=======
+        <Route exact path="/courses">
+          <Courses />
+>>>>>>> f1c31e0e7bb79d31a5842018ec2f637fe193e705
         </Route>
       </Switch>
     </Router>
