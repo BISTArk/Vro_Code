@@ -11,11 +11,9 @@ import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
 import Chat from "./pages/Chat/Chat";
 import Code from "./pages/Code/Code"
-<<<<<<< HEAD
 import Notification from "./pages/Notification/Notification";
-=======
 import Courses from "./pages/Courses/Courses"
->>>>>>> f1c31e0e7bb79d31a5842018ec2f637fe193e705
+import PostPage from "./pages/PostPage/PostPage";
 
 function App() {
   return (
@@ -42,13 +40,14 @@ function App() {
         <Route exact path="/code">
           <Code />
         </Route>
-<<<<<<< HEAD
         <Route exact path="/notification">
           <Notification />
-=======
+          </Route>
         <Route exact path="/courses">
           <Courses />
->>>>>>> f1c31e0e7bb79d31a5842018ec2f637fe193e705
+        </Route>
+        <Route exact path="/post">
+          <PostPage />
         </Route>
       </Switch>
     </Router>
