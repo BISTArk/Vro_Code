@@ -49,6 +49,7 @@ function App() {
         </Route>
         <Route exact path="/post">
           <PostPage />
+          </Route>
         <Route exact path="/friends">
           <Friends />
         </Route>
