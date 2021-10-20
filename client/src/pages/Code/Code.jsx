@@ -31,7 +31,7 @@ export default function Code(){
                    <img src ={leetcode} alt = "leetcode"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>
@@ -43,7 +43,7 @@ export default function Code(){
                    <img src ={gfg} alt = "gfg"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>
@@ -55,7 +55,7 @@ export default function Code(){
                    <img src ={hackerrank} alt = "hackerrank"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>
@@ -68,7 +68,7 @@ export default function Code(){
                    <img src ={codeforces} alt = "codeforces"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>
@@ -80,7 +80,7 @@ export default function Code(){
                    <img src ={codechef} alt = "codechef"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>
@@ -92,7 +92,7 @@ export default function Code(){
                    <img src ={hackerearth} alt = "hackerearth"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>
@@ -109,7 +109,7 @@ export default function Code(){
                    <img src ={codepen} alt = "codepen"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>
@@ -121,7 +121,7 @@ export default function Code(){
                    <img src ={repl} alt = "repl"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>
@@ -133,7 +133,7 @@ export default function Code(){
                    <img src ={codesandbox} alt = "codesandbox"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>

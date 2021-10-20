@@ -50,7 +50,7 @@ margin: 10px  !important;
     text-align: center;
     margin-bottom: 20px;
 }
-button{
+.solveBtn{
     margin-top: 20px;
     padding: 10px;
     border-radius: 10px;
@@ -62,7 +62,7 @@ button{
     font-weight: 500;
     transition: 0.5s;
 }
-button:hover{
+.solveBtn:hover{
     background-color: #A04B83;
     box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.7);
 }

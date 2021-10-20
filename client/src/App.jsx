@@ -14,6 +14,7 @@ import Code from "./pages/Code/Code"
 import Notification from "./pages/Notification/Notification";
 import Courses from "./pages/Courses/Courses"
 import PostPage from "./pages/PostPage/PostPage";
+import Friends from "./pages/Friends/Friends"
 
 function App() {
   return (
@@ -48,6 +49,8 @@ function App() {
         </Route>
         <Route exact path="/post">
           <PostPage />
+        <Route exact path="/friends">
+          <Friends />
         </Route>
       </Switch>
     </Router>

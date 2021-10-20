@@ -66,21 +66,19 @@ export class TopBar extends Component {
                 <span className="topbarNotConut">1</span>
               </Link>
             </div>
-            
-          </div>
 
+            <div className="topbarIconItem">
+              <Link
+                to="/Courses"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <MenuBookOutlined />
+              </Link>
+            </div>
+          </div>
           <Link to="/profile">
             <img src={profile} alt="profile-img" className="topbarProfile" />
           </Link>
-
-          <div className="topbarIconItem">
-            <Link
-              to="/Courses"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <MenuBookOutlined className="leftbarIcon" />
-            </Link>
-          </div>
         </div>
       </div>
     );
