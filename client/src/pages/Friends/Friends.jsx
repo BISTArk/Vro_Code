@@ -21,7 +21,7 @@ export default function Friends() {
           <h2 className="friendTitle">Pending requests</h2>
           <div className="requestCard">
             <img src={miskinImg} alt="request" className = "profileImg"/>
-            <div className="profile">
+            <div className="profil-1">
               <span className="profileName">Aditya Muskan</span>
               <span className="role"> Full-Stack Engineer</span>
             </div>
