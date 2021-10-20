@@ -12,6 +12,7 @@ import Profile from "./pages/Profile/Profile";
 import Chat from "./pages/Chat/Chat";
 import Code from "./pages/Code/Code"
 import Courses from "./pages/Courses/Courses"
+import Friends from "./pages/Friends/Friends"
 
 function App() {
   return (
@@ -40,6 +41,9 @@ function App() {
         </Route>
         <Route exact path="/courses">
           <Courses />
+        </Route>
+        <Route exact path="/friends">
+          <Friends />
         </Route>
       </Switch>
     </Router>

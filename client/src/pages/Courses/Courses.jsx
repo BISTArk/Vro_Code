@@ -28,7 +28,7 @@ export default function Code(){
                    <img src ={udemy} alt = "udemy"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>
@@ -40,7 +40,7 @@ export default function Code(){
                    <img src ={fcc} alt = "free-coding-camp"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>
@@ -52,7 +52,7 @@ export default function Code(){
                    <img src ={coursera} alt = "hackerrank"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>
@@ -70,7 +70,7 @@ export default function Code(){
                    <img src ={coursera} alt = "coursera"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>
@@ -82,7 +82,7 @@ export default function Code(){
                    <img src ={edx} alt = "edx"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>
@@ -94,7 +94,7 @@ export default function Code(){
                    <img src ={udacity} alt = "udacity"/>
                              </div>
                    <div className = "btn">
-                    <button>
+                   <button className="solveBtn">
                         Solve Now
                     </button>
                     </div>
