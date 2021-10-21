@@ -9,13 +9,31 @@ function NotFeed() {
     {
       ppic: "./images/profile-sample.png",
       pname: "Ishan",
-      message: "HELLO SAAAAAR",
+      message: "Notification 1",
       link: "",
     },
     {
       ppic: "./images/profile-sample.png",
       pname: "Ishan",
-      message: "HELLO SAAAAAR",
+      message: "Notification 2",
+      link: "",
+    },
+    {
+      ppic: "./images/profile-sample.png",
+      pname: "Ishan",
+      message: "Notification 3",
+      link: "",
+    },
+    {
+      ppic: "./images/profile-sample.png",
+      pname: "Ishan",
+      message: "Notification 4",
+      link: "",
+    },
+    {
+      ppic: "./images/profile-sample.png",
+      pname: "Ishan",
+      message: "Notification 5",
       link: "",
     }
   ];

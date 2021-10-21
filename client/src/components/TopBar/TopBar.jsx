@@ -39,7 +39,10 @@ export class TopBar extends Component {
         </div> */}
           <div className="topbarIcons">
             <div className="topbarIconItem">
-              <Link to="/notification">
+              <Link
+                to="/notification"
+                style={{ textDecoration: "none", color: "black" }}
+              >
                 <Notifications />
                 <span className="topbarNotConut">5</span>
               </Link>
@@ -50,13 +53,18 @@ export class TopBar extends Component {
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <FontAwesomeIcon icon={faCode} />
-                <span className="topbarNotConut">1</span>
               </Link>
             </div>
             <div className="topbarIconItem">
-              <Person />
-              <span className="topbarNotConut">1</span>
+              <Link
+                to="/friends"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <Person />
+                <span className="topbarNotConut">1</span>
+              </Link>
             </div>
+
             <div className="topbarIconItem">
               <Link
                 to="/Chat"

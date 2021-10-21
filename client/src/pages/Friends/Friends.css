@@ -1,8 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .friends{
     background-color: #F1F4F6;
     display: flex;
     flex-direction: row;
-   
+  
+    
 }
 .friendTitle{
     display: flex;
@@ -12,12 +17,13 @@
 .leftbar{
     margin-top: 80px;
     flex: 2;
+    
 }
 .friendList{
     flex: 5;
     background-color: #fff;
     border-radius: 20px;
-    margin: 200px 300px 100px 0;
+    margin: 100px 300px 100px 0;
     padding: 50px;
 }
 .profile-1{

@@ -69,7 +69,7 @@ function Post(props) {
           onChange={(e) => {
             setComment(e.target.value);
           }}
-          placeholder="Leave a Comment"
+          placeholder="Leave a comment"
         />
       </div>
       <div className="othersComment">{canComment?loadComments():""}</div>

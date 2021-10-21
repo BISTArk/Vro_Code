@@ -1,8 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Import Pages
 import Register from "./pages/Register/Register";
@@ -10,11 +6,12 @@ import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
 import Chat from "./pages/Chat/Chat";
-import Code from "./pages/Code/Code"
+import Code from "./pages/Code/Code";
 import Notification from "./pages/Notification/Notification";
-import Courses from "./pages/Courses/Courses"
+import Courses from "./pages/Courses/Courses";
 import PostPage from "./pages/PostPage/PostPage";
-import Friends from "./pages/Friends/Friends"
+import Friends from "./pages/Friends/Friends";
+import Bookmark from "./pages/Bookmark/Bookmark";
 
 function App() {
   return (
@@ -43,15 +40,18 @@ function App() {
         </Route>
         <Route exact path="/notification">
           <Notification />
-          </Route>
+        </Route>
         <Route exact path="/courses">
           <Courses />
         </Route>
         <Route exact path="/post">
           <PostPage />
-          </Route>
+        </Route>
         <Route exact path="/friends">
           <Friends />
+        </Route>
+        <Route exact path="/bookmarks">
+          <Bookmark />
         </Route>
       </Switch>
     </Router>

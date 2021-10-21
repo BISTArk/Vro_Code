@@ -5,7 +5,7 @@
 }
 
 .topbarContainer{
-    height: 65px;
+    height: 85px;
     width: 100%;
     background-color: white;
     color: black;
@@ -20,7 +20,7 @@
         .topbarLogo{
             font-family: 'Bukhari Script', sans-serif;
             font-size: 200%;    
-            margin-left: 40%;
+            margin-left: 80%;
             font-weight: bold;
             cursor: pointer;
             user-select: none;
@@ -30,15 +30,16 @@
     }
 
     .topbarMiddle{
-        flex: 5;
+        flex: 8;
         height: 75%;
         display: flex;
         align-items: center;
         justify-content: center;
         .searchBar{
-            width: 100%;
-            height: 80%;
-            
+            width: 75%;
+            height: 70%;
+            margin-left: 140px;
+
             background-color: white;
             border-radius: 30px;
             display: flex;
@@ -81,8 +82,9 @@
             .topbarIconItem{
                
                 position: relative;
-                margin-right: 15px;
+                margin-right: 25px;
                 cursor: pointer;
+                transform: scale(1.2);
                 .topbarNotConut{
                     font-family: 'Poppins', sans-serif;
                     width: 15px;
@@ -103,8 +105,8 @@
         }
 
         .topbarProfile{
-            width: 45px;
-            height: 45px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             object-fit: cover;
             cursor: pointer;

@@ -13,7 +13,7 @@ export default function Friends() {
     <div>
       <TopBar />
 
-      <div className="friends">
+      <div className="friends" >
         <div className="leftbar">
           <LeftBar />
         </div>

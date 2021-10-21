@@ -79,6 +79,7 @@
   }
 
   .putComment {
+    margin-top: 30px;
     width: 100%;
     height: 20%;
     display: flex;
@@ -92,21 +93,35 @@
       border-radius: 50%;
       cursor: pointer;
       .profilepic {
-        width: 100%;
-        height: 100%;
+        width: 80%;
+        height: 80%;
         overflow: hidden;
         z-index: -1;
         border-radius: 50%;
       }
     }
     .commentinput {
-      flex: 10;
-      margin-left: 2%;
+      flex: 11;
+      margin: 0 2%;
       font-size: 1.2rem;
-      border-radius: 10px;
+      border-radius: 20px;
+      padding: 2%;
+      height: auto;
+      outline: none;
+      border-width: 1px;
+     
+    }
+    .commentinput[type="text"]{
+      font-size:1rem;
+    }
+    .commentinput:focus{
+      outline: none;
+    }
+    .commentinput::placeholder{
+      font-size: 1rem;
     }
   }
-
+  
   .othersComment {
     display: flex;
     flex-direction: column;
@@ -130,7 +145,7 @@
       .commentContent {
         flex: 10;
         margin-left: 2%;
-        font-size: 1rem;
+        font-size: 0.3rem;
         background-color: rgb(226, 226, 226);
         padding: 5px;
       }
