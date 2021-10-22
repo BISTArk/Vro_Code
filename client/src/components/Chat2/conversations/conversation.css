@@ -2,9 +2,12 @@
   display: flex;
   align-items: center;
   padding: 10px;
+  height: 80px;
+  width: 100%;
   cursor: pointer;
   margin-top: 20px;
-  background-color: #231f20;
+  background-color: #5a5556;
+  border-radius: 20px;
 }
 
 .conversation:hover {

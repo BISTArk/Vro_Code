@@ -1,24 +1,32 @@
 .messenger {
-    height: calc(100vh - 70px);
+    height: calc(100vh - 85px);
     display: flex;
+  }
+
+  .chatSidebar {
+    background-color: white;
+    flex: 2.5;
+    padding: 5px;
   }
   
   .chatMenu {
     background-color: #231f20;
     flex: 3.5;
+    padding: 5px;
   }
   
   .chatMenuInput {
+    top: 10px;
     width: 100%;
-    padding: 10px 0;
+    padding: 20px;
     border: none;
     border-bottom: 1px solid gray;
-    border-radius: 4px 4px 4px 4px;
+    border-radius: 10px 10px 10px 10px;
   }
   
   .chatBox {
     background-color: #ecf0f3;
-    flex: 8.5;
+    flex: 7;
   }
   
   .chatBoxWrapper {
@@ -35,6 +43,7 @@
   }
   
   .chatBoxBottom {
+    padding: 10px;
     margin-top: 5px;
     display: flex;
     align-items: center;
@@ -43,7 +52,7 @@
   
   .chatMessageInput {
     width: 80%;
-    height: 20px;
+    height: 40px;
     padding: 10px;
   }
   

@@ -1,5 +1,6 @@
 import "./massenger.css";
 import TopBar from "../../components/TopBar/TopBar";
+import Leftbar from "../../components/Leftbar/Leftbar";
 import Conversation from "../../components/Chat2/conversations/Conversation";
 import Message from "../../components/Chat2/message/Message";
 import ChatOnline from "../../components/Chat2/chatOnline/ChatOnline";
@@ -104,6 +105,11 @@ export default function Messenger() {
     <>
       <TopBar />
       <div className="messenger">
+        <div className="chatSidebar">
+          <div className="chatSidebarWrapper">
+            <Leftbar />
+          </div>
+        </div>
         <div className="chatMenu">
           <div className="chatMenuWrapper">
             <input placeholder="Search for friends" className="chatMenuInput" />
@@ -122,9 +128,9 @@ export default function Messenger() {
           <div className="chatBoxWrapper">
             <div className="chatOnlineWrapper">
               <ChatOnline
-                // onlineUsers={onlineUsers}
-                // currentId={user._id}
-                // setCurrentChat={setCurrentChat}
+              // onlineUsers={onlineUsers}
+              // currentId={user._id}
+              // setCurrentChat={setCurrentChat}
               />
             </div>
             <div className="chatBoxTop">
@@ -145,8 +151,8 @@ export default function Messenger() {
                 // onChange={(e) => setNewMessage(e.target.value)}
                 value={newMessage}
               ></textarea>
-              <button className="chatSubmitButton" >
-              {/* onClick={handleSubmit} */}
+              <button className="chatSubmitButton">
+                {/* onClick={handleSubmit} */}
                 Send
               </button>
             </div>
