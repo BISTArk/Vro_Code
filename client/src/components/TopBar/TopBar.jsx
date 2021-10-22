@@ -67,7 +67,7 @@ export class TopBar extends Component {
 
             <div className="topbarIconItem">
               <Link
-                to="/Chat"
+                to="/Chat2"
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <FontAwesomeIcon icon={faFacebookMessenger} />

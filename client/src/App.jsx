@@ -5,7 +5,7 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
-import Chat from "./pages/Chat/Chat";
+import Messenger from "./pages/Chat2/massenger";
 import Code from "./pages/Code/Code";
 import Notification from "./pages/Notification/Notification";
 import Courses from "./pages/Courses/Courses";
@@ -32,8 +32,8 @@ function App() {
         <Route exact path="/profile">
           <Profile />
         </Route>
-        <Route exact path="/chat">
-          <Chat />
+        <Route exact path="/chat2">
+          <Messenger/>
         </Route>
         <Route exact path="/code">
           <Code />
