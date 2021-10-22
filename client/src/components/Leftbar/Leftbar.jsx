@@ -7,6 +7,7 @@ import {
 } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
+import { NavLink as Link } from "react-router-dom";
 export default function Leftbar() {
   return (
     <div className="leftbar">
@@ -18,15 +19,24 @@ export default function Leftbar() {
           </li>
           <li className="leftbarListItem">
             <Home className="leftbarIcon" />
-            <span className="leftbarListText">Home</span>
+            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              <span className="leftbarListText">Home</span>
+            </Link>
           </li>
           <li className="leftbarListItem">
             <MenuBookOutlined className="leftbarIcon" />
-            <span className="leftbarListText">Courses</span>
+            <Link
+              to="/Courses"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <span className="leftbarListText">Courses</span>
+            </Link>
           </li>
           <li className="leftbarListItem">
             <FontAwesomeIcon icon={faCode} className="leftbarIcon1" />
-            <span className="leftbarListText">Challenges</span>
+            <Link to="/Code" style={{ textDecoration: "none", color: "black" }}>
+              <span className="leftbarListText">Challenges</span>
+            </Link>
           </li>
           <li className="leftbarListItem">
             <BookmarkBorderOutlined className="leftbarIcon" />
