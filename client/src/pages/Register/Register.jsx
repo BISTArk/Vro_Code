@@ -1,5 +1,6 @@
 import "./register.css"
 import vectorArt from './images/login-paint.svg'
+import {NavLink as Link } from "react-router-dom";
 export default function Register() {
   return (
     <div className="register">
@@ -28,10 +29,11 @@ export default function Register() {
               <div className="form-btns">
                 <button className="SignUp">Sign Up</button>
                 <div className="login-btn">
-                  
+                <Link to="/login">
                   <button className="loginButton">Log In</button>
+                  </Link>
                 </div>
-                
+               
               </div>
               <span className="alreadyMember">Already a member?</span>
               </form>

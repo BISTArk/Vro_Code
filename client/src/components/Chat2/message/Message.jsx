@@ -1,5 +1,5 @@
 import "./message.css";
-import { format } from "timeago.js";
+// import { format } from ""
 
 export default function Message({ message, own }) {
   return (

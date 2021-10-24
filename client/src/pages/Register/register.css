@@ -16,17 +16,17 @@
 
   .CreateAccount {
 
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     
   }
   
   .RegBox{
-      height: 72%;
-      width: 72%;
+      height: 60%;
+      width: 60%;
       padding: 50px;
       background-color: white;
       border-radius: 20px;
@@ -51,7 +51,7 @@
 }
 
 .Reg-form{
-    margin-top: 3%;
+    margin-top: 0%;
     display: flex;
     flex-direction: column;
 }
@@ -93,7 +93,7 @@
 .RegInput1
 {
     height: 35px;
-      width: 96%;
+      width: 81%;
       border-radius: 10px;
       border: 1px solid #1E3163;
       font-size: 15px;
