@@ -12,7 +12,7 @@ export default function Code(){
         <div>
             <TopBar/>
              <div>
-                 <h1>Courses: Learn and keep growing!</h1>
+                 <h1 className="courses-head">Courses: Learn and keep growing!</h1>
                 <hr className="hrCode"/>
              </div>
                 <h2>Development Courses</h2>

@@ -1,13 +1,15 @@
 import "./login.css"
 import vectorArt from './images/login-paint.svg'
+import {NavLink as Link} from "react-router-dom";
 export default function Login() {
   return (
     <div className="login">
           <div className="loginBox">
-          
+         
            <div className="login-left">
-             <h3 className="loginLogo">Login</h3>
-             <form action="" className="login-form">
+           <h3 className="loginLogo">Login</h3>
+            <form action="" className="login-form">
+              
               <div className="login-names">
                
                 <div className="form-field">
@@ -25,8 +27,9 @@ export default function Login() {
                
                 
                 <div className="login-btn">
-                  
+                  <Link to ="/register">
                   <button className="loginButton">Sign Up</button>
+                  </Link>
                 </div>
                 
               </div>

@@ -15,7 +15,7 @@ export default function Code(){
         <div>
             <TopBar/>
              <div>
-                 <h1>Practice Time!</h1>
+                 <h1 classame="practice-heading">h1Practice Time!</h1>
                 <hr className="hrCode"/>
              </div>
                 <h2>Competitive Programming</h2>
