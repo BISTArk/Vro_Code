@@ -29,7 +29,8 @@ class Login extends Component {
       "http://localhost:3030/api/auth/login",
       options
     );
-    console.log(response);
+    const jso = response.json()
+    console.log(jso);
   };
   render() {
     return (

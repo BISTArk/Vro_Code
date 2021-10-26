@@ -29,9 +29,9 @@ router.post("/login",async(req,res)=>{
     try {
 
         //Retrive user from DB
-        const user = await User.findOne({email:req.body.email});
-        console.log(user+"   ");
-        !user && res.status(404).json("Who is u");
+        const user = await User.findOne({username:req.body.username});
+        console.log(`${req.body.username} ${user}  `);
+        !user && res.status(404).json({error:"Who is u"});
 
         //Validate Auth
         const validPass = await bcrypt.compare(req.body.password,user.password);
