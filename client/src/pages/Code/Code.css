@@ -1,8 +1,13 @@
+.heading-prac{
+    margin-top: 2%;
+    text-align: center;
+}
 .practice-heading{
     font-family: 'Poppins',sans-serif;
     font-weight: 700;
     margin-top: 50px;
     text-align: center;
+    padding-left: 40px;
 }
 h2{
     font-family: 'Poppins',sans-serif;

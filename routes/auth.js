@@ -21,15 +21,16 @@ router.post("/register",async(req,res)=>{
         res.status(200).send("DONE VRO!!");
     }
     catch(err){res.status(500).json(err);}
-});
+}); 
 
 //login an existing user
 router.post("/login",async(req,res)=>{
+    
     try {
 
         //Retrive user from DB
         const user = await User.findOne({email:req.body.email});
-        console.log(user+"    ");
+        console.log(user+"   ");
         !user && res.status(404).json("Who is u");
 
         //Validate Auth

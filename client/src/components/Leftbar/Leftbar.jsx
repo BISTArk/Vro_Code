@@ -13,10 +13,10 @@ export default function Leftbar() {
     <div className="leftbar">
       <div className="leftbarWrapper">
         <ul className="leftbarlist">
-          <li className="leftbarListItem">
+          {/* <li className="leftbarListItem">
             <ExploreOutlined className="leftbarIcon" />
             <span className="leftbarListText">Explore</span>
-          </li>
+          </li> */}
           <li className="leftbarListItem">
             <Home className="leftbarIcon" />
             <Link to="/" style={{ textDecoration: "none", color: "black" }}>

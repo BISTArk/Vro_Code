@@ -15,7 +15,7 @@ mongoose.connect(
   "mongodb://localhost:27017/vrocode",
   { useNewUrlParser: true },
   () => {
-    console.log("Connected to DB");
+    console.log("Connected to DataBase");
   }
 );
 
