@@ -1,4 +1,5 @@
 import "./Code.css";
+import {NavLink as Link} from "react-router-dom";
 import TopBar from "../../components/TopBar/TopBar";
 import leetcode from "../../assets/images/leetcode.png"
 import gfg from "../../assets/images/gfg.svg";
@@ -22,10 +23,6 @@ export default function Code(){
              </div>
                 <h2>Competitive Programming</h2>
              
-             
-
-
-
              <div className = "grid-container">
                <div className = "PracticeCard">
                    <div className="Title-container">
@@ -33,9 +30,11 @@ export default function Code(){
                    <img src ={leetcode} alt = "leetcode"/>
                              </div>
                    <div className = "btn">
+                       <Link to = {{pathname: "https://leetcode.com/"}} target="_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Practice Now
                     </button>
+                    </Link>
                     </div>
                 </div>
 
@@ -45,9 +44,12 @@ export default function Code(){
                    <img src ={gfg} alt = "gfg"/>
                              </div>
                    <div className = "btn">
+
+                   <Link to = {{pathname: "https://practice.geeksforgeeks.org/"}} target="_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Practice Now
                     </button>
+                    </Link>
                     </div>
                 </div>
 
@@ -57,9 +59,11 @@ export default function Code(){
                    <img src ={hackerrank} alt = "hackerrank"/>
                              </div>
                    <div className = "btn">
+                   <Link to = {{pathname: "https://www.hackerrank.com/"}} target="_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Practice Now
                     </button>
+                    </Link>
                     </div>
                 </div>
 
@@ -70,9 +74,11 @@ export default function Code(){
                    <img src ={codeforces} alt = "codeforces"/>
                              </div>
                    <div className = "btn">
+                   <Link to = {{pathname: "https://codeforces.com/"}} target="_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Practice Now
                     </button>
+                    </Link>
                     </div>
                 </div>
 
@@ -82,9 +88,11 @@ export default function Code(){
                    <img src ={codechef} alt = "codechef"/>
                              </div>
                    <div className = "btn">
+                   <Link to = {{pathname: "https://www.codechef.com/"}} target="_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Practice Now
                     </button>
+                    </Link>
                     </div>
                 </div>
 
@@ -94,9 +102,11 @@ export default function Code(){
                    <img src ={hackerearth} alt = "hackerearth"/>
                              </div>
                    <div className = "btn">
+                   <Link to = {{pathname: "https://www.hackerearth.com/"}} target="_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Practice Now
                     </button>
+                    </Link>
                     </div>
                 </div>
 
@@ -111,9 +121,11 @@ export default function Code(){
                    <img src ={codepen} alt = "codepen"/>
                              </div>
                    <div className = "btn">
+                   <Link to = {{pathname: "https://codepen.io/"}} target="_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Practice Now
                     </button>
+                    </Link>
                     </div>
                 </div>
 
@@ -123,9 +135,11 @@ export default function Code(){
                    <img src ={repl} alt = "repl"/>
                              </div>
                    <div className = "btn">
+                   <Link to = {{pathname: "https://replit.com/~"}} target="_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Practice Now
                     </button>
+                    </Link>
                     </div>
                 </div>
 
@@ -135,9 +149,11 @@ export default function Code(){
                    <img src ={codesandbox} alt = "codesandbox"/>
                              </div>
                    <div className = "btn">
+                   <Link to = {{pathname: "https://codesandbox.io/"}} target="_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Practice Now
                     </button>
+                    </Link>
                     </div>
               </div>
 

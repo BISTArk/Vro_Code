@@ -66,6 +66,7 @@ margin: 10px  !important;
     font-family: 'Poppins',sans-serif;
     font-weight: 500;
     transition: 0.5s;
+    cursor: pointer;
 }
 .solveBtn:hover{
     background-color: #A04B83;

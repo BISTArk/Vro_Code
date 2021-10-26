@@ -1,7 +1,6 @@
 import "./Courses.css";
+import { NavLink as Link } from "react-router-dom";
 import TopBar from "../../components/TopBar/TopBar";
-import codesandbox from "../../assets/images/codesandbox.png"
-import repl from "../../assets/images/repl.png";
 import udemy from "../../assets/images/udemy.png";
 import fcc from "../../assets/images/fcc.svg";
 import coursera from "../../assets/images/coursera.png";
@@ -28,9 +27,11 @@ export default function Code(){
                    <img src ={udemy} alt = "udemy"/>
                              </div>
                    <div className = "btn">
+                    <Link to = {{pathname: "https://www.udemy.com/topic/web-development/"}} target = "_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Learn Now!
                     </button>
+                    </Link>
                     </div>
                 </div>
 
@@ -40,21 +41,25 @@ export default function Code(){
                    <img src ={fcc} alt = "free-coding-camp"/>
                              </div>
                    <div className = "btn">
+                   <Link to = {{pathname: "https://www.freecodecamp.org/news/tag/web-development/"}} target = "_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Learn Now!
                     </button>
+                    </Link>
                     </div>
                 </div>
 
                 <div className = "PracticeCard">
                    <div className="Title-container">
                    <h1 className = "PracticeTitle">Coursera Courses</h1>
-                   <img src ={coursera} alt = "hackerrank"/>
+                   <img src ={coursera} alt = "cousera"/>
                              </div>
                    <div className = "btn">
+                   <Link to = {{pathname: "https://www.coursera.org/courses?query=web%20development"}} target = "_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Learn Now!
                     </button>
+                    </Link>
                     </div>
                 </div>
 
@@ -70,9 +75,11 @@ export default function Code(){
                    <img src ={coursera} alt = "coursera"/>
                              </div>
                    <div className = "btn">
+                   <Link to = {{pathname: "https://www.coursera.org/learn/machine-learning"}} target = "_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Learn Now!
                     </button>
+                    </Link>
                     </div>
                 </div>
 
@@ -82,9 +89,11 @@ export default function Code(){
                    <img src ={edx} alt = "edx"/>
                              </div>
                    <div className = "btn">
+                   <Link to = {{pathname: "https://www.edx.org/course/machine-learning"}} target = "_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Learn Now!
                     </button>
+                    </Link>
                     </div>
                 </div>
 
@@ -94,9 +103,11 @@ export default function Code(){
                    <img src ={udacity} alt = "udacity"/>
                              </div>
                    <div className = "btn">
+                   <Link to = {{pathname: "https://www.udacity.com/course/intro-to-machine-learning--ud120"}} target = "_blank">
                    <button className="solveBtn">
-                        Solve Now
+                       Learn Now!
                     </button>
+                    </Link>
                     </div>
               </div>
 
