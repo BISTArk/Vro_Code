@@ -42,6 +42,10 @@ const userSchema = new Schema({
     rank:{
         type:Number,
         default:"0"
+    },
+    role:{
+        type:String,
+        required: true
     }
 },
 {timestamps:true});
