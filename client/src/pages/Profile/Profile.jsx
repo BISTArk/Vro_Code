@@ -5,6 +5,7 @@ import Feed from "../../components/Feed/Feed";
 import cover from "../../assets/profileImages/cover-img.jpg";
 import profile from "../../assets/profileImages/profile-img.jfif";
 function Profile() {
+
   return (
     <div>
       <Topbar />
