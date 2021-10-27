@@ -1,5 +1,5 @@
 import "./Post.scss";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import {
   CommentOutlined,
   FavoriteBorderOutlined,
@@ -8,7 +8,8 @@ import {
   TurnedInNot,
 } from "@material-ui/icons";
 
-function Post(props) {
+
+export default function Post(props) {
   const [comment, setComment] = useState("");
   const [canComment, setCanComment] = useState(false)
 
@@ -77,4 +78,3 @@ function Post(props) {
   );
 }
 
-export default Post;

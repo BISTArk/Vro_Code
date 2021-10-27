@@ -4,18 +4,18 @@ const post = require("../models/post_mod");
 
 //Get all Timeline Post
 
-router.get("/all", async (req, res) => {
+router.get("/all/:userId", async (req, res) => {
   try {
-    const currUser = await user.findById(req.body.uid);
+    const currUser = await user.findById(req.params.userid);
     const myPosts = await post.find({ userid: currUser._id });
     const otherPosts = await Promise.all(
-      currUser.following.map((fid) => {
+      currUser.followings.map((fid) => {
         return post.find({ userid: fid });
       })
     );
     res.status(200).json(myPosts.concat(...otherPosts));
   } catch (err) {
-    res.status(501).json(err);
+    res.status(500).json(err);
   }
 });
 
