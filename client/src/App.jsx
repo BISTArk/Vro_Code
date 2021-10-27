@@ -13,6 +13,7 @@ import PostPage from "./pages/PostPage/PostPage";
 import Friends from "./pages/Friends/Friends";
 import Bookmark from "./pages/Bookmark/Bookmark";
 
+
 function App() {
   return (
     <Router>
@@ -53,6 +54,7 @@ function App() {
         <Route exact path="/bookmarks">
           <Bookmark />
         </Route>
+   
       </Switch>
     </Router>
   );
