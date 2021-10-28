@@ -48,8 +48,9 @@ router.delete("/:id",async (req,res)=>{
 
 router.get("/:id",async (req,res)=>{
         try{
-            const currUser = await user.findById(req.params.id);                    //Test this and remove password and that jazz
-            res.status(200).json(currUser);
+            const currUser = await user.findById(req.params.id);                   //Test this and remove password and that jazz
+            const { password, updatedAt, ...other } = currUser._doc;
+            res.status(200).json(other);
         }
         catch(err){
             res.status(500).json(err);
