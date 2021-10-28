@@ -2,19 +2,16 @@ import "./login.css";
 import vectorArt from "./images/login-paint.svg";
 import { NavLink as Link } from "react-router-dom";
 import { Component } from "react";
-import {AuthContext} from "../../context/AuthContext"
+import { AuthContext } from "../../context/AuthContext";
+import { Redirect } from "react-router-dom";
 
 class Login extends Component {
-  static contextType = AuthContext;
   constructor(props) {
     super(props);
     this.state = { username: "", password: "" };
-    console.log(this.context);
   }
 
-
-
-  handleSubmit = async (e) => {
+  handleSubmit = async (e, user, dispatch) => {
     e.preventDefault();
 
     const data = {
@@ -22,92 +19,106 @@ class Login extends Component {
       password: this.state.password,
     };
 
-    // dispatch({ type: "LOGIN_START" });
-    // const options = {
-    //   method: "POST",
-    //   mode: "cors",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "Access-Control-Allow-Origin": "*",
-    //   },
-    //   body: JSON.stringify(data),
-    // };
-    // try{const response = await fetch(
-    //   "http://localhost:3030/api/auth/login",
-    //   options
-    // );
-    // dispatch({ type: "LOGIN_SUCCESS", payload: response.data });}
-    // catch(err){
-    //   dispatch({ type: "LOGIN_FAILURE", payload: err });
-    // }
-    // const jso = response.json();
-    // console.log(this.context);
+    dispatch({ type: "LOGIN_START" });
+    const options = {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify(data),
+    };
+    try {
+      const response = await fetch(
+        "http://localhost:3030/api/auth/login",
+        options
+      );
+      const jso = await response.json();
+      console.log(jso);
+      dispatch({ type: "LOGIN_SUCCESS", payload: jso });
+    } catch (err) {
+      dispatch({ type: "LOGIN_FAILURE", payload: err });
+    }
   };
+
   render() {
     return (
-      <div className="login">
-        <div className="loginBox">
-          <div className="login-left">
-            <h3 className="loginLogo">Login</h3>
-            <form action="" className="login-form">
-              <div className="login-names">
-                <div className="form-field">
-                  <label htmlFor="username" className="input-text">
-                    Username
-                  </label>
-                  <input
-                    type="text"
-                    name="username"
-                    placeholder="Enter username"
-                    className="loginInput"
-                    size="28"
-                    value={this.state.username}
-                    onChange={(e) => {
-                      this.setState({ username: e.target.value });
-                    }}
-                  />
+      <AuthContext.Consumer>
+        {({ user, dispatch }) => {
+          console.log(user + "user");
+          return user === null ? (
+            <div className="login">
+              <div className="loginBox">
+                <div className="login-left">
+                  <h3 className="loginLogo">Login</h3>
+                  <form action="" className="login-form">
+                    <div className="login-names">
+                      <div className="form-field">
+                        <label htmlFor="username" className="input-text">
+                          Username
+                        </label>
+                        <input
+                          type="text"
+                          name="username"
+                          placeholder="Enter username"
+                          className="loginInput"
+                          size="28"
+                          value={this.state.username}
+                          onChange={(e) => {
+                            this.setState({ username: e.target.value });
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="form-field">
+                      <label htmlFor="password" className="input-text">
+                        Password
+                      </label>
+                      <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter a password"
+                        className="loginInput"
+                        value={this.state.password}
+                        onChange={(e) => {
+                          this.setState({ password: e.target.value });
+                        }}
+                      />
+                    </div>
+                    <div className="form-btns">
+                      <button
+                        className="SignUp"
+                        onClick={(e) => this.handleSubmit(e, user, dispatch)}
+                      >
+                        Log In
+                      </button>
+
+                      <div className="login-btn">
+                        <Link to="/register">
+                          <button className="loginButton">Sign Up</button>
+                        </Link>
+                      </div>
+                    </div>
+                    <div className="title-read">
+                      <span className="forgot-pass">Forgot password?</span>
+                      <span className="NewMember">New to VroCode?</span>
+                    </div>
+                  </form>
+                </div>
+
+                <div className="login-right">
+                  <h1 className="vroCode">VroCode</h1>
+                  <img src={vectorArt} alt="vrocode-art" className="vector" />
                 </div>
               </div>
-
-              <div className="form-field">
-                <label htmlFor="password" className="input-text">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Enter a password"
-                  className="loginInput"
-                  value={this.state.password}
-                  onChange={(e) => {
-                    this.setState({ password: e.target.value });
-                  }}
-                />
-              </div>
-              <div className="form-btns">
-                <button className="SignUp" onClick={this.handleSubmit}>
-                  Log In
-                </button>
-
-                <div className="login-btn">
-                  <Link to="/register">
-                    <button className="loginButton">Sign Up</button>
-                  </Link>
-                </div>
-              </div>
-              <div className="title-read">
-                <span className="forgot-pass">Forgot password?</span>
-                <span className="NewMember">New to VroCode?</span>
-              </div>
-            </form>
-          </div>
-
-          <div className="login-right">
-            <h1 className="vroCode">VroCode</h1>
-            <img src={vectorArt} alt="vrocode-art" className="vector" />
-          </div>
-        </div>
-      </div>
+            </div>
+          ) : (
+            <Redirect to="/home" />
+          );
+        }}
+      </AuthContext.Consumer>
     );
   }
 }
