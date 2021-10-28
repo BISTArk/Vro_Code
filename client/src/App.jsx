@@ -41,7 +41,7 @@ function App() {
           {user ? <Home /> : <Register />}
         </Route>
         <Route exact path="/home">
-          {useForkRef ? <Home /> : <Register />}
+          {user ? <Home /> : <Register />}
         </Route>
         <Route exact path="/login">
           <Login />
