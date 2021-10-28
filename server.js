@@ -9,8 +9,8 @@ const cors = require("cors");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/post");
-const conversationRoute = require("./routes/conversations")
-const messageRoute = require("./routes/messages")
+const conversationRoute = require("./routes/conversations");
+const messageRoute = require("./routes/messages");
 const router = express.Router();
 const path = require("path");
 const { MongoClient } = require('mongodb');
@@ -28,7 +28,7 @@ const uri = process.env.MONGO_URL;
 // });
 
 mongoose.connect(
-  "mongodb://localhost:27017/vrocode",
+  process.env.MONGO_URL,
   { useNewUrlParser: true },
   () => {
     console.log("Connected to DataBase");

@@ -38,7 +38,8 @@ router.post("/login", async (req, res) => {
     //Login
     user.rank = user.rank +1;
     await user.save();
-    res.status(200).json(user);
+    const { password, updatedAt, ...other } = user._doc;
+    res.status(200).json(other);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

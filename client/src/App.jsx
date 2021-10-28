@@ -12,17 +12,36 @@ import Courses from "./pages/Courses/Courses";
 import PostPage from "./pages/PostPage/PostPage";
 import Friends from "./pages/Friends/Friends";
 import Bookmark from "./pages/Bookmark/Bookmark";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
+import { useForkRef } from "@material-ui/core";
 
+{
+  /* <Switch>
+        <Route exact path="/">
+          {user ? <Home /> : <Register />}
+        </Route>
+        <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
+        <Route path="/register">
+          {user ? <Redirect to="/" /> : <Register />}
+        </Route>
+        <Route path="/profile/:username">
+          <Profile />
+        </Route>
+      </Switch> */
+}
 
 function App() {
+  const { user } = useContext(AuthContext);
+
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Home />
+          {user ? <Home /> : <Register />}
         </Route>
         <Route exact path="/home">
-          <Home />
+          {user ? <Home /> : <Register />}
         </Route>
         <Route exact path="/login">
           <Login />
@@ -31,30 +50,29 @@ function App() {
           <Register />
         </Route>
         <Route exact path="/profile">
-          <Profile />
+          {user ? <Profile /> : <Register />}
         </Route>
         <Route exact path="/chat2">
-          <Messenger/>
+          {user ? <Messenger /> : <Register />}
         </Route>
         <Route exact path="/code">
-          <Code />
+          {user ? <Code /> : <Register />}
         </Route>
         <Route exact path="/notification">
-          <Notification />
+          {user ? <Notification /> : <Register />}
         </Route>
         <Route exact path="/courses">
-          <Courses />
+          {user ? <Courses /> : <Register />}
         </Route>
         <Route exact path="/post">
-          <PostPage />
+          {user ? <PostPage /> : <Register />}
         </Route>
         <Route exact path="/friends">
-          <Friends />
+          {user ? <Friends /> : <Register />}
         </Route>
         <Route exact path="/bookmarks">
-          <Bookmark />
+          {user ? <Bookmark /> : <Register />}
         </Route>
-   
       </Switch>
     </Router>
   );
