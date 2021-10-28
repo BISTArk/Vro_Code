@@ -2,11 +2,17 @@ import "./login.css";
 import vectorArt from "./images/login-paint.svg";
 import { NavLink as Link } from "react-router-dom";
 import { Component } from "react";
+import {AuthContext} from "../../context/AuthContext"
+
 class Login extends Component {
-  state = {
-    username: "",
-    password: "",
-  };
+  static contextType = AuthContext;
+  constructor(props) {
+    super(props);
+    this.state = { username: "", password: "" };
+    console.log(this.context);
+  }
+
+
 
   handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,21 +22,26 @@ class Login extends Component {
       password: this.state.password,
     };
 
-    const options = {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify(data),
-    };
-    const response = await fetch(
-      "http://localhost:3030/api/auth/login",
-      options
-    );
-    const jso = response.json()
-    console.log(jso);
+    // dispatch({ type: "LOGIN_START" });
+    // const options = {
+    //   method: "POST",
+    //   mode: "cors",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     "Access-Control-Allow-Origin": "*",
+    //   },
+    //   body: JSON.stringify(data),
+    // };
+    // try{const response = await fetch(
+    //   "http://localhost:3030/api/auth/login",
+    //   options
+    // );
+    // dispatch({ type: "LOGIN_SUCCESS", payload: response.data });}
+    // catch(err){
+    //   dispatch({ type: "LOGIN_FAILURE", payload: err });
+    // }
+    // const jso = response.json();
+    // console.log(this.context);
   };
   render() {
     return (
@@ -100,5 +111,7 @@ class Login extends Component {
     );
   }
 }
+
+Login.contextType = AuthContext;
 
 export default Login;
