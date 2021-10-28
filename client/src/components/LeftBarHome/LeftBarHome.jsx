@@ -1,8 +1,8 @@
 import "./LeftBarHome.css";
 import image from "../../pages/Login/images/profile-sample.jfif";
 import courseLogo1 from "../../assets/images/udemy.png"
-import courseLogo2 from "../../assets/images/coursera.png"
-import rank from "../../assets/images/Rank7.png";
+import courseLogo2 from "../../assets/images/coursera.png";
+import rank from "../../assets/rank-img/eagle-master.png";
 import {NavLink as Link } from "react-router-dom";
 export default function LeftBarHome(){
 
