@@ -37,7 +37,7 @@ export default function Conversation({ conversation, currentUser }) {
       </div>
 
       <span className="conversationName">{user?.username}</span>
-      {user?.username}
+      {/* {user?.username} */}
     </div>
   );
 }

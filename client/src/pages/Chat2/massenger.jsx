@@ -106,11 +106,11 @@ export default function Messenger() {
     <>
       <TopBar />
       <div className="messenger">
-        {/* <div className="chatSidebar">
+        <div className="chatSidebar">
           <div className="chatSidebarWrapper">
             <Leftbar />
           </div>
-        </div> */}
+        </div>
         <div className="chatMenu">
           <div className="chatMenuWrapper">
             <input placeholder="Search for friends" className="chatMenuInput" />
