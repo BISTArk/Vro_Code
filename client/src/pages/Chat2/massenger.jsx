@@ -7,7 +7,7 @@ import ChatOnline from "../../components/Chat2/chatOnline/ChatOnline";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
-// import { io } from "socket.io-client";
+import { io } from "socket.io-client";
 
 export default function Messenger() {
   const [conversations, setConversations] = useState([]);
@@ -21,16 +21,16 @@ export default function Messenger() {
   const scrollRef = useRef();
 
 
-    // useEffect(() => {
-    //   socket.current = io("ws://localhost:8900");
-    //   socket.current.on("getMessage", (data) => {
-    //     setArrivalMessage({
-    //       sender: data.senderId,
-    //       text: data.text,
-    //       createdAt: Date.now(),
-    //     });
-    //   });
-    // }, []);
+    useEffect(() => {
+      socket.current = io("ws://localhost:3020");
+      socket.current.on("getMessage", (data) => {
+        setArrivalMessage({
+          sender: data.senderId,
+          text: data.text,
+          createdAt: Date.now(),
+        });
+      });
+    }, []);
 
   useEffect(() => {
     arrivalMessage &&
