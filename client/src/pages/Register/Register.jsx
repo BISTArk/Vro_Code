@@ -27,7 +27,6 @@ class Register extends Component {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
       },
-      // referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       body: JSON.stringify(data),
     };
 
@@ -36,8 +35,6 @@ class Register extends Component {
       options
     );
     const json = await response.json();
-    // console.log(json);
-    this.props.history.push("/login");
   };
 
   render() {
