@@ -15,6 +15,7 @@ class Register extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
+    
     const data = {
       username: this.state.username,
       email: this.state.email,
@@ -35,7 +36,7 @@ class Register extends Component {
       "http://localhost:3030/api/auth/register",
       options
     );
-    const json = await response.json();
+    // const json = await response.json();
     // console.log(json);
     this.props.history.push("/login");
   };
