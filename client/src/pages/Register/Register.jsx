@@ -2,7 +2,7 @@ import "./register.css";
 import vectorArt from "./images/login-paint.svg";
 import { NavLink as Link } from "react-router-dom";
 import { Component } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 class Register extends Component {
   state = {
@@ -34,7 +34,8 @@ class Register extends Component {
       "http://localhost:3030/api/auth/register",
       options
     );
-    const json = await response.json();
+    const json = await response.json();   //check form validation and check response is proper then redirect
+    window.location.href = "/home";
   };
 
   render() {
