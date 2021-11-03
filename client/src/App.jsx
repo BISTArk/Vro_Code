@@ -5,6 +5,7 @@ import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
 import Messenger from "./pages/Chat2/massenger";
+import Chat from "./pages/Chat/Chat"
 import Code from "./pages/Code/Code";
 import Notification from "./pages/Notification/Notification";
 import Courses from "./pages/Courses/Courses";

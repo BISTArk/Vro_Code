@@ -20,7 +20,7 @@ export default function Messenger() {
   const { user } = useContext(AuthContext);
   const scrollRef = useRef();
 
-
+  console.log(user)
     useEffect(() => {
       socket.current = io("ws://localhost:3020");
       socket.current.on("getMessage", (data) => {
@@ -42,7 +42,7 @@ export default function Messenger() {
       socket.current.emit("addUser", user._id);
       socket.current.on("getUsers", (users) => {
         setOnlineUsers(
-          user.followings.filter((f) => users.some((u) => u.userId === f))
+          user.following.filter((f) => users.some((u) => u.userId === f))
         );
       });
     }, [user]);
@@ -51,6 +51,7 @@ export default function Messenger() {
     const getConversations = async () => {
       try {
         const res = await axios.get("/conversations/" + user._id);
+        console.log(res);
         setConversations(res.data);
       } catch (err) {
         console.log(err);
@@ -123,13 +124,13 @@ export default function Messenger() {
         </div>
         <div className="chatBox">
           <div className="chatBoxWrapper">
-            <div className="chatOnlineWrapper">
+            {/* <div className="chatOnlineWrapper">
               <ChatOnline
               onlineUsers={onlineUsers}
               currentId={user._id}
               setCurrentChat={setCurrentChat}
               />
-            </div>
+            </div> */}
             {/* <div className="chatBoxTop">
               <Message message={"dsv"} own={0} />
               <Message message={"Hello bhai"} own={1} />
@@ -182,7 +183,7 @@ export default function Messenger() {
             )}
           </div>
         </div>
-        {/* <div className="chatOnline">
+        <div className="chatOnline">
           <div className="chatOnlineWrapper">
             <ChatOnline
               onlineUsers={onlineUsers}
@@ -190,7 +191,7 @@ export default function Messenger() {
               setCurrentChat={setCurrentChat}
             />
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   );
