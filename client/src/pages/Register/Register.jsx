@@ -28,7 +28,6 @@ class Register extends Component {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
       },
-      // referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       body: JSON.stringify(data),
     };
 
@@ -36,9 +35,13 @@ class Register extends Component {
       "http://localhost:3030/api/auth/register",
       options
     );
+<<<<<<< HEAD
     // const json = await response.json();
     // console.log(json);
     this.props.history.push("/login");
+=======
+    const json = await response.json();
+>>>>>>> 0148526cbb87f64ec8f2e73b5958f6cf8609fb03
   };
 
   render() {
