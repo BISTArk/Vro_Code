@@ -15,6 +15,7 @@ class Register extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
+    
     const data = {
       username: this.state.username,
       email: this.state.email,
@@ -36,6 +37,7 @@ class Register extends Component {
     );
     const json = await response.json();   //check form validation and check response is proper then redirect
     window.location.href = "/home";
+
   };
 
   render() {

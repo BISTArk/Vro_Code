@@ -6,6 +6,18 @@ const bcrypt = require("bcrypt");
 router.post("/register", async (req, res) => {
   try {
     //generate hash of pass
+    //have to check if the username already exists
+    // User.findOne({username: req.body.username}, (req,res)=>{
+    //   if(err){
+    //     console.log(err)
+    //   }
+    //   var msg;
+    //   if(user){
+    //     console.log(user)
+    //     message = "user exists"
+    //   }
+    //   res.json({message: msg})
+    // })
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(req.body.password, salt);
     //create a new user
@@ -29,7 +41,7 @@ router.post("/login", async (req, res) => {
     //Retrive user from DB
     const user = await User.findOne({ username: req.body.username });
     console.log(`${req.body.username} ${user}  `);
-    !user && res.status(404).json({ error: "Who is u" });
+    !user && res.status(404).json({ error: "User not found" });
 
     //Validate Auth
     const validPass = await bcrypt.compare(req.body.password, user.password);
