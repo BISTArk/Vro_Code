@@ -3,8 +3,12 @@ import TopBar from "../../components/TopBar/TopBar";
 import RightBarHome from "../../components/RightBarHome/RightBarHome";
 import LeftBarHome from "../../components/LeftBarHome/LeftBarHome";
 import "./Home.scss";
+import {useContext} from "react";
+import {AuthContext} from "../../context/AuthContext"
 
 function Home() {
+  const { user } = useContext(AuthContext);
+    console.log(user);
     return (
         <div className="home">
             <TopBar/> 

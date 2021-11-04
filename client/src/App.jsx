@@ -23,7 +23,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          {user&&user.username !==null ? <Home /> : <Register />}
+          {user &&user.username ? <Home /> : <Register />}
         </Route>
         <Route exact path="/home">
           {user&&user.username !==null ? <Home /> : <Register />}
