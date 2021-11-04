@@ -2,6 +2,7 @@ import "./register.css";
 import vectorArt from "./images/login-paint.svg";
 import { NavLink as Link } from "react-router-dom";
 import { Component } from "react";
+
 // import { useHistory } from "react-router-dom";
 
 class Register extends Component {
@@ -35,13 +36,10 @@ class Register extends Component {
       "http://localhost:3030/api/auth/register",
       options
     );
-<<<<<<< HEAD
     // const json = await response.json();
     // console.log(json);
     this.props.history.push("/login");
-=======
     const json = await response.json();
->>>>>>> 0148526cbb87f64ec8f2e73b5958f6cf8609fb03
   };
 
   render() {
