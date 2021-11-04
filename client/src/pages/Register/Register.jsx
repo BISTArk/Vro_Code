@@ -2,8 +2,12 @@ import "./register.css";
 import vectorArt from "./images/login-paint.svg";
 import { NavLink as Link } from "react-router-dom";
 import { Component } from "react";
+<<<<<<< HEAD
 
 // import { useHistory } from "react-router-dom";
+=======
+import { useHistory } from "react-router-dom";
+>>>>>>> 721d7ae69d2b4f5bcf15773ae3aa4f196c5271c0
 
 class Register extends Component {
   state = {
@@ -36,10 +40,16 @@ class Register extends Component {
       "http://localhost:3030/api/auth/register",
       options
     );
+<<<<<<< HEAD
     // const json = await response.json();
     // console.log(json);
     this.props.history.push("/login");
     const json = await response.json();
+=======
+    const json = await response.json();   //check form validation and check response is proper then redirect
+    window.location.href = "/home";
+
+>>>>>>> 721d7ae69d2b4f5bcf15773ae3aa4f196c5271c0
   };
 
   render() {
