@@ -46,11 +46,15 @@ const userSchema = new Schema({
     },
     rank:{
         type:Number,
-        default:"0"
+        default:0
     },
     role:{
         type:String,
         default:""
+    },
+    postCount:{
+        type:Number,
+        default:0
     }
 },
 {timestamps:true});

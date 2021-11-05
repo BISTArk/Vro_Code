@@ -23,10 +23,10 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          {user &&user.username ? <Home /> : <Register />}
+          {user ? <Home /> : <Register />}
         </Route>
         <Route exact path="/home">
-          {user&&user.username !==null ? <Home /> : <Register />}
+          {user ? <Home /> : <Register />}
         </Route>
         <Route exact path="/login">
           <Login />
@@ -35,28 +35,28 @@ function App() {
           <Register />
         </Route>
         <Route exact path="/profile">
-          {user&&user.username !==null ? <Profile /> : <Register />}
+          {user ? <Profile /> : <Register />}
         </Route>
         <Route exact path="/chat2">
-          {user&&user.username !==null ? <Messenger /> : <Register />}
+          {user ? <Messenger /> : <Register />}
         </Route>
         <Route exact path="/code">
-          {user&&user.username !==null ? <Code /> : <Register />}
+          {user ? <Code /> : <Register />}
         </Route>
         <Route exact path="/notification">
-          {user&&user.username !==null ? <Notification /> : <Register />}
+          {user ? <Notification /> : <Register />}
         </Route>
         <Route exact path="/courses">
-          {user&&user.username !==null? <Courses /> : <Register />}
+          {user ? <Courses /> : <Register />}
         </Route>
         <Route exact path="/post">
-          {user&&user.username !==null ? <PostPage /> : <Register />}
+          {user ? <PostPage /> : <Register />}
         </Route>
         <Route exact path="/friends">
-          {user&&user.username !==null ? <Friends /> : <Register />}
+          {user ? <Friends /> : <Register />}
         </Route>
         <Route exact path="/bookmarks">
-          {user&&user.username !==null? <Bookmark /> : <Register />}
+          {user ? <Bookmark /> : <Register />}
         </Route>
       </Switch>
     </Router>

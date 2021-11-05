@@ -10,15 +10,6 @@ function Feed() {
   const [posts, setPosts] = useState([]);
   const [postDesc, setPostDesc] = useState(""); 
 
-  // useEffect(()=>{
-  //   const fetchPosts = () =>{
-  //     const res = axios.get("post/all/61785d0cae0848bb7b50b25c");
-  //     console.log(res);
-  //     setPosts(res.data);
-  //   };
-  //   fetchPosts();
-
-  // },[]);
   return (
     <div className="feed">
       <div className="makepost">

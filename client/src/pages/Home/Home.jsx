@@ -13,7 +13,7 @@ function Home() {
         <div className="home">
             <TopBar/> 
             <div className="main-page">
-            <LeftBarHome class="left"/>
+            <LeftBarHome class="left" user={user}/>
             <Feed class="feed"/>
             <RightBarHome class="right"/>
             </div>

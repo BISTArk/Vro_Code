@@ -2,7 +2,6 @@ import "./register.css";
 import vectorArt from "./images/login-paint.svg";
 import { NavLink as Link } from "react-router-dom";
 import { Component } from "react";
-import { useHistory } from "react-router-dom";
 
 class Register extends Component {
   state = {
