@@ -13,7 +13,7 @@ router.post("/",async (req,res)=>{
         res.status(200).json(savedConversation)
 
     }catch(err){
-        req.status(500).json(err)
+        res.status(500).json(err)
     }
 });
 //get conv of a user
@@ -25,7 +25,7 @@ router.get("/:userId", async (req,res)=> {
         });
         res.status(200).json(conversation)
     }catch(err){
-        req.status(500).json(err)
+        res.status(500).json(err)
     }
 })
 
@@ -38,7 +38,7 @@ router.get("/find/:firstUserId/:secondUserId", async (req,res) => {
         res.status(200).json(conversation)
 
     }catch(err){
-        req.status(500).json(err)
+        res.status(500).json(err)
     }
 })
 

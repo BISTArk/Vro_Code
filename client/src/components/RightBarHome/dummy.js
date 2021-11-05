@@ -3,7 +3,7 @@ export default [
     "username": "Akshay",
     "profilepic": "../../pages/Login/images/profile-sample.png",
     "elo": "1245",
-    "rank": "../assets/rank-img/eagle-master.png",
+    "rank": "VroCode-favi-dark.png",
     "isgrowing": true
   },{
     "username": "Akshay",
