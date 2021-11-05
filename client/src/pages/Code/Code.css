@@ -19,7 +19,7 @@ h2{
     width: 20%;
     margin: auto;
     margin-top: 2% ;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 .grid-container{
     display: grid;
@@ -51,6 +51,10 @@ h2{
 .PracticeTitle{
 margin: 10px  !important;
 }
+.PracticeTitle-vro{
+    font-family: 'Bukhari Script', sans-serif;
+    margin: 10px  !important;
+}
 .btn{
     text-align: center;
     margin-bottom: 20px;
@@ -72,6 +76,28 @@ margin: 10px  !important;
     background-color: #A04B83;
     box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.7);
 }
+
+.vroCoder-btn{
+    display: flex;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background-color:#005397 ;
+    color: #fff;
+    font-family: 'Bukhari Script', sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.vroCoder-btn:hover{
+    background-color: #A04B83;
+    box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.7);
+}
+
+
 img{
     width: 15%;
 }

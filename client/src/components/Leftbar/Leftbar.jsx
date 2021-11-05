@@ -43,10 +43,17 @@ export default function Leftbar() {
               <span className="leftbarListText">Courses</span>
             </Link>
           </li>
-          <li className="leftbarListItem">
+          <li  className="leftbarListItem" onClick={() => {
+            // window.location.href = 'http://localhost:3001/'
+            window.open(
+              'http://localhost:3001/',
+              '_blank' 
+            );
+            
+          }}>
             <FontAwesomeIcon icon={faCode} className="leftbarIcon1" />
-            <Link to="/Code" style={{ textDecoration: "none", color: "black" }}>
-              <span className="leftbarListText">Challenges</span>
+            <Link to=" " target = "_blank" style={{ textDecoration: "none", color: "black" }}>
+              <span className="leftbarListText">Online Judge</span>
             </Link>
           </li>
           <li className="leftbarListItem">

@@ -5,7 +5,7 @@ import leetcode from "../../assets/images/leetcode.png"
 import gfg from "../../assets/images/gfg.svg";
 import codeforces from "../../assets/images/codeforces.svg";
 import codechef from "../../assets/images/codechef.png";
-import hackerearth from "../../assets/images/hackerearth.png";
+import vrocode from "../../assets/images/logoWhite.png";
 import hackerrank from "../../assets/images/hackerrank.png";
 import codesandbox from "../../assets/images/codesandbox.png"
 import codepen from "../../assets/images/codepen.png";
@@ -17,13 +17,32 @@ export default function Code(){
             <TopBar/>
              <div>
                  <div className="heading-prac">
-                 <h1 classame="practice-heading">Practice Time!</h1>
+                    <h1 classame="practice-heading">Practice Time!</h1>
+                    
                  </div>
-                <hr className="hrCode"/>
+                <hr className="hrCode" />
+              
              </div>
-                <h2>Competitive Programming</h2>
+            <h2>Competitive Programming</h2>
+            
              
-             <div className = "grid-container">
+            <div className="grid-container">
+                
+
+            <div className = "PracticeCard">
+                   <div className="Title-container">
+                   <h1 className = "PracticeTitle-vro">VroCoder</h1>
+                   <img src ={vrocode} alt = "hackerearth"/>
+                             </div>
+                   <div className = "btn">
+                   <Link to = {{pathname: "https://www.hackerearth.com/"}} target="_blank">
+                   <button className="solveBtn">
+                       Try Our IDE now!
+                    </button>
+                    </Link>
+                    </div>
+                </div>
+
                <div className = "PracticeCard">
                    <div className="Title-container">
                    <h1 className = "PracticeTitle">Leetcode</h1>
@@ -96,19 +115,7 @@ export default function Code(){
                     </div>
                 </div>
 
-                <div className = "PracticeCard">
-                   <div className="Title-container">
-                   <h1 className = "PracticeTitle">HackerEarth</h1>
-                   <img src ={hackerearth} alt = "hackerearth"/>
-                             </div>
-                   <div className = "btn">
-                   <Link to = {{pathname: "https://www.hackerearth.com/"}} target="_blank">
-                   <button className="solveBtn">
-                       Practice Now
-                    </button>
-                    </Link>
-                    </div>
-                </div>
+               
 
              </div>
 
