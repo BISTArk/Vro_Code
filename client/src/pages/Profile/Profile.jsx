@@ -4,7 +4,11 @@ import Leftbar from "../../components/Leftbar/Leftbar";
 import Feed from "../../components/Feed/Feed";
 import cover from "../../assets/profileImages/cover-img.jpg";
 import profile from "../../assets/profileImages/profile-img.jfif";
-function Profile() {
+import {useContext} from "react";
+import {AuthContext} from "../../context/AuthContext"
+export default function Profile() {
+  const { user } = useContext(AuthContext);
+  console.log(user);
 
   return (
     <div>
@@ -26,8 +30,8 @@ function Profile() {
               />
             </div>
             <div className="profileInfo">
-              <h4 className="profileInfoName">Stavan Kudche</h4>
-              <span className="profileInfoDesc">Backend Developer</span>
+              <h4 className="profileInfoName" >{user.Name}</h4>
+              <span className="profileInfoDesc" >{user.role}</span>
             </div>
           </div>
           <div className="profileRightBottom">
@@ -39,4 +43,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+
