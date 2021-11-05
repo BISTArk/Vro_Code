@@ -4,8 +4,30 @@ import courseLogo1 from "../../assets/images/udemy.png"
 import courseLogo2 from "../../assets/images/coursera.png";
 import rank from "../../assets/rank-img/eagle-master.png";
 import {NavLink as Link } from "react-router-dom";
-export default function LeftBarHome(){
+export default function LeftBarHome(props){
 
+    const ranks=[
+        "Silver I",
+        "Silver 2",
+        "Silver III",
+        "Silver IV",
+        "Silver Elite",
+        "Silver Elite Master",
+        "Gold Nova I",
+        "Gold Nova II",
+        "Gold Nova III",
+        "Gold Nova Master",
+        "Master Guardian I",
+        "Master Guardian II",
+        "Master Guardian Elite",
+        "Distinguished Master Guardian",
+        "Legendary Eagle",
+        "Legendary Eagle Master",
+        "Supreme Master First Class",
+        "Global Elite ",
+        "TUR_VRO"
+    ]
+    console.log(props.user.rank/200,ranks[props.user.rank/200]);
      return(
         <div className = "LeftBarHome">
            <div className = "leftbarWrapper">
@@ -13,22 +35,22 @@ export default function LeftBarHome(){
                <div className = "ProfileCard">
                    <img src={image} alt="profile-img" className = "ProfileImage" />
                     <hr className = "hr-card"/>
-                    <h2 className = "ProfileName">Stavan Kudche</h2>
+                    <h2 className = "ProfileName">{props.user.username}</h2>
                     {/*Need to add verified badge*/}
-                    <h3 className = "Role">Backend Developer</h3>
+                    <h3 className = "Role">{props.user.role}</h3>
                     <div className = "FollowInfo">
                     <div className = "FollowData">
                     <div className = "FollowItemList">
                         <span className = "FollowItem">Followers</span>
-                        <span className = "FollowNum">1034</span>
+                        <span className = "FollowNum">{props.user.followers.length}</span>
                     </div>
                     <div className = "FollowItemList">
                         <span className = "FollowItem">Following</span>
-                        <span className = "FollowNum">315</span>
+                        <span className = "FollowNum">{props.user.following.length}</span>
                     </div>
                      <div className = "FollowItemList">
                         <span className = "FollowItem">Posts</span>
-                        <span className = "FollowNum">14</span>
+                        <span className = "FollowNum">{props.user.postCount}</span>
                       </div>
                     </div>
                     </div>
@@ -38,8 +60,8 @@ export default function LeftBarHome(){
                             <img src={rank} alt="rank-logo" className = "RankImg"/>
                         </div>
                             <div className = "Elo">
-                            <span className = "RankName">Eagle Master</span>
-                            <span className = "RankScore">1536/2000</span>
+                            <span className = "RankName">{ranks[Math.floor(props.user.rank/200)]}</span>
+                            <span className = "RankScore">{props.user.rank%200}/200</span>
                             </div>
                     </div>
                </div>

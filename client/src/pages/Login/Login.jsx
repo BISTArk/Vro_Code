@@ -8,7 +8,7 @@ import { Redirect } from "react-router-dom";
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "", problem:false };
+    this.state = { username: "", password: "" };
   }
 
   handleSubmit = async (e, user, dispatch) => {
@@ -36,16 +36,15 @@ class Login extends Component {
       );
       const jso = await response.json();
       console.log(jso);
-      if(jso.username){
-        dispatch({ type: "LOGIN_SUCCESS", payload: jso });
+      // const newUser = await jso.user.json();
+      // console.log(user);
+      if(jso.user){
+        dispatch({ type: "LOGIN_SUCCESS", payload: jso.user });
         window.location.href = "/home"
       }else{
-        dispatch({ type: "LOGIN_FAILURE", payload: user.error });
-        this.setState({problem:true})
+        dispatch({ type: "LOGIN_FAILURE", payload: jso.error });
         alert(jso.error);
-
         window.location.href = "/login"
-        console.log("problem " + this.state.problem)
       }
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: err });

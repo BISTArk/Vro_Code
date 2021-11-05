@@ -15,8 +15,16 @@ class Register extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    
+    const re = /^\S+@\S+\.\S+$/;
+    if(this.state.name.length<2)alert("name should be a minimum of 2 characters long")
+    else if(this.state.name.length>50)alert("name should be a maximum of 50 characters long")
+    else if(this.state.username.length>50)alert("username should be a minimum of 3 characters long")
+    else if(this.state.username.length>50)alert("username should be a maximum of 10 characters long")
+    else if(this.state.password.length<6)alert("password should be a minimum of 6 characters long")
+    else if(!re.test(this.state.email))alert("Enter a Valid Email id")
+    else{
     const data = {
+      Name:this.state.name,
       username: this.state.username,
       email: this.state.email,
       password: this.state.password,
@@ -35,9 +43,10 @@ class Register extends Component {
       "http://localhost:3030/api/auth/register",
       options
     );
+    console.log(response);
     const json = await response.json();   //check form validation and check response is proper then redirect
-    window.location.href = "/home";
-
+    window.location.href = "/login";
+    }
   };
 
   render() {
@@ -46,7 +55,7 @@ class Register extends Component {
         <div className="RegBox">
           <div className="Reg-left">
             <h3 className="CreateAccount">Create Account</h3>
-            <form action="" className="Reg-form">
+            <form action="" id="registerForm" className="Reg-form">
               <div className="Reg-names">
                 <div className="form-field-reg">
                   <label htmlFor="name" className="input-text">
@@ -110,7 +119,7 @@ class Register extends Component {
                 />
               </div>
               <div className="form-btns">
-                <button className="SignUp" onClick={this.handleSubmit}>
+                <button className="SignUp" form="registerForm" value="Submit" onClick={this.handleSubmit}>
                   Sign Up
                 </button>
                 <div className="login-btn">

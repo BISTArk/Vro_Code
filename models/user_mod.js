@@ -4,26 +4,25 @@ const userSchema = new Schema({
     Name:{
         type: String,
         required: true,
-        min: 2,
-        max: 50
+        minlength: 2,
+        maxlength: 50
     },
     username :{
         type : String,
         required : true,
-        min: 3,
-        max : 10,
+        minlength: 3,
+        maxlength : 10,
         unique :true
     },
     email:{
         type:String,
         required:true,
-        unique:true,
-        max:50
+        unique:true
     },
     password:{
         type:String,
         required:true,
-        min:6
+        minlength:6
     },
     profilePic:{
         type:String,
@@ -47,11 +46,15 @@ const userSchema = new Schema({
     },
     rank:{
         type:Number,
-        default:"0"
+        default:0
     },
     role:{
         type:String,
         default:""
+    },
+    postCount:{
+        type:Number,
+        default:0
     }
 },
 {timestamps:true});
