@@ -5,19 +5,6 @@ const bcrypt = require("bcrypt");
 //register new user
 router.post("/register", async (req, res) => {
   try {
-    //generate hash of pass
-    //have to check if the username already exists
-    // User.findOne({username: req.body.username}, (req,res)=>{
-    //   if(err){
-    //     console.log(err)
-    //   }
-    //   var msg;
-    //   if(user){
-    //     console.log(user)
-    //     message = "user exists"
-    //   }
-    //   res.json({message: msg})
-    // })
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(req.body.password, salt);
     //create a new user
