@@ -108,7 +108,7 @@ h4{
     transition: 0.5s;
 }
 .follow-btn:hover{
-    box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.7);
+    box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.3);
     background-color: #6981bd;
   
 }

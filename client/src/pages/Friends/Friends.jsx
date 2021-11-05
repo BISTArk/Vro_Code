@@ -14,7 +14,7 @@ export default function Friends() {
       <TopBar />
 
       <div className="friends" >
-        <div className="leftbar">
+        <div className="leftbar-friends">
           <LeftBar />
         </div>
         <div className="friendList">
