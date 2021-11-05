@@ -53,6 +53,16 @@ export default function Profile() {
               <h4 className="profileInfoName" >{user.Name}</h4>
               <span className="profileInfoDesc" >{user.role}</span>
             </div>
+            <div className="follow-button">
+              <button className="follow-btn">
+                Follow
+              </button>
+            </div>
+            {/* <div className="edit-profile">
+              <button className="edit-btn">
+                Edit profile
+              </button>
+            </div> */}
             <div className="followInformation">
             <div className = "FollowItemList-profile">
                         <span className = "followers-title">Followers</span>

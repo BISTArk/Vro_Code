@@ -87,3 +87,28 @@ h4{
     font-size: 100%;
     color: #000;
 }
+/* .edit-btn, .follow-btn{ */
+.follow-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.follow-btn{
+    padding: 7px;
+    width: 150px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: #1E3163;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.5s;
+}
+.follow-btn:hover{
+    box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.7);
+    background-color: #6981bd;
+  
+}

@@ -84,9 +84,12 @@ export class TopBar extends Component {
               </Link>
             </div>
           </div>
+          <div className="profile-nav">
           <Link to="/profile">
-            <img src={profile} alt="profile-img" className="topbarProfile" />
-          </Link>
+              <img src={profile} alt="profile-img" className="topbarProfile" />
+              
+            </Link>
+            </div>
         </div>
       </div>
     );
