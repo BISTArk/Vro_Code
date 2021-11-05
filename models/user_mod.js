@@ -19,6 +19,11 @@ const userSchema = new Schema({
         required:true,
         unique:true
     },
+    role:{
+        type:String,
+        required: true,
+        minlength: 3
+    },
     password:{
         type:String,
         required:true,
@@ -48,11 +53,7 @@ const userSchema = new Schema({
         type:Number,
         default:0
     },
-    role:{
-        type:String,
-        default:""
-    },
-    postCount:{
+      postCount:{
         type:Number,
         default:0
     }

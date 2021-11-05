@@ -7,7 +7,7 @@ import {NavLink as Link } from "react-router-dom";
 export default function LeftBarHome(props){
 
     const ranks=[
-        "Silver I",
+        "Silver 1",
         "Silver 2",
         "Silver III",
         "Silver IV",
@@ -24,7 +24,7 @@ export default function LeftBarHome(props){
         "Legendary Eagle",
         "Legendary Eagle Master",
         "Supreme Master First Class",
-        "Global Elite ",
+        "Global VroCoder",
         "TUR_VRO"
     ]
     console.log(props.user.rank/200,ranks[props.user.rank/200]);
@@ -35,7 +35,7 @@ export default function LeftBarHome(props){
                <div className = "ProfileCard">
                    <img src={image} alt="profile-img" className = "ProfileImage" />
                     <hr className = "hr-card"/>
-                    <h2 className = "ProfileName">{props.user.username}</h2>
+                    <h2 className = "ProfileName">{props.user.Name}</h2>
                     {/*Need to add verified badge*/}
                     <h3 className = "Role">{props.user.role}</h3>
                     <div className = "FollowInfo">
