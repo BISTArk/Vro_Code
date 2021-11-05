@@ -32,7 +32,7 @@ object-fit: cover;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 .profileInfoName{
@@ -49,4 +49,41 @@ h4{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/*Follow info*/
+.followInformation{
+    background-color: #fff;
+    width: 40%;
+    padding: 20px;
+    position: relative;
+    margin: auto;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 30px;
+}
+.FollowItemList-profile{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.followers-title{
+   
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 120%;
+    color: #000;
+    
+}
+.numberFollowers{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 100%;
+    color: #000;
 }
