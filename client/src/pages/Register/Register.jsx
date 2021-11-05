@@ -2,12 +2,13 @@ import "./register.css";
 import vectorArt from "./images/login-paint.svg";
 import { NavLink as Link } from "react-router-dom";
 import { Component } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 class Register extends Component {
   state = {
     name: "",
     username: "",
+    role: "",
     email: "",
     password: "",
   };
@@ -18,8 +19,9 @@ class Register extends Component {
     const re = /^\S+@\S+\.\S+$/;
     if(this.state.name.length<2)alert("name should be a minimum of 2 characters long")
     else if(this.state.name.length>50)alert("name should be a maximum of 50 characters long")
-    else if(this.state.username.length>50)alert("username should be a minimum of 3 characters long")
-    else if(this.state.username.length>50)alert("username should be a maximum of 10 characters long")
+    else if(this.state.username.length<3)alert("username should be a minimum of 3 characters long")
+    else if (this.state.username.length > 50) alert("username should be a maximum of 10 characters long")
+    else if (this.state.role.length<3)alert("Role should be a minimum of 3 characters long")
     else if(this.state.password.length<6)alert("password should be a minimum of 6 characters long")
     else if(!re.test(this.state.email))alert("Enter a Valid Email id")
     else{
@@ -27,6 +29,7 @@ class Register extends Component {
       Name:this.state.name,
       username: this.state.username,
       email: this.state.email,
+      role: this.state.role,
       password: this.state.password,
     };
     const options = {
@@ -44,7 +47,7 @@ class Register extends Component {
       options
     );
     console.log(response);
-    const json = await response.json();   //check form validation and check response is proper then redirect
+    // const json = await response.json();   //check form validation and check response is proper then redirect
     window.location.href = "/login";
     }
   };
@@ -100,6 +103,21 @@ class Register extends Component {
                   value={this.state.email}
                   onChange={(e) => {
                     this.setState({ email: e.target.value });
+                  }}
+                />
+              </div>
+               <div className="form-field-reg">
+                <label htmlFor="role" className="input-text">
+                  Role 
+                </label>
+                <input
+                  type="text"
+                  name="role"
+                  placeholder="Enter your role (Eg: Backend Developer/Student)"
+                  className="RegInput1"
+                  value={this.state.role}
+                  onChange={(e) => {
+                    this.setState({ role: e.target.value });
                   }}
                 />
               </div>

@@ -3,7 +3,7 @@ import vectorArt from "./images/login-paint.svg";
 import { NavLink as Link } from "react-router-dom";
 import { Component } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
