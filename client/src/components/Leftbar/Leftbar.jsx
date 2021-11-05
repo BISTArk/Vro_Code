@@ -3,7 +3,7 @@ import {
   Home,
   MenuBookOutlined,
   BookmarkBorderOutlined,
-  ExploreOutlined,
+ 
 } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -43,17 +43,10 @@ export default function Leftbar() {
               <span className="leftbarListText">Courses</span>
             </Link>
           </li>
-          <li  className="leftbarListItem" onClick={() => {
-            // window.location.href = 'http://localhost:3001/'
-            window.open(
-              'http://localhost:3001/',
-              '_blank' 
-            );
-            
-          }}>
+          <li className="leftbarListItem">
             <FontAwesomeIcon icon={faCode} className="leftbarIcon1" />
-            <Link to=" " target = "_blank" style={{ textDecoration: "none", color: "black" }}>
-              <span className="leftbarListText">Online Judge</span>
+            <Link to="/Code" style={{ textDecoration: "none", color: "black" }}>
+              <span className="leftbarListText">Challenges</span>
             </Link>
           </li>
           <li className="leftbarListItem">
