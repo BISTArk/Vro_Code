@@ -5,9 +5,10 @@ const bcrypt = require("bcrypt");
 //register new user
 router.post("/register", async (req, res) => {
   try {
+    console.log(req.body);
     const salt = await bcrypt.genSalt(10);
     const hashed = await bcrypt.hash(req.body.password, salt);
-    
+    console.log(req.body.password);
     //create a new user
     const newUser = await new User({
       Name:req.body.Name,

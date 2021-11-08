@@ -20,7 +20,7 @@ class Register extends Component {
     if(this.state.name.length<2)alert("name should be a minimum of 2 characters long")
     else if(this.state.name.length>50)alert("name should be a maximum of 50 characters long")
     else if(this.state.username.length<3)alert("username should be a minimum of 3 characters long")
-    else if (this.state.username.length > 50) alert("username should be a maximum of 10 characters long")
+    else if (this.state.username.length > 20) alert("username should be a maximum of 20 characters long")
     else if (this.state.role.length<3)alert("Role should be a minimum of 3 characters long")
     else if(this.state.password.length<6)alert("password should be a minimum of 6 characters long")
     else if(!re.test(this.state.email))alert("Enter a Valid Email id")

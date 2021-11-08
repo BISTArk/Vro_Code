@@ -6,7 +6,7 @@ import cover from "../../assets/profileImages/cover-img.jpg";
 import profile from "../../assets/profileImages/profile-img.jfif";
 import {useContext} from "react";
 import {AuthContext} from "../../context/AuthContext"
-export default function Profile() {
+export default function Profile(props) {
   const { user } = useContext(AuthContext);
   console.log(user);
   const ranks=[
@@ -34,7 +34,7 @@ export default function Profile() {
     <div>
       <Topbar />
       <div className="profile">
-        <Leftbar />
+        <Leftbar userid={(props.userid||user._id)}/>
         <div className="profileRight">
           <div className="profileRightTop">
             <div className="profileCover">

@@ -13,7 +13,41 @@ import {
   faPowerOff,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink as Link } from "react-router-dom";
-export default function Leftbar() {
+import {useContext} from "react";
+import {AuthContext} from "../../context/AuthContext"
+
+export default function Leftbar(props) {
+  const { user,dispatch } = useContext(AuthContext);
+
+  const handleDelete = async()=>{
+
+    const data={id:props.userid}
+    const options = {
+      method: "DELETE",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify(data),
+    }
+
+    
+
+    dispatch({ type: "LOGIN_START" });
+    try {
+      let response = await fetch(`http://localhost:3030/api/user/${user._id}`,options);
+    let confirm = await response.json();
+    console.log(confirm);
+      dispatch({ type: "LOGIN_FAILURE"});
+    window.location.href = "/login";
+
+    } catch (err) {
+      dispatch({ type: "LOGIN_SUCCESS", payload: user });
+    }
+
+  }
+
   return (
     <div className="leftbar">
       <div className="leftbarWrapper">
@@ -70,12 +104,11 @@ export default function Leftbar() {
               className="leftbarIcon1 delete-icon"
               style={{ color: "#d11a2a" }}
             />
-            <Link to="/Code" style={{ textDecoration: "none", color: "black" }}>
-              <span className="leftbarListText" style={{ color: "#d11a2a" }}>
+            
+              <span className="leftbarListText" style={{ color: "#d11a2a" }} onClick={handleDelete}>
                 {" "}
                 Delete Profile
               </span>
-            </Link>
           </li>
         </ul>
       </div>

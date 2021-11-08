@@ -14,9 +14,10 @@ import { faFacebookMessenger } from "@fortawesome/free-brands-svg-icons";
 //import Home from "../../pages/Home/Home"
 
 export class TopBar extends Component {
-  handleFormSubmit = (text) => {
-    console.log(text);
-  };
+  
+  state = {search : ""}
+
+  handleSubmit = ()=>{}
 
   render() {
     return (
@@ -29,7 +30,7 @@ export class TopBar extends Component {
         <div className="topbarMiddle">
           <div className="searchBar">
             <Search className="searchIcon" />
-            <input type="text" placeholder="Search" className="searchInput" />
+            <input type="text" placeholder="Search" className="searchInput" value={this.state.search} onChange={(e)=>{this.setState({search:e.target.value})}} onSubmit={this.handleSubmit}/>
           </div>
         </div>
         <div className="topbarRight">
