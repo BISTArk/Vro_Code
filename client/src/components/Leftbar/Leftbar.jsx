@@ -14,6 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink as Link } from "react-router-dom";
 export default function Leftbar() {
+ 
   return (
     <div className="leftbar">
       <div className="leftbarWrapper">
@@ -70,8 +71,8 @@ export default function Leftbar() {
               className="leftbarIcon1 delete-icon"
               style={{ color: "#d11a2a" }}
             />
-            <Link to="/Code" style={{ textDecoration: "none", color: "black" }}>
-              <span className="leftbarListText" style={{ color: "#d11a2a" }}>
+            <Link to="" style={{ textDecoration: "none", color: "black" }}>
+              <span className="leftbarListText" style={{ color: "#d11a2a" }} >
                 {" "}
                 Delete Profile
               </span>

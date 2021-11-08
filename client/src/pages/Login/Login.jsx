@@ -3,6 +3,9 @@ import vectorArt from "./images/login-paint.svg";
 import { NavLink as Link } from "react-router-dom";
 import { Component } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash, faToggleOff } from "@fortawesome/free-solid-svg-icons";
+
 // import { Redirect } from "react-router-dom";
 
 class Login extends Component {
@@ -84,16 +87,20 @@ class Login extends Component {
                       <label htmlFor="password" className="input-text">
                         Password
                       </label>
+                          <div className="show-pass">
                       <input
                         type="password"
                         name="password"
-                        placeholder="Enter a password"
+                        placeholder="Enter a password "
                         className="loginInput"
+                        
                         value={this.state.password}
                         onChange={(e) => {
                           this.setState({ password: e.target.value });
                         }}
                       />
+                        <FontAwesomeIcon icon={faEye} className="eye"/>
+                      </div>
                     </div>
                     <div className="form-btns">
                       <button

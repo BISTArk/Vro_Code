@@ -10,6 +10,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+.eye{
+    cursor: pointer;
+    position: relative;
+    left: -30px;
+}
 .login {
     width: 100vw;
     height: 100vh;
