@@ -3,7 +3,22 @@
     box-sizing: border-box;
     font-family:'Poppins', sans-serif;
 }
+.profile-nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 50px;
+    gap: 15px;
+    .edit{
+      cursor: pointer;
 
+    }
+  
+}
+.edit-profile-top{
+    transform: scale(1.3);
+}
 .topbarContainer{
     height: 85px;
     width: 100%;
@@ -110,8 +125,7 @@
             border-radius: 50%;
             object-fit: cover;
             cursor: pointer;
-            margin-right: 50px;
-            user-drag: none;
+            // user-drag: none;
             -webkit-user-drag: none;
             user-select: none;
             -moz-user-select: none;

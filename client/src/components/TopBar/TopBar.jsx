@@ -9,7 +9,7 @@ import profile from "../../pages/Login/images/profile-sample.jfif";
 import "./topbar.scss";
 import { NavLink as Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
+import { faCode, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookMessenger } from "@fortawesome/free-brands-svg-icons";
 //import Home from "../../pages/Home/Home"
 
@@ -84,9 +84,15 @@ export class TopBar extends Component {
               </Link>
             </div>
           </div>
-          <Link to="/profile">
-            <img src={profile} alt="profile-img" className="topbarProfile" />
-          </Link>
+          <div className="profile-nav">
+            <Link to="/profile">
+                <img src={profile} alt="profile-img" className="topbarProfile" />
+              
+            </Link>
+            <div className="edit">
+              <FontAwesomeIcon icon={faEdit} className="edit-profile-top"/>
+              </div>
+            </div>
         </div>
       </div>
     );
