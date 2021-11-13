@@ -29,6 +29,9 @@
     position: sticky;
     top: 0px;
     z-index:2;
+    box-shadow: 0px 3px 40px -5px rgba(0, 0, 0, 0.287);
+    -webkit-box-shadow: 0px 3px 40px -5px rgba(0, 0, 0, 0.171);
+    -moz-box-shadow: 0px 3px 40px -5px rgba(0, 0, 0, 0.274);
 
     .topbarLeft{
         flex: 3;

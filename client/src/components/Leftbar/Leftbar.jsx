@@ -64,7 +64,7 @@ export default function Leftbar(props) {
           </li>
           <li className="leftbarListItem-alt">
             <FontAwesomeIcon icon={faEdit} className="leftbarIcon1" />
-            <Link to="/Code" style={{ textDecoration: "none", color: "black" }}>
+            <Link to="/edit" style={{ textDecoration: "none", color: "black" }}>
               <span className="leftbarListText">Edit Profile</span>
             </Link>
           </li>
@@ -83,10 +83,12 @@ export default function Leftbar(props) {
               <span className="leftbarListText">Challenges</span>
             </Link>
           </li>
+          <Link to = "/bookmarks"  style={{ textDecoration: "none", color: "black" }}>
           <li className="leftbarListItem">
             <BookmarkBorderOutlined className="leftbarIcon" />
             <span className="leftbarListText"> Bookmarks</span>
           </li>
+          </Link>
           <li
             className="leftbarListItem"
             onClick={() => {
