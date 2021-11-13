@@ -4,7 +4,12 @@ import { NavLink as Link } from "react-router-dom";
 import { Component } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash, faToggleOff } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faEyeSlash,
+  faToggleOff,
+} from "@fortawesome/free-solid-svg-icons";
+
 
 // import { Redirect } from "react-router-dom";
 
@@ -41,13 +46,14 @@ class Login extends Component {
       console.log(jso);
       // const newUser = await jso.user.json();
       // console.log(user);
-      if(jso.user){
+      if (jso.user) {
         dispatch({ type: "LOGIN_SUCCESS", payload: jso.user });
-        window.location.href = "/home"
-      }else{
+        window.location.href = "/home";
+      } else {
         dispatch({ type: "LOGIN_FAILURE", payload: jso.error });
-        alert(jso.error);
-        window.location.href = "/login"
+        // alert(jso.error);
+        alert("ERROR: Entered credentials are incorrect!");
+        window.location.href = "/login";
       }
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: err });
@@ -87,28 +93,28 @@ class Login extends Component {
                       <label htmlFor="password" className="input-text">
                         Password
                       </label>
-                          <div className="show-pass">
-                      <input
-                        type="password"
-                        name="password"
-                        placeholder="Enter a password "
-                        className="loginInput"
-                        
-                        value={this.state.password}
-                        onChange={(e) => {
-                          this.setState({ password: e.target.value });
-                        }}
-                      />
-                        <FontAwesomeIcon icon={faEye} className="eye"/>
+                      <div className="show-pass">
+                        <input
+                          type="password"
+                          name="password"
+                          placeholder="Enter a password "
+                          className="loginInput"
+                          value={this.state.password}
+                          onChange={(e) => {
+                            this.setState({ password: e.target.value });
+                          }}
+                        />
+                        <FontAwesomeIcon icon={faEye} className="eye" />
                       </div>
                     </div>
                     <div className="form-btns">
-                      <button
-                        className="SignUp"
-                        onClick={(e) => this.handleSubmit(e, user, dispatch)}
-                      >
-                        Log In
-                      </button>
+                              <button
+                          className="SignUp"
+                          onClick={(e) => this.handleSubmit(e, user, dispatch)}
+                        >
+                          Log In
+                        </button>
+                   
 
                       <div className="login-btn">
                         <Link to="/register">
@@ -129,8 +135,8 @@ class Login extends Component {
                 </div>
               </div>
             </div>
-          // ) : (
-          //   <Redirect to="/home" />
+            // ) : (
+            //   <Redirect to="/home" />
           );
         }}
       </AuthContext.Consumer>

@@ -12,8 +12,11 @@ import Courses from "./pages/Courses/Courses";
 import PostPage from "./pages/PostPage/PostPage";
 import Friends from "./pages/Friends/Friends";
 import Bookmark from "./pages/Bookmark/Bookmark";
+import Search from "./pages/Search/Search";
+import Edit from "./pages/Edit/Edit"
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
+
 
 
 function App() {
@@ -54,6 +57,12 @@ function App() {
         </Route>
         <Route exact path="/friends">
           {user ? <Friends /> : <Register />}
+        </Route>
+        <Route exact path="/search">
+          {user ? <Search /> : <Register />}
+        </Route>
+        <Route exact path="/edit">
+          {user ? <Edit /> : <Register />}
         </Route>
         <Route exact path="/bookmarks">
           {user ? <Bookmark /> : <Register />}

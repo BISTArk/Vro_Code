@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+}
+.followButtonSearch{
+    padding: 8px 25px;
+    border-radius: 20px;
+    border: 2px solid #1E3163;
+    color: #1E3163;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.3);
+
+}
+.followButtonSearch:hover{
+    background-color: #1E3163;
+    color: #fff;
+}
+.searchProfilePicture{
+    border-radius: 50%;
+    object-fit:contain;
+    object-position: center center;
+    width: 100px;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+}
+/* .searchProfilePicture:hover{
+    width: 140px;
+} */
+.searchProfileInfo{
+    display: flex;
+    flex-direction: column;
+}
+.peopleBox{
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+    gap: 20px;
+    align-items: center;
+}
+.peopleHeading{
+    text-align: left !important;
+    margin-left: 50px;
+}
+.listBody{
+    margin: 20px 550px 0 550px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+}
+.searchProfileName{
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+/* .searchProfileName:hover{
+    border-bottom: 1px solid black;
+    border-width: 50%;
+} */
+.followSearch{
+    margin-left: 150px;
+}
+.rankIcon{
+    width: 30px;
+   }
+   .rankInfoSearch{
+       display: flex;
+       flex-direction: row;
+       align-items: center;
+       /* justify-content: center; */
+   }
+.searchDivider{
+width: 50%;
+text-align: center;
+opacity: 0.5;
+position: relative;
+margin: auto;
+}
+.searchLine{
+    margin: 20px 0 10px 0;
+}
+.personalSearchNames{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.usernameSearch{
+    font-size: 0.8rem;
+
+}
+.searchRole{
+    font-weight: 500;
+    opacity: 0.5;
+}
