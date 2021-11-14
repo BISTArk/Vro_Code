@@ -13,6 +13,7 @@ import PostPage from "./pages/PostPage/PostPage";
 import Friends from "./pages/Friends/Friends";
 import Bookmark from "./pages/Bookmark/Bookmark";
 import Search from "./pages/Search/Search";
+import Following from "./pages/Friends/Following"
 import Edit from "./pages/Edit/Edit"
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
@@ -63,6 +64,9 @@ function App() {
         </Route>
         <Route exact path="/edit">
           {user ? <Edit /> : <Register />}
+        </Route>
+        <Route exact path="/friends/following">
+          {user ? <Following /> : <Register />}
         </Route>
         <Route exact path="/bookmarks">
           {user ? <Bookmark /> : <Register />}

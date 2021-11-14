@@ -2,91 +2,116 @@
     margin: 0;
     padding: 0;
 }
-.friends{
-    background-color: #F1F4F6;
-    display: flex;
-    flex-direction: row;
-  
-    
-}
-.friendTitle{
-    display: flex;
-    margin: 20px;
 
+.followerHeading{
+    margin: 0 0 20px 20px;
 }
+
 .leftbar-friends{
     margin-top: 80px;
     flex: 2;
     
 }
-.friendList{
-    flex: 5;
-    background-color: #fff;
-    border-radius: 20px;
-    margin: 100px 300px 100px 0;
+.followBox{
+    display: flex;
+    flex-direction: row;
     padding: 50px;
+    gap: 20px;
+    align-items: center;
 }
-.profile-1{
+.FriendsProfileInfo{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+}
+.rightFriends{
+    position: relative;
+    margin: auto;
+
 
 }
-.profileName{
-    font-weight: 700;
-    font-size: 2rem;
+.buttonsFollow{
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    padding: 20px;
+    margin-top: 1px;
+    justify-content: center;
+}
+.followerFriends{
+    text-decoration: none;
+    color: #000000;
+    padding: 20px;
+    transition: 0.2s;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+.followerFriends:hover{
+    box-shadow: 44px -3px 35px -7px rgba(0,0,0,0.27);
+    -webkit-box-shadow: 44px -3px 35px -7px rgba(0,0,0,0.27);
+    -moz-box-shadow: 44px -3px 35px -7px rgba(0,0,0,0.27);
+}
+.followingFriends{
+    text-decoration: none;
+    color: #000000;
+    padding: 20px;
+    transition: 0.2s;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+.followingFriends:hover{
+box-shadow: -74px -3px 35px -7px rgba(0,0,0,0.27);
+-webkit-box-shadow: -74px -3px 35px -7px rgba(0,0,0,0.27);
+-moz-box-shadow: -74px -3px 35px -7px rgba(0,0,0,0.27);
+}
+.FriendsProfileName{
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
     white-space: nowrap;
 }
-.role{
-    font-weight: 500;
-    font-size: 1.3rem;
-    opacity: 0.7;
-}
-.requestCard{
-    display: flex;
-    flex-direction: row;
-    gap: 70px;
-}
-.profileImg{
-    border-radius:50%;
-    width: 100px;
-    height: 100px;
-}
-.acceptBtn{
-    background-color: #fff;
-
-}
-.acceptBtn, .ignoreBtn{
-    border: none;
-    background-color: #fff;
-    font-size: 50px;
+.personalFriendsNames{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
 }
-.acceptBtn{
-    color: rgb(246, 113, 113);
-    transition: 0.7s;
-}
-.acceptBtn:hover{
-    color: rgb(253, 29, 29);
-}
+.followButtonFriends{
+    padding: 8px 25px;
+    border-radius: 20px;
+    border: 2px solid #000000;
+    color: #000000;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.3);
 
-
-.ignoreBtn{
-    color: rgb(139, 253, 128);
-    transition: 0.7s;
 }
-.ignoreBtn:hover{
-    color: rgb(7, 197, 0);
-}
-
-
-.buttonClass{
+.flexContainerFriends{
     display: flex;
     flex-direction: row;
-    margin-left: 520px;
-    gap: 40px;
+
 }
+.followButtonFriends:hover{
+    background-color: #000000;
+    color: #fff;
+
+}
+.FriendsProfilePicture{
+    border-radius: 50%;
+    object-fit:contain;
+    object-position: center center;
+    width: 100px;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+
+}
+.friendList{
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+
+

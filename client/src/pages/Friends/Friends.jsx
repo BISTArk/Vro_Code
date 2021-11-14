@@ -6,32 +6,134 @@ import {
   faCheckCircle,
   faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import miskinImg from "../../assets/profileImages/miskin.jfif";
+import g1 from "../../assets/profileImages/g1.jpg";
+import g2 from "../../assets/profileImages/g2.jpg";
+import m1 from "../../assets/profileImages/m1.jpg";
+import m3 from "../../assets/profileImages/m3.jpg";
+import { NavLink as Link } from "react-router-dom";
 
 export default function Friends() {
   return (
     <div>
       <TopBar />
-
-      <div className="friends" >
-        <div className="leftbar-friends">
-          <LeftBar />
-        </div>
-        <div className="friendList">
-          <h2 className="friendTitle">Pending requests</h2>
-          <div className="requestCard">
-            <img src={miskinImg} alt="request" className = "profileImg"/>
-            <div className="profil-1">
-              <span className="profileName">Aditya Muskan</span>
-              <span className="role"> Full-Stack Engineer</span>
+      <div className="flexContainerFriends">
+        <div className="rightFriends">
+          <div className="buttonsFollow">
+            <Link to="/friends">
+              {" "}
+              <span className="followerFriends">Followers</span>
+            </Link>
+            <hr />
+            <Link to="/friends/following">
+              {" "}
+              <span className="followingFriends">Following</span>
+            </Link>
+          </div>
+       
+          <div className="friendList">
+            <h1 className="followerHeading">Followers</h1>
+            <hr />
+            <div className="friendCard">
+              <div className="followBox">
+                <img
+                  src={m1}
+                  alt="peopleImage"
+                  className="FriendsProfilePicture"
+                />
+                <div className="FriendsProfileInfo">
+                  <div className="personalFriendsNames">
+                    <span className="FriendsProfileName">Jasmine Rose</span> .
+                    <span className="usernameFriends">@jasmine.rose126</span>
+                  </div>
+                  <span className="FriendsRole">Flutter developer</span>
+                </div>
+                <div className="followFriends">
+                  <button className="followButtonFriends">Unfollow</button>
+                </div>
+              </div>
+              <hr />
             </div>
-            <div className="buttonClass">
-            <button className="acceptBtn">
-              <FontAwesomeIcon icon={faCheckCircle} />
-            </button>
-            <button className="ignoreBtn">
-              <FontAwesomeIcon icon={faTimesCircle} />
-            </button>
+
+            <div className="friendCard">
+              <div className="followBox">
+                <img
+                  src={g2}
+                  alt="peopleImage"
+                  className="FriendsProfilePicture"
+                />
+                <div className="FriendsProfileInfo">
+                  <div className="personalFriendsNames">
+                    <span className="FriendsProfileName">Jasmine Rose</span> .
+                    <span className="usernameFriends">@jasmine.rose126</span>
+                  </div>
+                  <span className="FriendsRole">Flutter developer</span>
+                </div>
+                <div className="followFriends">
+                  <button className="followButtonFriends">Unfollow</button>
+                </div>
+              </div>
+              <hr />
+            </div>
+
+            <div className="friendCard">
+              <div className="followBox">
+                <img
+                  src={m3}
+                  alt="peopleImage"
+                  className="FriendsProfilePicture"
+                />
+                <div className="FriendsProfileInfo">
+                  <div className="personalFriendsNames">
+                    <span className="FriendsProfileName">Jasmine Rose</span> .
+                    <span className="usernameFriends">@jasmine.rose126</span>
+                  </div>
+                  <span className="FriendsRole">Flutter developer</span>
+                </div>
+                <div className="followFriends">
+                  <button className="followButtonFriends">Unfollow</button>
+                </div>
+              </div>
+              <hr />
+            </div>
+            <div className="friendCard">
+              <div className="followBox">
+                <img
+                  src={m3}
+                  alt="peopleImage"
+                  className="FriendsProfilePicture"
+                />
+                <div className="FriendsProfileInfo">
+                  <div className="personalFriendsNames">
+                    <span className="FriendsProfileName">Jasmine Rose</span> .
+                    <span className="usernameFriends">@jasmine.rose126</span>
+                  </div>
+                  <span className="FriendsRole">Flutter developer</span>
+                </div>
+                <div className="followFriends">
+                  <button className="followButtonFriends">Unfollow</button>
+                </div>
+              </div>
+              <hr />
+            </div>
+            <div className="friendCard">
+              <div className="followBox">
+                <img
+                  src={g1}
+                  alt="peopleImage"
+                  className="FriendsProfilePicture"
+                />
+                <div className="FriendsProfileInfo">
+                  <div className="personalFriendsNames">
+                    <span className="FriendsProfileName">Jasmine Rose</span> .
+                    <span className="usernameFriends">@jasmine.rose126</span>
+                  </div>
+                  <span className="FriendsRole">Flutter developer</span>
+                </div>
+                <div className="followFriends">
+                  <button className="followButtonFriends">Unfollow</button>
+                </div>
+              </div>
+              <hr />
             </div>
           </div>
         </div>
