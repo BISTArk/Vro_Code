@@ -5,11 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server",
-<<<<<<< HEAD:package.json
-    "goboi": "npm start & (cd client/ &&npm start) & (cd onlineJudge/backend && npm start) & (cd onlineJudge/client && npm start)"
-=======
-    "goboi": "npm start & (cd ../client/ &&npm start) & (cd ../onlineJudge/backend && npm start) & (cd ../onlineJudge/client && npm start)"
->>>>>>> 696e671e3328ef1263d1d469bf0a530a55e09395:server/package.json
+    "goboi": "npm start && (cd ../client/ ; npm start) && (cd ../onlineJudge/backend ; npm start) && (cd ../onlineJudge/client ; npm start)"
   },
   "author": "Akshay B Bistagond, Abhishek Chavan, Diptesh Baneerjee",
   "license": "MIT",
@@ -21,12 +17,7 @@
     "helmet": "^4.6.0",
     "mongoose": "^6.0.12",
     "morgan": "^1.10.0",
-<<<<<<< HEAD:package.json
     "nodemon": "^2.0.14",
     "react-spinners": "^0.11.0"
-=======
-    "multer": "^1.4.3",
-    "nodemon": "^2.0.14"
->>>>>>> 696e671e3328ef1263d1d469bf0a530a55e09395:server/package.json
   }
 }
