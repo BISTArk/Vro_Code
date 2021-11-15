@@ -32,15 +32,17 @@ function Feed() {
           <div className="post-upload">
             <div className="upload-option">
               <FontAwesomeIcon icon={faCode} />
-              <span>Code</span>
+              <label htmlFor="postCode">Code</label>
+              <input type="file" id="postCode" style={{display: "none"}} />
             </div>
             <div className="upload-option">
               <Image className="svg-icon" />
-              <span>Photo/video</span>
+              <label htmlFor="postImg">Photo/Video</label>
+              <input type="file" id="postImg" style={{display: "none"}}/>
             </div>
             <div className="upload-option">
               <GitHub className="svg-icon" />
-              <span>GitHub</span>
+              <span>Github</span>
             </div>
           </div>
           <div className="post-btn ">Post</div>

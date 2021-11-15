@@ -16,7 +16,7 @@ import {
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "" };
+    this.state = { username: "", password: "", see: false };
   }
 
   handleSubmit = async (e, user, dispatch) => {
@@ -95,7 +95,7 @@ class Login extends Component {
                       </label>
                       <div className="show-pass">
                         <input
-                          type="password"
+                          type={this.state.see?"text":"password"}
                           name="password"
                           placeholder="Enter a password "
                           className="loginInput"
@@ -104,7 +104,7 @@ class Login extends Component {
                             this.setState({ password: e.target.value });
                           }}
                         />
-                        <FontAwesomeIcon icon={faEye} className="eye" />
+                        <FontAwesomeIcon icon={faEye} className="eye" onClick={()=>{this.setState({see:!(this.state.see)})}}/>
                       </div>
                     </div>
                     <div className="form-btns">
