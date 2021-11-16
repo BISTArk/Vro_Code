@@ -86,7 +86,16 @@
         font-weight: 500;
         color: white;
         cursor: pointer;
-        padding: 2% 0 2% 0;
+        padding: 7px 14px;
+        transition: 0.2s;
+        border: none;
+      }
+      .post-btn:hover{
+      
+        background-color: #fff;
+        box-shadow: 0px 3px 40px -5px rgba(0, 0, 0, 0.287);
+        color:  #9431b8;
+      
       }
     }
   }

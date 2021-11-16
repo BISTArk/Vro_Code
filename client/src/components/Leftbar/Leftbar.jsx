@@ -3,7 +3,6 @@ import {
   Home,
   MenuBookOutlined,
   BookmarkBorderOutlined,
- 
 } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,40 +12,40 @@ import {
   faPowerOff,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink as Link } from "react-router-dom";
-import {useContext} from "react";
-import {AuthContext} from "../../context/AuthContext"
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Leftbar(props) {
-  const { user,dispatch } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
 
-  const handleDelete = async()=>{
+  const handleDelete = async () => {
+    if (window.confirm("Do you want to delete your profile? Press OK if yes")) {
+      const data = { id: props.userid };
+      const options = {
+        method: "DELETE",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(data),
+      };
 
-    const data={id:props.userid}
-    const options = {
-      method: "DELETE",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify(data),
+      dispatch({ type: "LOGIN_START" });
+      try {
+        let response = await fetch(
+          `http://localhost:3030/api/user/${user._id}`,
+          options
+        );
+        let confirm = await response.json();
+        console.log(confirm);
+        dispatch({ type: "LOGIN_FAILURE" });
+        window.location.href = "/login";
+      } catch (err) {
+        dispatch({ type: "LOGIN_SUCCESS", payload: user });
+      }
     }
-
-    
-
-    dispatch({ type: "LOGIN_START" });
-    try {
-      let response = await fetch(`http://localhost:3030/api/user/${user._id}`,options);
-    let confirm = await response.json();
-    console.log(confirm);
-      dispatch({ type: "LOGIN_FAILURE"});
-    window.location.href = "/login";
-
-    } catch (err) {
-      dispatch({ type: "LOGIN_SUCCESS", payload: user });
-    }
-
-  }
+  };
 
   return (
     <div className="leftbar">
@@ -62,12 +61,13 @@ export default function Leftbar(props) {
               <span className="leftbarListText">Home</span>
             </Link>
           </li>
-          <li className="leftbarListItem-alt">
-            <FontAwesomeIcon icon={faEdit} className="leftbarIcon1" />
-            <Link to="/edit" style={{ textDecoration: "none", color: "black" }}>
+          <Link to="/edit" style={{ textDecoration: "none", color: "black" }}>
+            <li className="leftbarListItem-alt">
+              <FontAwesomeIcon icon={faEdit} className="leftbarIcon1" />
+
               <span className="leftbarListText">Edit Profile</span>
-            </Link>
-          </li>
+            </li>
+          </Link>
           <li className="leftbarListItem">
             <MenuBookOutlined className="leftbarIcon" />
             <Link
@@ -83,17 +83,23 @@ export default function Leftbar(props) {
               <span className="leftbarListText">Challenges</span>
             </Link>
           </li>
-          <Link to = "/bookmarks"  style={{ textDecoration: "none", color: "black" }}>
-          <li className="leftbarListItem">
-            <BookmarkBorderOutlined className="leftbarIcon" />
-            <span className="leftbarListText"> Bookmarks</span>
-          </li>
+          <Link
+            to="/bookmarks"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <li className="leftbarListItem">
+              <BookmarkBorderOutlined className="leftbarIcon" />
+              <span className="leftbarListText"> Bookmarks</span>
+            </li>
           </Link>
           <li
             className="leftbarListItem"
             onClick={() => {
-              localStorage.clear();
-              window.location.href = "/login";
+              if (window.confirm('Do you want to logout?')) {
+                localStorage.clear();
+                window.location.href = "/login";
+              }
+            
             }}
           >
             <FontAwesomeIcon icon={faPowerOff} className="leftbarIcon1" />
@@ -106,11 +112,15 @@ export default function Leftbar(props) {
               className="leftbarIcon1 delete-icon"
               style={{ color: "#d11a2a" }}
             />
-            
-              <span className="leftbarListText" style={{ color: "#d11a2a" }} onClick={handleDelete}>
-                {" "}
-                Delete Profile
-              </span>
+
+            <span
+              className="leftbarListText"
+              style={{ color: "#d11a2a" }}
+              onClick={handleDelete}
+            >
+              {" "}
+              Delete Profile
+            </span>
           </li>
         </ul>
       </div>
