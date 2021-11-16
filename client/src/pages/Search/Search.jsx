@@ -31,7 +31,7 @@ class Search extends Component {
 
       return this.state.result.map((user) => {
         return (
-          <div>
+          <div key={user._id}>
           <div className="peopleBox">
             <img src={m1} alt="peopleImage" className="searchProfilePicture" />
             <div className="searchProfileInfo">
@@ -65,74 +65,7 @@ class Search extends Component {
           <div className="listBody">
             <h2 className="peopleHeading">People</h2>
             <hr className="searchLine" />
-
             {this.showOff()}
-
-            {/* <div className="peopleBox">
-              <img
-                src={g1}
-                alt="peopleImage"
-                className="searchProfilePicture"
-              />
-              <div className="searchProfileInfo">
-                <div className="personalSearchNames">
-                  <span className="searchProfileName">Jasmine Rose</span> .
-                  <span className="usernameSearch">@jasmine.rose126</span>
-                </div>
-                <span className="searchRole">Flutter developer</span>
-                <div className="rankInfoSearch">
-                  <span className="searchRank">Supreme Master </span>
-                  <img src={rank} alt="rank" className="rankIcon" />
-                </div>
-              </div>
-              <div className="followSearch">
-                <button className="followButtonSearch">Follow</button>
-              </div>
-            </div>
-            <hr className="searchDivider" />
-            <div className="peopleBox">
-              <img
-                src={g2}
-                alt="peopleImage"
-                className="searchProfilePicture"
-              />
-              <div className="searchProfileInfo">
-                <div className="personalSearchNames">
-                  <span className="searchProfileName">Jasmine Rose</span> .
-                  <span className="usernameSearch">@jasmine.rose126</span>
-                </div>
-                <span className="searchRole">Flutter developer</span>
-                <div className="rankInfoSearch">
-                  <span className="searchRank">Supreme Master </span>
-                  <img src={rank} alt="rank" className="rankIcon" />
-                </div>
-              </div>
-              <div className="followSearch">
-                <button className="followButtonSearch">Follow</button>
-              </div>
-            </div>
-            <hr className="searchDivider" />
-            <div className="peopleBox">
-              <img
-                src={m3}
-                alt="peopleImage"
-                className="searchProfilePicture"
-              />
-              <div className="searchProfileInfo">
-                <div className="personalSearchNames">
-                  <span className="searchProfileName">Jasmine Rose</span> .
-                  <span className="usernameSearch">@jasmine.rose126</span>
-                </div>
-                <span className="searchRole">Flutter developer</span>
-                <div className="rankInfoSearch">
-                  <span className="searchRank">Supreme Master </span>
-                  <img src={rank} alt="rank" className="rankIcon" />
-                </div>
-              </div>
-              <div className="followSearch">
-                <button className="followButtonSearch">Follow</button>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

@@ -38,9 +38,8 @@ function App() {
         <Route exact path="/register">
           <Register />
         </Route>
-        <Route exact path="/profile">
-          {user ? <Profile /> : <Register />}
-        </Route>
+        <Route path="/profile/:id" component={user ? Profile : Register}
+        />
         <Route exact path="/chat2">
           {user ? <Messenger /> : <Register />}
         </Route>

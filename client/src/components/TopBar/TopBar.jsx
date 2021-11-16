@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { useState,useContext } from "react";
+import {AuthContext} from "../../context/AuthContext";
 import {
   Notifications,
   Person,
@@ -11,15 +12,18 @@ import { NavLink as Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookMessenger } from "@fortawesome/free-brands-svg-icons";
-//import Home from "../../pages/Home/Home"
 
-export class TopBar extends Component {
+function TopBar(props){
   
-  state = {search : ""}
+  const [search, setsearch] = useState("");
+  const { user } = useContext(AuthContext);
 
-  handleSubmit = ()=>{}
 
-  render() {
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    window.location.href = `/search/${search}`
+  }
+
     return (
       <div className="topbarContainer">
         <div className="topbarLeft">
@@ -28,10 +32,10 @@ export class TopBar extends Component {
           </Link>
         </div>
         <div className="topbarMiddle">
-          <div className="searchBar">
+          <form onSubmit={handleSubmit} className="searchBar">
             <Search className="searchIcon" />
-            <input type="text" placeholder="Search" className="searchInput" value={this.state.search} onChange={(e)=>{this.setState({search:e.target.value})}} onSubmit={this.handleSubmit}/>
-          </div>
+            <input type="text" placeholder="Search" className="searchInput" value={search} onChange={(e)=>{setsearch(e.target.value)}}/>
+          </form>
         </div>
         <div className="topbarRight">
           {/* <div className="topbarlinks">
@@ -86,7 +90,7 @@ export class TopBar extends Component {
             </div>
           </div>
           <div className="profile-nav">
-            <Link to="/profile">
+            <Link to={`/profile/${user._id}`}>
                 <img src={profile} alt="profile-img" className="topbarProfile" />
               
             </Link>
@@ -97,7 +101,7 @@ export class TopBar extends Component {
         </div>
       </div>
     );
-  }
+  
 }
 
 export default TopBar;
