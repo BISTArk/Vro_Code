@@ -93,8 +93,11 @@ export default function Leftbar(props) {
           <li
             className="leftbarListItem"
             onClick={() => {
-              localStorage.clear();
-              window.location.href = "/login";
+              if (window.confirm('Do you want to logout?')) {
+                localStorage.clear();
+                window.location.href = "/login";
+              }
+            
             }}
           >
             <FontAwesomeIcon icon={faPowerOff} className="leftbarIcon1" />
