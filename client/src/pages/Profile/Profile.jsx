@@ -10,8 +10,12 @@ import { AuthContext } from "../../context/AuthContext";
 import ranks from "../../assets/helper/ranks";
 
 export default function Profile(props) {
-  const { User } = useContext(AuthContext);
-  const [user, setUser] = useState(User);
+  const x = useContext(AuthContext);
+  const loggedUser = x.user;
+  const dispatch = x.dispatch;
+  const [user, setUser] = useState(loggedUser);
+
+  // console.log(x.dispatch);
 
   useEffect(() => {
     async function fetchData() {
@@ -24,6 +28,28 @@ export default function Profile(props) {
 
     fetchData();
   }, []);
+
+
+  const follow = async()=>{
+    const job = loggedUser.following.includes(user._id)?"unfollow":"follow"
+    const data = {
+      id:loggedUser._id
+    }
+    const options = {
+      method: 'PUT',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+    }
+    let response = await fetch(
+      `http://localhost:3030/api/user/${job}/${props.match.params.id}`,options
+    );
+    let jso = await response.json();
+    dispatch({type: job.toUpperCase(),payload:props.match.params.id })
+    window.location.reload()
+  }
 
   return (
     <div>
@@ -50,7 +76,7 @@ export default function Profile(props) {
                 <span className="profileInfoDesc">{user.role}</span>
               </div>
               <div className="follow-button">
-                <button className="follow-btn">Follow</button>
+                <button className="follow-btn" onClick={follow}>{loggedUser.following.includes(user._id)?"Unfollow":"Followm"}</button>
               </div>
               {/* <div className="edit-profile">
       <div className="profile">
