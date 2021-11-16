@@ -21,6 +21,7 @@ function TopBar(props){
 
   const handleSubmit = (e)=>{
     e.preventDefault()
+    if(search !== '')
     window.location.href = `/search/${search}`
   }
 

@@ -2,36 +2,21 @@ import "./LeftBarHome.css";
 import image from "../../pages/Login/images/profile-sample.jfif";
 import courseLogo1 from "../../assets/images/udemy.png"
 import courseLogo2 from "../../assets/images/coursera.png";
-import rank from "../../assets/rank-img/eagle-master.png";
-import {NavLink as Link } from "react-router-dom";
-export default function LeftBarHome(props){
+import rank1 from "../../assets/rank-img/eagle-master.png";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { NavLink as Link } from "react-router-dom";
+import ranks from "../../assets/helper/ranks"
+export default function LeftBarHome(props) {
+    const { user } = useContext(AuthContext);
 
-    const ranks=[
-        "Silver 1",
-        "Silver 2",
-        "Silver III",
-        "Silver IV",
-        "Silver Elite",
-        "Silver Elite Master",
-        "Gold Nova I",
-        "Gold Nova II",
-        "Gold Nova III",
-        "Gold Nova Master",
-        "Master Guardian I",
-        "Master Guardian II",
-        "Master Guardian Elite",
-        "Distinguished Master Guardian",
-        "Legendary Eagle",
-        "Legendary Eagle Master",
-        "Supreme Master First Class",
-        "Global VroCoder",
-        "TUR_VRO"
-    ]
-    console.log(props.user.rank/200,ranks[props.user.rank/200]);
+    
+    console.log(props.user.rank / 100, ranks[props.user.rank / 100]);
+    
      return(
         <div className = "LeftBarHome">
            <div className = "leftbarWrapper">
-               <Link to="/profile" style={{ textDecoration: 'none' , color: 'black'}}>
+               <Link to= {`/profile/${user._id}`} style={{ textDecoration: 'none' , color: 'black'}}>
                <div className = "ProfileCard">
                    <img src={image} alt="profile-img" className = "ProfileImage" />
                     <hr className = "hr-card"/>
@@ -57,11 +42,11 @@ export default function LeftBarHome(props){
 
                     <div className="Rank">
                         <div className = "RankLogo">
-                            <img src={rank} alt="rank-logo" className = "RankImg"/>
+                            <img src={rank1} alt="rank-logo" className = "RankImg"/>
                         </div>
                             <div className = "Elo">
-                            <span className = "RankName">{ranks[Math.floor(props.user.rank/200)]}</span>
-                            <span className = "RankScore">{props.user.rank%200}/200</span>
+                            <span className = "RankName">{ranks[Math.floor(props.user.rank/100)]}</span>
+                                 <span className="RankScore">{props.user.rank}/{100-(props.user.rank%100)+props.user.rank}</span>
                             </div>
                     </div>
                </div>
