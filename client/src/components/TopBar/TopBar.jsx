@@ -90,9 +90,11 @@ export class TopBar extends Component {
                 <img src={profile} alt="profile-img" className="topbarProfile" />
               
             </Link>
+            <Link to="/edit" style={{textDecoration: "none", color: "black"}}>
             <div className="edit">
               <FontAwesomeIcon icon={faEdit} className="edit-profile-top"/>
               </div>
+              </Link>
             </div>
         </div>
       </div>

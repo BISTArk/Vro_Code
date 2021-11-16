@@ -5,7 +5,7 @@ import ide from "../../assets/images/vrocode-ide.png";
 import { faExternalLinkSquareAlt } from "@fortawesome/free-solid-svg-icons";
 function Rightbar() {
   function redirectVro() {
-    window.open("http://localhost:3001/", "_blank");
+    window.open("http://localhost:4000/", "_blank");
   }
   return (  
     <div className="RightBarHome">

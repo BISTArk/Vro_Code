@@ -31,13 +31,13 @@ function Feed() {
         <div className="post-btns">
           <div className="post-upload">
             <div className="upload-option">
-              <FontAwesomeIcon icon={faCode} />
-              <label htmlFor="postCode">Code</label>
+              <FontAwesomeIcon icon={faCode} /> 
+              <label htmlFor="postCode"> Code</label>
               <input type="file" id="postCode" style={{display: "none"}} />
             </div>
             <div className="upload-option">
               <Image className="svg-icon" />
-              <label htmlFor="postImg">Photo/Video</label>
+              <label htmlFor="postImg"> Media</label>
               <input type="file" id="postImg" style={{display: "none"}}/>
             </div>
             <div className="upload-option">
@@ -45,7 +45,7 @@ function Feed() {
               <span>Github</span>
             </div>
           </div>
-          <div className="post-btn ">Post</div>
+          <div className="post-btn "> Post</div>
         </div>
       </div>
       <div className="divider"></div>

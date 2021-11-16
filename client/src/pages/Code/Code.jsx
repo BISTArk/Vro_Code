@@ -11,7 +11,10 @@ import codesandbox from "../../assets/images/codesandbox.png"
 import codepen from "../../assets/images/codepen.png";
 import repl from "../../assets/images/repl.png";
 
-export default function Code(){
+export default function Code() {
+    function redirectVro() {
+        window.open("http://localhost:4000/", "_blank");
+      }
     return(
         <div>
             <TopBar/>
@@ -35,11 +38,11 @@ export default function Code(){
                    <img src ={vrocode} alt = "hackerearth"/>
                              </div>
                    <div className = "btn">
-                   <Link to = {{pathname: "https://www.hackerearth.com/"}} target="_blank">
-                   <button className="solveBtn">
+                  
+                   <button className="solveBtn" onClick={redirectVro}>
                        Try Our IDE now!
                     </button>
-                    </Link>
+                   
                     </div>
                 </div>
 
