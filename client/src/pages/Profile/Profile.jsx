@@ -53,11 +53,14 @@ export default function Profile(props) {
               <h4 className="profileInfoName" >{user.Name}</h4>
               <span className="profileInfoDesc" >{user.role}</span>
             </div>
-            <div className="follow-button">
-              <button className="follow-btn">
-                Follow
-              </button>
-            </div>
+            {() => {
+              if(user._id === user._id)
+              <div className="follow-button">
+                <button className="follow-btn">
+                  Follow
+                </button>
+              </div>
+            }}
             {/* <div className="edit-profile">
               <button className="edit-btn">
                 Edit profile

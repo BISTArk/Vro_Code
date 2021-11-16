@@ -5,6 +5,7 @@ import g2 from "../../assets/profileImages/g2.jpg";
 import m1 from "../../assets/profileImages/m1.jpg";
 import m3 from "../../assets/profileImages/m3.jpg";
 import rank from "../../assets/rank-img/black/4.png";
+import {NavLink as Link} from "react-router-dom"
 import "./Search.css";
 import ranks from "../../assets/helper/ranks";
 
@@ -35,9 +36,11 @@ class Search extends Component {
           <div className="peopleBox">
             <img src={m1} alt="peopleImage" className="searchProfilePicture" />
             <div className="searchProfileInfo">
-              <div className="personalSearchNames">
+                <div className="personalSearchNames">
+                  <Link to="/profile/">
                 <span className="searchProfileName">{user.Name}</span> .
                 <span className="usernameSearch">{user.username}</span>
+                </Link>
               </div>
               <span className="searchRole">{user.role}</span>
               <div className="rankInfoSearch">

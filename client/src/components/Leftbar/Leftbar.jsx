@@ -19,29 +19,31 @@ export default function Leftbar(props) {
   const { user, dispatch } = useContext(AuthContext);
 
   const handleDelete = async () => {
-    const data = { id: props.userid };
-    const options = {
-      method: "DELETE",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify(data),
-    };
+    if (window.confirm("Do you want to delete your profile? Press OK if yes")) {
+      const data = { id: props.userid };
+      const options = {
+        method: "DELETE",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(data),
+      };
 
-    dispatch({ type: "LOGIN_START" });
-    try {
-      let response = await fetch(
-        `http://localhost:3030/api/user/${user._id}`,
-        options
-      );
-      let confirm = await response.json();
-      console.log(confirm);
-      dispatch({ type: "LOGIN_FAILURE" });
-      window.location.href = "/login";
-    } catch (err) {
-      dispatch({ type: "LOGIN_SUCCESS", payload: user });
+      dispatch({ type: "LOGIN_START" });
+      try {
+        let response = await fetch(
+          `http://localhost:3030/api/user/${user._id}`,
+          options
+        );
+        let confirm = await response.json();
+        console.log(confirm);
+        dispatch({ type: "LOGIN_FAILURE" });
+        window.location.href = "/login";
+      } catch (err) {
+        dispatch({ type: "LOGIN_SUCCESS", payload: user });
+      }
     }
   };
 

@@ -7,11 +7,15 @@ import {
   ShareOutlined,
   TurnedInNot,
 } from "@material-ui/icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as farHeart} from "@fortawesome/free-regular-svg-icons";
 
 
 export default function Post(props) {
   const [comment, setComment] = useState("");
   const [canComment, setCanComment] = useState(false)
+  const [clicked, setClicked] = useState(false)
 
   const otherComments = [
     {
@@ -49,7 +53,7 @@ export default function Post(props) {
       <div className="content">{props.content}</div>
       <div className="reactions">
         <div className="react">
-          <FavoriteBorderOutlined />
+          <FontAwesomeIcon icon={!clicked?farHeart:faHeart} onClick={()=>{setClicked(!clicked)}}  />
           <CommentOutlined onClick={()=>{setCanComment(!canComment)}}/>
           <ShareOutlined />
         </div>
