@@ -20,7 +20,7 @@ router.post("/register", async (req, res) => {
 
     //Save user to DB
     const user = await newUser.save();
-    res.status(200).send("DONE VRO!!");
+    res.status(200).send("Works!");
   } catch (err) {
     res.status(500).json(err);
   }
@@ -43,7 +43,7 @@ router.post("/login", async (req, res) => {
     let x= user.rank +1;
     console.log(user);
     await User.findByIdAndUpdate(user._id,{rank:x})
-    console.log("HELLO BHAI");
+    console.log("Login success");
     const { password, updatedAt, ...other } = user._doc;
     console.log(other);
     res.status(200).json({user:other});

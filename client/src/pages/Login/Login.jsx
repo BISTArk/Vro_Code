@@ -104,7 +104,7 @@ class Login extends Component {
                             this.setState({ password: e.target.value });
                           }}
                         />
-                        <FontAwesomeIcon icon={faEye} className="eye" onClick={()=>{this.setState({see:!(this.state.see)})}}/>
+                        <FontAwesomeIcon icon={!this.state.see?faEye:faEyeSlash} className="eye" onClick={()=>{this.setState({see:!(this.state.see)})}}/>
                       </div>
                     </div>
                     <div className="form-btns">
