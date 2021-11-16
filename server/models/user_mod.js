@@ -51,7 +51,7 @@ const userSchema = new Schema({
     },
     rank:{
         type:Number,
-        default:0
+        default:1
     },
       postCount:{
         type:Number,

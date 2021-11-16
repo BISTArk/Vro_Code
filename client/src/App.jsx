@@ -68,9 +68,8 @@ function App() {
         <Route exact path="/friends/following">
           {user ? <Following /> : <Register />}
         </Route>
-        <Route exact path="/bookmarks">
-          {user ? <Bookmark /> : <Register />}
-        </Route>
+        <Route exact path="/bookmarks" component =  {user ? Bookmark : Register}/>
+        <Route path="/search/:term" component={user ? Search : Register }/>
       </Switch>
     </Router>
   );

@@ -9,6 +9,7 @@ const cors = require("cors");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/post");
+const searchRoute = require("./routes/search");
 const conversationRoute = require("./routes/conversations");
 const messageRoute = require("./routes/messages");
 const router = express.Router();
@@ -46,6 +47,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/post", postRoute);
 app.use("/api/conversations",conversationRoute);
 app.use("/api/messages",messageRoute);
+app.use("/api/search",searchRoute);
 
 app.listen(3030, () => {
   console.log("server running at 3030");
