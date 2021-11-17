@@ -131,7 +131,7 @@ class Edit extends Component {
                       >
                         Update
                       </button>
-                      <Link to="/profile">
+                      <Link to={`/profile/${user._id}`}>
                         <button className="cancelButton">Cancel</button>
                       </Link>
                     </div>

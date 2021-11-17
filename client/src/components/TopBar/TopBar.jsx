@@ -91,7 +91,7 @@ function TopBar(props){
             </div>
           </div>
           <div className="profile-nav">
-            <Link to={`/profile/${user._id}`}>
+            <Link to={`/profile/${user._id}`} onClick={() => { window.location.href = `/profile/${user._id}` }}>
                 <img src={profile} alt="profile-img" className="topbarProfile" />
               
             </Link>
