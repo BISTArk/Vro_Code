@@ -75,9 +75,9 @@ export default function Profile(props) {
                 <h4 className="profileInfoName">{user.Name}</h4>
                 <span className="profileInfoDesc">{user.role}</span>
               </div>
-              <div className="follow-button">
+              {(loggedUser._id !== user._id) && <div className="follow-button">
                 <button className="follow-btn" onClick={follow}>{loggedUser.following.includes(user._id)?"Unfollow":"Followm"}</button>
-              </div>
+              </div>}
               {/* <div className="edit-profile">
       <div className="profile">
         <Leftbar userid={(props.userid||user._id)}/>
