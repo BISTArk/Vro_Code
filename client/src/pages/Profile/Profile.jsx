@@ -50,6 +50,7 @@ export default function Profile(props) {
       options
     );
     let jso = await response.json();
+    console.log(jso)
     dispatch({ type: job.toUpperCase(), payload: props.match.params.id });
     window.location.reload();
   };
@@ -85,7 +86,7 @@ export default function Profile(props) {
                   <button className="follow-btn" onClick={follow}>
                     {loggedUser.following.includes(user._id)
                       ? "Unfollow"
-                      : "Follom"}
+                      : "Follow"}
                   </button>
                 </div>
               )}
