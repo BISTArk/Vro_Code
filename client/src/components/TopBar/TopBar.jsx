@@ -73,7 +73,7 @@ function TopBar(props){
 
             <div className="topbarIconItem">
               <Link
-                to="/Chat2"
+                to="/Chat"
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <FontAwesomeIcon icon={faFacebookMessenger} />

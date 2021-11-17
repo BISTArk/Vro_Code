@@ -47,7 +47,7 @@ class Edit extends Component {
     }
     // console.log(response)
     alert("Updated successfully!");
-    window.location.href = "/profile";
+    window.location.href = `/profile/${user._id}`;
   };
 
   render() {

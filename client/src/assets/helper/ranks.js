@@ -1,14 +1,25 @@
 const ranks=[
     "Novice",
+    "Radiant",
     "Gaurdian",
     "Eagle Master",
-    "Distinguished Master",
     "Legendary Elite",
     "Silver Elite Master",
     "Souvenir",
 ]
 
-var rankArray = new Array();
 
 
-export default ranks
+
+const rankImg = [
+    './api/rank-img/white/1.png',
+    './api/rank-img/white/2.png',
+    './api/rank-img/white/3.png',
+    './api/rank-img/white/4.png',
+    './api/rank-img/white/5.png',
+    './api/rank-img/white/6.png',
+    './api/rank-img/white/7.png',
+    
+]
+const arrayobj = {ranks, rankImg}
+export default arrayobj
