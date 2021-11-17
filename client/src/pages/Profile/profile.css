@@ -34,12 +34,24 @@ object-fit: cover;
     justify-content: center;
     margin-top: 60px;
 }
-
+.RankListProfile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
 .profileInfoName{
     font-size: 30px;
+   
 }
+.leftContainerProfile{
+    display: flex;
+    flex-direction: column;
+}
+
 .profileInfoDesc{
     font-weight: 600;
+    font-size: 1.2rem;
 }
 h4{
     font-weight: 800;
@@ -68,7 +80,8 @@ h4{
 .FollowItemList-profile{
     display: flex;
     flex-direction: column;
-    padding: 5px;
+
+    margin-left: 35px;
 }
 .followers-title{
    
@@ -76,7 +89,23 @@ h4{
     font-weight: 600;
     font-size: 120%;
     color: #000;
+    cursor: pointer;
     
+}
+.rankProfile{
+ width: 25%;
+}
+.profileTitleProfile{
+display: flex;
+flex: row;
+
+}
+.rank-title{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 120%;
+    color: #000;
+    text-align: center;
 }
 .numberFollowers{
     display: flex;

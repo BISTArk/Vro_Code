@@ -12,12 +12,13 @@ import { NavLink as Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode, faEdit } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookMessenger } from "@fortawesome/free-brands-svg-icons";
-
+import x from "../../assets/helper/ranks"
 function TopBar(props){
   
   const [search, setsearch] = useState("");
   const { user } = useContext(AuthContext);
-
+  // const ranks = x.ranks;
+  const rankImg = x.goldRank;
 
   const handleSubmit = (e)=>{
     e.preventDefault()
@@ -73,7 +74,7 @@ function TopBar(props){
 
             <div className="topbarIconItem">
               <Link
-                to="/Chat"
+                to="/chat"
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <FontAwesomeIcon icon={faFacebookMessenger} />
@@ -95,6 +96,7 @@ function TopBar(props){
                 <img src={profile} alt="profile-img" className="topbarProfile" />
               
             </Link>
+            <img src={ rankImg[Math.floor(user.rank/100)]} alt="" className="rankTopBar" />
             <Link to="/edit" style={{textDecoration: "none", color: "black"}}>
             <div className="edit">
               <FontAwesomeIcon icon={faEdit} className="edit-profile-top"/>

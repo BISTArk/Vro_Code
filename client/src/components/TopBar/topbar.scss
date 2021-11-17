@@ -19,6 +19,13 @@
 .edit-profile-top{
     transform: scale(1.3);
 }
+.rankTopBar{
+    position: relative;
+    left: -30px;
+    bottom: -10px;
+    transform: rotate(25deg);
+    width: 15%;
+}
 .topbarContainer{
     height: 85px;
     width: 100%;

@@ -63,9 +63,13 @@
   .reactions {
     display: flex;
     justify-content: space-between;
-
+    align-items: center;
+ 
     .react {
       flex: 11;
+      vertical-align: middle;
+      
+    
 
       * {
         cursor: pointer;

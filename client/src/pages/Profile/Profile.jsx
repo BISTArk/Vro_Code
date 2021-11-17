@@ -7,12 +7,15 @@ import cover from "../../assets/profileImages/cover-img.jpg";
 import profile from "../../assets/profileImages/profile-img.jfif";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import ranks from "../../assets/helper/ranks";
+import y from "../../assets/helper/ranks";
 
 export default function Profile(props) {
   const x = useContext(AuthContext);
   const loggedUser = x.user;
   const dispatch = x.dispatch;
+
+  const ranks = y.ranks;
+  const blackRankImg = y.blackRank;
   const [user, setUser] = useState(loggedUser);
 
   // console.log(x.dispatch);
@@ -29,27 +32,27 @@ export default function Profile(props) {
     fetchData();
   }, []);
 
-
-  const follow = async()=>{
-    const job = loggedUser.following.includes(user._id)?"unfollow":"follow"
+  const follow = async () => {
+    const job = loggedUser.following.includes(user._id) ? "unfollow" : "follow";
     const data = {
-      id:loggedUser._id
-    }
+      id: loggedUser._id,
+    };
     const options = {
-      method: 'PUT',
-    mode: 'cors',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-    }
+      method: "PUT",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
     let response = await fetch(
-      `http://localhost:3030/api/user/${job}/${props.match.params.id}`,options
+      `http://localhost:3030/api/user/${job}/${props.match.params.id}`,
+      options
     );
     let jso = await response.json();
-    dispatch({type: job.toUpperCase(),payload:props.match.params.id })
-    window.location.reload()
-  }
+    dispatch({ type: job.toUpperCase(), payload: props.match.params.id });
+    window.location.reload();
+  };
 
   return (
     <div>
@@ -72,12 +75,20 @@ export default function Profile(props) {
                 />
               </div>
               <div className="profileInfo">
-                <h4 className="profileInfoName">{user.Name}</h4>
+                <div className="profileTitleProfile">
+                  <h4 className="profileInfoName">{user.Name}</h4>
+                </div>{" "}
                 <span className="profileInfoDesc">{user.role}</span>
               </div>
-              {(loggedUser._id !== user._id) && <div className="follow-button">
-                <button className="follow-btn" onClick={follow}>{loggedUser.following.includes(user._id)?"Unfollow":"Followm"}</button>
-              </div>}
+              {loggedUser._id !== user._id && (
+                <div className="follow-button">
+                  <button className="follow-btn" onClick={follow}>
+                    {loggedUser.following.includes(user._id)
+                      ? "Unfollow"
+                      : "Follom"}
+                  </button>
+                </div>
+              )}
               {/* <div className="edit-profile">
       <div className="profile">
         <Leftbar userid={(props.userid||user._id)}/>
@@ -125,11 +136,20 @@ export default function Profile(props) {
                     {user.following.length}
                   </span>
                 </div>
-                <div className="FollowItemList-profile">
-                  <span className="followers-title">Rank</span>
-                  <span className="numberFollowers">
-                    {ranks[Math.floor(user.rank / 200)]}
-                  </span>
+                <hr />
+                <div className="RankListProfile">
+                  <div className="leftContainerProfile">
+                    <span className="rank-title">Rank</span>
+                    <span className="numberFollowers">
+                      {ranks[Math.floor(user.rank / 100)]}
+                    </span>
+                  </div>
+
+                  <img
+                    src={blackRankImg[Math.floor(user.rank / 100)]}
+                    alt=""
+                    className="rankProfile"
+                  />
                 </div>
               </div>
             </div>

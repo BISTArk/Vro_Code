@@ -41,7 +41,7 @@ function App() {
         </Route>
         <Route path="/profile/:id" component={user ? Profile : Register}
         />
-        <Route exact path="/chat2">
+        <Route exact path="/chat">
           {user ? <Messenger /> : <Register />}
         </Route>
         <Route exact path="/code">
