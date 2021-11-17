@@ -1,18 +1,37 @@
 import TopBar from "../../components/TopBar/TopBar";
 import "./Friends.css";
-import LeftBar from "../../components/Leftbar/Leftbar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheckCircle,
-  faTimesCircle,
-} from "@fortawesome/free-solid-svg-icons";
 import g1 from "../../assets/profileImages/g1.jpg";
-import g2 from "../../assets/profileImages/g2.jpg";
-import m1 from "../../assets/profileImages/m1.jpg";
-import m3 from "../../assets/profileImages/m3.jpg";
 import { NavLink as Link } from "react-router-dom";
+import { useContext, useState, useEffect } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Following() {
+  const { user } = useContext(AuthContext);
+  const [result, setresult] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = { following: user.following };
+      const options = {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(data),
+      };
+      let response = await fetch(
+        `http://localhost:3030/api/user/multiple`,
+        options
+      );
+      let jso = await response.json();
+      setresult(jso);
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <div>
       <TopBar />
@@ -30,111 +49,34 @@ export default function Following() {
             </Link>
           </div>
 
-                  <div className="friendList">
-                  <h1 className="followerHeading">Followings</h1>
+          <div className="friendList">
+            <h1 className="followerHeading">Followings</h1>
             <hr />
-            <div className="friendCard">
-              <div className="followBox">
-                <img
-                  src={g1}
-                  alt="peopleImage"
-                  className="FriendsProfilePicture"
-                />
-                <div className="FriendsProfileInfo">
-                  <div className="personalFriendsNames">
-                    <span className="FriendsProfileName">Jasmine Rose</span> .
-                    <span className="usernameFriends">@jasmine.rose126</span>
+            {result.length > 0 ? (
+              result.map((x) => {
+                return (
+                  <div className="friendCard" key={x.username}>
+                    <Link to={`/profile/${x._id}`} className="followBox">
+                      <img
+                        src={g1}
+                        alt={x.Name}
+                        className="FriendsProfilePicture"
+                      />
+                      <div className="FriendsProfileInfo">
+                        <div className="personalFriendsNames">
+                          <span className="FriendsProfileName">{x.Name}</span> .
+                          <span className="usernameFriends">{x.username}</span>
+                        </div>
+                        <span className="FriendsRole">{x.role}</span>
+                      </div>
+                    </Link>
+                    <hr />
                   </div>
-                  <span className="FriendsRole">Flutter developer</span>
-                </div>
-                <div className="followFriends">
-                  <button className="followButtonFriends">Unfollow</button>
-                </div>
-              </div>
-              <hr />
-            </div>
-
-            <div className="friendCard">
-              <div className="followBox">
-                <img
-                  src={g1}
-                  alt="peopleImage"
-                  className="FriendsProfilePicture"
-                />
-                <div className="FriendsProfileInfo">
-                  <div className="personalFriendsNames">
-                    <span className="FriendsProfileName">Jasmine Rose</span> .
-                    <span className="usernameFriends">@jasmine.rose126</span>
-                  </div>
-                  <span className="FriendsRole">Flutter developer</span>
-                </div>
-                <div className="followFriends">
-                  <button className="followButtonFriends">Unfollow</button>
-                </div>
-              </div>
-              <hr />
-            </div>
-
-            <div className="friendCard">
-              <div className="followBox">
-                <img
-                  src={g1}
-                  alt="peopleImage"
-                  className="FriendsProfilePicture"
-                />
-                <div className="FriendsProfileInfo">
-                  <div className="personalFriendsNames">
-                    <span className="FriendsProfileName">Jasmine Rose</span> .
-                    <span className="usernameFriends">@jasmine.rose126</span>
-                  </div>
-                  <span className="FriendsRole">Flutter developer</span>
-                </div>
-                <div className="followFriends">
-                  <button className="followButtonFriends">Unfollow</button>
-                </div>
-              </div>
-              <hr />
-            </div>
-            <div className="friendCard">
-              <div className="followBox">
-                <img
-                  src={g1}
-                  alt="peopleImage"
-                  className="FriendsProfilePicture"
-                />
-                <div className="FriendsProfileInfo">
-                  <div className="personalFriendsNames">
-                    <span className="FriendsProfileName">Jasmine Rose</span> .
-                    <span className="usernameFriends">@jasmine.rose126</span>
-                  </div>
-                  <span className="FriendsRole">Flutter developer</span>
-                </div>
-                <div className="followFriends">
-                  <button className="followButtonFriends">Unfollow</button>
-                </div>
-              </div>
-              <hr />
-            </div>
-            <div className="friendCard">
-              <div className="followBox">
-                <img
-                  src={g1}
-                  alt="peopleImage"
-                  className="FriendsProfilePicture"
-                />
-                <div className="FriendsProfileInfo">
-                  <div className="personalFriendsNames">
-                    <span className="FriendsProfileName">Jasmine Rose</span> .
-                    <span className="usernameFriends">@jasmine.rose126</span>
-                  </div>
-                  <span className="FriendsRole">Flutter developer</span>
-                </div>
-                <div className="followFriends">
-                  <button className="followButtonFriends">Unfollow</button>
-                </div>
-              </div>
-              <hr />
-            </div>
+                );
+              })
+            ) : (
+              <div>Follow People and connect with them</div>
+            )}
           </div>
         </div>
       </div>
