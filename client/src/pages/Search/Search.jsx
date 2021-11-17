@@ -1,10 +1,8 @@
 import { Component } from "react";
 import TopBar from "../../components/TopBar/TopBar";
-import g1 from "../../assets/profileImages/g1.jpg";
-import g2 from "../../assets/profileImages/g2.jpg";
 import m1 from "../../assets/profileImages/m1.jpg";
-import m3 from "../../assets/profileImages/m3.jpg";
-import rank from "../../assets/rank-img/black/4.png";
+
+
 import { NavLink as Link } from "react-router-dom";
 import "./Search.css";
 import x from "../../assets/helper/ranks";

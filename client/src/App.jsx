@@ -15,6 +15,7 @@ import Bookmark from "./pages/Bookmark/Bookmark";
 import Search from "./pages/Search/Search";
 import Following from "./pages/Friends/Following"
 import Edit from "./pages/Edit/Edit"
+import Forget from "./pages/ForgetPassword/ForgetPassword";
 import Suggestion from "./pages/Suggestion/Suggestion"
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route exact path="/login">
           <Login />
+        </Route>
+        <Route exact path="/forget">
+          <Forget />
         </Route>
         <Route exact path="/register">
           <Register />

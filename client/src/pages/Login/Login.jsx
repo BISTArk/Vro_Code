@@ -123,8 +123,9 @@ class Login extends Component {
                       </div>
                     </div>
                     <div className="title-read">
+                      <Link to="/forget">
                       <span className="forgot-pass">Forgot password?</span>
-                      <span className="NewMember">New to VroCode?</span>
+                     </Link> <span className="NewMember">New to VroCode?</span>
                     </div>
                   </form>
                 </div>

@@ -12,6 +12,7 @@ class Edit extends Component {
     name: null,
     role: null,
     email: null,
+    password: null,
   };
 
   handleSubmit = async (e, user, dispatch) => {
@@ -22,6 +23,7 @@ class Edit extends Component {
       Name: this.state.name || user.name,
       role: this.state.role || user.role,
       email: this.state.email || user.email,
+      password: this.state.password || user.password,
       id: user._id,
     };
     const options = {
@@ -121,7 +123,20 @@ class Edit extends Component {
                         }}
                       />
                     </div>
-
+                    <div className="formElement">
+                      <label htmlFor="" className="labelEdit">
+                        Change Password :{" "}
+                      </label>
+                      <input
+                        type="password"
+                        className="editInput"
+                        placeholder="Enter new password.."
+                        value={this.state.password}
+                        onChange={(e) => {
+                          this.setState({ password: e.target.value });
+                        }}
+                      />
+                    </div>
                     <div className="buttonsEdit">
                       <button
                         className="updateButton"
