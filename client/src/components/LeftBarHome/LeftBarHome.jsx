@@ -2,16 +2,18 @@ import "./LeftBarHome.css";
 import image from "../../pages/Login/images/profile-sample.jfif";
 import courseLogo1 from "../../assets/images/udemy.png"
 import courseLogo2 from "../../assets/images/coursera.png";
-import rank1 from "../../assets/rank-img/eagle-master.png";
+import img from "../../assets/rank-img/white/image (1).png"
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { NavLink as Link } from "react-router-dom";
-import ranks from "../../assets/helper/ranks"
+import x from "../../assets/helper/ranks"
+
 export default function LeftBarHome(props) {
     const { user } = useContext(AuthContext);
+    const ranks = x.ranks;
+    const rankImg = x.rankImg;
 
-    
-    console.log(props.user.rank / 100, ranks[props.user.rank / 100]);
+    // console.log(props.user.rank / 100, ranks[props.user.rank / 100]);
     
      return(
         <div className = "LeftBarHome">
@@ -42,7 +44,7 @@ export default function LeftBarHome(props) {
 
                     <div className="Rank">
                         <div className = "RankLogo">
-                            <img src={rank1} alt="rank-logo" className = "RankImg"/>
+                            <img src={rankImg[Math.floor(props.user.rank/100)]} alt="rank-logo" className = "RankImg"/>
                         </div>
                             <div className = "Elo">
                             <span className = "RankName">{ranks[Math.floor(props.user.rank/100)]}</span>

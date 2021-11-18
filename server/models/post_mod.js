@@ -15,7 +15,11 @@ const postSchema = new Schema({
     likes:{
         type:Array,
         default:[]
-    }//Impliment Comments
+    },
+    githubLink: {
+        type: String,
+        
+    }
 },
 {
     timestamps:true

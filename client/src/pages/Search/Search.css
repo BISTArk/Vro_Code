@@ -16,6 +16,9 @@
     box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.3);
 
 }
+.searchBody{
+    height: 100vh;
+}
 .followButtonSearch:hover{
     background-color: #1E3163;
     color: #fff;

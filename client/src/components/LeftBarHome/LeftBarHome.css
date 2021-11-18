@@ -12,7 +12,7 @@
     overflow:hidden;
  }
  .Course1, .Course2{
-     background-color: rgb(236, 236, 236);
+     background-color: #f1f4f6;
      margin-top:30px;
      display: flex;
      flex-direction: row;
@@ -108,9 +108,10 @@
 }
 .RankImg
 {
-    margin-top: 5%;
-    width: 30%;
+    margin-top: 1%;
+    width: 35%;
     text-align: center;
+
 }
 .FollowItem{
     font-family: 'Poppins', sans-serif;
@@ -127,9 +128,10 @@
 .Rank{
     display: flex;
     flex-direction: column;
+    z-index: -1;
 }
 .Elo{
-    margin-top: 5%;
+    
     display: flex;
     flex-direction: column;
 }

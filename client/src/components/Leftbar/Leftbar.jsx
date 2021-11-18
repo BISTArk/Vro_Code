@@ -55,12 +55,14 @@ export default function Leftbar(props) {
             <ExploreOutlined className="leftbarIcon" />
             <span className="leftbarListText">Explore</span>
           </li> */}
+           <Link to="/" style={{ textDecoration: "none", color: "black" }}>
           <li className="leftbarListItem">
             <Home className="leftbarIcon" />
-            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+           
               <span className="leftbarListText">Home</span>
-            </Link>
+           
           </li>
+          </Link>
           <Link to="/edit" style={{ textDecoration: "none", color: "black" }}>
             <li className="leftbarListItem-alt">
               <FontAwesomeIcon icon={faEdit} className="leftbarIcon1" />
@@ -68,21 +70,25 @@ export default function Leftbar(props) {
               <span className="leftbarListText">Edit Profile</span>
             </li>
           </Link>
-          <li className="leftbarListItem">
-            <MenuBookOutlined className="leftbarIcon" />
-            <Link
+          <Link
               to="/Courses"
               style={{ textDecoration: "none", color: "black" }}
             >
+          <li className="leftbarListItem">
+            <MenuBookOutlined className="leftbarIcon" />
+          
               <span className="leftbarListText">Courses</span>
-            </Link>
+           
           </li>
+          </Link>
+          <Link to="/Code" style={{ textDecoration: "none", color: "black" }}>
           <li className="leftbarListItem">
             <FontAwesomeIcon icon={faCode} className="leftbarIcon1" />
-            <Link to="/Code" style={{ textDecoration: "none", color: "black" }}>
+           
               <span className="leftbarListText">Challenges</span>
-            </Link>
+         
           </li>
+          </Link>
           <Link
             to="/bookmarks"
             style={{ textDecoration: "none", color: "black" }}
@@ -106,7 +112,7 @@ export default function Leftbar(props) {
 
             <span className="leftbarListText">Log Out</span>
           </li>
-          <li className="leftbarListItem-alt">
+          <li className="leftbarListItem-alt" onClick={handleDelete}>
             <FontAwesomeIcon
               icon={faTrashAlt}
               className="leftbarIcon1 delete-icon"
@@ -116,7 +122,7 @@ export default function Leftbar(props) {
             <span
               className="leftbarListText"
               style={{ color: "#d11a2a" }}
-              onClick={handleDelete}
+              
             >
               {" "}
               Delete Profile
