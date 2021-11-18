@@ -6,8 +6,10 @@ export default function Conversation({ conversation, currentUser }) {
   const [user, setUser] = useState(null);
   const PF = "client/public";
 
+console.log(conversation);
+
   useEffect(() => {
-    const friendId = conversation.members.find((m) => m !== currentUser._id);
+    const friendId = conversation? conversation.members.find((m) => m !== currentUser._id):null;
 
     const getUser = async () => {
       try {
