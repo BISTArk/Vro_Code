@@ -12,21 +12,13 @@ const postRoute = require("./routes/post");
 const searchRoute = require("./routes/search");
 const conversationRoute = require("./routes/conversations");
 const messageRoute = require("./routes/messages");
-const router = express.Router();
-const path = require("path");
-const { MongoClient } = require('mongodb');
+// const router = express.Router();
+// const path = require("path");
+// const { MongoClient } = require('mongodb');
 
 dotenv.config();
 
 const uri = process.env.MONGO_URL;
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   perform actions on the collection object
-//   console.log("Connected to DataBase");
-//   console.log(collection);
-//   client.close()
-// });
 
 mongoose.connect(
   process.env.MONGO_URL,
