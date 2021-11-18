@@ -194,13 +194,13 @@
   background-size: 48px;
 }
 
-.message {
+/* .message {
   padding: 12px;
   font-size: 16px;
   border-radius: 6px;
   max-width: 60%;
   background-color: black !important;
-}
+} */
 
 .message-image {
   margin-right: 18px;
