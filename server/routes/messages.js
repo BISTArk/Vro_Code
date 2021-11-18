@@ -4,7 +4,7 @@ const Message = require("../models/Message");
 //add
 
 router.post("/", async (req,res)=>{
-    const newMessage = new newMessage(req.body)
+    const newMessage = new Message(req.body)
     try{
         const saveMessage = await newMessage.save()
         res.status(200).json(saveMessage)

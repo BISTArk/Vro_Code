@@ -11,7 +11,7 @@ export default function Following() {
 
   useEffect(() => {
     async function fetchData() {
-      const data = { following: user.following };
+      const data = { list: user.following };
       const options = {
         method: "POST",
         mode: "cors",

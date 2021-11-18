@@ -64,9 +64,11 @@ router.post("/multiple", async (req, res) => {
 
     for (const x of req.body.list) {
         const currUser = await user.findById(x);
-        console.log(currUser , x);
-      const { password, updatedAt, ...other } = currUser._doc;
-    result.push(other);
+        // console.log(currUser , x);
+      if (currUser) {
+        const { password, updatedAt, ...other } = currUser._doc;
+        result.push(other);
+      }
     }
       res.status(200).json(result);
   } catch (err) {
