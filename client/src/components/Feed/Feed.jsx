@@ -15,7 +15,7 @@ function Feed() {
   const { user } = useContext(AuthContext);
 
   const createPost = async () => {
-    const data = { userid:user._id,content: postDesc,img:"" };
+    const data = { userid: user._id, content: postDesc, img: "" };
     const options = {
       method: "POST",
       mode: "cors",
@@ -25,13 +25,9 @@ function Feed() {
       },
       body: JSON.stringify(data),
     };
-    let response = await fetch(
-      `http://localhost:3030/api/post`,
-      options
-    );
+    let response = await fetch(`http://localhost:3030/api/post`, options);
     let jso = await response.json();
     console.log(jso);
-
   };
 
   useEffect(() => {
@@ -40,16 +36,15 @@ function Feed() {
         `http://localhost:3030/api/post/all/${user._id}`
       );
       let jso = await response.json();
-      // console.log(jso);
       setPosts(jso);
     }
 
     fetchPosts();
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     async function fetchUsers() {
-      const x = posts.map(({userid})=>userid);
+      const x = posts.map(({ userid }) => userid);
       const data = { list: x };
       console.log(data);
       const options = {
@@ -66,16 +61,14 @@ function Feed() {
         options
       );
       let jso = await response.json();
-      console.log(jso);
       for (let i = 0; i < posts.length; i++) {
-          jso[i] = {...jso[i],...posts[i]};          
+        jso[i] = { ...jso[i], ...posts[i] };
       }
-      console.log(jso);
       setUsers(jso);
     }
 
-    if(posts.length>0)fetchUsers();
-  },[posts])
+    if (posts.length > 0) fetchUsers();
+  }, [posts]);
 
   return (
     <div className="feed">
@@ -112,13 +105,28 @@ function Feed() {
               <span>Github</span>
             </div>
           </div>
-          <div className="post-btn" onClick={createPost}> Post</div>
+          <div className="post-btn" onClick={createPost}>
+            {" "}
+            Post
+          </div>
         </div>
       </div>
       <div className="divider"></div>
       <div className="posts">
-        {posts.length>0?(users.map((x)=>{<Post username={x.username} postedon="26 March 2001" content={x.content} img={img}/>})):(<div>No Posts available</div>)}
-        <Post
+        {posts.length > 0 ? (
+          users.map((x) => {
+            console.log(x.username);
+            return <Post
+              username={x.username}
+              postedon={x.createdAt}
+              content={x.content}
+              img={img}
+            />;
+          })
+        ) : (
+          <div>No Posts available</div>
+        )}
+        {/* <Post
           username="Ishan Bhattacharya"
           postedon="26 March 2001"
           content="This is my first Post obviously!! DUH!!!"
@@ -135,7 +143,7 @@ function Feed() {
           postedon="26 March 2001"
           content="This is my first Post obviously!! DUH!!!"
           img={img}
-        />
+        /> */}
       </div>
     </div>
   );
