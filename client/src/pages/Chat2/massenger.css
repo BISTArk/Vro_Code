@@ -3,11 +3,11 @@
     display: flex;
   }
 
-  .chatSidebar {
+  /* .chatSidebar {
     background-color: white;
     flex: 2.5;
     padding: 5px;
-  }
+  } */
   
   .chatMenu {
     background-color: #231f20;
@@ -26,7 +26,7 @@
   
   .chatBox {
     background-color: #ecf0f3;
-    flex: 5;
+    flex: 7.5;
   }
   
   .chatBoxWrapper {
