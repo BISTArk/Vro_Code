@@ -17,6 +17,7 @@ export default function Profile(props) {
   const ranks = y.ranks;
   const blackRankImg = y.blackRank;
   const [user, setUser] = useState(loggedUser);
+  const [posts, setPosts] = useState([]);
 
   // console.log(x.dispatch);
 
@@ -27,10 +28,33 @@ export default function Profile(props) {
       );
       let jso = await response.json();
       setUser(jso);
+
+      let response1 = await fetch(
+        `http://localhost:3030/api/post/my/${user._id}`
+      );
+      let jso1 = await response1.json();
+      setPosts(jso1);
     }
 
     fetchData();
   }, []);
+
+  const createPost = async (postDesc) => {
+    const data = { userid: user._id, content: postDesc, img: "" };
+    const options = {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify(data),
+    };
+    let response = await fetch(`http://localhost:3030/api/post`, options);
+    let jso = await response.json();
+    console.log(jso);
+    window.location.reload();
+  };
 
   const follow = async () => {
     const job = loggedUser.following.includes(user._id) ? "unfollow" : "follow";
@@ -90,40 +114,6 @@ export default function Profile(props) {
                   </button>
                 </div>
               )}
-              {/* <div className="edit-profile">
-      <div className="profile">
-        <Leftbar userid={(props.userid||user._id)}/>
-        <div className="profileRight">
-          <div className="profileRightTop">
-            <div className="profileCover">
-              <img
-                src={cover}
-                alt="profileCoverImg"
-                className="profileCoverImg"
-              />
-              <img
-                src={profile}
-                alt="profileUserImg"
-                className="profileUserImg"
-              />
-            </div>
-            <div className="profileInfo">
-              <h4 className="profileInfoName" >{user.Name}</h4>
-              <span className="profileInfoDesc" >{user.role}</span>
-            </div>
-            {() => {
-              if(user._id === user._id)
-              <div className="follow-button">
-                <button className="follow-btn">
-                  Follow
-                </button>
-              </div>
-            }}
-            {/* <div className="edit-profile">
-              <button className="edit-btn">
-                Edit profile
-              </button>
-            </div> */}
               <div className="followInformation">
                 <div className="FollowItemList-profile">
                   <span className="followers-title">Followers</span>
@@ -155,7 +145,7 @@ export default function Profile(props) {
               </div>
             </div>
             <div className="profileRightBottom">
-              <Feed />
+            <Feed class="feed" posts={posts} createPost={createPost}/>
             </div>
           </div>
         </div>

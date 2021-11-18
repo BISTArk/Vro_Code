@@ -20,6 +20,19 @@ router.get("/all/:userId", async (req, res) => {
   }
 });
 
+//get all my posts
+
+router.get("/my/:userId", async (req, res) => {
+  try {
+    const currUser = await user.findById(req.params.userId);
+    const myPosts = await post.find({ userid: currUser._id });
+    res.status(200).json(myPosts);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 //Create a Post
 
 router.post("/", async (req, res) => {

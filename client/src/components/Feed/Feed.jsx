@@ -8,67 +8,10 @@ import { GitHub, Image } from "@material-ui/icons";
 import { NavLink as Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-function Feed() {
-  const [posts, setPosts] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [postDesc, setPostDesc] = useState("");
+function Feed(props) {
   const { user } = useContext(AuthContext);
-
-  const createPost = async () => {
-    const data = { userid: user._id, content: postDesc, img: "" };
-    const options = {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify(data),
-    };
-    let response = await fetch(`http://localhost:3030/api/post`, options);
-    let jso = await response.json();
-    console.log(jso);
-  };
-
-  useEffect(() => {
-    async function fetchPosts() {
-      let response = await fetch(
-        `http://localhost:3030/api/post/all/${user._id}`
-      );
-      let jso = await response.json();
-      setPosts(jso);
-    }
-
-    fetchPosts();
-  }, []);
-
-  useEffect(() => {
-    async function fetchUsers() {
-      const x = posts.map(({ userid }) => userid);
-      const data = { list: x };
-      console.log(data);
-      const options = {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify(data),
-      };
-      let response = await fetch(
-        `http://localhost:3030/api/user/multiple`,
-        options
-      );
-      let jso = await response.json();
-      for (let i = 0; i < posts.length; i++) {
-        jso[i] = { ...jso[i], ...posts[i] };
-      }
-      setUsers(jso);
-    }
-
-    if (posts.length > 0) fetchUsers();
-  }, [posts]);
+  
+  const [postDesc, setPostDesc] = useState("");
 
   return (
     <div className="feed">
@@ -105,7 +48,7 @@ function Feed() {
               <span>Github</span>
             </div>
           </div>
-          <div className="post-btn" onClick={createPost}>
+          <div className="post-btn" onClick={()=>{props.createPost(postDesc)}}>
             {" "}
             Post
           </div>
@@ -113,14 +56,15 @@ function Feed() {
       </div>
       <div className="divider"></div>
       <div className="posts">
-        {posts.length > 0 ? (
-          users.map((x) => {
+        {props.posts.length > 0 ? (
+          props.posts.map((x) => {
             console.log(x.username);
             return <Post
               username={x.username}
               postedon={x.createdAt}
               content={x.content}
               img={img}
+              key={x._id}
             />;
           })
         ) : (
