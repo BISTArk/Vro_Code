@@ -6,15 +6,16 @@ const post = require("../models/post_mod");
 
 router.get("/all/:userId", async (req, res) => {
   try {
-    const currUser = await user.findById(req.body.userId);
+    const currUser = await user.findById(req.params.userId);
     const myPosts = await post.find({ userid: currUser._id });
     const otherPosts = await Promise.all(
-      currUser.followings.map((fid) => {
+      currUser.following.map((fid) => {
         return post.find({ userid: fid });
       })
     );
     res.status(200).json(myPosts.concat(...otherPosts));
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
