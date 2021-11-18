@@ -22,6 +22,7 @@ const postSchema = new Schema({
     githubLink: {
         type: String,
     }
+    
 },
 {
     timestamps:true

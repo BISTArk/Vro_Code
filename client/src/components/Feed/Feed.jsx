@@ -60,8 +60,9 @@ function Feed(props) {
           props.posts.map((x) => {
             console.log(x.username);
             return <Post
-              username={x.username}
               postedon={x.createdAt}
+              username={x.username}
+              
               content={x.content}
               img={img}
               key={x._id}

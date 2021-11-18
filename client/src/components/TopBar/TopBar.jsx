@@ -26,11 +26,13 @@ function TopBar(props) {
 
   return (
     <div className="topbarContainer">
+       
       <div className="topbarLeft">
-        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+      <Link to="/" style={{ textDecoration: "none", color: "black" }}>
           <span className="topbarLogo">VroCode</span>
-        </Link>
+         </Link>
       </div>
+    
       <div className="topbarMiddle">
         <form onSubmit={handleSubmit} className="searchBar">
           <Search className="searchIcon" />
