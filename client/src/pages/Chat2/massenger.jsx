@@ -64,7 +64,7 @@ export default function Messenger() {
   useEffect(() => {
     const getMessages = async () => {
       try {
-        const res = await axios.get("/messages/" + currentChat?._id);
+        const res = await axios.get("http://localhost:3030/api/messages/" + currentChat?._id);
         setMessages(res.data);
       } catch (err) {
         console.log(err);
@@ -92,7 +92,7 @@ export default function Messenger() {
     });
 
     try {
-      const res = await axios.post("/messages", message);
+      const res = await axios.post("http://localhost:3030/api/messages", message);
       setMessages([...messages, res.data]);
       setNewMessage("");
     } catch (err) {
@@ -188,6 +188,7 @@ export default function Messenger() {
         </div>
         <div className="chatOnline">
           <div className="chatOnlineWrapper">
+        
             <ChatOnline
               onlineUsers={onlineUsers}
               currentId={user._id}

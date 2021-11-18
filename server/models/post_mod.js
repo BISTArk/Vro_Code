@@ -7,10 +7,13 @@ const postSchema = new Schema({
     },
     content:{
         type:String,
-        max:200
+        max:200,
+        default:"",
+        required:true
     },
     img:{
-        type:String
+        type:String,
+        default:""
     },
     likes:{
         type:Array,
@@ -18,7 +21,6 @@ const postSchema = new Schema({
     },
     githubLink: {
         type: String,
-        
     }
 },
 {
