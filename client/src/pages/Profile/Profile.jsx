@@ -30,7 +30,7 @@ export default function Profile(props) {
       setUser(jso);
 
       let response1 = await fetch(
-        `http://localhost:3030/api/post/my/${user._id}`
+        `http://localhost:3030/api/post/my/${props.match.params.id}`
       );
       let jso1 = await response1.json();
       setPosts(jso1);
