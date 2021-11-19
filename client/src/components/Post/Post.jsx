@@ -26,7 +26,6 @@ export default function Post(props) {
       content: "HELLO SAAAAAR",
     },
   ];
- 
   const handlePostDelete = async () => {
     if (window.confirm("Do you want to delete this post?")) {
       const data = { id: props.userID };
@@ -40,11 +39,12 @@ export default function Post(props) {
         body: JSON.stringify(data),
       };
       let response = await fetch(
-        `http://localhost:3030/api/post/${props.key}`,
+        `http://localhost:3030/api/post/${props.postID}`,
         options
       );
       let confirm = await response.json();
-      
+      console.log(confirm);
+      window.location.reload();
     }
   }
 
@@ -60,7 +60,6 @@ export default function Post(props) {
       );
     });
   };
- console.log("Link: " + props)
   return (
     <div className="post">
       <div className="details">

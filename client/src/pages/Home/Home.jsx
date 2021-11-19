@@ -24,7 +24,6 @@ function Home() {
     };
     let response = await fetch(`http://localhost:3030/api/post`, options);
     let jso = await response.json();
-    console.log(jso);
     window.location.reload();
   };
 
@@ -44,7 +43,6 @@ function Home() {
     async function fetchUsers() {
       const x = posts.map(({ userid }) => userid);
       const data = { list: x };
-      console.log(data);
       const options = {
         method: "POST",
         mode: "cors",
@@ -68,7 +66,6 @@ function Home() {
     if (posts.length > 0) fetchUsers();
   }, [posts]);
 
-    console.log(user);
     return (
         <div className="home">
             <TopBar/> 

@@ -20,34 +20,41 @@ export default function Profile(props) {
 
   const ranks = y.ranks;
   const blackRankImg = y.blackRank;
-  const [user, setUser] = useState(loggedUser);
+  const [user, setUser] = useState();
   const [posts, setPosts] = useState([]);
 
   // console.log(x.dispatch);
 
   useEffect(() => {
     async function fetchData() {
+      if(props.match.params.id===loggedUser._id){
+        setUser(loggedUser);
+      }else{
       let response = await fetch(
         `http://localhost:3030/api/user/${props.match.params.id}`
       );
       let jso = await response.json();
-      setUser(jso);
+      setUser(jso);}
+    }
 
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    async function fetchData() {
       let response1 = await fetch(
         `http://localhost:3030/api/post/my/${props.match.params.id}`
       );
       let jso1 = await response1.json();
       let jso2 = jso1.map(x => {
-        // console.log(x);
-        return {...x,username:user.username,profilePic:user.profilePic}
-        // console.log(x);
+        return {...x,Name:user.Name,username:user.username,profilePic:user.profilePic}
+
       });
-      console.log(jso2);
       setPosts(jso2);
     }
 
-    fetchData();
-  }, []);
+    if(user)fetchData();
+  }, [user]);
 
   const createPost = async (postDesc) => {
     const data = { userid: user._id, content: postDesc, img: "" };
