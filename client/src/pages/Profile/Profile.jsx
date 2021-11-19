@@ -33,6 +33,9 @@ export default function Profile(props) {
         `http://localhost:3030/api/post/my/${props.match.params.id}`
       );
       let jso1 = await response1.json();
+      jso1.forEach(x => {
+        x={...x,username:user.username,profilePic:user.profilePic}
+      });
       setPosts(jso1);
     }
 
