@@ -2,6 +2,16 @@ const router = require("express").Router();
 const user = require("../models/user_mod");
 const bcrypt = require("bcrypt");
 
+router.get("/leader", async (req, res) => {
+  console.log("hello frianf");
+  try {
+    const currUser = await user.find({}).sort({rank:-1}).limit(5);
+    res.status(200).json(currUser);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //update user
 router.put("/:id", async (req, res) => {
   console.log(req.body);
@@ -121,5 +131,9 @@ router.put("/unfollow/:id", async (req, res) => {
     res.status(400).json("You cant unfollow yourself");
   }
 });
+
+//get leaders
+
+
 
 module.exports = router;
