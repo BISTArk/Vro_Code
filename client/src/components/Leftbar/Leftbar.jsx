@@ -29,7 +29,7 @@ export default function Leftbar(props) {
           "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify(data),
-      };
+      }; 
 
       dispatch({ type: "LOGIN_START" });
       try {

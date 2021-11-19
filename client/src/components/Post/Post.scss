@@ -37,10 +37,21 @@
       flex: 10;
       margin-left: 2%;
 
-      .username {
+      .Name {
         font-weight: bold;
         cursor: pointer;
         font-size: 1.1rem;
+      }
+      .username {
+        cursor: pointer;
+        font-size: 0.7rem;
+      }
+      .postTitleContainer{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+      
+        align-items: center;
       }
 
       .postedon {

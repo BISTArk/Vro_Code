@@ -4,12 +4,14 @@ import {
   CommentOutlined,
   FavoriteBorderOutlined,
   GitHub,
+  PinDropRounded,
   ShareOutlined,
   TurnedInNot,
 } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faHeart as farHeart} from "@fortawesome/free-regular-svg-icons";
+import { NavLink as Link } from "react-router-dom";
+import { faHeart as farHeart, faTrashAlt} from "@fortawesome/free-regular-svg-icons";
 
 
 export default function Post(props) {
@@ -24,6 +26,27 @@ export default function Post(props) {
       content: "HELLO SAAAAAR",
     },
   ];
+ 
+  const handlePostDelete = async () => {
+    if (window.confirm("Do you want to delete this post?")) {
+      const data = { id: props.userID };
+      const options = {
+        method: "DELETE",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Alloq-Origin": "*"
+        },
+        body: JSON.stringify(data),
+      };
+      let response = await fetch(
+        `http://localhost:3030/api/post/${props.key}`,
+        options
+      );
+      let confirm = await response.json();
+      
+    }
+  }
 
   const loadComments = () => {
     return otherComments.map(({ ppic, pname, content }) => {
@@ -37,7 +60,7 @@ export default function Post(props) {
       );
     });
   };
-
+ console.log("Link: " + props)
   return (
     <div className="post">
       <div className="details">
@@ -45,10 +68,15 @@ export default function Post(props) {
           <img src={props.img} alt="Ishan" className="profilepic" />
         </div>
         <div className="details-text">
-          <div className="username">{props.username}</div>
+          <Link  to = {`/profile/${props.userID}` } style={{textDecoration: "none", color: "black"}}>
+            <div className="postTitleContainer">
+            <div className="Name">{props.postName}</div>
+            <span className="username"> . @ {props.username}</span>
+            </div>
+          </Link>
           <div className="postedon">Posted on {props.postedon}</div>
         </div>
-        <TurnedInNot className="savepost" />
+        <FontAwesomeIcon icon={faTrashAlt} onClick={handlePostDelete}/>
       </div>
       <div className="content">{props.content}</div>
       <div className="reactions">
@@ -57,9 +85,12 @@ export default function Post(props) {
           <CommentOutlined onClick={()=>{setCanComment(!canComment)}}/>
           <ShareOutlined />
         </div>
-        <div className="github">
-          <GitHub />
-        </div>
+    
+        {
+          (props.gitLink) ? (<a className="github" href={props.gitLink} target="_blank" rel="noreferrer" style={{ textDecoration: "none", color: "black" }}>
+            <GitHub />
+          </a>) : (<div></div>)
+        }
       </div>
       <div className="putComment">
         <div className="profilepic-container">

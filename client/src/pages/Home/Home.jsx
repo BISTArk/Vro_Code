@@ -11,8 +11,8 @@ function Home() {
     const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
 
-  const createPost = async (postDesc) => {
-    const data = { userid: user._id, content: postDesc, img: "" };
+  const createPost = async({ postDesc, gitLink }) => {
+    const data = { userid: user._id, content: postDesc, img: "", githubLink: gitLink };
     const options = {
       method: "POST",
       mode: "cors",

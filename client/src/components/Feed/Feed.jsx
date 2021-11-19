@@ -12,7 +12,11 @@ function Feed(props) {
   const { user } = useContext(AuthContext);
   
   const [postDesc, setPostDesc] = useState("");
-
+  const [gitLink, setGitLink] = useState("");
+  const githubPrompt = () => {
+    const link = prompt("Enter your repo link down here");
+    setGitLink(link);
+  }
   return (
     <div className="feed">
       <div className="makepost">
@@ -43,12 +47,12 @@ function Feed(props) {
               <label htmlFor="postImg"> Media</label>
               <input type="file" id="postImg" style={{ display: "none" }} />
             </div>
-            <div className="upload-option">
+            <div className="upload-option" onClick={githubPrompt}>
               <GitHub className="svg-icon" />
               <span>Github</span>
             </div>
           </div>
-          <div className="post-btn" onClick={()=>{props.createPost(postDesc)}}>
+          <div className="post-btn" onClick={() => { props.createPost({ postDesc, gitLink})}}>
             {" "}
             Post
           </div>
@@ -60,9 +64,11 @@ function Feed(props) {
           props.posts.map((x) => {
             console.log(x.username);
             return <Post
+              postName = {x.Name}
+              userID = {x.userid}
               postedon={x.createdAt}
               username={x.username}
-              
+              gitLink = {x.githubLink}
               content={x.content}
               img={img}
               key={x._id}
