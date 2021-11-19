@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    
 }
 
 .followerHeading{
@@ -89,8 +90,11 @@ box-shadow: -74px -3px 35px -7px rgba(0,0,0,0.27);
 
 }
 .flexContainerFriends{
+    height: calc(100vh - 50px);
     display: flex;
+    box-sizing: border-box;
     flex-direction: row;
+    
 
 }
 .followButtonFriends:hover{

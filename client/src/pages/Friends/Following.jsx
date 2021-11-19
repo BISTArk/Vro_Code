@@ -56,7 +56,7 @@ export default function Following() {
               result.map((x) => {
                 return (
                   <div className="friendCard" key={x.username}>
-                    <Link to={`/profile/${x._id}`} className="followBox">
+                    <Link to={`/profile/${x._id}`} style={{ textDecoration: "none", color: "black" }} className="followBox">
                       <img
                         src={g1}
                         alt={x.Name}
