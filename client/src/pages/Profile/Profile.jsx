@@ -39,7 +39,7 @@ export default function Profile(props) {
       let jso1 = await response1.json();
       let jso2 = jso1.map(x => {
         // console.log(x);
-        return {...x,username:user.username,profilePic:user.profilePic}
+        return {...x,Name: user.Name, username:user.username,profilePic:user.profilePic}
         // console.log(x);
       });
       console.log(jso2);

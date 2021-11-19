@@ -53,4 +53,39 @@ router.post("/login", async (req, res) => {
   }
 });
 
+//Forget password
+router.post("/forget", async (req, res) => {
+  try {
+      let mail = req.body.email;
+      
+      var newPassword = '';
+      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var charactersLength = characters.length;
+      for (var i = 0; i < 8; i++) {
+          newPassword += characters.charAt(Math.floor(Math.random() *
+              charactersLength));
+      }
+      // found.password = newPassword;
+    const salt = await bcrypt.genSalt(10);
+    const hashed = await bcrypt.hash(newPassword, salt);
+    let found = await User.find({ email: mail }).updateOne({
+      $set: {password: hashed}
+    });
+
+    
+      // await found.save();
+    
+    if (found.modifiedCount>0) {
+      console.log( found)
+      res.status(200).json(newPassword);
+      
+    }
+    else res.status(400).json("DB error")
+  }
+  catch (err) {
+      console.log(err);
+      res.status(404).json("Cannot find the email")
+  }
+})
+
 module.exports = router;
