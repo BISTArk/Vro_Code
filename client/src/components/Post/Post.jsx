@@ -75,7 +75,7 @@ export default function Post(props) {
           </Link>
           <div className="postedon">Posted on {props.postedon}</div>
         </div>
-        <FontAwesomeIcon icon={faTrashAlt} onClick={handlePostDelete}/>
+        <FontAwesomeIcon icon={faTrashAlt} onClick={handlePostDelete} style={{cursor: "pointer"}}/>
       </div>
       <div className="content">{props.content}</div>
       <div className="reactions">

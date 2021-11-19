@@ -10,7 +10,6 @@ import { AuthContext } from "../../context/AuthContext";
 
 function Feed(props) {
   const { user } = useContext(AuthContext);
-  
   const [postDesc, setPostDesc] = useState("");
   const [gitLink, setGitLink] = useState("");
   const githubPrompt = () => {

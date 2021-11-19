@@ -7,11 +7,12 @@ const post = require("../models/post_mod");
 router.get("/all/:userId", async (req, res) => {
   try {
     const currUser = await user.findById(req.params.userId);
-    const myPosts = await post.find({ userid: currUser._id }).sort({ createdAt: 'desc' }).exec();
+    const myPosts = await post.find({ userid: currUser._id }).sort({time : -1 }).exec();
    
     const otherPosts = await Promise.all(
       currUser.following.map((fid) => {
-        return post.find({ userid: fid }).sort({createdAt: 'desc'}).exec();
+        
+        return post.find({ userid: fid }).sort({time: -1}).exec();
       })
     );
     res.status(200).json(myPosts.concat(...otherPosts));

@@ -46,7 +46,7 @@ function Rightbar() {
                 <img src="./images/profile-sample.png" alt={username} />
               </div>
               <div className="details">
-                <span className="username">{username}</span>
+                <span className="usernameBoard">{username}</span>
                 <div className="points">
                   <span className="elo">{rank}</span>
                 </div>

@@ -1,5 +1,4 @@
 .RightBarHome {
- 
   width: 30%;
   background-color: white;
   padding: 20px;
@@ -61,18 +60,22 @@
       margin-top: 1%;
       font-size: 1.4rem;
     }
-
+.usernameBoard{
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
     .leaderRow {
       display: flex;
       width: 100%;
       height: 5%;
-      padding: 4% 0%;
+      padding: 5% 0%;
 
       .profilepic {
-        flex: 6;
+        flex: 3;
 
         img {
-          width: 70%;
+          width: 100%;
           border-radius: 50%;
         }
       }
@@ -85,7 +88,8 @@
 
         .points {
           .elo {
-              margin: 0 5%;
+              margin: 0 ;
+              font-size: 0.8rem;
           }
           .grow-elo {
             color: greenyellow;
