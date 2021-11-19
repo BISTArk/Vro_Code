@@ -13,6 +13,7 @@ import PostPage from "./pages/PostPage/PostPage";
 import Friends from "./pages/Friends/Friends";
 import Bookmark from "./pages/Bookmark/Bookmark";
 import Search from "./pages/Search/Search";
+import ImageUpload from "./pages/ImageUpload/ImageUpload";
 import Following from "./pages/Friends/Following"
 import Edit from "./pages/Edit/Edit"
 import Forget from "./pages/ForgetPassword/ForgetPassword";
@@ -42,6 +43,9 @@ function App() {
         </Route>
         <Route exact path="/register">
           <Register />
+        </Route>
+        <Route exact path="/imageupload">
+          <ImageUpload />
         </Route>
         <Route path="/profile/:id" component={user ? Profile : Register}
         />

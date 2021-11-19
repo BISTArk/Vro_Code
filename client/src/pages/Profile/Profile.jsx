@@ -3,8 +3,12 @@ import "./profile.css";
 import Topbar from "../../components/TopBar/TopBar";
 import Leftbar from "../../components/Leftbar/Leftbar";
 import Feed from "../../components/Feed/Feed";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NavLink as Link } from "react-router-dom";
+import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import cover from "../../assets/profileImages/cover-img.jpg";
 import profile from "../../assets/profileImages/profile-img.jfif";
+
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import y from "../../assets/helper/ranks";
@@ -94,11 +98,16 @@ export default function Profile(props) {
           <div className="profileRight">
             <div className="profileRightTop">
               <div className="profileCover">
+                {loggedUser._id === user._id && (
+                <Link to={`/imageupload`}>
+                <FontAwesomeIcon icon={faCamera} className="cameraIcon" />
+                </Link>)}
                 <img
                   src={cover}
                   alt="profileCoverImg"
                   className="profileCoverImg"
                 />
+               
                 <img
                   src={profile}
                   alt="profileUserImg"

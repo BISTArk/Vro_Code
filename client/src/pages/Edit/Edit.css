@@ -4,10 +4,36 @@
     font-family: 'Poppins', sans-serif;
 
 }
+.editFullBody{
+    min-height: 100vh;
+}
+.editBody{
+    height: 100vh;
+    background-image: url(../Login/images/bg4.jpg);
+    background-repeat:no-repeat ;
+    background-size:cover ;
+}
+.editBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position:fixed;
+    background: rgba(255, 255, 255, 0.219);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.288);
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border: 1px solid rgba(255, 255, 255, 0.158);
+    margin:50px 500px 0 500px;
+    padding: 30px 300px 0 300px;
 
+    border-radius: 20px;
+}
 .editHeading{
-    padding: 20px 0 3px 50px;
+   
     text-align: left;
+    color: #fff;
 }
 .editInput{
     height: 35px;
@@ -18,7 +44,7 @@
     font-weight: 200;
     margin: 3px;
     padding-left: 10px;
-    width: 20%;
+    width: 100%;
 }
 
 .updateButton{
@@ -48,9 +74,9 @@
 .cancelButton{
     height: 50px;
     border-radius: 10px;
-    border: 1px solid #1E3163;
+    border: 1px solid #FFF;
     background-color: transparent;
-    color: #1E3163;
+    color: #fff;
     font-size: 1.2rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
@@ -62,6 +88,7 @@
 .cancelButton:hover{
     background-color: #1E3163;
     color: #fff;
+    border: 1px solid #1E3163;
 
 }
 .buttonsEdit{
@@ -84,4 +111,5 @@
 
 .labelEdit{
     font-weight: 500;
+    color: #fff;
 }

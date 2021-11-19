@@ -1,0 +1,62 @@
+.imgUpload{
+    height: 100vh;
+    background-image: url('../Login/images/bg3.jpg');
+    background-repeat: no-repeat;
+   background-size:cover ;
+
+}
+.uploadPicH1{
+    text-align: center;
+    padding: 60px;
+}
+.labelUpload{
+    font-size: 1.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: #1E3163;
+    
+}
+.formElementUpload{
+    padding: 20px;
+}
+.uploadButton{
+    cursor: pointer;
+    margin-right: 20px;
+    transform: scale(2);
+}
+.uploadForm{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #fff;
+    margin: 20px 500px 0 500px;
+    padding: 50px 0 50px 0;
+    background: rgba(255, 255, 255, 0.219);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.288);
+    backdrop-filter: blur( 5px );
+    -webkit-backdrop-filter: blur( 5px );
+    border: 1px solid rgba(255, 255, 255, 0.158);
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+
+}
+.cancelUpload{
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #1E3163;
+    background-color: transparent;
+    color: #1E3163;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    padding: 12px 20px;
+    transition: 0.5s;
+}
+.cancelUpload:hover{
+    background-color: #1E3163;
+    color: #fff;
+    border: 1px solid #1E3163;
+}

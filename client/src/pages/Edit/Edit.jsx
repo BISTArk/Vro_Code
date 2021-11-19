@@ -57,14 +57,14 @@ class Edit extends Component {
       <AuthContext.Consumer>
         {({ user, dispatch }) => {
           return (
-            <div>
+            <div className = "editFullBody">
               <TopBar />
 
               <div className="editBody">
                 <div className="editBox">
                   <div className="topContainerEdit">
                     <h1 className="editHeading">Edit profile</h1>
-                    <hr className="edit-hr" />
+                   
                   </div>
                   <form action="" id="editForm" className="formEdit">
                     <div className="formElement">

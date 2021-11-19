@@ -4,17 +4,18 @@ import "./conversation.css";
 
 export default function Conversation({ conversation, currentUser }) {
   const [user, setUser] = useState(null);
-  const PF = "client/public";
+  const PF = currentUser.profilePic;
 
-console.log(conversation);
+console.log(currentUser.profilePic);
 
   useEffect(() => {
     // const friendId = conversation? conversation.members.find((m) => m !== currentUser._id):null;
     const friendId =  conversation.members.find((m) => m !== currentUser._id);
+    console.log(friendId)
 
     const getUser = async () => {
       try {
-        const res = await axios("/users?userId=" + friendId);
+        const res = await axios("http://localhost:3030/api/user/" + friendId);
         console.log(res)
         setUser(res.data);
       } catch (err) {
@@ -31,8 +32,8 @@ console.log(conversation);
           className="conversationImg"
           src=
           {
-            user?.profilePicture
-              ? PF + user.profilePicture
+            user?.profilePic
+              ? PF + user.profilePic
               : PF + "images/profile-sample.png"
           }
           alt="sdf"

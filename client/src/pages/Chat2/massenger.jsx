@@ -20,17 +20,17 @@ export default function Messenger() {
   const { user } = useContext(AuthContext);
   const scrollRef = useRef();
 
-  // console.log(user)
-    useEffect(() => {
-      socket.current = io("ws://localhost:3020");
-      socket.current.on("getMessage", (data) => {
-        setArrivalMessage({
-          sender: data.senderId,
-          text: data.text,
-          createdAt: Date.now(),
-        });
+  // console.log(user.following)
+  useEffect(() => {
+    socket.current = io("ws://localhost:3060");
+    socket.current.on("getMessage", (data) => {
+      setArrivalMessage({
+        sender: data.senderId,
+        text: data.text,
+        createdAt: Date.now(),
       });
-    }, []);
+    });
+  }, []);
 
   useEffect(() => {
     arrivalMessage &&
@@ -38,21 +38,21 @@ export default function Messenger() {
       setMessages((prev) => [...prev, arrivalMessage]);
   }, [arrivalMessage, currentChat]);
 
-    useEffect(() => {
-      socket.current.emit("addUser", user._id);
-      socket.current.on("getUsers", (users) => {
-        setOnlineUsers(
-          user.following.filter((f) => users.some((u) => u.userId === f))
-        );
-      });
-    }, [user]);
+  useEffect(() => {
+    socket.current.emit("addUser", user._id);
+    socket.current.on("getUsers", (users) => {
+      setOnlineUsers(
+        user.following.filter((f) => users.some((u) => u.userId === f))
+      );
+    });
+  }, [user]);
 
   useEffect(() => {
     const getConversations = async () => {
       try {
         const res = await axios.get("/conversations/" + user._id);
         // const te = await res;
-        // console.log(te);
+        // console.log(res);
         setConversations(res.data);
       } catch (err) {
         console.log(err);
@@ -100,6 +100,14 @@ export default function Messenger() {
     }
   };
 
+  // const handleSearch = async (e) => {
+  //   e.preventDefault();
+  //   const search = {
+  //     senderId = user._id,
+  //     receiverId = receiverId
+  //   };
+  // }
+
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -115,11 +123,15 @@ export default function Messenger() {
         </div> */}
         <div className="chatMenu">
           <div className="chatMenuWrapper">
-            <input placeholder="Search for friends" className="chatMenuInput" />
+              <input 
+              placeholder="Search for friends" 
+              className="chatMenuInput" />
+              {/* onChange={(e) => setConversations(e.target.value) } 
+              value= {receiverId} /> */}
             {/* <Conversation/> */}
             {conversations.map((c) => (
               <div onClick={() => setCurrentChat(c)}>
-                
+
                 <Conversation conversation={c} currentUser={user} />
               </div>
             ))}
@@ -174,7 +186,7 @@ export default function Messenger() {
                     value={newMessage}
                   ></textarea>
                   <button className="chatSubmitButton" onClick={handleSubmit} >
-             
+
                     Send
                   </button>
                 </div>
@@ -188,7 +200,7 @@ export default function Messenger() {
         </div>
         <div className="chatOnline">
           <div className="chatOnlineWrapper">
-        
+
             <ChatOnline
               onlineUsers={onlineUsers}
               currentId={user._id}
