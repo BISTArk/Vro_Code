@@ -28,7 +28,7 @@ class Edit extends Component {
     };
     const options = {
       method: "PUT",
-      mpde: "cors",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
