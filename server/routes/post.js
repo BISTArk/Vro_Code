@@ -50,7 +50,9 @@ router.post("/", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    const currPost = post.findById(req.params.id);
+    console.log(req.params);
+    const currPost = await post.findById(req.params.id);
+    console.log(currPost ,req.body.id);
     if (currPost.userid === req.body.id) {
       await currPost.deleteOne();
       res.status(200).json("Post has been successfully deleted");
@@ -58,6 +60,7 @@ router.delete("/:id", async (req, res) => {
       res.status(403).json("You cant delete the posts that u didnt create");
     }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
