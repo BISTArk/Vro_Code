@@ -1,3 +1,4 @@
+
 const io = require("socket.io")(3060, {
   cors: {
     origin: "http://localhost:3000",
@@ -28,15 +29,16 @@ io.on("connection", (socket) => {
   //take userId and socketId from user
   socket.on("addUser", (userId) => {
     socket.id = Math.random();
-    socketId = socket.id
+    let socketId = socket.id
     SOCKET_LIST[socketId] = socket;
-    addUser(userId, socketId);
+    addUser(userId, socket.id);
     io.emit("getUsers", users);
   });
 
   //send and get message
   socket.on("sendMessage", ({ senderId, receiverId, text }) => {
     const user = getUser(receiverId);
+    console.log(user);
     io.to(socketId).emit("getMessage", {
       senderId,
       text,
