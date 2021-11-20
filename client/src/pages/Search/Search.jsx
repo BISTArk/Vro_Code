@@ -31,7 +31,7 @@ class Search extends Component {
       return this.state.result.map((user) => {
         return (
        
-          <div key={user._id}>
+          <div key={user._id} className="searchBoxInfo">
             <div className="peopleBox">
               <img
                 src={m1}
@@ -51,9 +51,9 @@ class Search extends Component {
                   
                 </div>
               </div>
-              <div className="followSearch">
+              {/* <div className="followSearch">
                 <button className="followButtonSearch">Follow</button>
-              </div>
+              </div> */}
             </div>
             <hr className="searchDivider" />
           </div>
