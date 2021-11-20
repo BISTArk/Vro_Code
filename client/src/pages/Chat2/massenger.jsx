@@ -110,7 +110,7 @@ export default function Messenger() {
     const searchName = search;
 
     try{
-      const res = await axios.post(`http://localhost:3030/api/conversations/${searchName}`)
+      const res = await axios.post(`http://localhost:3030/api/conversations/${searchName}`);
       console.log(res);
     }catch(err){
       console.log(err);
