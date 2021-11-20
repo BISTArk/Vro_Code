@@ -35,9 +35,8 @@ function Home() {
       let jso = await response.json();
       setPosts(jso);
     }
-
     fetchPosts();
-  }, []);
+  }, [user._id]);
 
   useEffect(() => {
     async function fetchUsers() {
