@@ -21,6 +21,7 @@ const io = require("socket.io")(3060, {
   
   io.on("connection", (socket) => {
     //when ceonnect
+    socket.id = Math.random();
     console.log("a user connected.");
   
     //take userId and socketId from user
