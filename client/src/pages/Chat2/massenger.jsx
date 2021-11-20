@@ -23,7 +23,7 @@ export default function Messenger() {
 
   // console.log(user.following)
   useEffect(() => {
-    socket.current = io("ws://localhost:3060");
+    socket.current = io("ws://localhost:3060", {reconnect: true});
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
@@ -107,10 +107,9 @@ export default function Messenger() {
     //   senderId = user._id,
     //   receiverId = search
     // };
-    const searchName = search;
 
     try{
-      const res = await axios.post(`http://localhost:3030/api/conversations/${searchName}`);
+      const res = await axios.get(`http://localhost:3030/api/conversations/`, );
       console.log(res);
     }catch(err){
       console.log(err);
