@@ -30,7 +30,7 @@ class Search extends Component {
     if (this.state.result.length > 0) {
       return this.state.result.map((user) => {
         return (
-       
+          <Link to={`/profile/${user._id}`} style={{textDecoration:"none", color: "black"}}>
           <div key={user._id} className="searchBoxInfo">
             <div className="peopleBox">
               <img
@@ -40,23 +40,25 @@ class Search extends Component {
               />
               <div className="searchProfileInfo">
                 <div className="personalSearchNames">
-                  <Link to={`/profile/${user._id}`} style={{textDecoration:"none", color: "black"}}>
+                 
                     <span className="searchProfileName">{user.Name}</span> .
                     <span className="usernameSearch">{user.username}</span>
-                  </Link>
+                 
                 </div>
                 <span className="searchRole">{user.role}</span>
                 <div className="rankInfoSearch">
                 
                   
                 </div>
-              </div>
+                </div>
+                
               {/* <div className="followSearch">
                 <button className="followButtonSearch">Follow</button>
               </div> */}
             </div>
-            <hr className="searchDivider" />
-          </div>
+              <hr className="searchDivider" style={{height: "1px", width: "60px"}}/>
+            </div>
+            </Link>
         );
       });
     } else {
