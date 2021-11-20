@@ -103,10 +103,19 @@ export default function Messenger() {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    const search = {
-      // senderId = user._id,
-      // receiverId = search
-    };
+    // const search = {
+    //   senderId = user._id,
+    //   receiverId = search
+    // };
+    const searchName = search;
+
+    try{
+      const res = await axios.post(`http://localhost:3030/api/conversations/${searchName}`)
+      console.log(res);
+    }catch(err){
+      console.log(err);
+      console.log("A");
+    }
   }
 
   useEffect(() => {
