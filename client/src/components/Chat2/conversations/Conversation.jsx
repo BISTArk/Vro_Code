@@ -6,17 +6,17 @@ export default function Conversation({ conversation, currentUser }) {
   const [user, setUser] = useState(null);
   const PF = currentUser.profilePic;
 
-console.log(currentUser.profilePic);
+// console.log(currentUser.profilePic);
 
   useEffect(() => {
     // const friendId = conversation? conversation.members.find((m) => m !== currentUser._id):null;
     const friendId =  conversation.members.find((m) => m !== currentUser._id);
-    console.log(friendId)
+    // console.log(friendId)
 
     const getUser = async () => {
       try {
         const res = await axios("http://localhost:3030/api/user/" + friendId);
-        console.log(res)
+        // console.log(res)
         setUser(res.data);
       } catch (err) {
         console.log(err);

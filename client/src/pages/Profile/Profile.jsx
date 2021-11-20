@@ -12,6 +12,7 @@ import profile from "../../assets/profileImages/profile-img.jfif";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import y from "../../assets/helper/ranks";
+import { Search } from "@material-ui/icons";
 
 export default function Profile(props) {
   const x = useContext(AuthContext);
@@ -96,6 +97,33 @@ export default function Profile(props) {
     window.location.reload();
   };
 
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    const search = {
+      senderId : loggedUser._id,
+      receiverId : user._id
+    };
+    console.log(search)
+
+    const options = {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(search),
+    };
+
+    try{
+      const res = await fetch(`http://localhost:3030/api/conversations/`,options);
+      console.log(res);
+      window.location.href = "http://localhost:3000/chat/"
+    }catch(err){
+      console.log(err);
+      console.log("A");
+    }
+  }
+
   return (
     <div>
       <Topbar />
@@ -133,6 +161,9 @@ export default function Profile(props) {
                     {loggedUser.following.includes(user._id)
                       ? "Unfollow"
                       : "Follow"}
+                  </button>
+                  <button className="follow-btn" onClick={handleSearch}>
+                    {"DM"}
                   </button>
                 </div>
               )}

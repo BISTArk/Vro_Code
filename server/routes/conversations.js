@@ -5,12 +5,21 @@ const User = require("../models/user_mod");
 //new conv
 
 router.post("/", async (req, res) => {
+    let mem = [req.body.senderId, req.body.receiverId];
     const newConversation = new Conversation({
-        members: [req.body.senderId, req.body.receiverId],
+        members: mem,
     });
+    const searchConv = await Conversation.find({ members: mem });
+    // console.log(searchConv)
     try {
-        const savedConversation = await newConversation.save();
-        res.status(200).json(savedConversation)
+        if (searchConv.length == 0) {
+            const savedConversation = await newConversation.save();
+            res.status(200).json(savedConversation)
+            // console.log("JD");
+        }else{
+            res.status(200).json(searchConv)
+            // console.log("Jahf");
+        }
 
     } catch (err) {
         res.status(500).json(err)
@@ -32,22 +41,21 @@ router.get("/:userId", async (req, res) => {
     }
 })
 
-router.get("/:term", async (req, res) => {
-    let re = new RegExp(req.params.term, 'i')
-    try {
+// router.get("/:term", async (req, res) => {
+//     let re = new RegExp(req.params.term, 'i')
+//     try {
 
-        let users = [];
+//         let users = [];
 
-        let x = await user.find({ Name: re });
-        users = users.concat(x);
-        x = await user.find({ username: re });
-        users = users.concat(x);
-        console.log(x);
-        res.status(200).json(users);
-    } catch (err) {
-        console.log(err);
-    }
-});
+//         x = await User.find({ username: re });
+//         users = users.concat(x);
+//         console.log(users);
+//         res.status(200).json(users);
+//     } catch (err) {
+//         console.log(err);
+//         console.log("B");
+//     }
+// });
 
 
 router.get("/find/:firstUserId/:secondUserId", async (req, res) => {
