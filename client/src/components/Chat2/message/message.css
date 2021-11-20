@@ -37,4 +37,5 @@
 .message.own .messageText{
     background-color: #231f20;
     color: rgb(255, 255, 255);
+    padding: 1 px;
 }

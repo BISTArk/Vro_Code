@@ -14,6 +14,7 @@ export default function Messenger() {
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
+  const [search, NewSearch] = useState("");
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const socket = useRef();
@@ -100,13 +101,13 @@ export default function Messenger() {
     }
   };
 
-  // const handleSearch = async (e) => {
-  //   e.preventDefault();
-  //   const search = {
-  //     senderId = user._id,
-  //     receiverId = receiverId
-  //   };
-  // }
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    const search = {
+      // senderId = user._id,
+      // receiverId = search
+    };
+  }
 
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -123,12 +124,13 @@ export default function Messenger() {
         </div> */}
         <div className="chatMenu">
           <div className="chatMenuWrapper">
-              <input 
-              placeholder="Search for friends" 
-              className="chatMenuInput" />
-              {/* onChange={(e) => setConversations(e.target.value) } 
-              value= {receiverId} /> */}
-            {/* <Conversation/> */}
+              <form onSubmit={handleSearch}>
+                <input
+                placeholder="Search for friends"
+                className="chatMenuInput"
+                onChange={(e) => NewSearch(e.target.value) }
+                value= {search} />
+              </form>
             {conversations.map((c) => (
               <div onClick={() => setCurrentChat(c)}>
 

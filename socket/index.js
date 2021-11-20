@@ -5,6 +5,7 @@ const io = require("socket.io")(3060, {
   });
   
   let users = [];
+  var SOCKET_LIST = {};
   
   const addUser = (userId, socketId) => {
     !users.some((user) => user.userId === userId) &&
@@ -22,6 +23,8 @@ const io = require("socket.io")(3060, {
   io.on("connection", (socket) => {
     //when ceonnect
     socket.id = Math.random();
+    let socketId = socket.id
+    SOCKET_LIST[socketId] = socket;
     console.log("a user connected.");
   
     //take userId and socketId from user
@@ -43,6 +46,7 @@ const io = require("socket.io")(3060, {
     socket.on("disconnect", () => {
       console.log("a user disconnected!");
       removeUser(socket.id);
+      delete SOCKET_LIST[socketId];
       io.emit("getUsers", users);
     });
   });

@@ -38,7 +38,7 @@ export default function Profile(props) {
     }
 
     fetchData();
-  }, []);
+  }, [loggedUser, props.match.params.id]);
 
   useEffect(() => {
     async function fetchData() {
@@ -54,7 +54,7 @@ export default function Profile(props) {
     }
 
     if(user)fetchData();
-  }, [user]);
+  }, [user, props.match.params.id]);
 
   const createPost = async (postDesc) => {
     const data = { userid: user._id, content: postDesc, img: "" };
