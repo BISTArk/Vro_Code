@@ -12,7 +12,7 @@ import profile from "../../assets/profileImages/profile-img.jfif";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import y from "../../assets/helper/ranks";
-import { Search } from "@material-ui/icons";
+// import { Search } from "@material-ui/icons";
 
 export default function Profile(props) {
   const x = useContext(AuthContext);
@@ -103,7 +103,7 @@ export default function Profile(props) {
       senderId : loggedUser._id,
       receiverId : user._id
     };
-    console.log(search)
+    // console.log(search)
 
     const options = {
       method: "POST",
@@ -120,7 +120,7 @@ export default function Profile(props) {
       window.location.href = "http://localhost:3000/chat/"
     }catch(err){
       console.log(err);
-      console.log("A");
+      // console.log("A");
     }
   }
 
@@ -163,7 +163,7 @@ export default function Profile(props) {
                       : "Follow"}
                   </button>
                   <button className="follow-btn" onClick={handleSearch}>
-                    {"DM"}
+                    {"Call for CS"}
                   </button>
                 </div>
               )}
