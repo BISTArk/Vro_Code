@@ -22,7 +22,6 @@ import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 
 
-
 function App() {
   const { user } = useContext(AuthContext);
 
@@ -50,7 +49,7 @@ function App() {
         <Route path="/profile/:id" component={user ? Profile : Register}
         />
         <Route exact path="/chat">
-          {user ? <Messenger /> : <Register />}
+          {user ? <Messenger/> : <Register />}
         </Route>
         <Route exact path="/code">
           {user ? <Code /> : <Register />}
