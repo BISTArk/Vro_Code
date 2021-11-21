@@ -40,7 +40,7 @@ export default function Messenger() {
   }, [arrivalMessage, currentChat]);
 
   useEffect(() => {
-    socket.current.emit("joinRoom", user._id, user.socketId);
+    socket.current.emit("joinRoom", (user._id, user.socketId));
     socket.current.on("chat", (users) => {
       setOnlineUsers(
         user.following.filter((f) => users.some((u) => u.userId === f))
@@ -101,21 +101,6 @@ export default function Messenger() {
     }
   };
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    // const search = {
-    //   senderId = user._id,
-    //   receiverId = search
-    // };
-
-    try{
-      const res = await axios.get(`http://localhost:3030/api/conversations/`, );
-      console.log(res);
-    }catch(err){
-      console.log(err);
-      console.log("A");
-    }
-  }
 
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -132,13 +117,6 @@ export default function Messenger() {
         </div> */}
         <div className="chatMenu">
           <div className="chatMenuWrapper">
-              <form onSubmit={handleSearch}>
-                <input
-                placeholder="Search for friends"
-                className="chatMenuInput"
-                onChange={(e) => NewSearch(e.target.value) }
-                value= {search} />
-              </form>
             {conversations.map((c) => (
               <div onClick={() => setCurrentChat(c)}>
 
