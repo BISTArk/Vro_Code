@@ -1,11 +1,11 @@
-import React from 'react'
+// import React from 'react'
 
-function PostPage() {
-    return (
-        <div>
+// function PostPage() {
+//     return (
+//         <div>
             
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
-export default PostPage
+// export default PostPage

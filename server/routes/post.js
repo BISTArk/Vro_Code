@@ -53,7 +53,9 @@ router.delete("/:id", async (req, res) => {
   try {
     console.log(req.params);
     const currPost = await post.findById(req.params.id);
-    console.log(currPost ,req.body.id);
+    console.log("Body ID " + req.body.id)
+    console.log("diptehs" + currPost.userid)
+    console.log(currPost);
     if (currPost.userid === req.body.id) {
       await currPost.deleteOne();
       res.status(200).json("Post has been successfully deleted");

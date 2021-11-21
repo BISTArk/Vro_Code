@@ -53,7 +53,6 @@ function Rightbar() {
               </div>
               <img src={rankImg[Math.floor(rank/100)]} alt={username} className="rankBoard" alt={user.rank}/>
             </div>
-            
           );
          
         })}

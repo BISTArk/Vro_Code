@@ -34,17 +34,22 @@ export default function Post(props) {
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Alloq-Origin": "*"
+          "Access-Control-Allow-Origin": "*"
         },
         body: JSON.stringify(data),
       };
-      let response = await fetch(
-        `http://localhost:3030/api/post/${props.postID}`,
-        options
-      );
-      let confirm = await response.json();
-      console.log(confirm);
-      window.location.reload();
+      try {
+        let response = await fetch(
+          `http://localhost:3030/api/post/${props.postID}`,
+          options
+        );
+        let confirm = await response.json();
+        console.log(confirm);
+        window.location.reload();
+      } catch {
+        window.confirm("You can only delete your own post");
+      }
+     
     }
   }
 
@@ -75,6 +80,7 @@ export default function Post(props) {
           </Link>
           <div className="postedon">Posted on {props.postedon}</div>
         </div>
+        
         <FontAwesomeIcon icon={faTrashAlt} onClick={handlePostDelete} style={{cursor: "pointer"}}/>
       </div>
       <div className="content">{props.content}</div>

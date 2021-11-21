@@ -12,6 +12,7 @@ function Feed(props) {
   const { user } = useContext(AuthContext);
   const [postDesc, setPostDesc] = useState("");
   const [gitLink, setGitLink] = useState("");
+
   const githubPrompt = () => {
     const link = prompt("Enter your repo link down here");
     setGitLink(link);
@@ -22,6 +23,8 @@ function Feed(props) {
         <div className="post-details">
           <Link to={`/profile/${user._id}`} className="profilepic-container">
             <img src={img} alt="Ishan" className="profilepic" />
+
+            
           </Link>
           <textarea
             name="postDesc"
@@ -64,6 +67,7 @@ function Feed(props) {
             return <Post
               postName = {x.Name}
               postID={x._id}
+           
               userID = {x.userid}
               postedon={x.createdAt}
               username={x.username}
