@@ -54,6 +54,9 @@ function App() {
         <Route exact path="/code">
           {user ? <Code /> : <Register />}
         </Route>
+        <Route exact path="/external">
+          {user ? <PostPage /> : <Register />}
+        </Route>
         <Route exact path="/notification">
           {user ? <Notification /> : <Register />}
         </Route>
