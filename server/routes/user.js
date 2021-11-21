@@ -5,7 +5,8 @@ const bcrypt = require("bcrypt");
 router.get("/leader", async (req, res) => {
   console.log("hello frianf");
   try {
-    const currUser = await user.find({}).sort({rank:-1}).limit(5);
+    const currUser = await user.find({}).sort({ rank: -1 }).limit(5);
+    // console.log("Leader boi" + currUser)
     res.status(200).json(currUser);
   } catch (err) {
     res.status(500).json(err);

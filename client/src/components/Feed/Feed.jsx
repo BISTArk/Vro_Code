@@ -8,11 +8,16 @@ import { GitHub, Image } from "@material-ui/icons";
 import { NavLink as Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
+
 function Feed(props) {
   const { user } = useContext(AuthContext);
   const [postDesc, setPostDesc] = useState("");
   const [gitLink, setGitLink] = useState("");
+<<<<<<< HEAD
   const [imag, setImag] = useState("");
+=======
+  const [postCounter, setPostCounter] = useState(0);
+>>>>>>> 95cb1dbf6f380871ffb67e3ea56e6a2c6c35d1ab
 
   const githubPrompt = () => {
     const link = prompt("Enter your repo link down here");
@@ -83,6 +88,7 @@ function Feed(props) {
       <div className="posts">
         {props.posts.length > 0 ? (
           props.posts.map((x) => {
+<<<<<<< HEAD
             return (
               <Post
                 postName={x.Name}
@@ -99,6 +105,20 @@ function Feed(props) {
                 imgFile={x.imgFile}
               />
             );
+=======
+            return <Post
+              postName = {x.Name}
+              postID={x._id}
+
+              userID = {x.userid}
+              postedon={x.createdAt}
+              username={x.username}
+              gitLink = {x.githubLink}
+              content={x.content}
+              img={img}
+              key={x._id}
+            />;
+>>>>>>> 95cb1dbf6f380871ffb67e3ea56e6a2c6c35d1ab
           })
         ) : (
           <div>No Posts available</div>

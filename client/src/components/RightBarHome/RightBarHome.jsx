@@ -2,9 +2,11 @@ import "./RightBarHome.scss";
 import arr from "./dummy";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ide from "../../assets/images/vrocode-ide.png";
-import { useContext,useState,useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
+import { NavLink as Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import { faExternalLinkSquareAlt } from "@fortawesome/free-solid-svg-icons";
+import leader from "../../assets/svgs/leaderboard.svg"
+import { faExternalLinkSquareAlt, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import x from "../../assets/helper/ranks"
 
 function Rightbar() {
@@ -37,16 +39,20 @@ function Rightbar() {
         <span className="logo-rightbar">VroCoder </span>
         <img src={ide} alt="" className="ide-img" />
       </div>
+      <img src={leader} alt="" style={{width: "80%", marginTop: "25px"}}/>
       <div className="leaderboard">
-        <h1>Leaderboard</h1>
-        {leaders.map(({ username, profilepic, rank }) => {
+        <h1><FontAwesomeIcon icon={faTrophy} /> Leaderboard  </h1>
+        <hr style={{width: "80%", margin: "10px", opacity: "0.4", textAlign:"center"}}/>
+        {leaders.map(({ username, profilepic, _id, rank }) => {
           return (
             <div className="leaderRow" key={username}>
               <div className="profilepic">
                 <img src="./images/profile-sample.png" alt={username} />
               </div>
               <div className="details">
+              <Link to={`/profile/${_id}`} style={{color: "black"}}>
                 <span className="usernameBoard">{username}</span>
+              </Link>
                 <div className="points">
                   <span className="elo">{rank}</span>
                 </div>

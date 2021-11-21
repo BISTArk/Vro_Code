@@ -12,6 +12,22 @@
     overflow:hidden;
     border-radius: 10px;
  }
+ .gitHubButton{
+     display: flex;
+     flex-direction: row;
+     text-decoration: none;
+     gap: 8px;
+     color: #FFF;
+     align-items: center;
+     justify-content: center;
+     font-weight: 600;
+     font-size: 1.8rem;
+     font-family: 'Consolas';
+ }
+ .svgContainerLeftBarHome{
+    margin-top: 50px; 
+    width: 100%;
+ }
  .Course1, .Course2{
      background-color: #f1f4f6;
      margin-top:30px;
@@ -25,6 +41,21 @@
     transition: 0.5s;
  }
  .Course1:hover,.Course2:hover{
+    box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.7);
+ }
+ .gitCourse{
+    background-color: #333;
+    margin-top:30px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    border-radius: 10px;
+    padding: 15px ;
+   align-items: center;
+   justify-content: center;
+   transition: 0.5s;
+ }
+ .gitCourse:hover{
     box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.7);
  }
  .courseLogo{
@@ -64,6 +95,7 @@
     margin-top: 5%;
     width: 40%;
     border-radius: 50%;
+    border: 2.5px solid #fff;
     
    
 }
@@ -74,6 +106,11 @@
     height: 70%;
     color: #FAFCFC;
     opacity: 0.6;
+}
+.leftbarWrapperHome{
+    padding: 25px;
+    margin-top: 20px;
+    margin-left: 0px;
 }
 .ProfileName{
     color: white;

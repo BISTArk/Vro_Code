@@ -40,12 +40,15 @@ export default function Conversation({ conversation, currentUser }) {
           //     ? PF + user.profilePic
           //     : PF + "images/profile-sample.png"
           // }
-          alt="sdf"
+          alt="profilePic"
         />
-        <div className="chatOnlineBadge"></div>
+        {/* <div className="chatOnlineBadge"></div> */}
       </div>
-
-      <span className="conversationName">{user?.username}</span>
+      <div className="chatNames">
+        <span className="conversationName">{user?.Name}</span>
+       
+        <span className="conversationusername">@{user?.username}</span>
+        </div>
     </div>
   );
 }
