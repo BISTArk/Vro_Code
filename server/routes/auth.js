@@ -60,7 +60,7 @@ router.post("/forget", async (req, res) => {
       //2000
       var newPassword = '';
       var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      // var charactersLength = characters.length;
+      var charactersLength = characters.length;
       for (var i = 0; i < 8; i++) {
           newPassword += characters.charAt(Math.floor(Math.random() *
               charactersLength));

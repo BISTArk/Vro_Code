@@ -68,9 +68,7 @@ router.get("/:id", async (req, res) => {
 
 router.post("/multiple", async (req, res) => {
     let result = [];
-
   try {
-
     for (const x of req.body.list) {
         const currUser = await user.findById(x);
       if (currUser) {
@@ -131,9 +129,6 @@ router.put("/unfollow/:id", async (req, res) => {
     res.status(400).json("You cant unfollow yourself");
   }
 });
-
-//get leaders
-
 
 
 module.exports = router;

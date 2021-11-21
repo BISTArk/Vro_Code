@@ -8,7 +8,7 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
 function Home() {
-  const { user } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
 
@@ -25,6 +25,8 @@ function Home() {
       "http://localhost:3030/api/post",
       formData
     );
+    
+    dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
     console.log(response);
     window.location.reload();
 

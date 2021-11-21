@@ -1,5 +1,6 @@
 import "./Post.scss";
 import { useState, useContext, useEffect } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import {
   CommentOutlined,
   FavoriteBorderOutlined,
@@ -17,6 +18,7 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 
 export default function Post(props) {
+  const { user, dispatch } = useContext(AuthContext);
   const [comment, setComment] = useState("");
   const [canComment, setCanComment] = useState(false);
   const [clicked, setClicked] = useState(false);
@@ -54,7 +56,10 @@ export default function Post(props) {
         window.location.reload();
       } catch {
         window.confirm("You can only delete your own post");
+        return
       }
+    dispatch({ type: "DELETE_POST", payload: user.postCount - 1 });
+
     }
   };
 
