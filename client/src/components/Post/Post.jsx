@@ -98,7 +98,7 @@ export default function Post(props) {
         />
       </div>
       <div className="content">{props.content}</div>
-      {props.img ? <img src={preimg+props.img} alt="Post Media" /> : <div />}
+      {props.img ? <img src={preimg+props.img} alt="Post Media" className="postImageHome"/> : <div />}
       <div className="reactions">
         <div className="react">
           <FontAwesomeIcon
