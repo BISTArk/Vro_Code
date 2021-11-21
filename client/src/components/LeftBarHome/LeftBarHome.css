@@ -10,6 +10,7 @@
     height: 50%;
     overflow-y: scroll;
     overflow:hidden;
+    border-radius: 10px;
  }
  .Course1, .Course2{
      background-color: #f1f4f6;

@@ -1,5 +1,6 @@
 *{
   margin: 0;
+  
 }
 h1{
       text-align: center;
@@ -10,6 +11,10 @@ h1{
       margin: 20px;
       margin-bottom: 35px;
       color: #332A3E;
+}
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
 }
 body{
   background-image: linear-gradient(#C4A4F6, #A890FB);

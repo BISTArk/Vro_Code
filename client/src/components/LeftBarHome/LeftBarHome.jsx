@@ -6,12 +6,25 @@ import img from "../../assets/rank-img/white/image (1).png"
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { NavLink as Link } from "react-router-dom";
-import x from "../../assets/helper/ranks"
+import x from "../../assets/helper/ranks";
+import c from "../../assets/helper/courseLinks";
 
 export default function LeftBarHome(props) {
     const { user } = useContext(AuthContext);
+    const courseImg = c.courseLogos;
+    const courseTi = c.courseTitles;
+    const courseLinks = c.links;
+    const hackImg = c.courseLogos2;
+    const hackTitle = c.courseTitles2;
+    const hackLinks = c.links2;
     const ranks = x.ranks;
     const rankImg = x.rankImg;
+    function getRand(max) {
+        return Math.floor(Math.random() * max);
+    }
+    var idx1 = getRand(7); 
+    var idx2 = getRand(4);
+   
 
     // console.log(props.user.rank / 100, ranks[props.user.rank / 100]);
     
@@ -52,18 +65,20 @@ export default function LeftBarHome(props) {
                             </div>
                     </div>
                </div>
-               <br />
+                     <br />
+                     <hr style={{opacity: "0.2", width: "50px", position: "relative", margin: "auto"}}/>
                </Link>
                <div className = "courseAds-container">
-                    <h2 className = "CourseHeading">Courses</h2>
+                     <h2 className="CourseHeading">Courses and Hackathons</h2>
                     <div className = "Course1">
-                        <img src={courseLogo1} alt="C-logo1"className ="courseLogo"/>
-                        <a href="https://www.udemy.com/course/the-web-developer-bootcamp/" target="_blank" rel="noopener noreferrer"><h3 className = "courseName">Web Development Bootcamp</h3></a>
+                         <img src={courseImg[idx1]} alt="C-logo1" className="courseLogo" />
+                       
+                        <a href={courseLinks[idx1]} target="_blank" rel="noopener noreferrer"><h3 className = "courseName">{courseTi[idx1]}</h3></a>
                     </div>
 
                     <div className = "Course2">
-                        <img src={courseLogo2} alt="C-logo2"className ="courseLogo"/>
-                        <a href="https://www.udemy.com/course/the-web-developer-bootcamp/" target="_blank" rel="nopener noreferrer"><h3 className = "courseName">Web Development Bootcamp</h3></a>
+                        <img src={hackImg[idx2]} alt="C-logo2"className ="courseLogo"/>
+                         <a href={hackLinks[idx2]} target="_blank" rel="nopener noreferrer"><h3 className = "courseName">{hackTitle[idx2]}</h3></a>
                     </div>
                </div>
               
