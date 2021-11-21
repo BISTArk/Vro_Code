@@ -11,13 +11,18 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { NavLink as Link } from "react-router-dom";
-import { faHeart as farHeart, faTrashAlt} from "@fortawesome/free-regular-svg-icons";
-
+import {
+  faHeart as farHeart,
+  faTrashAlt,
+} from "@fortawesome/free-regular-svg-icons";
 
 export default function Post(props) {
   const [comment, setComment] = useState("");
-  const [canComment, setCanComment] = useState(false)
-  const [clicked, setClicked] = useState(false)
+  const [canComment, setCanComment] = useState(false);
+  const [clicked, setClicked] = useState(false);
+  const [imgfile, setimgfile] = useState();
+
+  console.log(props);
 
   const otherComments = [
     {
@@ -26,6 +31,14 @@ export default function Post(props) {
       content: "HELLO SAAAAAR",
     },
   ];
+
+  const arrayBufferToBase64 = (buffer) => {
+    var binary = "";
+    var bytes = [].slice.call(new Uint8Array(buffer));
+    bytes.forEach((b) => (binary += String.fromCharCode(b)));
+    return window.btoa(binary);
+  };
+
   const handlePostDelete = async () => {
     if (window.confirm("Do you want to delete this post?")) {
       const data = { id: props.userID };
@@ -34,7 +47,7 @@ export default function Post(props) {
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*"
+          "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify(data),
       };
@@ -49,9 +62,8 @@ export default function Post(props) {
       } catch {
         window.confirm("You can only delete your own post");
       }
-     
     }
-  }
+  };
 
   const loadComments = () => {
     return otherComments.map(({ ppic, pname, content }) => {
@@ -65,41 +77,73 @@ export default function Post(props) {
       );
     });
   };
+
+  useEffect(() => {
+    let base64Flag = `data:image/${props.imgType};base64,`;
+    let imageStr = arrayBufferToBase64(props.imgFile);
+    setimgfile(base64Flag + imageStr);
+  }, []);
+
   return (
     <div className="post">
       <div className="details">
         <div className="profilepic-container">
-          <img src={props.img} alt="Ishan" className="profilepic" />
+          <img src={props.profilePic} alt="Ishan" className="profilepic" />
         </div>
         <div className="details-text">
-          <Link  to = {`/profile/${props.userID}` } style={{textDecoration: "none", color: "black"}}>
+          <Link
+            to={`/profile/${props.userID}`}
+            style={{ textDecoration: "none", color: "black" }}
+          >
             <div className="postTitleContainer">
-            <div className="Name">{props.postName}</div>
-            <span className="username"> . @ {props.username}</span>
+              <div className="Name">{props.postName}</div>
+              <span className="username"> . @ {props.username}</span>
             </div>
           </Link>
           <div className="postedon">Posted on {props.postedon}</div>
         </div>
-        
-        <FontAwesomeIcon icon={faTrashAlt} onClick={handlePostDelete} style={{cursor: "pointer"}}/>
+
+        <FontAwesomeIcon
+          icon={faTrashAlt}
+          onClick={handlePostDelete}
+          style={{ cursor: "pointer" }}
+        />
       </div>
       <div className="content">{props.content}</div>
+      {props.img ? <img src={imgfile} alt="Post Media" /> : <div />}
       <div className="reactions">
         <div className="react">
-          <FontAwesomeIcon icon={!clicked?farHeart:faHeart} onClick={()=>{setClicked(!clicked)}}  />
-          <CommentOutlined onClick={()=>{setCanComment(!canComment)}}/>
+          <FontAwesomeIcon
+            icon={!clicked ? farHeart : faHeart}
+            onClick={() => {
+              setClicked(!clicked);
+            }}
+          />
+          <CommentOutlined
+            onClick={() => {
+              setCanComment(!canComment);
+            }}
+          />
           <ShareOutlined />
         </div>
-    
-        {
-          (props.gitLink) ? (<a className="github" href={props.gitLink} target="_blank" rel="noreferrer" style={{ textDecoration: "none", color: "black" }}>
+
+        {props.gitLink ? (
+          <a
+            className="github"
+            href={props.gitLink}
+            target="_blank"
+            rel="noreferrer"
+            style={{ textDecoration: "none", color: "black" }}
+          >
             <GitHub />
-          </a>) : (<div></div>)
-        }
+          </a>
+        ) : (
+          <div></div>
+        )}
       </div>
       <div className="putComment">
         <div className="profilepic-container">
-          <img src={props.img} alt="Ishan" className="profilepic" />
+          <img src={props.profilePic} alt="Ishan" className="profilepic" />
         </div>
         <input
           type="text"
@@ -113,8 +157,7 @@ export default function Post(props) {
           placeholder="Leave a comment"
         />
       </div>
-      <div className="othersComment">{canComment?loadComments():""}</div>
+      <div className="othersComment">{canComment ? loadComments() : ""}</div>
     </div>
   );
 }
-

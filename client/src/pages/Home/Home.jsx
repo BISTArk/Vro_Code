@@ -4,27 +4,50 @@ import RightBarHome from "../../components/RightBarHome/RightBarHome";
 import LeftBarHome from "../../components/LeftBarHome/LeftBarHome";
 import "./Home.scss";
 import { useEffect, useState, useContext } from "react";
-import {AuthContext} from "../../context/AuthContext"
+import { AuthContext } from "../../context/AuthContext";
+import axios from "axios";
 
 function Home() {
-    const { user } = useContext(AuthContext);
-    const [posts, setPosts] = useState([]);
+  const { user } = useContext(AuthContext);
+  const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
 
-  const createPost = async({ postDesc, gitLink }) => {
-    const data = { userid: user._id, content: postDesc, img: "", githubLink: gitLink };
-    const options = {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify(data),
-    };
-    let response = await fetch(`http://localhost:3030/api/post`, options);
-    let jso = await response.json();
-    window.location.reload();
+  // const createPost = async ({ postDesc, gitLink, imag }) => {
+  //   const data = {
+  //     userid: user._id,
+  //     content: postDesc,
+  //     githubLink: gitLink,
+  //     img: imag.name,
+  //     imag:imag
+  //   };
+  //   const options = {
+  //     method: "POST",
+  //     mode: "cors",
+  //     headers: {
+  //       // "Content-Type": "multipart/form-data",
+  //       "Access-Control-Allow-Origin": "*",
+  //     },
+  //     body: JSON.stringify(data),
+  //   };
+  //   let response = await fetch(`http://localhost:3030/api/post`, options);
+  //   let jso = await response.json();
+  //   window.location.reload();
+  // };
+
+  const createPost = async ({ postDesc, gitLink, imag }) => {
+    const formData = new FormData();
+    
+    formData.append("userid", user._id);
+    formData.append("githubLink", gitLink);
+    formData.append("content", postDesc);
+    formData.append("img", imag.name);
+    formData.append("imag", imag);
+
+    const response = await axios.post(
+      "http://localhost:3030/api/post",
+      formData
+    );
+    console.log(response);
   };
 
   useEffect(() => {
@@ -65,16 +88,16 @@ function Home() {
     if (posts.length > 0) fetchUsers();
   }, [posts]);
 
-    return (
-        <div className="home">
-            <TopBar/> 
-            <div className="main-page">
-            <LeftBarHome class="left" user={user}/>
-            <Feed class="feed" posts={users} createPost={createPost}/>
-            <RightBarHome class="right"/>
-            </div>
-        </div>
-    )
+  return (
+    <div className="home">
+      <TopBar />
+      <div className="main-page">
+        <LeftBarHome class="left" user={user} />
+        <Feed class="feed" posts={users} createPost={createPost} />
+        <RightBarHome class="right" />
+      </div>
+    </div>
+  );
 }
 
-export default Home
+export default Home;

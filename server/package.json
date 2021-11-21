@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server",
-    "goboi": "npm start & (cd ../client/ && npm start) & (cd ../onlineJudge/backend && npm start) & (cd ../onlineJudge/client && npm start) & (cd ../socket && npm start)"
+    "goboi": "npm start & (cd ../client/ && npm start) & (cd ../socket && npm start)"
   },
   "author": "Akshay B Bistagond, Abhishek Chavan, Diptesh Baneerjee",
   "license": "MIT",

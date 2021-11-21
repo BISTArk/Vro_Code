@@ -12,19 +12,27 @@ function Feed(props) {
   const { user } = useContext(AuthContext);
   const [postDesc, setPostDesc] = useState("");
   const [gitLink, setGitLink] = useState("");
+  const [imag, setImag] = useState("");
 
   const githubPrompt = () => {
     const link = prompt("Enter your repo link down here");
     setGitLink(link);
-  }
+  };
+
+  const postmediaChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      const img = e.target.files[0];
+      console.log(img);
+      setImag(img);
+    }
+  };
+
   return (
     <div className="feed">
       <div className="makepost">
         <div className="post-details">
           <Link to={`/profile/${user._id}`} className="profilepic-container">
             <img src={img} alt="Ishan" className="profilepic" />
-
-            
           </Link>
           <textarea
             name="postDesc"
@@ -47,14 +55,25 @@ function Feed(props) {
             <div className="upload-option">
               <Image className="svg-icon" />
               <label htmlFor="postImg"> Media</label>
-              <input type="file" id="postImg" style={{ display: "none" }} />
+              <input
+                type="file"
+                name="imag"
+                id="postImg"
+                style={{ display: "none" }}
+                onChange={postmediaChange}
+              />
             </div>
             <div className="upload-option" onClick={githubPrompt}>
               <GitHub className="svg-icon" />
               <span>Github</span>
             </div>
           </div>
-          <div className="post-btn" onClick={() => { props.createPost({ postDesc, gitLink})}}>
+          <div
+            className="post-btn"
+            onClick={() => {
+              props.createPost({ postDesc, gitLink, imag });
+            }}
+          >
             {" "}
             Post
           </div>
@@ -64,18 +83,22 @@ function Feed(props) {
       <div className="posts">
         {props.posts.length > 0 ? (
           props.posts.map((x) => {
-            return <Post
-              postName = {x.Name}
-              postID={x._id}
-           
-              userID = {x.userid}
-              postedon={x.createdAt}
-              username={x.username}
-              gitLink = {x.githubLink}
-              content={x.content}
-              img={img}
-              key={x._id}
-            />;
+            return (
+              <Post
+                postName={x.Name}
+                postID={x._id}
+                userID={user._id}
+                postedon={x.createdAt}
+                username={x.username}
+                gitLink={x.githubLink}
+                content={x.content}
+                img={x.img}
+                profilePic={img}
+                key={x._id}
+                imgType={x.imgType}
+                imgFile={x.imgFile}
+              />
+            );
           })
         ) : (
           <div>No Posts available</div>

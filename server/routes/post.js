@@ -1,6 +1,31 @@
 const router = require("express").Router();
+const multer = require("multer");
 const user = require("../models/user_mod");
 const post = require("../models/post_mod");
+const fs = require("fs");
+
+//set up multer
+
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+      cb(null, 'images');
+  },
+  filename: function(req, file, cb) {   
+      cb(null, "Bista" + '-' + req.body.img);
+  }
+});
+
+const fileFilter = (req, file, cb) => {
+  const allowedFileTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+  if(allowedFileTypes.includes(file.mimetype)) {
+      cb(null, true);
+  } else {
+      cb(null, false);
+  }
+}
+
+let upload = multer({ storage, fileFilter });
+
 
 //Get all Timeline Post
 
@@ -37,12 +62,17 @@ router.get("/my/:userId", async (req, res) => {
 
 //Create a Post
 
-router.post("/", async (req, res) => {
-  const newPost = new post(req.body);
+router.post("/", upload.single('imag'), async (req, res) => {
+  console.log("got a new post");
+  let newPost = new post(req.body);
+  let x = req.body.img;
+  if(x)newPost.imgType  = x.split('.')[1];
+  console.log( x.split('.')[1]);
   try {
     const currPost = await newPost.save();
     res.status(200).json(currPost);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -107,11 +137,17 @@ router.get("/:id", async (req, res) => {
   try {
     const currPost = await post.findById(req.params.id);
     if (currPost) {
-      res.status(200).json(currPost);
+    const imgfile = fs.readFileSync("./images/Bista" + '-' + currPost.img)
+    let finalPost = {...currPost}
+    finalPost._doc[imgfile]=imgfile
+    console.log(finalPost);
+    // let finalPost = {...currPost,_doc:{..._doc,imgfile:imgfile}}
+      res.status(200).json(finalPost);
     } else {
       res.status(403).json("Post not Found");
     }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
