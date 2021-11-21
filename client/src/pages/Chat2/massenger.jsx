@@ -23,8 +23,8 @@ export default function Messenger() {
 
   // console.log(user.following)
   useEffect(() => {
-    socket.current = io("ws://localhost:3060", {reconnect: true});
-    socket.current.on("getMessage", (data) => {
+    socket.current = io("ws://localhost:3060", {reconnect: true, transports: ['websocket', 'polling', 'flashsocket']});
+    socket.current.on("message", (data) => {
       setArrivalMessage({
         sender: data.senderId,
         text: data.text,
@@ -40,8 +40,8 @@ export default function Messenger() {
   }, [arrivalMessage, currentChat]);
 
   useEffect(() => {
-    socket.current.emit("addUser", user._id);
-    socket.current.on("getUsers", (users) => {
+    socket.current.emit("joinRoom", user._id, user.socketId);
+    socket.current.on("chat", (users) => {
       setOnlineUsers(
         user.following.filter((f) => users.some((u) => u.userId === f))
       );
@@ -86,7 +86,7 @@ export default function Messenger() {
       (member) => member !== user._id
     );
 
-    socket.current.emit("sendMessage", {
+    socket.current.emit("message", {
       senderId: user._id,
       receiverId,
       text: newMessage,

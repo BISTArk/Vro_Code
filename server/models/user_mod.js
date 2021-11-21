@@ -1,63 +1,67 @@
-const {Schema, model} = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema({
-    Name:{
+    Name: {
         type: String,
         required: true,
         minlength: 2,
         maxlength: 50
     },
-    username :{
-        type : String,
-        required : true,
+    username: {
+        type: String,
+        required: true,
         minlength: 3,
-        maxlength : 50,
-        unique :true
+        maxlength: 50,
+        unique: true
     },
-    email:{
-        type:String,
-        required:true,
-        unique:true
+    email: {
+        type: String,
+        required: true,
+        unique: true
     },
-    role:{
-        type:String,
+    role: {
+        type: String,
         required: true,
         minlength: 3
     },
-    password:{
-        type:String,
-        required:true,
-        minlength:6
+    password: {
+        type: String,
+        required: true,
+        minlength: 6
     },
-    profilePic:{
-        type:String,
-        default:""
+    profilePic: {
+        type: String,
+        default: ""
     },
-    coverPic:{
-        type:String,
-        default:""
+    coverPic: {
+        type: String,
+        default: ""
     },
-    followers:{
-        type:Array,
-        default:[]
+    followers: {
+        type: Array,
+        default: []
     },
-    following:{
-        type:Array,
-        default:[]
+    following: {
+        type: Array,
+        default: []
     },
-    isAdmin:{
+    isAdmin: {
         type: Boolean,
-        default:false
+        default: false
     },
-    rank:{
-        type:Number,
-        default:1
+    rank: {
+        type: Number,
+        default: 1
     },
-      postCount:{
-        type:Number,
-        default:0
+    postCount: {
+        type: Number,
+        default: 0
+    },
+    socketId: {
+        type: Number,
+        default: Math.random()
     }
 },
-{timestamps:true});
+    { timestamps: true });
 
-module.exports = model("user_mod",userSchema);
+module.exports = model("user_mod", userSchema);
