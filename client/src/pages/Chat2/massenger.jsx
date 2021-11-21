@@ -113,20 +113,20 @@ export default function Messenger() {
   }, [messages]);
 
 
-  console.log("chalega? " + conversations)
-  useEffect(() => {
-    const friendId =  conversations.members.find((m) => m !== user._id);
-    const getUser = async () => {
-      try {
-        const res = await axios.get("http://localhost:3030/api/user/" + friendId);
+  // console.log("chalega? " + conversations)
+  // useEffect(() => {
+  //   const friendId =  conversations.members.find((m) => m !== user._id);
+  //   const getUser = async () => {
+  //     try {
+  //       const res = await axios.get("http://localhost:3030/api/user/" + friendId);
        
-        setFuser(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getUser();
-  });
+  //       setFuser(res.data);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   getUser();
+  // });
 
   return (
    
