@@ -23,7 +23,6 @@ function Rightbar() {
         `http://localhost:3030/api/user/leader`
       );
       let jso = await response.json();
-      console.log(jso);
       setleaders(jso);
     }
 

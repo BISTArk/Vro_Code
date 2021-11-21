@@ -64,11 +64,13 @@ router.get("/my/:userId", async (req, res) => {
 
 router.post("/", upload.single('imag'), async (req, res) => {
   console.log("got a new post");
-  let newPost = new post(req.body);
-  let x = req.body.img;
-  if(x)newPost.imgType  = x.split('.')[1];
-  console.log( x.split('.')[1]);
+  let newPost = new post({...req.body,img:req.file.filename});
   try {
+    let curruser = await user.findById(req.body.userid);
+    let x = curruser.postCount;
+    console.log(x);
+    await curruser.updateOne({ $set: { postCount: x+1 } })
+    // await curruser.save();
     const currPost = await newPost.save();
     res.status(200).json(currPost);
   } catch (err) {
@@ -81,13 +83,13 @@ router.post("/", upload.single('imag'), async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    console.log(req.params);
     const currPost = await post.findById(req.params.id);
-    console.log("Body ID " + req.body.id)
-    console.log("diptehs" + currPost.userid)
-    console.log(currPost);
     if (currPost.userid === req.body.id) {
       await currPost.deleteOne();
+      fs.unlink("images/"+currPost.img,(err)=>{
+        console.log(err);
+        return
+      });
       res.status(200).json("Post has been successfully deleted");
     } else {
       res.status(403).json("You cant delete the posts that u didnt create");
@@ -137,11 +139,6 @@ router.get("/:id", async (req, res) => {
   try {
     const currPost = await post.findById(req.params.id);
     if (currPost) {
-    const imgfile = fs.readFileSync("./images/Bista" + '-' + currPost.img)
-    let finalPost = {...currPost}
-    finalPost._doc[imgfile]=imgfile
-    console.log(finalPost);
-    // let finalPost = {...currPost,_doc:{..._doc,imgfile:imgfile}}
       res.status(200).json(finalPost);
     } else {
       res.status(403).json("Post not Found");

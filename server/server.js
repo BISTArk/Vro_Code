@@ -35,6 +35,7 @@ app.use(helmet());
 app.use(morgan("common"));
 
 app.use("/api/user", userRoute);
+app.use('/images', express.static('images'));
 app.use("/api/auth", authRoute);
 app.use("/api/post", postRoute);
 app.use("/api/conversations",conversationRoute);

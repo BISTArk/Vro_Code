@@ -20,7 +20,7 @@ export default function Post(props) {
   const [comment, setComment] = useState("");
   const [canComment, setCanComment] = useState(false);
   const [clicked, setClicked] = useState(false);
-  const [imgfile, setimgfile] = useState();
+  const preimg = "http://localhost:3030/images/"
 
   console.log(props);
 
@@ -31,13 +31,6 @@ export default function Post(props) {
       content: "HELLO SAAAAAR",
     },
   ];
-
-  const arrayBufferToBase64 = (buffer) => {
-    var binary = "";
-    var bytes = [].slice.call(new Uint8Array(buffer));
-    bytes.forEach((b) => (binary += String.fromCharCode(b)));
-    return window.btoa(binary);
-  };
 
   const handlePostDelete = async () => {
     if (window.confirm("Do you want to delete this post?")) {
@@ -78,11 +71,6 @@ export default function Post(props) {
     });
   };
 
-  useEffect(() => {
-    let base64Flag = `data:image/${props.imgType};base64,`;
-    let imageStr = arrayBufferToBase64(props.imgFile);
-    setimgfile(base64Flag + imageStr);
-  }, []);
 
   return (
     <div className="post">
@@ -110,7 +98,7 @@ export default function Post(props) {
         />
       </div>
       <div className="content">{props.content}</div>
-      {props.img ? <img src={imgfile} alt="Post Media" /> : <div />}
+      {props.img ? <img src={preimg+props.img} alt="Post Media" /> : <div />}
       <div className="reactions">
         <div className="react">
           <FontAwesomeIcon

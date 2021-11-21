@@ -12,28 +12,6 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
 
-  // const createPost = async ({ postDesc, gitLink, imag }) => {
-  //   const data = {
-  //     userid: user._id,
-  //     content: postDesc,
-  //     githubLink: gitLink,
-  //     img: imag.name,
-  //     imag:imag
-  //   };
-  //   const options = {
-  //     method: "POST",
-  //     mode: "cors",
-  //     headers: {
-  //       // "Content-Type": "multipart/form-data",
-  //       "Access-Control-Allow-Origin": "*",
-  //     },
-  //     body: JSON.stringify(data),
-  //   };
-  //   let response = await fetch(`http://localhost:3030/api/post`, options);
-  //   let jso = await response.json();
-  //   window.location.reload();
-  // };
-
   const createPost = async ({ postDesc, gitLink, imag }) => {
     const formData = new FormData();
     
@@ -48,6 +26,8 @@ function Home() {
       formData
     );
     console.log(response);
+    window.location.reload();
+
   };
 
   useEffect(() => {

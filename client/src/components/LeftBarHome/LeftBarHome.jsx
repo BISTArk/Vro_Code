@@ -52,9 +52,6 @@ export default function LeftBarHome(props) {
                     </div>
                      <div className = "FollowItemList">
                                      <span className="FollowItem">Posts</span>
-                                     {
-                                         console.log("Post count " + props.user.postCount )
-                                     }
                         <span className = "FollowNum">{props.user.postCount }</span>
                       </div>
                     </div>
