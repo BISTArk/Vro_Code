@@ -64,13 +64,15 @@ router.get("/my/:userId", async (req, res) => {
 
 router.post("/", upload.single('imag'), async (req, res) => {
   console.log("got a new post");
-  let newPost = new post({...req.body,img:req.file.filename});
+  let newPost;
+  if(req.body.img!="")
+  newPost = new post({...req.body,img:req.file.filename});
+  else
+  newPost = new post(req.body.img)
   try {
     let curruser = await user.findById(req.body.userid);
     let x = curruser.postCount;
-    console.log(x);
     await curruser.updateOne({ $set: { postCount: x+1 } })
-    // await curruser.save();
     const currPost = await newPost.save();
     res.status(200).json(currPost);
   } catch (err) {
@@ -85,6 +87,9 @@ router.delete("/:id", async (req, res) => {
   try {
     const currPost = await post.findById(req.params.id);
     if (currPost.userid === req.body.id) {
+      let curruser = await user.findById(currPost.userid);
+      let x = curruser.postCount;
+      await curruser.updateOne({ $set: { postCount: x-1 } })
       await currPost.deleteOne();
       fs.unlink("images/"+currPost.img,(err)=>{
         console.log(err);

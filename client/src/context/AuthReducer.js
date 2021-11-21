@@ -39,6 +39,22 @@ const AuthReducer = (state, action) => {
                     ),
                   },
                 };
+                case "CREATE_POST":
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    postCount: action.payload,
+                },
+            };
+            case "DELETE_POST":
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    postCount: action.payload,
+                },
+            };
             default: return state;
         
     }
