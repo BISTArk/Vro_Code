@@ -8,10 +8,12 @@ import { GitHub, Image } from "@material-ui/icons";
 import { NavLink as Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
+
 function Feed(props) {
   const { user } = useContext(AuthContext);
   const [postDesc, setPostDesc] = useState("");
   const [gitLink, setGitLink] = useState("");
+  const [postCounter, setPostCounter] = useState(0);
 
   const githubPrompt = () => {
     const link = prompt("Enter your repo link down here");
@@ -67,7 +69,7 @@ function Feed(props) {
             return <Post
               postName = {x.Name}
               postID={x._id}
-           
+
               userID = {x.userid}
               postedon={x.createdAt}
               username={x.username}

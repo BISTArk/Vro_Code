@@ -95,7 +95,7 @@ function App() {
   };
   return (
     <div className="App">
-      <h1>Vrocode</h1>
+      <h1>VroCoder</h1>
       <h2>Practice here on our Online judge!</h2>
 
       <div className="settings">

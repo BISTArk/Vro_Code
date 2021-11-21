@@ -86,6 +86,7 @@ input::placeholder{
 .codeHeading{
   position: relative;
   margin: auto;
+  left: -30px;
 }
 .codeHeading:focus{
   outline: none;
@@ -99,6 +100,7 @@ input::placeholder{
 }
 .codeTitleInput{
   margin-top: 15px;
+  text-align: center;
 }
 .CodeEditor{
   margin: 0 15% 0 10%;

@@ -45,7 +45,7 @@ const courseLogos2 = [
     '/api/hackathons/hackerearth.png',
     '/api/hackathons/mlh.png',
     '/api/hackathons/dev.png',
-    '/api/hackathons/hackverse.webp',
+    '/api/hackathons/hackverse.png',
     
 ]
 

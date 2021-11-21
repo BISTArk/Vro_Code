@@ -5,7 +5,7 @@ import Leftbar from "../../components/Leftbar/Leftbar";
 import Feed from "../../components/Feed/Feed";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink as Link } from "react-router-dom";
-import { faCamera } from "@fortawesome/free-solid-svg-icons";
+import { faCamera, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import cover from "../../assets/profileImages/cover-img.jpg";
 import profile from "../../assets/profileImages/profile-img.jfif";
 
@@ -48,7 +48,7 @@ export default function Profile(props) {
       );
       let jso1 = await response1.json();
       let jso2 = jso1.map(x => {
-        return {...x,Name:user.Name,username:user.username,profilePic:user.profilePic}
+        return {...x,Name:user.Name,username:user.username, profilePic:user.profilePic}
 
       });
       setPosts(jso2);
@@ -153,6 +153,7 @@ export default function Profile(props) {
                 <div className="profileTitleProfile">
                   <h4 className="profileInfoName">{user.Name}</h4>
                 </div>{" "}
+                <span style={{opacity: 0.6, fontSize: "0.8rem"}}>@ {user.username}</span>
                 <span className="profileInfoDesc">{user.role}</span>
               </div>
               {loggedUser._id !== user._id && (
@@ -162,8 +163,8 @@ export default function Profile(props) {
                       ? "Unfollow"
                       : "Follow"}
                   </button>
-                  <button className="follow-btn" onClick={handleSearch}>
-                    {"Call for CS"}
+                  <button className="dm-btn" onClick={handleSearch}>
+                    <FontAwesomeIcon icon = {faPaperPlane}/>
                   </button>
                 </div>
               )}

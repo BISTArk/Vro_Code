@@ -14,6 +14,7 @@ import {
 import { NavLink as Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import side from "../../assets/svgs/sidebars.svg"
 
 export default function Leftbar(props) {
   const { user, dispatch } = useContext(AuthContext);
@@ -49,7 +50,9 @@ export default function Leftbar(props) {
 
   return (
     <div className="leftbar">
+       <img src={side} style={{width: "100%", marginTop: "38px"}}alt="" />
       <div className="leftbarWrapper">
+        
         <ul className="leftbarlist">
           {/* <li className="leftbarListItem">
             <ExploreOutlined className="leftbarIcon" />
@@ -129,6 +132,7 @@ export default function Leftbar(props) {
             </span>
           </li>
         </ul>
+       
       </div>
     </div>
   );

@@ -8,7 +8,9 @@ import { AuthContext } from "../../context/AuthContext";
 import { NavLink as Link } from "react-router-dom";
 import x from "../../assets/helper/ranks";
 import c from "../../assets/helper/courseLinks";
-
+import svg from "../../assets/svgs/collab.svg";
+import version from "../../assets/svgs/version.svg"
+import { GitHub } from "@material-ui/icons";;
 export default function LeftBarHome(props) {
     const { user } = useContext(AuthContext);
     const courseImg = c.courseLogos;
@@ -30,7 +32,7 @@ export default function LeftBarHome(props) {
     
      return(
         <div className = "LeftBarHome">
-           <div className = "leftbarWrapper">
+           <div className = "leftbarWrapperHome">
                <Link to= {`/profile/${user._id}`} style={{ textDecoration: 'none' , color: 'black'}}>
                <div className = "ProfileCard">
                    <img src={image} alt="profile-img" className = "ProfileImage" />
@@ -49,8 +51,11 @@ export default function LeftBarHome(props) {
                         <span className = "FollowNum">{props.user.following.length}</span>
                     </div>
                      <div className = "FollowItemList">
-                        <span className = "FollowItem">Posts</span>
-                        <span className = "FollowNum">{props.user.postCount}</span>
+                                     <span className="FollowItem">Posts</span>
+                                     {
+                                         console.log("Post count " + props.user.postCount )
+                                     }
+                        <span className = "FollowNum">{props.user.postCount }</span>
                       </div>
                     </div>
                     </div>
@@ -67,7 +72,10 @@ export default function LeftBarHome(props) {
                </div>
                      <br />
                      <hr style={{opacity: "0.2", width: "50px", position: "relative", margin: "auto"}}/>
-               </Link>
+                 </Link>
+                 <div>
+                     <img src={svg} alt=""  className="svgContainerLeftBarHome"/>
+                 </div>
                <div className = "courseAds-container">
                      <h2 className="CourseHeading">Courses and Hackathons</h2>
                     <div className = "Course1">
@@ -80,7 +88,18 @@ export default function LeftBarHome(props) {
                         <img src={hackImg[idx2]} alt="C-logo2"className ="courseLogo"/>
                          <a href={hackLinks[idx2]} target="_blank" rel="nopener noreferrer"><h3 className = "courseName">{hackTitle[idx2]}</h3></a>
                     </div>
-               </div>
+                 </div>
+                 <hr style={{opacity: "0.5", width: "50px", position: "relative", margin: "auto", marginTop: "20px"}}/>
+                
+                 <div className="gitLeftBar">
+            
+                     <a href="https://github.com/"  rel="noopener noreferrer"> <div className = "gitCourse">
+                        
+                       
+                         <h3 className="gitHubButton"><GitHub style={{color: "white"}}/> GitHub</h3>
+                     </div></a>
+                     <img src={version} alt=""  className="svgContainerLeftBarHome"/>
+                 </div>
               
            </div>
          
