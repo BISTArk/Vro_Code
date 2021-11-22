@@ -10,19 +10,18 @@ import x from "../../assets/helper/ranks";
 class Search extends Component {
   
   state = { result: [] };
+  preProfile = "http://localhost:3030/images/profile/";
   
   componentDidMount() {
     this.getData();
   }
 
   async getData() {
-    console.log(this.props.match.params.term);
     let response = await fetch(
       `http://localhost:3030/api/search/${this.props.match.params.term}`
     );
     let jso = await response.json();
     this.setState({ result: jso });
-    console.log(this.state.result);
   }
   rank = x.ranks;
   rankImg = x.blackRank;
@@ -34,7 +33,7 @@ class Search extends Component {
           <div key={user._id} className="searchBoxInfo">
             <div className="peopleBox">
               <img
-                src={m1}
+                src={this.preProfile+user.profilePic}
                 alt="peopleImage"
                 className="searchProfilePicture"
               />

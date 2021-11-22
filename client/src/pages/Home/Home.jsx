@@ -18,7 +18,7 @@ function Home() {
     formData.append("userid", user._id);
     formData.append("githubLink", gitLink);
     formData.append("content", postDesc);
-    formData.append("img", imag.name);
+    formData.append("img", imag.name||"");
     formData.append("imag", imag);
 
     const response = await axios.post(

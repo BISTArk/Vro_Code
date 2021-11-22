@@ -14,10 +14,13 @@ import { AuthContext } from "../../context/AuthContext";
 
 export default function Post(props) {
   const {user,dispatch} = useContext(AuthContext);
-  const [comment, setComment] = useState("");
-  const [canComment, setCanComment] = useState(false);
+  // const [comment, setComment] = useState("");
+  // const [canComment, setCanComment] = useState(false);
   const [clicked, setClicked] = useState(false);
   const preimg = "http://localhost:3030/images/";
+
+  const preProfile = "http://localhost:3030/images/profile/";
+
 
   const otherComments = [
     {
@@ -57,18 +60,18 @@ export default function Post(props) {
     }
   };
 
-  const loadComments = () => {
-    return otherComments.map(({ ppic, pname, content }) => {
-      return (
-        <div className="writtenComment">
-          <div className="profilepic-container">
-            <img src={ppic} alt={pname} className="profilepic" />
-          </div>
-          <div className="commentContent">{content}</div>
-        </div>
-      );
-    });
-  };
+  // const loadComments = () => {
+  //   return otherComments.map(({ ppic, pname, content }) => {
+  //     return (
+  //       <div className="writtenComment">
+  //         <div className="profilepic-container">
+  //           <img src={ppic} alt={pname} className="profilepic" />
+  //         </div>
+  //         <div className="commentContent">{content}</div>
+  //       </div>
+  //     );
+  //   });
+  // };
 
   return (
     <div className="post">
@@ -86,7 +89,7 @@ export default function Post(props) {
               <span className="username"> . @ {props.username}</span>
             </div>
           </Link>
-          {console.log("date hai : " + props.postedon.toLocaleTimeString)}
+          {console.log("date hai : " + props.postedon)}
           <div className="postedon">Posted on {props.postedon}</div>
         </div>
 

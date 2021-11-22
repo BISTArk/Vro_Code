@@ -17,6 +17,7 @@ import { AuthContext } from "../../context/AuthContext";
 export default function Friends() {
   const { user } = useContext(AuthContext);
   const [result, setresult] = useState([]);
+  const preProfile = "http://localhost:3030/images/profile/";
 
   useEffect(() => {
     async function fetchData() {
@@ -68,7 +69,7 @@ export default function Friends() {
                   <div className="friendCard">
                     <Link to={`/profile/${x._id}`} style={{ textDecoration: "none", color: "black" }} className="followBox">
                       <img
-                        src={m1}
+                        src={preProfile+x.profilePic}
                         alt="peopleImage"
                         className="FriendsProfilePicture"
                       />
