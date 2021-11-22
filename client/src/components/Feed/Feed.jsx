@@ -14,6 +14,7 @@ function Feed(props) {
   const [postDesc, setPostDesc] = useState("");
   const [gitLink, setGitLink] = useState("");
   const [imag, setImag] = useState("");
+  const preProfile = "http://localhost:3030/images/profile/";
 
   const githubPrompt = () => {
     const link = prompt("Enter your repo link down here");
@@ -33,7 +34,7 @@ function Feed(props) {
       <div className="makepost">
         <div className="post-details">
           <Link to={`/profile/${user._id}`} className="profilepic-container">
-            <img src={img} alt="Ishan" className="profilepic" />
+            <img src={preProfile+user.profilePic} alt="Ishan" className="profilepic" />
           </Link>
           <textarea
             name="postDesc"
@@ -55,7 +56,7 @@ function Feed(props) {
             </div>
             <div className="upload-option">
               <Image className="svg-icon" />
-              <label htmlFor="postImg"> Media</label>
+              <label htmlFor="postImg"> Image</label>
               <input
                 type="file"
                 name="imag"
@@ -94,7 +95,7 @@ function Feed(props) {
                 gitLink={x.githubLink}
                 content={x.content}
                 img={x.img}
-                profilePic={img}
+                profilePic={preProfile+x.profilePic}
                 key={x._id}
                 imgType={x.imgType}
                 imgFile={x.imgFile}

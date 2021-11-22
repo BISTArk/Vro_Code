@@ -1,11 +1,66 @@
 const router = require("express").Router();
 const user = require("../models/user_mod");
 const bcrypt = require("bcrypt");
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    if (file.fieldname === "profileImag") {
+      callback(null, "images/profile");
+    } else {
+      callback(null, "images/cover");
+    }
+  },
+  filename: function (req, file, callback) {
+    console.log(file);
+    if (file.fieldname === "profileImag")
+      callback(null, "profile" + file.originalname);
+    else callback(null, "cover" + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+router.put(
+  "/pics",
+  upload.fields([
+    {
+      name: "profileImag",
+      maxCount: 1,
+    },
+    {
+      name: "coverImag",
+      maxCount: 1,
+    },
+  ]),
+  async (req, res) => {
+    console.log(req.files);
+    try {
+      const currUser = await user.findById(req.body.id);
+      await currUser.updateOne({
+        $set: {
+          profilePic: req.files.profileImag.filename,
+          coverPic: req.files.coverImag.filename,
+        },
+      });
+      const ret = {
+        profilePic: req.files.profileImag[0].filename,
+        coverPic: req.files.coverImag[0].filename,
+        msg: "Updated sucessfully",
+        hel:"hello",
+      };
+      console.log("hello");
+      res.status(200).json(ret);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  }
+);
 
 router.get("/leader", async (req, res) => {
   try {
     const currUser = await user.find({}).sort({ rank: -1 }).limit(5);
-    
+
     // console.log("Leader boi" + currUser)
     res.status(200).json(currUser);
   } catch (err) {
@@ -68,18 +123,18 @@ router.get("/:id", async (req, res) => {
 //get multiple users
 
 router.post("/multiple", async (req, res) => {
-    let result = [];
+  let result = [];
   try {
     for (const x of req.body.list) {
-        const currUser = await user.findById(x);
+      const currUser = await user.findById(x);
       if (currUser) {
         const { password, updatedAt, ...other } = currUser._doc;
         result.push(other);
       }
     }
-      res.status(200).json(result);
+    res.status(200).json(result);
   } catch (err) {
-      console.log(err);
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -110,6 +165,7 @@ router.put("/follow/:id", async (req, res) => {
 //unfolow user
 
 router.put("/unfollow/:id", async (req, res) => {
+  console.log("hello");
   if (req.body.id !== req.params.id) {
     try {
       const currUser = await user.findById(req.body.id);
@@ -130,6 +186,5 @@ router.put("/unfollow/:id", async (req, res) => {
     res.status(400).json("You cant unfollow yourself");
   }
 });
-
 
 module.exports = router;

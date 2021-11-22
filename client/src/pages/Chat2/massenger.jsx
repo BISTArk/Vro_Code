@@ -5,8 +5,12 @@ import Conversation from "../../components/Chat2/conversations/Conversation";
 import Message from "../../components/Chat2/message/Message";
 import ChatOnline from "../../components/Chat2/chatOnline/ChatOnline";
 import { useContext, useEffect, useRef, useState } from "react";
+import { NavLink as Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDoubleLeft } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+
 import empty from "../../assets/svgs/startChat.svg";
 import { io } from "socket.io-client";
 
@@ -24,11 +28,6 @@ export default function Messenger() {
   const scrollRef = useRef();
   const [fuser, setFuser] = useState(null);
   // const PF = "../../client/public/";
-
-
-
-  
-
   // console.log(user.following)
   useEffect(() => {
     socket.current = io("ws://localhost:3060", {
@@ -43,7 +42,9 @@ export default function Messenger() {
       });
     });
   }, []);
-
+  const redirectVro = () => {
+    window.location.href = "/home";
+  }
   useEffect(() => {
     arrivalMessage &&
       currentChat?.members.includes(arrivalMessage.sender) &&
@@ -145,16 +146,18 @@ export default function Messenger() {
 
   return (
     <div className="chatBody">
-      <TopBar />
+      {/* <TopBar /> */}
       <div className="messenger">
         <div className="chatMenu">
           <h1 className="chatHead">Chat</h1>
+          <div className="conversation2" onClick={redirectVro}><FontAwesomeIcon icon={faAngleDoubleLeft }/> VroCode</div>
           <div className="chatMenuWrapper">
             {conversations.map((c) => (
               <div onClick={() => handleConv(c)}>
                 <Conversation conversation={c} currentUser={user} />
               </div>
             ))}
+            
           </div>
         </div>
         <div className="chatBox">
@@ -165,8 +168,16 @@ export default function Messenger() {
                 <div className="chatBoxTop">
                   <div className="chatOnline">
                     <div className="chatOnlineWrapper">
-                      <span>{fuser?.username}</span>
+                      <div className="chatHeadBox">
+                      <Link to = {`/profile/${fuser?._id}`}>
+                      <span className="chatBoxName">{fuser?.Name}</span>
+                      </Link>
+                        <span className="chatBoxUsername">@ {fuser?.username}</span>
+                        
+                      </div>
+                      
                     </div>
+                    
                   </div>
                   {messages.map((m) => (
                     <div ref={scrollRef}>
@@ -194,7 +205,9 @@ export default function Messenger() {
                 <img src={empty} alt="" className="emptyImg" />
               </div>
             )}
+            
           </div>
+          
         </div>
         {/* <div className="chatOnline">
           <div className="chatOnlineWrapper">
@@ -205,6 +218,8 @@ export default function Messenger() {
             />
           </div>
         </div> */}
+
+        
       </div>
     </div>
   );

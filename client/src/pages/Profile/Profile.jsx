@@ -6,9 +6,7 @@ import Feed from "../../components/Feed/Feed";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink as Link } from "react-router-dom";
 import { faCamera, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import cover from "../../assets/profileImages/cover-img.jpg";
 import axios from "axios";
-import profile from "../../assets/profileImages/profile-img.jfif";
 
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
@@ -24,6 +22,8 @@ export default function Profile(props) {
   const blackRankImg = y.blackRank;
   const [user, setUser] = useState();
   const [posts, setPosts] = useState([]);
+  const preProfile = "http://localhost:3030/images/profile/";
+  const preCover = "http://localhost:3030/images/cover/";
 
   useEffect(() => {
     async function fetchData() {
@@ -140,13 +140,13 @@ export default function Profile(props) {
                 <FontAwesomeIcon icon={faCamera} className="cameraIcon" />
                 </Link>)}
                 <img
-                  src={cover}
+                  src={preCover+user.coverPic}
                   alt="profileCoverImg"
                   className="profileCoverImg"
                 />
                
                 <img
-                  src={profile}
+                  src={preProfile+user.profilePic}
                   alt="profileUserImg"
                   className="profileUserImg"
                 />

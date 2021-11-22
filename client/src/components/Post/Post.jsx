@@ -9,7 +9,7 @@ import {
   TurnedInNot,
 } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import { NavLink as Link } from "react-router-dom";
 import {
   faHeart as farHeart,
@@ -91,6 +91,7 @@ export default function Post(props) {
               <span className="username"> . @ {props.username}</span>
             </div>
           </Link>
+          {console.log("date hai : " + props.postedon.toLocaleTimeString)}
           <div className="postedon">Posted on {props.postedon}</div>
         </div>
 
@@ -105,7 +106,7 @@ export default function Post(props) {
       <div className="reactions">
         <div className="react">
           <FontAwesomeIcon
-            icon={!clicked ? farHeart : faHeart}
+            icon={!clicked ? farHeart : faHeart} style={{}}
             onClick={() => {
               setClicked(!clicked);
             }}
@@ -115,7 +116,7 @@ export default function Post(props) {
               setCanComment(!canComment);
             }}
           /> */}
-          <ShareOutlined />
+         <FontAwesomeIcon icon ={faShareAlt}/>
         </div>
 
         {props.gitLink ? (
@@ -132,7 +133,7 @@ export default function Post(props) {
           <div></div>
         )}
       </div>
-      <div className="putComment">
+      {/* <div className="putComment">
         <div className="profilepic-container">
           <img src={props.profilePic} alt="Ishan" className="profilepic" />
         </div>
@@ -148,7 +149,7 @@ export default function Post(props) {
           placeholder="Leave a comment"
         />
       </div>
-      <div className="othersComment">{canComment ? loadComments() : ""}</div>
+      <div className="othersComment">{canComment ? loadComments() : ""}</div> */}
     </div>
   );
 }

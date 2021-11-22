@@ -48,7 +48,9 @@ export default function Conversation({ conversation, currentUser }) {
         <span className="conversationName">{user?.Name}</span>
        
         <span className="conversationusername">@{user?.username}</span>
-        </div>
+      </div>
+   
     </div>
+    
   );
 }

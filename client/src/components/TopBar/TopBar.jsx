@@ -17,6 +17,7 @@ function TopBar(props) {
   const [search, setsearch] = useState("");
   const { user } = useContext(AuthContext);
   // const ranks = x.ranks;
+    const preProfile = "http://localhost:3030/images/profile/";
   const rankImg = x.goldRank;
 
   const handleSubmit = (e) => {
@@ -100,7 +101,7 @@ function TopBar(props) {
               window.location.href = `/profile/${user._id}`;
             }}
           >
-            <img src={profile} alt="profile-img" className="topbarProfile" />
+            <img src={preProfile+user.profilePic} alt="profile-img" className="topbarProfile" />
           </Link>
           <img
             src={rankImg[Math.floor(user.rank / 100)]}
