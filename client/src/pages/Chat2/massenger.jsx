@@ -107,12 +107,16 @@ export default function Messenger() {
     });
 
     try {
+      if(message.text !== null){
       const res = await axios.post(
         "http://localhost:3030/api/messages",
         message
       );
       setMessages([...messages, res.data]);
       setNewMessage("");
+      }else{
+        console.alert("Bhosdike message likh pahle X(");
+      }
     } catch (err) {
       console.log(err);
     }
@@ -122,18 +126,23 @@ export default function Messenger() {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // useEffect( async ()=> {
+  // useEffect( ()=> {
+  //   const getOtherUser = async () => {
     
-  //   try{
-  //     const tempotherId =  currentChat.members.find((m) => m !== user._id);
-  //     const res = await axios.get("http://localhost:3030/api/user/" + tempotherId);
-  //     setFuser(res.data);
-  //     // setotherId(tempotherId);
-  //   }catch (err){
-  //     console.log(err);
-  //   }
+  //   getOtherUser();
   // })
 
+
+  const handleConv = async (c) => {
+    try{
+      const tempotherId =  currentChat.members.find((m) => m !== user._id);
+      const res = await axios.get("http://localhost:3030/api/user/" + tempotherId);
+      setFuser(res.data);
+    }catch (err){
+      console.log(err);
+    }
+    setCurrentChat(c);
+  };
 
   return (
     <div className="chatBody">
@@ -144,7 +153,7 @@ export default function Messenger() {
           <div className="conversation2" onClick={redirectVro}><FontAwesomeIcon icon={faAngleDoubleLeft }/> VroCode</div>
           <div className="chatMenuWrapper">
             {conversations.map((c) => (
-              <div onClick={() => setCurrentChat(c)}>
+              <div onClick={() => handleConv(c)}>
                 <Conversation conversation={c} currentUser={user} />
               </div>
             ))}

@@ -4,16 +4,14 @@ import { NavLink as Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleUp } from "@fortawesome/free-solid-svg-icons";
 import { AuthContext } from "../../context/AuthContext";
-import axios from"axios";
-
 class ImageUpload extends Component {
-  state = { profileImag: "", coverImag: "", profilePic:"", coverPic:"" };
+  state = { profileImag: "", coverImag: "" };
 
   onProfilePic = (e) => {
     if (e.target.files && e.target.files[0]) {
       const img = e.target.files[0];
       console.log(img);
-      this.setState({ profileImag: img, profilePic: img.name });
+      this.setState({ profileImag: img });
     }
   };
 
@@ -21,28 +19,30 @@ class ImageUpload extends Component {
     if (e.target.files && e.target.files[0]) {
       const img = e.target.files[0];
       console.log(img);
-      this.setState({ coverImag: img, coverPic:img.name });
+      this.setState({ coverImag: img });
     }
   };
 
-  sendPics = async (e,user,dispatch ) => {
+  sendPics = async (user,dispatch) => {
     const formData = new FormData();
     
-    formData.append("coverPic", this.state.profilePic);
-    formData.append("coverImag", this.state.coverImag);
-    formData.append("profilePic", this.state.profilePic);
-    formData.append("profileImag", this.state.profileImag);
-    formData.append("id", user._id);
+    formData.append("userid", user._id);
+    formData.append("githubLink", gitLink);
+    formData.append("content", postDesc);
+    formData.append("img", imag.name);
+    formData.append("imag", imag);
 
-    const response = await axios.put(
-      "http://localhost:3030/api/user/pics",
+    const response = await axios.post(
+      "http://localhost:3030/api/post",
       formData
     );
     
-    if(response.status===200)dispatch({ type: "UPLOAD_PICS", payload: {profilePic:response.data.profilePic,coverPic:response.data.coverPic} });
-    // console.log(response);
-    window.location.href="/profile/"+user._id;
+    if(response.status===200)dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
+    console.log(response);
+    window.location.reload();
+
   };
+
 
   render() {
     return (
@@ -52,7 +52,7 @@ class ImageUpload extends Component {
             <div className="imgUpload">
               <h1 className="uploadPicH1">Upload Pictures</h1>
 
-              <div className="uploadForm">
+              <form action="" className="uploadForm">
                 <div className="formElementUpload">
                   <label htmlFor="profilePic" className="labelUpload">
                     <FontAwesomeIcon
@@ -86,11 +86,11 @@ class ImageUpload extends Component {
                   />
                 </div>
                 <div className="buttonsEdit">
-                  <div>
-                    <button className="cancelUpload" onClick={(e)=>{this.sendPics(e,user,dispatch)}}>Submit</button>
-                  </div>
+                  <Link to={`/`}>
+                    <button className="cancelUpload">Cancel</button>
+                  </Link>
                 </div>
-              </div>
+              </form>
             </div>
           );
         }}
