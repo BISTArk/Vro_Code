@@ -107,7 +107,7 @@ export default function Messenger() {
     });
 
     try {
-      if(message.text !== null){
+      if(message.text.length !== 0){
       const res = await axios.post(
         "http://localhost:3030/api/messages",
         message
