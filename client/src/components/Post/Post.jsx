@@ -15,14 +15,14 @@ import {
   faHeart as farHeart,
   faTrashAlt,
 } from "@fortawesome/free-regular-svg-icons";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Post(props) {
+  const {user,dispatch} = useContext(AuthContext);
   const [comment, setComment] = useState("");
   const [canComment, setCanComment] = useState(false);
   const [clicked, setClicked] = useState(false);
-  const preimg = "http://localhost:3030/images/"
-
-  console.log(props);
+  const preimg = "http://localhost:3030/images/";
 
   const otherComments = [
     {
@@ -50,10 +50,14 @@ export default function Post(props) {
           options
         );
         let confirm = await response.json();
-        console.log(confirm);
+        // console.log(response);
+        if (response.status==200)
+          dispatch({ type: "DELETE_POST", payload: user.postCount - 1 });
+        window.alert(confirm);
         window.location.reload();
       } catch {
-        window.confirm("You can only delete your own post");
+        window.alert("You can only delete your own post");
+        return;
       }
     }
   };
@@ -70,7 +74,6 @@ export default function Post(props) {
       );
     });
   };
-
 
   return (
     <div className="post">

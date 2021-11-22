@@ -14,7 +14,6 @@ function Feed(props) {
   const [postDesc, setPostDesc] = useState("");
   const [gitLink, setGitLink] = useState("");
   const [imag, setImag] = useState("");
-  const [postCounter, setPostCounter] = useState(0);
 
   const githubPrompt = () => {
     const link = prompt("Enter your repo link down here");
@@ -105,24 +104,6 @@ function Feed(props) {
         ) : (
           <div>No Posts available</div>
         )}
-        {/* <Post
-          username="Ishan Bhattacharya"
-          postedon="26 March 2001"
-          content="This is my first Post obviously!! DUH!!!"
-          img={img}
-        />
-        <Post
-          username="Ishan Bhattacharya"
-          postedon="26 March 2001"
-          content="This is my first Post obviously!! DUH!!!"
-          img={img}
-        />
-        <Post
-          username="Ishan Bhattacharya"
-          postedon="26 March 2001"
-          content="This is my first Post obviously!! DUH!!!"
-          img={img}
-        /> */}
       </div>
     </div>
   );
