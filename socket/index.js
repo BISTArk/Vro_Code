@@ -50,16 +50,16 @@ io.on("connection", (socket) => {
 
     //display a welcome message to the user who have joined a room
     socket.emit("message", {
-      userId: p_user.id,
-      username: p_user.username,
+      sender: p_user.id,
       text: `Welcome ${p_user.username}`,
+      createdAt: Date.now()
     });
 
     //displays a joined room message to all other room users except that particular user
     socket.broadcast.to(p_user.room).emit("message", {
-      userId: p_user.id,
-      username: p_user.username,
+      sender: p_user.id,
       text: `${p_user.username} has joined the chat`,
+      createdAt: Date.now()
     });
   });
 
@@ -70,8 +70,8 @@ io.on("connection", (socket) => {
 
     io.to(p_user.room).emit("message", {
       userId: p_user.id,
-      username: p_user.username,
       text: text,
+      createdAt: Date.now()
     });
   });
 
@@ -83,8 +83,8 @@ io.on("connection", (socket) => {
     if (p_user) {
       io.to(p_user.room).emit("message", {
         userId: p_user.id,
-        username: p_user.username,
         text: `${p_user.username} has left the chat`,
+        createdAt: Date.now()
       });
     }
   });

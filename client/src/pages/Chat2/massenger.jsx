@@ -52,7 +52,9 @@ export default function Messenger() {
   }, [arrivalMessage, currentChat]);
 
   useEffect(() => {
-    socket.current.emit("joinRoom", (user._id, user.socketId));
+    socket.current.emit("joinRoom", {
+      username: user._id,
+      roomname: user.socketId});
     socket.current.on("chat", (users) => {
       setOnlineUsers(
         user.following.filter((f) => users.some((u) => u.userId === f))
@@ -135,7 +137,7 @@ export default function Messenger() {
 
   const handleConv = async (c) => {
     try{
-      const tempotherId =  currentChat.members.find((m) => m !== user._id);
+      const tempotherId = await currentChat.members.find((m) => m !== user._id);
       const res = await axios.get("http://localhost:3030/api/user/" + tempotherId);
       setFuser(res.data);
     }catch (err){
