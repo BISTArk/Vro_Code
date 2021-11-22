@@ -13,7 +13,8 @@ function Rightbar() {
   function redirectVro() {
     window.open("http://localhost:4000/", "_blank");
   }
-  const { user } = useContext(AuthContext);
+
+   const { user } = useContext(AuthContext);
   const [leaders, setleaders] = useState([])
   const rankImg = x.blackRank;
 
@@ -44,13 +45,14 @@ function Rightbar() {
         <hr style={{width: "80%", margin: "10px", opacity: "0.4", textAlign:"center"}}/>
         {leaders.map(({ username, profilepic, _id, rank }) => {
           return (
+         
             <div className="leaderRow" key={username}>
               <div className="profilepic">
-                <img src="./images/profile-sample.png" alt={username} />
+              <img src="./images/profile-sample.png" alt={username} />
               </div>
               <div className="details">
               <Link to={`/profile/${_id}`} style={{color: "black"}}>
-                <span className="usernameBoard">{username}</span>
+                  <span className="usernameBoard">{username} </span>
               </Link>
                 <div className="points">
                   <span className="elo">{rank}</span>

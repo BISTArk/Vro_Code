@@ -1,6 +1,5 @@
 import "./Post.scss";
 import { useState, useContext, useEffect } from "react";
-import { AuthContext } from "../../context/AuthContext";
 import {
   CommentOutlined,
   FavoriteBorderOutlined,
@@ -16,9 +15,10 @@ import {
   faHeart as farHeart,
   faTrashAlt,
 } from "@fortawesome/free-regular-svg-icons";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Post(props) {
-  const { user, dispatch } = useContext(AuthContext);
+  const {user,dispatch} = useContext(AuthContext);
   const [comment, setComment] = useState("");
   const [canComment, setCanComment] = useState(false);
   const [clicked, setClicked] = useState(false);
@@ -101,7 +101,7 @@ export default function Post(props) {
         />
       </div>
       <div className="content">{props.content}</div>
-      {props.img ? <img src={preimg + props.img} alt="Post Media" /> : <div />}
+      {props.img ? <img src={preimg+props.img} alt="Post Media" className="postImageHome"/> : <div />}
       <div className="reactions">
         <div className="react">
           <FontAwesomeIcon
@@ -110,11 +110,11 @@ export default function Post(props) {
               setClicked(!clicked);
             }}
           />
-          <CommentOutlined
+          {/* <CommentOutlined
             onClick={() => {
               setCanComment(!canComment);
             }}
-          />
+          /> */}
           <ShareOutlined />
         </div>
 
