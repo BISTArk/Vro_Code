@@ -86,7 +86,7 @@ export default function Post(props) {
               <span className="username"> . @ {props.username}</span>
             </div>
           </Link>
-          {console.log("date hai : " + props.postedon.toLocaleTimeString)}
+          {console.log("date hai : " + props.postedon)}
           <div className="postedon">Posted on {props.postedon}</div>
         </div>
 
