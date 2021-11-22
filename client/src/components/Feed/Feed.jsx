@@ -56,7 +56,7 @@ function Feed(props) {
             </div>
             <div className="upload-option">
               <Image className="svg-icon" />
-              <label htmlFor="postImg"> Media</label>
+              <label htmlFor="postImg"> Image</label>
               <input
                 type="file"
                 name="imag"

@@ -9,7 +9,7 @@ import {
   TurnedInNot,
 } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import { NavLink as Link } from "react-router-dom";
 import {
   faHeart as farHeart,
@@ -102,7 +102,7 @@ export default function Post(props) {
       <div className="reactions">
         <div className="react">
           <FontAwesomeIcon
-            icon={!clicked ? farHeart : faHeart}
+            icon={!clicked ? farHeart : faHeart} style={{}}
             onClick={() => {
               setClicked(!clicked);
             }}
@@ -112,7 +112,7 @@ export default function Post(props) {
               setCanComment(!canComment);
             }}
           /> */}
-          <ShareOutlined />
+         <FontAwesomeIcon icon ={faShareAlt}/>
         </div>
 
         {props.gitLink ? (
