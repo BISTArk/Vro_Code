@@ -65,7 +65,7 @@ router.get("/my/:userId", async (req, res) => {
 router.post("/", upload.single('imag'), async (req, res) => {
   console.log("got a new post");
   let newPost;
-  if(req.body.img!="")
+  if(req.body.img !== "")
   newPost = new post({...req.body,img:req.file.filename});
   else
   newPost = new post(req.body.img)
