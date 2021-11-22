@@ -85,6 +85,7 @@ function Feed(props) {
       <div className="posts">
         {props.posts.length > 0 ? (
           props.posts.map((x) => {
+            console.log(x);
             return (
               <Post
                 postName={x.Name}
