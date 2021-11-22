@@ -7,8 +7,8 @@ router.get("/:term", async(req, res) => {
      
       let users = [];
       
-      let x = await user.find({ Name: re });
-      users = users.concat(x);
+      // let x = await user.find({ Name: re });
+      // users = users.concat(x);
       x = await user.find({ username: re });
      users = users.concat(x);
     console.log(x);

@@ -101,6 +101,7 @@ h4{
     margin-top: 50px;
     gap: 30px;
 }
+
 .FollowItemList-profile{
     display: flex;
     flex-direction: column;
