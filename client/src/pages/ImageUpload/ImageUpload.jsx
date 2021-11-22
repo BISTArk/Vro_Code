@@ -5,8 +5,10 @@ import { NavLink as Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleUp } from "@fortawesome/free-solid-svg-icons";
 import { AuthContext } from "../../context/AuthContext";
+import axios from "axios";
+
 class ImageUpload extends Component {
-  state = { profileImag: "", coverImag: "" };
+  state = { profileImag: "", coverImag: "", profilePic:"", coverPic:""};
 
   onProfilePic = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -24,24 +26,23 @@ class ImageUpload extends Component {
     }
   };
 
-  sendPics = async (user,dispatch) => {
+  sendPics = async (e,user,dispatch ) => {
     const formData = new FormData();
-    
-    formData.append("userid", user._id);
-    formData.append("githubLink", gitLink);
-    formData.append("content", postDesc);
-    formData.append("img", imag.name);
-    formData.append("imag", imag);
 
-    const response = await axios.post(
-      "http://localhost:3030/api/post",
+    formData.append("coverPic", this.state.profilePic);
+    formData.append("coverImag", this.state.coverImag);
+    formData.append("profilePic", this.state.profilePic);
+    formData.append("profileImag", this.state.profileImag);
+    formData.append("id", user._id);
+
+    const response = await axios.put(
+      "http://localhost:3030/api/user/pics",
       formData
     );
-    
-    if(response.status===200)dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
-    console.log(response);
-    window.location.reload();
 
+    if(response.status===200)dispatch({ type: "UPLOAD_PICS", payload: {profilePic:response.data.profilePic,coverPic:response.data.coverPic} });
+    // console.log(response);
+    window.location.href="/profile/"+user._id;
   };
 
 
