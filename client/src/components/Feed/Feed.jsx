@@ -90,7 +90,7 @@ function Feed(props) {
               <Post
                 postName={x.Name}
                 postID={x._id}
-                userID={user._id}
+                userID={x.userid}
                 postedon={x.createdAt}
                 username={x.username}
                 gitLink={x.githubLink}
