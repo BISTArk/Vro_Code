@@ -132,7 +132,7 @@ export default function Post(props) {
           <div></div>
         )}
       </div>
-      <div className="putComment">
+      {/* <div className="putComment">
         <div className="profilepic-container">
           <img src={props.profilePic} alt="Ishan" className="profilepic" />
         </div>
@@ -148,7 +148,7 @@ export default function Post(props) {
           placeholder="Leave a comment"
         />
       </div>
-      <div className="othersComment">{canComment ? loadComments() : ""}</div>
+      <div className="othersComment">{canComment ? loadComments() : ""}</div> */}
     </div>
   );
 }

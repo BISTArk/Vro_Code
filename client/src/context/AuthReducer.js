@@ -55,6 +55,17 @@ const AuthReducer = (state, action) => {
                     postCount: action.payload,
                 },
             };
+            case "UPLOAD_PICS":
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                   profilePic:action.payload.profilePic,
+                   coverPic:action.payload.coverPic
+                },
+            };
+
+            
             default: return state;
         
     }

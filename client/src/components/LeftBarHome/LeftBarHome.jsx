@@ -21,6 +21,7 @@ export default function LeftBarHome(props) {
     const hackLinks = c.links2;
     const ranks = x.ranks;
     const rankImg = x.rankImg;
+    const preProfile = "http://localhost:3030/images/profile/";
     function getRand(max) {
         return Math.floor(Math.random() * max);
     }
@@ -35,7 +36,7 @@ export default function LeftBarHome(props) {
            <div className = "leftbarWrapperHome">
                <Link to= {`/profile/${user._id}`} style={{ textDecoration: 'none' , color: 'black'}}>
                <div className = "ProfileCard">
-                   <img src={image} alt="profile-img" className = "ProfileImage" />
+                   <img src={preProfile+user.profilePic} alt="profile-img" className = "ProfileImage" />
                     <hr className = "hr-card"/>
                     <h2 className = "ProfileName">{props.user.Name}</h2>
                     {/*Need to add verified badge*/}
