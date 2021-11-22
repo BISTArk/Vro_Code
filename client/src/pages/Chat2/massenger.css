@@ -14,6 +14,56 @@
     flex: 2.5;
     padding: 5px;
   } */
+  .chatHeadBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #111;
+    transition: 0.2s;
+    padding: 20px;
+    position: fixed;
+    border-radius: 0 0 20px 20px;
+    width: 78%;
+    top: -5px;
+    }
+    .conversation2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      height: 80px;
+      text-align: center;
+      font-size: 1.6rem;
+      margin-left: 30px;
+      width: 84%;
+      font-family: 'Bukhari Script';
+      color: #fff;
+      cursor: pointer;
+      margin-top: 20px;
+      background-color: #3b3b3b;
+      background: rgba( 255, 255, 255, 0.2 );
+      box-shadow: 0 8px 32px 0 rgba(80, 53, 56, 0.37);
+      backdrop-filter: blur( 6px );
+      -webkit-backdrop-filter: blur( 6px );
+      border-radius: 10px;
+      border: 1px solid rgba( 255, 255, 255, 0.18 );
+      border-radius: 20px;
+      transition: 0.5s;
+    }
+    
+    .conversation2:hover {
+      background-color: rgb(78, 78, 78);
+    }
+  .chatBoxUsername{
+    color: #fff;
+    opacity: 0.5;
+    font-size: 0.8rem;
+  }
+  .chatBoxName{
+    color: #fff;
+    font-weight: 600;
+
+  }
   .chatHead{
     color: #fff;
     text-align: center;
@@ -55,6 +105,7 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
     padding-right: 10px;
+    padding-top: 100px;
   }
   ::-webkit-scrollbar {
     width: 8px;
@@ -127,9 +178,9 @@
 
 
   .chatOnlineWrapper {
-    padding: 10px;
-    background-color: #231f20;
-    color: blanchedalmond;
+    /* padding: 10px; */
+    /* background-color: #231f20; */
+   
   }
   .emptyImg{
     width: 30%;
