@@ -36,10 +36,10 @@ router.put(
     console.log(req.files);
     try {
       const currUser = await user.findById(req.body.id);
-      await currUser.updateOne({
+      await currUser.update({
         $set: {
-          profilePic: req.files.profileImag.filename,
-          coverPic: req.files.coverImag.filename,
+          profilePic: req.files.profileImag[0].filename,
+          coverPic: req.files.coverImag[0].filename,
         },
       });
       const ret = {
