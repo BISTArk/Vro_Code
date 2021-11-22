@@ -8,7 +8,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { NavLink as Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDoubleLeft } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDoubleLeft, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 import empty from "../../assets/svgs/startChat.svg";
@@ -29,7 +29,7 @@ export default function Messenger() {
   const [fuser, setFuser] = useState(null);
   // const PF = "../../client/public/";
   // console.log(user.following)
-
+  const preProfile = "http://localhost:3030/images/profile/";
 
   const redirectVro = () => {
     window.location.href = "/home";
@@ -162,7 +162,7 @@ export default function Messenger() {
       {/* <TopBar /> */}
       <div className="messenger">
         <div className="chatMenu">
-          <h1 className="chatHead">Chat</h1>
+          <h1 className="chatHead"><FontAwesomeIcon icon={ faEnvelope}/> Chat</h1>
           <div className="conversation2" onClick={redirectVro}><FontAwesomeIcon icon={faAngleDoubleLeft }/> VroCode</div>
           <div className="chatMenuWrapper">
             {conversations.map((c) => (
@@ -182,7 +182,8 @@ export default function Messenger() {
                   <div className="chatOnline">
                     <div className="chatOnlineWrapper">
                       <div className="chatHeadBox">
-                      <Link to = {`/profile/${fuser?._id}`}>
+                        <Link to={`/profile/${fuser?._id}`}>
+                          <img src={preProfile + fuser?.profilePic} alt="asdas" className="profileImgChatBox"/>
                       <span className="chatBoxName">{fuser?.Name}</span>
                       </Link>
                         <span className="chatBoxUsername">@ {fuser?.username}</span>

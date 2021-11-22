@@ -8,7 +8,7 @@ export default function Conversation({ conversation, currentUser }) {
   const [user, setUser] = useState(null);
   // const PF = "../../client/public/";
 
-
+  const preProfile = "http://localhost:3030/images/profile/";
 
   useEffect(() => {
     const friendId =  conversation.members.find((m) => m !== currentUser._id);
@@ -34,7 +34,7 @@ export default function Conversation({ conversation, currentUser }) {
       <div className="imgdiv">
         <img
           className="conversationImg"
-          src={profile}
+          src={preProfile+user?.profilePic}
           // {
           //   user?.profilePic
           //     ? PF + user.profilePic
