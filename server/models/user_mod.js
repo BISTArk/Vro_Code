@@ -31,11 +31,11 @@ const userSchema = new Schema({
     },
     profilePic: {
         type: String,
-        default: ""
+        default: "default.png"
     },
     coverPic: {
         type: String,
-        default: ""
+        default: "defaultCover.jpeg"
     },
     followers: {
         type: Array,

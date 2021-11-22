@@ -35,6 +35,8 @@ transition: 0.2s;
     object-fit:contain;
     object-position: center center;
     width: 100px;
+    height: 100px;
+    object-fit: cover;
     transition: 0.4s ease-in-out;
     cursor: pointer;
 }
@@ -48,7 +50,7 @@ transition: 0.2s;
 .peopleBox{
     display: flex;
     flex-direction: row;
-    padding: 50px;
+    padding: 20px;
     gap: 20px;
     align-items: center;
 }

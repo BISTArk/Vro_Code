@@ -16,6 +16,7 @@ function Rightbar() {
 
    const { user } = useContext(AuthContext);
   const [leaders, setleaders] = useState([])
+  const preProfile = "http://localhost:3030/images/profile/";
   const rankImg = x.blackRank;
 
   useEffect(() => {
@@ -43,12 +44,12 @@ function Rightbar() {
       <div className="leaderboard">
         <h1><FontAwesomeIcon icon={faTrophy} /> Leaderboard  </h1>
         <hr style={{width: "80%", margin: "10px", opacity: "0.4", textAlign:"center"}}/>
-        {leaders.map(({ username, profilepic, _id, rank }) => {
+        {leaders.map(({ username, profilePic, _id, rank }) => {
           return (
          
             <div className="leaderRow" key={username}>
               <div className="profilepic">
-              <img src="./images/profile-sample.png" alt={username} />
+              <img src={preProfile+profilePic} alt="" />
               </div>
               <div className="details">
               <Link to={`/profile/${_id}`} style={{color: "black"}}>
