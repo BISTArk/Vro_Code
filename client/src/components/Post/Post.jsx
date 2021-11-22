@@ -1,12 +1,7 @@
 import "./Post.scss";
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext} from "react";
 import {
-  CommentOutlined,
-  FavoriteBorderOutlined,
   GitHub,
-  PinDropRounded,
-  ShareOutlined,
-  TurnedInNot,
 } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faShareAlt } from "@fortawesome/free-solid-svg-icons";
