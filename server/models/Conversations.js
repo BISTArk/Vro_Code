@@ -9,6 +9,7 @@ const ConversationSchema = new mongoose.Schema(
     socketId: {
       type: Number,
       default: Math.random(),
+      unique: true
     },
   },
   { timestamps: true }
