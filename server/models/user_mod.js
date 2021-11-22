@@ -57,10 +57,6 @@ const userSchema = new Schema({
         type: Number,
         default: 0
     },
-    socketId: {
-        type: Number,
-        default: Math.random()
-    }
 },
     { timestamps: true });
 
