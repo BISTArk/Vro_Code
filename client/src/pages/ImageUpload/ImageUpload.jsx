@@ -40,8 +40,8 @@ class ImageUpload extends Component {
     );
     
     if(response.status===200)dispatch({ type: "UPLOAD_PICS", payload: {profilePic:response.data.profilePic,coverPic:response.data.coverPic} });
-    console.log(response);
-    // window.location.href="/profile/"+user._id;
+    // console.log(response);
+    window.location.href="/profile/"+user._id;
   };
 
   render() {
