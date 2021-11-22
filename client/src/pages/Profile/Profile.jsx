@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink as Link } from "react-router-dom";
 import { faCamera, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import cover from "../../assets/profileImages/cover-img.jpg";
+import axios from "axios";
 import profile from "../../assets/profileImages/profile-img.jfif";
 
 import { useContext } from "react";
@@ -23,8 +24,6 @@ export default function Profile(props) {
   const blackRankImg = y.blackRank;
   const [user, setUser] = useState();
   const [posts, setPosts] = useState([]);
-
-  // console.log(x.dispatch);
 
   useEffect(() => {
     async function fetchData() {
@@ -57,21 +56,24 @@ export default function Profile(props) {
     if(user)fetchData();
   }, [user, props.match.params.id]);
 
-  const createPost = async (postDesc) => {
-    const data = { userid: user._id, content: postDesc, img: "" };
-    const options = {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify(data),
-    };
-    let response = await fetch(`http://localhost:3030/api/post`, options);
-    let jso = await response.json();
-    console.log(jso);
+  const createPost = async ({ postDesc, gitLink, imag }) => {
+    const formData = new FormData();
+    
+    formData.append("userid", user._id);
+    formData.append("githubLink", gitLink);
+    formData.append("content", postDesc);
+    formData.append("img", imag.name);
+    formData.append("imag", imag);
+
+    const response = await axios.post(
+      "http://localhost:3030/api/post",
+      formData
+    );
+    
+    if(response.status===200)dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
+    console.log(response);
     window.location.reload();
+
   };
 
   const follow = async () => {

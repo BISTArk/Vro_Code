@@ -26,7 +26,7 @@ function Home() {
       formData
     );
     
-    dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
+    if(response.status===200)dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
     console.log(response);
     window.location.reload();
 

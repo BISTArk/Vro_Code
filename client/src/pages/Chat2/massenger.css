@@ -43,11 +43,11 @@
   }
   
   .chatBoxWrapper {
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
-    
     justify-content: space-between;
-     
+    padding: 0 10px 0 10px;
+    height: 91%;
   }
   
   .chatBoxTop {
@@ -108,14 +108,11 @@
     color: white;
     transition: 0.4s;
   }
-  .chatSubmitButton:hover{
-  
-   
-  }
   
   .chatOnline {
-    flex: 0;
+    flex: 2;
   }
+
   .emptyConvo{
     display: flex;
     flex-direction: column;
@@ -127,18 +124,15 @@
   .chatMenuWrapper{
     padding: 0 30px 0 30px;
   }
-  .chatBoxWrapper {
-    padding: 0 80px 0 80px;
-    height: 91%;
-  }
+
 
   .chatOnlineWrapper {
     padding: 10px;
     background-color: #231f20;
+    color: blanchedalmond;
   }
   .emptyImg{
     width: 30%;
-
   }
   .noConversationText {
     font-size: 50px;
@@ -150,6 +144,7 @@
   @media screen and (max-width: 768px) {
     .chatMenu {
       flex: 1;
+      display: none;
     }
     .noConversationText{
       font-size: 2rem;
