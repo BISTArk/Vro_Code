@@ -1,106 +1,18 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> b13572dfbe8e40b4c25589e20deeb3fe553d8d36
-// import "./ImageUpload.css";
-// import { Component } from "react";
-// import { NavLink as Link } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faArrowCircleUp } from "@fortawesome/free-solid-svg-icons";
-// import { AuthContext } from "../../context/AuthContext";
-// class ImageUpload extends Component {
-//   state = { profileImag: "", coverImag: "" };
-<<<<<<< HEAD
 
-//   onProfilePic = (e) => {
-//     if (e.target.files && e.target.files[0]) {
-//       const img = e.target.files[0];
-//       console.log(img);
-//       this.setState({ profileImag: img });
-//     }
-//   };
-
-//   onCoverPic = (e) => {
-//     if (e.target.files && e.target.files[0]) {
-//       const img = e.target.files[0];
-//       console.log(img);
-//       this.setState({ coverImag: img });
-//     }
-//   };
-
-//   sendPics = async (user,dispatch) => {
-//     const formData = new FormData();
-    
-//     formData.append("userid", user._id);
-//     formData.append("githubLink", gitLink);
-//     formData.append("content", postDesc);
-//     formData.append("img", imag.name);
-//     formData.append("imag", imag);
-
-//     const response = await axios.post(
-//       "http://localhost:3030/api/post",
-//       formData
-//     );
-    
-//     if(response.status===200)dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
-//     console.log(response);
-//     window.location.reload();
-
-//   };
-=======
-
-//   onProfilePic = (e) => {
-//     if (e.target.files && e.target.files[0]) {
-//       const img = e.target.files[0];
-//       console.log(img);
-//       this.setState({ profileImag: img });
-//     }
-//   };
-
-//   onCoverPic = (e) => {
-//     if (e.target.files && e.target.files[0]) {
-//       const img = e.target.files[0];
-//       console.log(img);
-//       this.setState({ coverImag: img });
-//     }
-//   };
-
-//   sendPics = async (user,dispatch) => {
-//     const formData = new FormData();
-    
-//     formData.append("userid", user._id);
-//     formData.append("githubLink", gitLink);
-//     formData.append("content", postDesc);
-//     formData.append("img", imag.name);
-//     formData.append("imag", imag);
-
-//     const response = await axios.post(
-//       "http://localhost:3030/api/post",
-//       formData
-//     );
-    
-//     if(response.status===200)dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
-//     console.log(response);
-//     window.location.reload();
-
-//   };
-=======
 import "./ImageUpload.css";
 import { Component } from "react";
 import { NavLink as Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleUp } from "@fortawesome/free-solid-svg-icons";
 import { AuthContext } from "../../context/AuthContext";
-import axios from"axios";
-
 class ImageUpload extends Component {
-  state = { profileImag: "", coverImag: "", profilePic:"", coverPic:"" };
+  state = { profileImag: "", coverImag: "" };
 
   onProfilePic = (e) => {
     if (e.target.files && e.target.files[0]) {
       const img = e.target.files[0];
       console.log(img);
-      this.setState({ profileImag: img, profilePic: img.name });
+      this.setState({ profileImag: img });
     }
   };
 
@@ -108,93 +20,40 @@ class ImageUpload extends Component {
     if (e.target.files && e.target.files[0]) {
       const img = e.target.files[0];
       console.log(img);
-      this.setState({ coverImag: img, coverPic:img.name });
+      this.setState({ coverImag: img });
     }
   };
 
-  sendPics = async (e,user,dispatch ) => {
+  sendPics = async (user,dispatch) => {
     const formData = new FormData();
     
-    formData.append("coverPic", this.state.profilePic);
-    formData.append("coverImag", this.state.coverImag);
-    formData.append("profilePic", this.state.profilePic);
-    formData.append("profileImag", this.state.profileImag);
-    formData.append("id", user._id);
+    formData.append("userid", user._id);
+    formData.append("githubLink", gitLink);
+    formData.append("content", postDesc);
+    formData.append("img", imag.name);
+    formData.append("imag", imag);
 
-    const response = await axios.put(
-      "http://localhost:3030/api/user/pics",
+    const response = await axios.post(
+      "http://localhost:3030/api/post",
       formData
     );
     
-    if(response.status===200)dispatch({ type: "UPLOAD_PICS", payload: {profilePic:response.data.profilePic,coverPic:response.data.coverPic} });
-    // console.log(response);
-    window.location.href="/profile/"+user._id;
+    if(response.status===200)dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
+    console.log(response);
+    window.location.reload();
+
   };
->>>>>>> d44c7bc59e81d260d31475951bcde5dc974b424d
->>>>>>> b13572dfbe8e40b4c25589e20deeb3fe553d8d36
 
-//   render() {
-//     return (
-//       <AuthContext.Consumer>
-//         {({ user, dispatch }) => {
-//           return (
-//             <div className="imgUpload">
-//               <h1 className="uploadPicH1">Upload Pictures</h1>
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> b13572dfbe8e40b4c25589e20deeb3fe553d8d36
-//               <form action="" className="uploadForm">
-//                 <div className="formElementUpload">
-//                   <label htmlFor="profilePic" className="labelUpload">
-//                     <FontAwesomeIcon
-//                       icon={faArrowCircleUp}
-//                       className="uploadButton"
-//                     />{" "}
-//                     Upload a Profile Picture
-//                   </label>
-//                   <input
-//                     type="file"
-//                     id="profilePic"
-//                     name="profileImag"
-//                     style={{ display: "none" }}
-//                     onChange={this.onProfilePic}
-//                   />
-//                 </div>
-//                 <div className="formElementUpload">
-//                   <label htmlFor="coverPic" className="labelUpload">
-//                     <FontAwesomeIcon
-//                       icon={faArrowCircleUp}
-//                       className="uploadButton"
-//                     />{" "}
-//                     Upload a cover Picture
-//                   </label>
-//                   <input
-//                     type="file"
-//                     id="coverPic"
-//                     name="coverImag"
-//                     style={{ display: "none" }}
-//                     onChange={this.onCoverPic}
-//                   />
-//                 </div>
-//                 <div className="buttonsEdit">
-//                   <Link to={`/`}>
-//                     <button className="cancelUpload">Cancel</button>
-//                   </Link>
-//                 </div>
-//               </form>
-//             </div>
-//           );
-//         }}
-//       </AuthContext.Consumer>
-//     );
-//   }
-// }
-<<<<<<< HEAD
-=======
-=======
-              <div className="uploadForm">
+  render() {
+    return (
+      <AuthContext.Consumer>
+        {({ user, dispatch }) => {
+          return (
+            <div className="imgUpload">
+              <h1 className="uploadPicH1">Upload Pictures</h1>
+
+              <form action="" className="uploadForm">
                 <div className="formElementUpload">
                   <label htmlFor="profilePic" className="labelUpload">
                     <FontAwesomeIcon
@@ -228,11 +87,11 @@ class ImageUpload extends Component {
                   />
                 </div>
                 <div className="buttonsEdit">
-                  <div>
-                    <button className="cancelUpload" onClick={(e)=>{this.sendPics(e,user,dispatch)}}>Submit</button>
-                  </div>
+                  <Link to={`/`}>
+                    <button className="cancelUpload">Cancel</button>
+                  </Link>
                 </div>
-              </div>
+              </form>
             </div>
           );
         }}
@@ -240,7 +99,5 @@ class ImageUpload extends Component {
     );
   }
 }
->>>>>>> d44c7bc59e81d260d31475951bcde5dc974b424d
->>>>>>> b13572dfbe8e40b4c25589e20deeb3fe553d8d36
 
-// export default ImageUpload;
+export default ImageUpload;
