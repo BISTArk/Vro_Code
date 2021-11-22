@@ -7,7 +7,7 @@ import ChatOnline from "../../components/Chat2/chatOnline/ChatOnline";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
-import empty from "../../assets/svgs/startChat.svg"
+import empty from "../../assets/svgs/startChat.svg";
 import { io } from "socket.io-client";
 
 export default function Messenger() {
@@ -15,7 +15,8 @@ export default function Messenger() {
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-  const [search, NewSearch] = useState("");
+  // const [search, NewSearch] = useState("");
+  const [otherId, setotherId] = useState(null);
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const socket = useRef();
@@ -24,12 +25,16 @@ export default function Messenger() {
   const [fuser, setFuser] = useState(null);
   // const PF = "../../client/public/";
 
-  console.log("Convo" + conversations);
 
+
+  
 
   // console.log(user.following)
   useEffect(() => {
-    socket.current = io("ws://localhost:3060", {reconnect: true, transports: ['websocket', 'polling', 'flashsocket']});
+    socket.current = io("ws://localhost:3060", {
+      reconnect: true,
+      transports: ["websocket", "polling", "flashsocket"],
+    });
     socket.current.on("message", (data) => {
       setArrivalMessage({
         sender: data.senderId,
@@ -59,7 +64,7 @@ export default function Messenger() {
       try {
         const res = await axios.get("/conversations/" + user._id);
         // const te = await res;
-        console.log("res" + res);
+        // console.log("res" + res);
         setConversations(res.data);
       } catch (err) {
         console.log(err);
@@ -71,7 +76,9 @@ export default function Messenger() {
   useEffect(() => {
     const getMessages = async () => {
       try {
-        const res = await axios.get("http://localhost:3030/api/messages/" + currentChat?._id);
+        const res = await axios.get(
+          "http://localhost:3030/api/messages/" + currentChat?._id
+        );
         setMessages(res.data);
       } catch (err) {
         console.log(err);
@@ -99,7 +106,10 @@ export default function Messenger() {
     });
 
     try {
-      const res = await axios.post("http://localhost:3030/api/messages", message);
+      const res = await axios.post(
+        "http://localhost:3030/api/messages",
+        message
+      );
       setMessages([...messages, res.data]);
       setNewMessage("");
     } catch (err) {
@@ -107,43 +117,32 @@ export default function Messenger() {
     }
   };
 
-
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  useEffect( async ()=> {
+    
+    try{
+      const tempotherId =  currentChat.members.find((m) => m !== user._id);
+      const res = await axios.get("http://localhost:3030/api/user/" + tempotherId);
+      setFuser(res.data);
+      // setotherId(tempotherId);
+    }catch (err){
+      console.log(err);
+    }
+  })
 
-  // console.log("chalega? " + conversations)
-  // useEffect(() => {
-  //   const friendId =  conversations.members.find((m) => m !== user._id);
-  //   const getUser = async () => {
-  //     try {
-  //       const res = await axios.get("http://localhost:3030/api/user/" + friendId);
-       
-  //       setFuser(res.data);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   getUser();
-  // });
 
   return (
-   
-      <div className="chatBody">
+    <div className="chatBody">
       <TopBar />
       <div className="messenger">
-        {/* <div className="chatSidebar">
-          <div className="chatSidebarWrapper">
-            <Leftbar />
-          </div>
-        </div> */}
         <div className="chatMenu">
           <h1 className="chatHead">Chat</h1>
           <div className="chatMenuWrapper">
             {conversations.map((c) => (
               <div onClick={() => setCurrentChat(c)}>
-
                 <Conversation conversation={c} currentUser={user} />
               </div>
             ))}
@@ -151,40 +150,15 @@ export default function Messenger() {
         </div>
         <div className="chatBox">
           <div className="chatBoxWrapper">
-            {/* <div className="chatOnlineWrapper">
-              <ChatOnline
-              onlineUsers={onlineUsers}
-              currentId={user._id}
-              setCurrentChat={setCurrentChat}
-              />
-            </div> */}
-            {/* <div className="chatBoxTop">
-              <Message message={"dsv"} own={0} />
-              <Message message={"Hello bhai"} own={1} />
-              <Message message={"Tu bata"} own={0} />
-
-              {messages.map((m) => (
-                    <div ref={scrollRef}>
-                      <Message message={m} own={m.sender === user._id} />
-                    </div>
-                  ))}
-            </div>
-            <div className="chatBoxBottom">
-              <textarea
-                className="chatMessageInput"
-                placeholder="write something..."
-                onChange={(e) => setNewMessage(e.target.value)}
-                value={newMessage}
-              ></textarea>
-              <button className="chatSubmitButton">
-                onClick={handleSubmit}
-                Send
-              </button>
-            </div> */}
             {currentChat ? (
               <>
-                <span>{fuser?.username}</span>
+                
                 <div className="chatBoxTop">
+                  <div className="chatOnline">
+                    <div className="chatOnlineWrapper">
+                      <span>{fuser?.username}</span>
+                    </div>
+                  </div>
                   {messages.map((m) => (
                     <div ref={scrollRef}>
                       <Message message={m} own={m.sender === user._id} />
@@ -198,23 +172,23 @@ export default function Messenger() {
                     onChange={(e) => setNewMessage(e.target.value)}
                     value={newMessage}
                   ></input>
-                  <button className="chatSubmitButton" onClick={handleSubmit} >
+                  <button className="chatSubmitButton" onClick={handleSubmit}>
                     Send
                   </button>
                 </div>
               </>
             ) : (
-                <div className="emptyConvo">
-              <span className="noConversationText">
-                Open a conversation to start a chat.
-                  </span>
-                  <img src={empty} alt="" className="emptyImg"/></div>
+              <div className="emptyConvo">
+                <span className="noConversationText">
+                  Open a conversation to start a chat.
+                </span>
+                <img src={empty} alt="" className="emptyImg" />
+              </div>
             )}
           </div>
         </div>
         {/* <div className="chatOnline">
           <div className="chatOnlineWrapper">
-
             <ChatOnline
               onlineUsers={onlineUsers}
               currentId={user._id}
@@ -222,8 +196,7 @@ export default function Messenger() {
             />
           </div>
         </div> */}
-        </div>
-        </div>
-    
+      </div>
+    </div>
   );
 }
