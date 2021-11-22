@@ -29,19 +29,8 @@ export default function Messenger() {
   const [fuser, setFuser] = useState(null);
   // const PF = "../../client/public/";
   // console.log(user.following)
-  useEffect(() => {
-    socket.current = io("ws://localhost:3060", {
-      reconnect: true,
-      transports: ["websocket", "polling", "flashsocket"],
-    });
-    socket.current.on("message", (data) => {
-      setArrivalMessage({
-        sender: data.senderId,
-        text: data.text,
-        createdAt: Date.now(),
-      });
-    });
-  }, []);
+
+
   const redirectVro = () => {
     window.location.href = "/home";
   }
@@ -51,16 +40,8 @@ export default function Messenger() {
       setMessages((prev) => [...prev, arrivalMessage]);
   }, [arrivalMessage, currentChat]);
 
-  useEffect(() => {
-    socket.current.emit("joinRoom", {
-      username: user._id,
-      roomname: user.socketId});
-    socket.current.on("chat", (users) => {
-      setOnlineUsers(
-        user.following.filter((f) => users.some((u) => u.userId === f))
-      );
-    });
-  }, [user]);
+  console.log()
+
 
   useEffect(() => {
     const getConversations = async () => {
@@ -102,10 +83,11 @@ export default function Messenger() {
       (member) => member !== user._id
     );
 
-    socket.current.emit("message", {
+    socket.current.emit("chat", {
       senderId: user._id,
-      receiverId,
       text: newMessage,
+      room:  currentChat?.socketId,
+      createdAt: Date.now(),
     });
 
     try {
@@ -137,14 +119,43 @@ export default function Messenger() {
 
   const handleConv = async (c) => {
     try{
-      const tempotherId = await currentChat.members.find((m) => m !== user._id);
+      const tempotherId = await currentChat?.members.find((m) => m !== user._id);
       const res = await axios.get("http://localhost:3030/api/user/" + tempotherId);
+      setFuser(res.data);
       setFuser(res.data);
     }catch (err){
       console.log(err);
     }
     setCurrentChat(c);
   };
+
+
+  useEffect(() => {
+    socket.current = io("ws://localhost:3060", {
+      reconnect: true,
+      transports: ["websocket", "polling", "flashsocket"],
+    });
+    socket.current.on("chat", () => {
+      setArrivalMessage({
+        sender: user._id,
+        text: (newMessage.length !== 0)?newMessage:console.log("nahi"),
+        room:  currentChat?.socketId,
+        createdAt: Date.now(),
+      });
+      // console.log(data.senderId + "hai")
+    });
+  }, [user,newMessage,currentChat]);
+
+  useEffect(() => {
+    socket.current.emit("joinRoom", {
+      username: user._id,
+      roomname: currentChat?.socketId});
+    // socket.current.on("setOnline", (users) => {
+    //   setOnlineUsers(
+    //     user.following.filter((f) => users.some((u) => u.userId === f))
+    //   );
+    // });
+  }, [user,currentChat]);
 
   return (
     <div className="chatBody">
