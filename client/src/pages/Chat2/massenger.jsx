@@ -122,17 +122,17 @@ export default function Messenger() {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  useEffect( async ()=> {
+  // useEffect( async ()=> {
     
-    try{
-      const tempotherId =  currentChat.members.find((m) => m !== user._id);
-      const res = await axios.get("http://localhost:3030/api/user/" + tempotherId);
-      setFuser(res.data);
-      // setotherId(tempotherId);
-    }catch (err){
-      console.log(err);
-    }
-  })
+  //   try{
+  //     const tempotherId =  currentChat.members.find((m) => m !== user._id);
+  //     const res = await axios.get("http://localhost:3030/api/user/" + tempotherId);
+  //     setFuser(res.data);
+  //     // setotherId(tempotherId);
+  //   }catch (err){
+  //     console.log(err);
+  //   }
+  // })
 
 
   return (
