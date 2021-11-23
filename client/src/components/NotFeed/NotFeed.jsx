@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./NotFeed.scss";
 
-function NotFeed() {
-  // const [postDesc, setPostDesc] = useState("");
+function NotFeed(props) {
 
   const notificationsarr = [
     {
@@ -41,7 +40,7 @@ function NotFeed() {
   const showNotifications = () => {
     return notificationsarr.map(({ ppic, pname, message, link }) => {
       return (
-        <Link to="/post" className="notifi">
+        <Link to="/post" className="notifi" key={pname}>
           <div className="profilepic-container">
             <img src={ppic} alt={pname} className="profilepic" />
           </div>
