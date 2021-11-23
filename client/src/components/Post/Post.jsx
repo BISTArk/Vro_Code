@@ -90,7 +90,7 @@ export default function Post(props) {
             </div>
           </Link>
           {console.log("date hai : " + props.postedon)}
-          <div className="postedon">Posted on {new Date(props.postedon).toLocaleDateString()}</div>
+          <div className="postedon">Posted on {new Date(props.postedon).toLocaleTimeString()}</div>
         </div>
 
         <FontAwesomeIcon
