@@ -29,7 +29,7 @@ export default function Post(props) {
   const handleLike = async () => {
     setClicked(!clicked);
     if (clicked) {
-      setLike(like -1)
+      setLike(like -1);
     }
     else setLike(like + 1);
       const data = { id:user._id };
@@ -63,6 +63,13 @@ export default function Post(props) {
       `http://localhost:3030/api/post/bookmark/${props.details._id}`,
       options
     );
+    console.log(response.status);
+    console.log(clickedAgain);
+    if(response.status===200 && !clickedAgain)
+    dispatch({type:"BOOK",payload:props.details._id})
+    if(response.status===200 && clickedAgain)
+    dispatch({type:"UNBOOK",payload:props.details._id})
+
   };
 
 
