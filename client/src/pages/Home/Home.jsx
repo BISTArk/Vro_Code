@@ -75,7 +75,7 @@ function Home() {
       <TopBar />
       <div className="main-page">
         <LeftBarHome class="left" user={user} />
-        <Feed class="feed" posts={users} createPost={createPost} />
+        <Feed class="feed" user={user} posts={users} createPost={createPost} />
         <RightBarHome class="right" />
       </div>
     </div>

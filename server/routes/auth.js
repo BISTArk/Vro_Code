@@ -40,7 +40,7 @@ router.post("/login", async (req, res) => {
     console.log(req.body)
 
     //Login
-    let x= user.rank<700?(user.rank +1):user.rank;
+    let x= user.rank<699?(user.rank +1):user.rank;
     console.log(user);
     await User.findByIdAndUpdate(user._id,{rank:x})
     console.log("Login success");

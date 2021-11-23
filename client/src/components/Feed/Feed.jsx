@@ -31,7 +31,7 @@ function Feed(props) {
 
   return (
     <div className="feed">
-      <div className="makepost">
+      {user._id===props.user._id?<div className="makepost">
         <div className="post-details">
           <Link to={`/profile/${user._id}`} className="profilepic-container">
             <img src={preProfile+user.profilePic} alt="Ishan" className="profilepic" />
@@ -80,7 +80,7 @@ function Feed(props) {
             Post
           </div>
         </div>
-      </div>
+      </div>:<div/>}
       <div className="divider"></div>
       <div className="posts">
         {props.posts.length > 0 ? (

@@ -201,7 +201,7 @@ export default function Profile(props) {
               </div>
             </div>
             <div className="profileRightBottom">
-            <Feed class="feed" posts={posts} createPost={createPost}/>
+            <Feed class="feed" user={user} posts={posts} createPost={createPost}/>
             </div>
           </div>
         </div>
