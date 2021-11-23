@@ -1,7 +1,6 @@
 .post {
   background-color: white;
   border-radius: 12px;
-  
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -81,7 +80,33 @@
   .content {
     margin: 3% 0%;
   }
-
+  .contentCode{ 
+    margin: 3% 0%;
+    background-color: #333;
+    color: #6cc644;
+    font-weight: 600;
+    padding: 30px;
+    letter-spacing: 0.2rem;
+    font-family: "Courier Prime", monospace;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    white-space: pre-line;
+    background: rgba(0, 0, 0, 0.774);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+backdrop-filter: blur( 4.5px );
+-webkit-backdrop-filter: blur( 4.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+transition: 0.5s;
+  }
+  .contentCode:hover{
+    background: rgba(0, 0, 0, 0.938);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
   .reactions {
     display: flex;
     justify-content: space-between;

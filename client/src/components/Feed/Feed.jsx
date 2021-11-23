@@ -3,7 +3,7 @@ import Post from "../Post/Post";
 import img from "../../assets/images/profile-sample.jfif";
 import "./Feed.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
+import { faCode, faFont} from "@fortawesome/free-solid-svg-icons";
 import { GitHub, Image } from "@material-ui/icons";
 import { NavLink as Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -51,25 +51,26 @@ function Feed(props) {
             onChange={(e) => {
               setPostDesc(e.target.value);
             }}
-            placeholder="Hey there! I am using VroCode"
+            placeholder="Hey there! I am using VroCode (This is a text box)"
           ></textarea>:<textarea
           name="postDesc"
           id="postDesc"
-          className="posttext"
+          className="postcode"
           value={postDesc}
           onChange={(e) => {
             setPostDesc(e.target.value);
-          }}
-          placeholder="Hey there! I am using VroCode"
-          style={{color:"red"}}
+              }}
+              onkeydown={(e) => { if (e.keyCode === 13) return true;}}
+          placeholder="//Enter your code (Eg: #include<iostream.h>)"
+          style={{color:"#6cc644", letterSpacing:"0.2rem" , fontFamily: "Courier Prime", fontWeight: "600", fontSize: "1.1rem"}}
         ></textarea>}
         </div>
         <div className="post-btns">
           <div className="post-upload">
             <div className="upload-option" onClick={switchMode}>
-              <FontAwesomeIcon icon={faCode} />
-              {code?<label htmlFor="postCode"> Text</label>:
-              <label htmlFor="postCode"> Code</label>}
+              <FontAwesomeIcon icon={!code ? faCode : faFont} className="codeIcon"/>
+              {code ? <label htmlFor="postCode" style={{cursor: "pointer"}}> Text</label>:
+              <label htmlFor="postCode" style={{cursor: "pointer"}}> Code</label>}
             </div>
             <div className="upload-option"  style={{ cursor: "pointer" }}>
               <Image className="svg-icon" />
