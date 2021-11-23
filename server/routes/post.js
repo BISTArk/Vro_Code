@@ -3,6 +3,7 @@ const multer = require("multer");
 const user = require("../models/user_mod");
 const post = require("../models/post_mod");
 const fs = require("fs");
+const { findById } = require("../models/user_mod");
 
 //set up multer
 
@@ -131,6 +132,11 @@ router.put("/like/:id", async (req, res) => {
     if(currPost){
     if (!currPost.likes.includes(req.body.id)) {
       await currPost.updateOne({ $push: { likes: req.body.id } });
+      const notiUser = await user.findById(currPost.userid);
+      const likedUser = await user.findById(req.body.id);
+      if(notiUser){
+        await notiUser.updateOne({$push: {notify:{postId:currPost._id,likedUser:likedUser}}})
+      }
       res.status(200).json("You have liked this post");
     } else {
       await currPost.updateOne({ $pull: { likes: req.body.id } });
