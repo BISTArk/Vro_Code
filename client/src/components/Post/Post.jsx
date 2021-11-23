@@ -15,6 +15,7 @@ export default function Post(props) {
   // const [comment, setComment] = useState("");
   // const [canComment, setCanComment] = useState(false);
   const [clicked, setClicked] = useState(false);
+  const [like, setLike] = useState(props.likes.length);
   const preimg = "http://localhost:3030/images/";
 
   const preProfile = "http://localhost:3030/images/profile/";
@@ -105,7 +106,7 @@ export default function Post(props) {
             </div>
           </Link>
           {console.log("date hai : " + props.postedon)}
-          <div className="postedon">Posted on {new Date(props.postedon).toLocaleTimeString()}</div>
+          <div className="postedon">Posted on {new Date(props.postedon).toLocaleString()}</div>
         </div>
 
         <FontAwesomeIcon
@@ -125,12 +126,13 @@ export default function Post(props) {
         <div />
       )}
       <div className="reactions">
-        <div className="react">
+        <div className="react"  onClick={handleLike}>
           <FontAwesomeIcon
             icon={!clicked ? farHeart : faHeart}
             style={{}}
-            onClick={handleLike}
+            onClick={()=>setLike(like+1)}
           />
+          <span>{like}</span>
           {/* <CommentOutlined
             onClick={() => {
               setCanComment(!canComment);

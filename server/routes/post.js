@@ -73,6 +73,7 @@ router.post("/", upload.single('imag'), async (req, res) => {
   try {
     let curruser = await user.findById(req.body.userid);
     let x = curruser.postCount;
+    if (x < 0) x = 0;
     await curruser.updateOne({ $set: { postCount: x+1 } })
     const currPost = await newPost.save();
     res.status(200).json(currPost);
@@ -98,7 +99,7 @@ router.delete("/:id", async (req, res) => {
       });
       res.status(200).json("Post has been successfully deleted");
     } else {
-      res.status(403).json("You cant delete the posts that u didnt create");
+      res.status(403).json("You cannot delete the posts you didn't create");
     }
   } catch (err) {
     console.log(err);
@@ -108,19 +109,19 @@ router.delete("/:id", async (req, res) => {
 
 //Edit a Post
 
-router.put("/:id", async (req, res) => {
-  try {
-    const currPost = await post.findById(req.params.id);
-    if (req.body.id === currPost.userid) {
-      await currPost.updateOne({ $set: req.body });
-      res.status(200).json("Post has been updated Successfully");
-    } else {
-      res.status(403).json("You can only Edit/Update your posts");
-    }
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// router.put("/:id", async (req, res) => {
+//   try {
+//     const currPost = await post.findById(req.params.id);
+//     if (req.body.id === currPost.userid) {
+//       await currPost.updateOne({ $set: req.body });
+//       res.status(200).json("Post has been updated Successfully");
+//     } else {
+//       res.status(403).json("You can only Edit/Update your posts");
+//     }
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 //Like a Post
 

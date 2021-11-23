@@ -88,6 +88,7 @@ function Feed(props) {
             return (
               <Post
                 postName={x.Name}
+                
                 postID={x._id}
                 userID={x.userid}
                 postedon={x.createdAt}
