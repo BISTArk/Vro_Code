@@ -7,6 +7,8 @@ export default function Bookmark() {
     `http://localhost:3030/api/post/bookmark/`
     )
     let jso = await res.json();
+    console.log(jso);
+    
 }
   return (
     <div>

@@ -128,7 +128,7 @@ export default function Post(props) {
           {console.log("date hai : " + props.postedon)}
           <div className="postedon">Posted on {new Date(props.postedon).toLocaleString()}</div>
         </div>
-        <FontAwesomeIcon icon={faBookmark} onClick={handleBookmarks}/>
+        <FontAwesomeIcon icon={faBookmark} style={{cursor: "pointer"}} onClick={handleBookmarks}/>
         <FontAwesomeIcon
           icon={faTrashAlt}
           onClick={handlePostDelete}

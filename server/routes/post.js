@@ -144,12 +144,13 @@ router.put("/like/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.post("/bookmarks/:id", async (req, res) => {
+router.put("/bookmark/:id", async (req, res) => {
   try {
     const userBook = await post.findById(req.body.id);
+    console.log("userBOok " + userBook)
     if (userBook) {
       await userBook.updateOne({ $push: { savedArray: req.params.id } });
-      res.status(200).json("Bookmarked")
+      res.status(200).json(savedArray)
     }
     else {
       res.status(503).json("Cannot bookmark")
