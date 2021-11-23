@@ -2,7 +2,7 @@ import "./Post.scss";
 import { useState, useContext } from "react";
 import { GitHub } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBook, faBookmark, faHeart, faShareAlt } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark, faHeart, faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import { NavLink as Link } from "react-router-dom";
 import {} from "@fortawesome/free-regular-svg-icons"
 import {
@@ -13,23 +13,19 @@ import {
 import { AuthContext } from "../../context/AuthContext";
 
 export default function Post(props) {
-  const { z, user, dispatch } = useContext(AuthContext);
+  const {  user, dispatch } = useContext(AuthContext);
 
   console.log(props);
-  const [clickedAgain, setClickedAgain] = useState(props.details.savedArray.includes(props.details._id));
+  const [clickedAgain, setClickedAgain] = useState(props.details.savedArray.includes(user._id));
   const [clicked, setClicked] = useState(props.details.likes.includes(user._id));
   const [like, setLike] = useState(props.details.likes.length);
   const preimg = "http://localhost:3030/images/";
   const preProfile = "http://localhost:3030/images/profile/";
 
-  const otherComments = [
-    {
-      ppic: "./images/profile-sample.png",
-      pname: "Ishan",
-      content: "HELLO SAAAAAR",
-    },
-  ];
 
+  const handleShare = () => {
+    alert(`Copy the URL:  http://localhost:3000/postpage/${props.details._id}`)
+  }
   const handleLike = async () => {
     setClicked(!clicked);
     if (clicked) {
@@ -121,7 +117,7 @@ export default function Post(props) {
         </div>
         <div className="details-text">
           <Link
-            to={`/profile/${props.userID}`}
+            to={`/profile/${props.details.userid}`}
             style={{ textDecoration: "none", color: "black" }}
           >
             <div className="postTitleContainer">
@@ -165,9 +161,9 @@ export default function Post(props) {
               setCanComment(!canComment);
             }}
           /> */}
-          <Link to ={`/postpage/${props.postID}` } style={{ textDecoration: "none", color: "black" }}>
-          <FontAwesomeIcon icon={faShareAlt} />
-          </Link>
+          {/* <Link to ={`/postpage/${props.details._id}` } style={{ textDecoration: "none", color: "black" }}> */}
+          <FontAwesomeIcon icon={faShareAlt} onClick={handleShare}/>
+          {/* </Link> */}
         </div>
 
         {props.gitLink ? (

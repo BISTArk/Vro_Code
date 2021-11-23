@@ -6,6 +6,7 @@ import PostPage from "../PostPage/PostPage";
 import "./PostContainer.css";
 import g1 from "../../assets/profileImages/g1.jpg";
 const preimg = "http://localhost:3030/images/";
+const preProfile = "http://localhost:3030/images/profile/";
 
 function PostContainer(props) {
     console.log(props)
@@ -13,19 +14,19 @@ function PostContainer(props) {
     
       <div className="postContainerShare">
         <div className="shareTopdetails">
-          <img src={g1} alt="profile" className="dpShare"/>
+          <img src={preProfile + props.data.profilePic} alt="profile" className="dpShare"/>
           <div className="shareDetails">
             <span className="shareName">{props.data.username}</span>
             <span className="shareUsername">@{props.data.username}</span>
           </div>
         </div>
         <div className="shareContent">
-        <div className="content">{props.data.content}</div>
+        <div className="contentShare">{props.data.content}</div>
       {props.data.img ? (
         <img
           src={preimg + props.data.img}
           alt="Post Media"
-          className="postImageHome"
+          className="postImageShare"
         />
       ) : (
         <div />

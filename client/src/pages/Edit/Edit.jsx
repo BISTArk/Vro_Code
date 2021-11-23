@@ -2,8 +2,6 @@ import TopBar from "../../components/TopBar/TopBar";
 import "./Edit.css";
 import { NavLink as Link } from "react-router-dom";
 import { Component } from "react";
-import { faObjectGroup } from "@fortawesome/free-solid-svg-icons";
-import { PanoramaSharp } from "@material-ui/icons";
 import { AuthContext } from "../../context/AuthContext";
 
 class Edit extends Component {
@@ -57,14 +55,13 @@ class Edit extends Component {
       <AuthContext.Consumer>
         {({ user, dispatch }) => {
           return (
-            <div className = "editFullBody">
+            <div className="editFullBody">
               <TopBar />
 
               <div className="editBody">
                 <div className="editBox">
                   <div className="topContainerEdit">
                     <h1 className="editHeading">Edit profile</h1>
-                   
                   </div>
                   <form action="" id="editForm" className="formEdit">
                     <div className="formElement">
