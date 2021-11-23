@@ -14,7 +14,7 @@ export default function Post(props) {
   const { user, dispatch } = useContext(AuthContext);
   // const [comment, setComment] = useState("");
   // const [canComment, setCanComment] = useState(false);
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(props.likes.includes(user._id));
   const preimg = "http://localhost:3030/images/";
 
   const preProfile = "http://localhost:3030/images/profile/";

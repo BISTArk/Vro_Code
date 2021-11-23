@@ -27,14 +27,15 @@ export default function Profile(props) {
 
   useEffect(() => {
     async function fetchData() {
-      if(props.match.params.id===loggedUser._id){
+      if (props.match.params.id === loggedUser._id) {
         setUser(loggedUser);
-      }else{
-      let response = await fetch(
-        `http://localhost:3030/api/user/${props.match.params.id}`
-      );
-      let jso = await response.json();
-      setUser(jso);}
+      } else {
+        let response = await fetch(
+          `http://localhost:3030/api/user/${props.match.params.id}`
+        );
+        let jso = await response.json();
+        setUser(jso);
+      }
     }
 
     fetchData();
@@ -46,34 +47,38 @@ export default function Profile(props) {
         `http://localhost:3030/api/post/my/${props.match.params.id}`
       );
       let jso1 = await response1.json();
-      let jso2 = jso1.map(x => {
-        return {...x,Name:user.Name,username:user.username, profilePic:user.profilePic}
-
+      let jso2 = jso1.map((x) => {
+        return {
+          ...x,
+          Name: user.Name,
+          username: user.username,
+          profilePic: user.profilePic,
+        };
       });
       setPosts(jso2);
     }
 
-    if(user)fetchData();
+    if (user) fetchData();
   }, [user, props.match.params.id]);
 
   const createPost = async ({ postDesc, gitLink, imag }) => {
     const formData = new FormData();
-    
+
     formData.append("userid", user._id);
     formData.append("githubLink", gitLink);
     formData.append("content", postDesc);
-    formData.append("img", imag.name);
+    formData.append("img", imag.name || "");
     formData.append("imag", imag);
 
     const response = await axios.post(
       "http://localhost:3030/api/post",
       formData
     );
-    
-    if(response.status===200)dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
+
+    if (response.status === 200)
+      dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
     console.log(response);
     window.location.reload();
-
   };
 
   const follow = async () => {
@@ -94,7 +99,7 @@ export default function Profile(props) {
       options
     );
     let jso = await response.json();
-    console.log(jso)
+    console.log(jso);
     dispatch({ type: job.toUpperCase(), payload: props.match.params.id });
     window.location.reload();
   };
@@ -102,8 +107,8 @@ export default function Profile(props) {
   const handleSearch = async (e) => {
     e.preventDefault();
     const search = {
-      senderId : loggedUser._id,
-      receiverId : user._id
+      senderId: loggedUser._id,
+      receiverId: user._id,
     };
     // console.log(search)
 
@@ -116,15 +121,18 @@ export default function Profile(props) {
       body: JSON.stringify(search),
     };
 
-    try{
-      const res = await fetch(`http://localhost:3030/api/conversations/`,options);
+    try {
+      const res = await fetch(
+        `http://localhost:3030/api/conversations/`,
+        options
+      );
       console.log(res);
-      window.location.href = "http://localhost:3000/chat/"
-    }catch(err){
+      window.location.href = "http://localhost:3000/chat/";
+    } catch (err) {
       console.log(err);
       // console.log("A");
     }
-  }
+  };
 
   return (
     <div>
@@ -137,18 +145,19 @@ export default function Profile(props) {
               <div className="profileCover">
                 {loggedUser._id === user._id && (
                   <div className="UpdatePhoto">
-                <Link to={`/imageupload`}>
-                <FontAwesomeIcon icon={faCamera} className="cameraIcon" />
-                </Link>
-                </div>)}
+                    <Link to={`/imageupload`}>
+                      <FontAwesomeIcon icon={faCamera} className="cameraIcon" />
+                    </Link>
+                  </div>
+                )}
                 <img
-                  src={preCover+user.coverPic}
+                  src={preCover + user.coverPic}
                   alt="profileCoverImg"
                   className="profileCoverImg"
                 />
-               
+
                 <img
-                  src={preProfile+user.profilePic}
+                  src={preProfile + user.profilePic}
                   alt="profileUserImg"
                   className="profileUserImg"
                 />
@@ -157,7 +166,9 @@ export default function Profile(props) {
                 <div className="profileTitleProfile">
                   <h4 className="profileInfoName">{user.Name}</h4>
                 </div>{" "}
-                <span style={{opacity: 0.6, fontSize: "0.8rem"}}>@ {user.username}</span>
+                <span style={{ opacity: 0.6, fontSize: "0.8rem" }}>
+                  @ {user.username}
+                </span>
                 <span className="profileInfoDesc">{user.role}</span>
               </div>
               {loggedUser._id !== user._id && (
@@ -168,7 +179,7 @@ export default function Profile(props) {
                       : "Follow"}
                   </button>
                   <button className="dm-btn" onClick={handleSearch}>
-                    <FontAwesomeIcon icon = {faPaperPlane}/>
+                    <FontAwesomeIcon icon={faPaperPlane} />
                   </button>
                 </div>
               )}
@@ -203,7 +214,12 @@ export default function Profile(props) {
               </div>
             </div>
             <div className="profileRightBottom">
-            <Feed class="feed" user={user} posts={posts} createPost={createPost}/>
+              <Feed
+                class="feed"
+                user={user}
+                posts={posts}
+                createPost={createPost}
+              />
             </div>
           </div>
         </div>

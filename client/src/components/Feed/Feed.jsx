@@ -99,6 +99,7 @@ function Feed(props) {
                 key={x._id}
                 imgType={x.imgType}
                 imgFile={x.imgFile}
+                likes={x.likes}
               />
             );
           })
