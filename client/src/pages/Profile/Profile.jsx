@@ -110,7 +110,6 @@ export default function Profile(props) {
       senderId: loggedUser._id,
       receiverId: user._id,
     };
-    // console.log(search)
 
     const options = {
       method: "POST",
