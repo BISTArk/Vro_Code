@@ -8,12 +8,14 @@ import {} from "@fortawesome/free-regular-svg-icons"
 import {
   faHeart as farHeart,
   faTrashAlt,
+  faBookmark as farBookmark,
 } from "@fortawesome/free-regular-svg-icons";
 import { AuthContext } from "../../context/AuthContext";
 
 export default function Post(props) {
-  const { user, dispatch } = useContext(AuthContext);
+  const { z, user, dispatch } = useContext(AuthContext);
   // const [comment, setComment] = useState("");
+  const [clickedAgain, setClickedAgain] = useState(false);
   // const [canComment, setCanComment] = useState(false);
   const [clicked, setClicked] = useState(props.likes.includes(user._id));
   const [like, setLike] = useState(props.likes.length);
@@ -50,7 +52,8 @@ export default function Post(props) {
         options
       );
   };
-  const handleBookmarks = async (postid) => {
+  const handleBookmarks = async () => {
+    setClickedAgain(!clickedAgain)
     const data = { id: user._id}
     const options = {
       method: "POST",
@@ -128,13 +131,17 @@ export default function Post(props) {
           {console.log("date hai : " + props.postedon)}
           <div className="postedon">Posted on {new Date(props.postedon).toLocaleString()}</div>
         </div>
-        <FontAwesomeIcon icon={faBookmark} style={{cursor: "pointer"}} onClick={handleBookmarks}/>
-        <FontAwesomeIcon
+        <div className="topIcons">
+          <FontAwesomeIcon icon={!clickedAgain ? farBookmark : faBookmark} style={{ cursor: "pointer" }} onClick={handleBookmarks} />
+         {console.log(props.user)}
+          {(props.userID === user._id) ? <FontAwesomeIcon
           icon={faTrashAlt}
           onClick={handlePostDelete}
-          style={{ cursor: "pointer" }}
-        />
-      </div>
+          style={{ cursor: "pointer", color: "red" }}
+        />:<div></div>}
+       
+        </div>
+        </div>
       <div className="content">{props.content}</div>
       {props.img ? (
         <img

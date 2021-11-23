@@ -137,7 +137,7 @@ router.put("/like/:id", async (req, res) => {
       const likedUser = await user.findById(req.body.id);
       if(notiUser){
         console.log(notiUser);
-        await notiUser.updateOne({$push: {notifi:{postId:currPost._id,likedUser:likedUser}}})
+        await notiUser.updateOne({$push: {notifi:{post:currPost,likedUser:likedUser}}})
       }
       res.status(200).json("You have liked this post");
     } else {
@@ -151,20 +151,39 @@ router.put("/like/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.put("/bookmark/:id", async (req, res) => {
+
+
+router.post("/bookmark/:id", async (req, res) => {
   try {
-    const userBook = await post.findById(req.body.id);
+    const userBook = await user.findById(req.body.id);
     console.log("userBOok " + userBook)
     if (userBook) {
       await userBook.updateOne({ $push: { savedArray: req.params.id } });
-      res.status(200).json(savedArray)
+      res.status(200).json(userBook.savedArray)
     }
     else {
       res.status(503).json("Cannot bookmark")
     }
 
-  } catch {
+  } catch (err) {
+    console.log(err)
     res.status(404).json("Cant find this post");
+  }
+})
+
+router.get("/bookmark/:id",async(req,res)=>{
+  try{
+    const currUser = await user.findById(req.params.id);
+    if(currUser){
+      const notifications = currUser.savedArray;
+      res.status(200).json(notifications);
+    }else{
+      res.status(404).json("Who are you");
+    }
+  }
+  catch(err){
+    console.log(err);
+    res.status(500).json(err);
   }
 })
 

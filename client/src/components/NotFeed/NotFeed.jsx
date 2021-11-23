@@ -1,51 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./NotFeed.scss";
-
+const preProfile = "http://localhost:3030/images/profile/";
 function NotFeed(props) {
 
-  const notificationsarr = [
-    {
-      ppic: "./images/profile-sample.png",
-      pname: "Ishan",
-      message: "Notification 1",
-      link: "",
-    },
-    {
-      ppic: "./images/profile-sample.png",
-      pname: "Ishan",
-      message: "Notification 2",
-      link: "",
-    },
-    {
-      ppic: "./images/profile-sample.png",
-      pname: "Ishan",
-      message: "Notification 3",
-      link: "",
-    },
-    {
-      ppic: "./images/profile-sample.png",
-      pname: "Ishan",
-      message: "Notification 4",
-      link: "",
-    },
-    {
-      ppic: "./images/profile-sample.png",
-      pname: "Ishan",
-      message: "Notification 5",
-      link: "",
-    }
-  ];
-
+  
   const showNotifications = () => {
-    return notificationsarr.map(({ ppic, pname, message, link }) => {
+    return props.notificationsarr.map((x) => {
       return (
-        <Link to="/post" className="notifi" key={pname}>
+        <Link to="/post" className="notifi" key="">
           <div className="profilepic-container">
-            <img src={ppic} alt={pname} className="profilepic" />
+           
+            <img src={preProfile+x.likedUser.profilePic} alt="d" className="profilepic" />
           </div>
-          <div className="msg">{message}</div>
-          {/* <div className="delet-btn"></div> Add Later maybe */}
+          <div className="notifMsg">
+            <span className="notifName">{x.likedUser.Name}</span>
+            <span className="notifUsername">. @ {x.likedUser.username}</span>
+          <div className="msg">❤ Liked your post</div>
+          </div>
+          <div className="rightNotif">
+            
+          </div>
         </Link>
       );
     });

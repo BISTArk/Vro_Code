@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import NotFeed from "../../components/NotFeed/NotFeed";
 import TopBar from "../../components/TopBar/TopBar";
 import { AuthContext } from "../../context/AuthContext";
+const preProfile = "http://localhost:3030/images/profile/";
 
 
 function Notification() {
@@ -23,6 +24,7 @@ function Notification() {
         <div className="home">
             <TopBar/> 
             <div className="main-page">
+             
             <NotFeed class="feed" notificationsarr={notificationsarr}/>
             </div>
         </div>

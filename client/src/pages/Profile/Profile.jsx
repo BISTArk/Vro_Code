@@ -227,6 +227,7 @@ export default function Profile(props) {
                 class="feed"
                 user={user}
                 posts={posts}
+                bookmarks={false}
                 createPost={createPost}
               />
             </div>

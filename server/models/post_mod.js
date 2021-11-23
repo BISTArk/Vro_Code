@@ -21,10 +21,8 @@ const postSchema = new Schema({
     },
     githubLink: {
         type: String,
-    },
-    savedArray: {
-        type: Array  
     }
+   
     
 },
 {

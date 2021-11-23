@@ -60,7 +60,12 @@ const userSchema = new Schema({
     notifi:{
         type:Array,
         default:[]
+    },
+    savedArray:{
+        type: Array,
+        default:[]
     }
+
 },
     { timestamps: true });
 

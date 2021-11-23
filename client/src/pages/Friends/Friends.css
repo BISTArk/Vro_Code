@@ -104,9 +104,10 @@ box-shadow: -74px -3px 35px -7px rgba(0,0,0,0.27);
 }
 .FriendsProfilePicture{
     border-radius: 50%;
-    object-fit:contain;
+    object-fit:cover;
     object-position: center center;
     width: 100px;
+    height: 100px;
     transition: 0.4s ease-in-out;
     cursor: pointer;
 
