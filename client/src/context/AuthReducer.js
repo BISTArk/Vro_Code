@@ -64,7 +64,24 @@ const AuthReducer = (state, action) => {
                    coverPic:action.payload.coverPic
                 },
             };
-
+            case "BOOK":
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    savedArray: [...state.user.savedArray, action.payload],
+                },
+            };
+            case "UNBOOK":
+                return {
+                  ...state,
+                  user: {
+                    ...state.user,
+                    savedArray: state.user.savedArray.filter(
+                      (savedArray) => savedArray !== action.payload
+                    ),
+                  },
+                };
             
             default: return state;
         

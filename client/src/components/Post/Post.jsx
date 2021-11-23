@@ -13,27 +13,19 @@ import {
 import { AuthContext } from "../../context/AuthContext";
 
 export default function Post(props) {
-  const { z, user, dispatch } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
 
   console.log(props);
-  const [clickedAgain, setClickedAgain] = useState(props.details.savedArray.includes(props.details._id));
+  const [clickedAgain, setClickedAgain] = useState(user.savedArray.includes(props.details._id));
   const [clicked, setClicked] = useState(props.details.likes.includes(user._id));
   const [like, setLike] = useState(props.details.likes.length);
   const preimg = "http://localhost:3030/images/";
   const preProfile = "http://localhost:3030/images/profile/";
 
-  const otherComments = [
-    {
-      ppic: "./images/profile-sample.png",
-      pname: "Ishan",
-      content: "HELLO SAAAAAR",
-    },
-  ];
-
   const handleLike = async () => {
     setClicked(!clicked);
     if (clicked) {
-      setLike(like -1)
+      setLike(like -1);
     }
     else setLike(like + 1);
       const data = { id:user._id };
@@ -67,6 +59,13 @@ export default function Post(props) {
       `http://localhost:3030/api/post/bookmark/${props.details._id}`,
       options
     );
+    console.log(response.status);
+    console.log(clickedAgain);
+    if(response.status===200 && !clickedAgain)
+    dispatch({type:"BOOK",payload:props.details._id})
+    if(response.status===200 && clickedAgain)
+    dispatch({type:"UNBOOK",payload:props.details._id})
+
   };
 
 

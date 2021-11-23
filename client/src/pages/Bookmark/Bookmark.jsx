@@ -42,7 +42,8 @@ export default function Bookmark() {
       for (let i = 0; i < posts.length; i++) {
         jso[i] = { ...jso[i], ...posts[i] };
       }
-      setUsers(jso);
+      setUsers(jso);console.log(jso);
+
     }
 
     if (posts.length > 0) fetchUsers();
