@@ -145,7 +145,8 @@ export default function Post(props) {
        
         </div>
         </div>
-      <div className="content">{props.details.content}</div>
+      {!props.details.code?<div className="content">{props.details.content}</div>:
+      <code className="content">{props.details.content}</code>}
       {props.details.img ? (
         <img
           src={preimg + props.details.img}

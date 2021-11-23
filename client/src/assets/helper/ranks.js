@@ -36,7 +36,7 @@ const goldRank = [
     '/api/rank-img/gold/4.png',
     '/api/rank-img/gold/5.png',
     '/api/rank-img/gold/6.png',
-    '.api/rank-img/gold/7.png',
+    '/api/rank-img/gold/7.png',
     
 ]
 const arrayobj = {ranks, rankImg, goldRank, blackRank}

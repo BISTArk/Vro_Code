@@ -13,6 +13,7 @@ function Feed(props) {
   const { user } = useContext(AuthContext);
   const [postDesc, setPostDesc] = useState("");
   const [gitLink, setGitLink] = useState("");
+  const [code, setCode] = useState(false);
   const [imag, setImag] = useState("");
   const preProfile = "http://localhost:3030/images/profile/";
 
@@ -28,6 +29,10 @@ function Feed(props) {
       setImag(img);
     }
   };
+
+  const switchMode = ()=>{
+    setCode(!code);
+  }
 
   console.log(props.posts);
 
@@ -51,10 +56,10 @@ function Feed(props) {
         </div>
         <div className="post-btns">
           <div className="post-upload">
-            <div className="upload-option">
+            <div className="upload-option" onClick={switchMode}>
               <FontAwesomeIcon icon={faCode} />
-              <label htmlFor="postCode"> Code</label>
-              <input type="file" id="postCode" style={{ display: "none" }} />
+              {code?<label htmlFor="postCode"> Text</label>:
+              <label htmlFor="postCode"> Code</label>}
             </div>
             <div className="upload-option"  style={{ cursor: "pointer" }}>
               <Image className="svg-icon" />
@@ -75,7 +80,7 @@ function Feed(props) {
           <div
             className="post-btn"
             onClick={() => {
-              props.createPost({ postDesc, gitLink, imag });
+              props.createPost({ postDesc, gitLink, imag, code });
             }}
           >
             {" "}

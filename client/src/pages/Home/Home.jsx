@@ -12,7 +12,7 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
 
-  const createPost = async ({ postDesc, gitLink, imag }) => {
+  const createPost = async ({ postDesc, gitLink, imag, code }) => {
     const formData = new FormData();
     
     formData.append("userid", user._id);
@@ -20,6 +20,7 @@ function Home() {
     formData.append("content", postDesc);
     formData.append("img", imag.name||"");
     formData.append("imag", imag);
+    formData.append("code", code);
 
     const response = await axios.post(
       "http://localhost:3030/api/post",
