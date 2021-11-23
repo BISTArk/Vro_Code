@@ -43,7 +43,7 @@ function Feed(props) {
           <Link to={`/profile/${user._id}`} className="profilepic-container">
             <img src={preProfile+user.profilePic} alt="Ishan" className="profilepic" />
           </Link>
-          <textarea
+          {!code?<textarea
             name="postDesc"
             id="postDesc"
             className="posttext"
@@ -52,7 +52,17 @@ function Feed(props) {
               setPostDesc(e.target.value);
             }}
             placeholder="Hey there! I am using VroCode"
-          ></textarea>
+          ></textarea>:<textarea
+          name="postDesc"
+          id="postDesc"
+          className="posttext"
+          value={postDesc}
+          onChange={(e) => {
+            setPostDesc(e.target.value);
+          }}
+          placeholder="Hey there! I am using VroCode"
+          style={{color:"red"}}
+        ></textarea>}
         </div>
         <div className="post-btns">
           <div className="post-upload">
