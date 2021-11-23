@@ -6,23 +6,14 @@ import Feed from "../../components/Feed/Feed";
 import {useContext, useEffect,useState } from "react";
 
 export default function Bookmark() {
+  const { user } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
-  const { user } = useContext(AuthContext);
-  useEffect(() => {
-    async function fetchNot(){
-        const response = await fetch("http://localhost:3030/api/post/bookmark/"+user._id);
-        const jso2 = await response.json();
-        console.log(jso2);
-    }
-   fetchNot();
-  }, [])
-  
 
   useEffect(() => {
     async function fetchPosts() {
       let response = await fetch(
-        `http://localhost:3030/api/post/all/${user._id}`
+        `http://localhost:3030/api/post/bookmark/${user._id}`
       );
       let jso = await response.json();
       setPosts(jso);

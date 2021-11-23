@@ -53,9 +53,11 @@ export default function Profile(props) {
           Name: user.Name,
           username: user.username,
           profilePic: user.profilePic,
+          savedArray:user.savedArray
         };
       });
       setPosts(jso2);
+      console.log(jso2);
     }
 
     if (user) fetchData();
