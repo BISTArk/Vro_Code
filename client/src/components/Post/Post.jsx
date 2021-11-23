@@ -2,8 +2,9 @@ import "./Post.scss";
 import { useState, useContext } from "react";
 import { GitHub } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faShareAlt } from "@fortawesome/free-solid-svg-icons";
+import { faBook, faBookmark, faHeart, faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import { NavLink as Link } from "react-router-dom";
+import {} from "@fortawesome/free-regular-svg-icons"
 import {
   faHeart as farHeart,
   faTrashAlt,
@@ -15,6 +16,7 @@ export default function Post(props) {
   // const [comment, setComment] = useState("");
   // const [canComment, setCanComment] = useState(false);
   const [clicked, setClicked] = useState(props.likes.includes(user._id));
+  const [like, setLike] = useState(props.likes.length);
   const preimg = "http://localhost:3030/images/";
 
   const preProfile = "http://localhost:3030/images/profile/";
@@ -29,6 +31,10 @@ export default function Post(props) {
 
   const handleLike = async () => {
     setClicked(!clicked);
+    if (clicked) {
+      setLike(like -1)
+    }
+    else setLike(like + 1);
       const data = { id:user._id };
       const options = {
         method: "PUT",
@@ -44,7 +50,22 @@ export default function Post(props) {
         options
       );
   };
-
+  const handleBookmarks = async (postid) => {
+    const data = { id: user._id}
+    const options = {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify(data),
+    };
+    let response = await fetch(
+      `http://localhost:3030/api/post/bookmark/${props.postID}`,
+      options
+    );
+  };
   const handlePostDelete = async () => {
     if (window.confirm("Do you want to delete this post?")) {
       const data = { id: user._id };
@@ -105,9 +126,9 @@ export default function Post(props) {
             </div>
           </Link>
           {console.log("date hai : " + props.postedon)}
-          <div className="postedon">Posted on {new Date(props.postedon).toLocaleDateString()}</div>
+          <div className="postedon">Posted on {new Date(props.postedon).toLocaleString()}</div>
         </div>
-
+        <FontAwesomeIcon icon={faBookmark} onClick={handleBookmarks}/>
         <FontAwesomeIcon
           icon={faTrashAlt}
           onClick={handlePostDelete}
@@ -131,6 +152,7 @@ export default function Post(props) {
             style={{}}
             onClick={handleLike}
           />
+          <span>{like}</span>
           {/* <CommentOutlined
             onClick={() => {
               setCanComment(!canComment);

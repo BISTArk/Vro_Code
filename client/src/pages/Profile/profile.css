@@ -65,6 +65,7 @@ z-index: -1;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 20px;
 }
 .profileInfoName{
@@ -108,11 +109,10 @@ h4{
 .FollowItemList-profile{
     display: flex;
     flex-direction: column;
-
-    margin-left: 35px;
+    position: relative;
+    margin: auto;
 }
 .followers-title{
-   
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 120%;
