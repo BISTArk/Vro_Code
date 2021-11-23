@@ -14,7 +14,7 @@ export default function Post(props) {
   const { user, dispatch } = useContext(AuthContext);
   // const [comment, setComment] = useState("");
   // const [canComment, setCanComment] = useState(false);
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(props.likes.includes(user._id));
   const [like, setLike] = useState(props.likes.length);
   const preimg = "http://localhost:3030/images/";
 
@@ -30,6 +30,10 @@ export default function Post(props) {
 
   const handleLike = async () => {
     setClicked(!clicked);
+    if (clicked) {
+      setLike(like -1)
+    }
+    else setLike(like + 1);
       const data = { id:user._id };
       const options = {
         method: "PUT",
