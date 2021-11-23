@@ -144,6 +144,21 @@ router.put("/like/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.post("/bookmarks/:id", async (req, res) => {
+  try {
+    const userBook = await post.findById(req.body.id);
+    if (userBook) {
+      await userBook.updateOne({ $push: { savedArray: req.params.id } });
+      res.status(200).json("Bookmarked")
+    }
+    else {
+      res.status(503).json("Cannot bookmark")
+    }
+
+  } catch {
+    res.status(404).json("Cant find this post");
+  }
+})
 
 //Get a Post
 

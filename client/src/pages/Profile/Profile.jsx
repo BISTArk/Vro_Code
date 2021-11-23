@@ -202,7 +202,7 @@ export default function Profile(props) {
                 <div className="FollowItemList-profile">
                   <span className="followers-title">Posts</span>
                   <span className="numberFollowers">
-                    {user.following.length}
+                    {user.postCount}
                   </span>
                 </div>
                 <hr />

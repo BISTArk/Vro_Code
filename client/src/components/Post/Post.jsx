@@ -2,8 +2,9 @@ import "./Post.scss";
 import { useState, useContext } from "react";
 import { GitHub } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faShareAlt } from "@fortawesome/free-solid-svg-icons";
+import { faBook, faBookmark, faHeart, faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import { NavLink as Link } from "react-router-dom";
+import {} from "@fortawesome/free-regular-svg-icons"
 import {
   faHeart as farHeart,
   faTrashAlt,
@@ -49,7 +50,22 @@ export default function Post(props) {
         options
       );
   };
-
+  const handleBookmarks = async (postid) => {
+    const data = { id: user._id}
+    const options = {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify(data),
+    };
+    let response = await fetch(
+      `http://localhost:3030/api/post/bookmark/${props.postID}`,
+      options
+    );
+  };
   const handlePostDelete = async () => {
     if (window.confirm("Do you want to delete this post?")) {
       const data = { id: user._id };
@@ -112,7 +128,7 @@ export default function Post(props) {
           {console.log("date hai : " + props.postedon)}
           <div className="postedon">Posted on {new Date(props.postedon).toLocaleString()}</div>
         </div>
-
+        <FontAwesomeIcon icon={faBookmark} onClick={handleBookmarks}/>
         <FontAwesomeIcon
           icon={faTrashAlt}
           onClick={handlePostDelete}
@@ -130,11 +146,11 @@ export default function Post(props) {
         <div />
       )}
       <div className="reactions">
-        <div className="react"  onClick={handleLike}>
+        <div className="react">
           <FontAwesomeIcon
             icon={!clicked ? farHeart : faHeart}
             style={{}}
-            onClick={()=>setLike(like+1)}
+            onClick={handleLike}
           />
           <span>{like}</span>
           {/* <CommentOutlined
