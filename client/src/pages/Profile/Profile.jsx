@@ -174,13 +174,23 @@ export default function Profile(props) {
               )}
               <div className="followInformation">
                 <div className="FollowItemList-profile">
+                  <Link to = {`/friends`}>
                   <span className="followers-title">Followers</span>
                   <span className="numberFollowers">
                     {user.followers.length}
                   </span>
+                  </Link>
                 </div>
                 <div className="FollowItemList-profile">
+                <Link to = {`/friends/following`}>
                   <span className="followers-title">Following</span>
+                  <span className="numberFollowers">
+                    {user.following.length}
+                  </span>
+                  </Link>
+                </div>
+                <div className="FollowItemList-profile">
+                  <span className="followers-title">Posts</span>
                   <span className="numberFollowers">
                     {user.following.length}
                   </span>
