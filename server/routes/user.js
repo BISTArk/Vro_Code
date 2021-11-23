@@ -193,7 +193,7 @@ router.get("/notify/:id",async(req,res)=>{
   try{
     const currUser = await user.findById(req.params.id);
     if(currUser){
-      const notifications = currUser.notifi.slice(0,5);
+      const notifications = currUser.notifi.slice(0,15);
       res.status(200).json(notifications);
     }else{
       res.status(404).json("Who are you");

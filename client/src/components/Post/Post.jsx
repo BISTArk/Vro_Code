@@ -14,13 +14,12 @@ import { AuthContext } from "../../context/AuthContext";
 
 export default function Post(props) {
   const { z, user, dispatch } = useContext(AuthContext);
-  // const [comment, setComment] = useState("");
-  const [clickedAgain, setClickedAgain] = useState(false);
-  // const [canComment, setCanComment] = useState(false);
-  const [clicked, setClicked] = useState(props.likes.includes(user._id));
-  const [like, setLike] = useState(props.likes.length);
-  const preimg = "http://localhost:3030/images/";
 
+  console.log(props);
+  const [clickedAgain, setClickedAgain] = useState(props.details.savedArray.includes(props.details._id));
+  const [clicked, setClicked] = useState(props.details.likes.includes(user._id));
+  const [like, setLike] = useState(props.details.likes.length);
+  const preimg = "http://localhost:3030/images/";
   const preProfile = "http://localhost:3030/images/profile/";
 
   const otherComments = [
@@ -48,7 +47,7 @@ export default function Post(props) {
         body: JSON.stringify(data),
       };
       let response = await fetch(
-        `http://localhost:3030/api/post/like/${props.postID}`,
+        `http://localhost:3030/api/post/like/${props.details._id}`,
         options
       );
   };
@@ -65,10 +64,12 @@ export default function Post(props) {
       body: JSON.stringify(data),
     };
     let response = await fetch(
-      `http://localhost:3030/api/post/bookmark/${props.postID}`,
+      `http://localhost:3030/api/post/bookmark/${props.details._id}`,
       options
     );
   };
+
+
   const handlePostDelete = async () => {
     if (window.confirm("Do you want to delete this post?")) {
       const data = { id: user._id };
@@ -83,7 +84,7 @@ export default function Post(props) {
       };
       try {
         let response = await fetch(
-          `http://localhost:3030/api/post/${props.postID}`,
+          `http://localhost:3030/api/post/${props.details._id}`,
           options
         );
         let confirm = await response.json();
@@ -116,7 +117,7 @@ export default function Post(props) {
     <div className="post">
       <div className="details">
         <div className="profilepic-container">
-          <img src={props.profilePic} alt="Ishan" className="profilepic" />
+          <img src={preProfile + props.details.profilePic} alt="Ishan" className="profilepic" />
         </div>
         <div className="details-text">
           <Link
@@ -124,17 +125,16 @@ export default function Post(props) {
             style={{ textDecoration: "none", color: "black" }}
           >
             <div className="postTitleContainer">
-              <div className="Name">{props.postName}</div>
-              <span className="username"> . @ {props.username}</span>
+              <div className="Name">{props.details.Name}</div>
+              <span className="username"> . @ {props.details.username}</span>
             </div>
           </Link>
-          {console.log("date hai : " + props.postedon)}
-          <div className="postedon">Posted on {new Date(props.postedon).toLocaleString()}</div>
+          {console.log("date hai : " + props.details.createdAt)}
+          <div className="postedon">Posted on {new Date(props.details.createdAt).toLocaleString()}</div>
         </div>
         <div className="topIcons">
           <FontAwesomeIcon icon={!clickedAgain ? farBookmark : faBookmark} style={{ cursor: "pointer" }} onClick={handleBookmarks} />
-         {console.log(props.user)}
-          {(props.userID === user._id) ? <FontAwesomeIcon
+          {(props.details.userid === user._id) ? <FontAwesomeIcon
           icon={faTrashAlt}
           onClick={handlePostDelete}
           style={{ cursor: "pointer", color: "red" }}
@@ -142,10 +142,10 @@ export default function Post(props) {
        
         </div>
         </div>
-      <div className="content">{props.content}</div>
-      {props.img ? (
+      <div className="content">{props.details.content}</div>
+      {props.details.img ? (
         <img
-          src={preimg + props.img}
+          src={preimg + props.details.img}
           alt="Post Media"
           className="postImageHome"
         />
@@ -173,7 +173,7 @@ export default function Post(props) {
         {props.gitLink ? (
           <a
             className="github"
-            href={props.gitLink}
+            href={props.details.githubLink}
             target="_blank"
             rel="noreferrer"
             style={{ textDecoration: "none", color: "black" }}

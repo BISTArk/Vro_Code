@@ -29,6 +29,8 @@ function Feed(props) {
     }
   };
 
+  console.log(props.posts);
+
   return (
     <div className="feed">
       {(user._id===props.user._id && !props.bookmarks)?<div className="makepost">
@@ -85,22 +87,10 @@ function Feed(props) {
       <div className="posts">
         {props.posts.length > 0 ? (
           props.posts.map((x) => {
+            console.log(x)
             return (
               <Post
-                postName={x.Name}
-                
-                postID={x._id}
-                userID={x.userid}
-                postedon={x.createdAt}
-                username={x.username}
-                gitLink={x.githubLink}
-                content={x.content}
-                img={x.img}
-                profilePic={preProfile+x.profilePic}
-                key={x._id}
-                imgType={x.imgType}
-                imgFile={x.imgFile}
-                likes={x.likes}
+                details={x}
               />
             );
           })

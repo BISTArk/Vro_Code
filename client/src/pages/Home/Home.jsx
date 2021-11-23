@@ -65,6 +65,7 @@ function Home() {
         jso[i] = { ...jso[i], ...posts[i] };
       }
       setUsers(jso);
+      console.log(jso);
     }
 
     if (posts.length > 0) fetchUsers();

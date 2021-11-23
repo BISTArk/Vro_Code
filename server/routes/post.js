@@ -175,7 +175,11 @@ router.post("/bookmark/:id", async (req, res) => {
     const userBook = await user.findById(req.body.id);
     console.log("userBOok " + userBook)
     if (userBook) {
+      if (!userBook.savedArray.includes(req.params.id)) {
       await userBook.updateOne({ $push: { savedArray: req.params.id } });
+      } else {
+        await userBook.updateOne({ $pull: { savedArray: req.params.id } });
+      }  
       res.status(200).json(userBook.savedArray)
     }
     else {
@@ -189,11 +193,16 @@ router.post("/bookmark/:id", async (req, res) => {
 })
 
 router.get("/bookmark/:id",async(req,res)=>{
+  let result=[];
   try{
     const currUser = await user.findById(req.params.id);
     if(currUser){
-      const notifications = currUser.savedArray;
-      res.status(200).json(notifications);
+      const saved = currUser.savedArray;
+      for (const x of saved) {
+        const currPost = await post.findById(x);
+        result.push(currPost);
+      }
+      res.status(200).json(result);
     }else{
       res.status(404).json("Who are you");
     }

@@ -18,13 +18,12 @@ function Notification() {
         }
 
         fetchNot();
-    }, [])
+    }, [user])
 
     return (
         <div className="home">
             <TopBar/> 
             <div className="main-page">
-             
             <NotFeed class="feed" notificationsarr={notificationsarr}/>
             </div>
         </div>
