@@ -16,7 +16,7 @@ export default function Post(props) {
   const {  user, dispatch } = useContext(AuthContext);
 
   console.log(props);
-  const [clickedAgain, setClickedAgain] = useState(props.details.savedArray.includes(user._id));
+  const [clickedAgain, setClickedAgain] = useState(user.savedArray.includes(props.details._id));
   const [clicked, setClicked] = useState(props.details.likes.includes(user._id));
   const [like, setLike] = useState(props.details.likes.length);
   const preimg = "http://localhost:3030/images/";
