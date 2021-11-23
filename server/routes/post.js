@@ -136,7 +136,8 @@ router.put("/like/:id", async (req, res) => {
       const notiUser = await user.findById(currPost.userid);
       const likedUser = await user.findById(req.body.id);
       if(notiUser){
-        await notiUser.updateOne({$push: {notify:{postId:currPost._id,likedUser:likedUser}}})
+        console.log(notiUser);
+        await notiUser.updateOne({$push: {notifi:{postId:currPost._id,likedUser:likedUser}}})
       }
       res.status(200).json("You have liked this post");
     } else {
