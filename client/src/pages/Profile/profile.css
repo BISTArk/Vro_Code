@@ -5,12 +5,22 @@
     flex: 8;
   
 }
-.cameraIcon{
-    opacity: 1;
-    z-index: 1;
+.UpdatePhoto{
+    background-color: #fff;
+    padding: 10px;
     position: absolute;
     bottom: 10px;
-    right: 94px;
+    z-index: 2;
+    right: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.cameraIcon{
+    opacity: 1;
+    z-index: 3;
+    
+    bottom: 10px;
+    right: 100px;
     color: rgb(0, 0, 0);
     transform: scale(1.7);
     transition: 0.3s;
@@ -33,7 +43,9 @@ z-index: -1;
 
 .profileUserImg{
     width: 150px;
+    height: 150px;
     border-radius: 50%;
+    
     object-fit: cover;
     position: absolute;
     left : 0;
@@ -92,6 +104,7 @@ h4{
     margin-top: 50px;
     gap: 30px;
 }
+
 .FollowItemList-profile{
     display: flex;
     flex-direction: column;

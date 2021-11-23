@@ -54,14 +54,14 @@ function Feed(props) {
               <label htmlFor="postCode"> Code</label>
               <input type="file" id="postCode" style={{ display: "none" }} />
             </div>
-            <div className="upload-option">
+            <div className="upload-option"  style={{ cursor: "pointer" }}>
               <Image className="svg-icon" />
-              <label htmlFor="postImg"> Image</label>
+              <label htmlFor="postImg" className="ImageUploadButton" > Image</label>
               <input
                 type="file"
                 name="imag"
                 id="postImg"
-                style={{ display: "none" }}
+                style={{ display: "none", cursor: "pointer" }}
                 onChange={postmediaChange}
               />
             </div>

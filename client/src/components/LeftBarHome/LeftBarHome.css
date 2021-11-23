@@ -93,8 +93,10 @@
 }
 .ProfileImage{
     margin-top: 5%;
-    width: 40%;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
+    object-fit: cover;
     border: 2.5px solid #fff;
     
    
@@ -110,8 +112,7 @@
 .leftbarWrapperHome{
     padding: 25px;
     margin-top: 20px;
-    margin-left: 0px;
-}
+   }
 .ProfileName{
     color: white;
     font-size: 130%;

@@ -25,7 +25,7 @@ const blackRank = [
     '/api/rank-img/black/4.png',
     '/api/rank-img/black/5.png',
     '/api/rank-img/black/6.png',
-    '.api/rank-img/black/7.png',
+    '/api/rank-img/black/7.png',
     
 ]
 

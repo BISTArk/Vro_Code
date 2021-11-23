@@ -8,7 +8,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { NavLink as Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDoubleLeft } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDoubleLeft, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 import empty from "../../assets/svgs/startChat.svg";
@@ -29,19 +29,8 @@ export default function Messenger() {
   const [fuser, setFuser] = useState(null);
   // const PF = "../../client/public/";
   // console.log(user.following)
-  useEffect(() => {
-    socket.current = io("ws://localhost:3060", {
-      reconnect: true,
-      transports: ["websocket", "polling", "flashsocket"],
-    });
-    socket.current.on("message", (data) => {
-      setArrivalMessage({
-        sender: data.senderId,
-        text: data.text,
-        createdAt: Date.now(),
-      });
-    });
-  }, []);
+  const preProfile = "http://localhost:3030/images/profile/";
+
   const redirectVro = () => {
     window.location.href = "/home";
   }
@@ -51,16 +40,8 @@ export default function Messenger() {
       setMessages((prev) => [...prev, arrivalMessage]);
   }, [arrivalMessage, currentChat]);
 
-  useEffect(() => {
-    socket.current.emit("joinRoom", {
-      username: user._id,
-      roomname: user.socketId});
-    socket.current.on("chat", (users) => {
-      setOnlineUsers(
-        user.following.filter((f) => users.some((u) => u.userId === f))
-      );
-    });
-  }, [user]);
+  console.log()
+
 
   useEffect(() => {
     const getConversations = async () => {
@@ -102,10 +83,11 @@ export default function Messenger() {
       (member) => member !== user._id
     );
 
-    socket.current.emit("message", {
+    socket.current.emit("chat", {
       senderId: user._id,
-      receiverId,
       text: newMessage,
+      room:  currentChat?.socketId,
+      createdAt: Date.now(),
     });
 
     try {
@@ -137,8 +119,9 @@ export default function Messenger() {
 
   const handleConv = async (c) => {
     try{
-      const tempotherId = await currentChat.members.find((m) => m !== user._id);
+      const tempotherId = await currentChat?.members.find((m) => m !== user._id);
       const res = await axios.get("http://localhost:3030/api/user/" + tempotherId);
+      setFuser(res.data);
       setFuser(res.data);
     }catch (err){
       console.log(err);
@@ -146,12 +129,40 @@ export default function Messenger() {
     setCurrentChat(c);
   };
 
+
+  useEffect(() => {
+    socket.current = io("ws://localhost:3060", {
+      reconnect: true,
+      transports: ["websocket", "polling", "flashsocket"],
+    });
+    socket.current.on("chat", () => {
+      setArrivalMessage({
+        sender: user._id,
+        text: (newMessage.length !== 0)?newMessage:console.log("nahi"),
+        room:  currentChat?.socketId,
+        createdAt: Date.now(),
+      });
+      // console.log(data.senderId + "hai")
+    });
+  }, [user,newMessage,currentChat]);
+
+  useEffect(() => {
+    socket.current.emit("joinRoom", {
+      username: user._id,
+      roomname: currentChat?.socketId});
+    // socket.current.on("setOnline", (users) => {
+    //   setOnlineUsers(
+    //     user.following.filter((f) => users.some((u) => u.userId === f))
+    //   );
+    // });
+  }, [user,currentChat]);
+
   return (
     <div className="chatBody">
       {/* <TopBar /> */}
       <div className="messenger">
         <div className="chatMenu">
-          <h1 className="chatHead">Chat</h1>
+          <h1 className="chatHead"><FontAwesomeIcon icon={ faEnvelope}/> Chat</h1>
           <div className="conversation2" onClick={redirectVro}><FontAwesomeIcon icon={faAngleDoubleLeft }/> VroCode</div>
           <div className="chatMenuWrapper">
             {conversations.map((c) => (
@@ -171,7 +182,8 @@ export default function Messenger() {
                   <div className="chatOnline">
                     <div className="chatOnlineWrapper">
                       <div className="chatHeadBox">
-                      <Link to = {`/profile/${fuser?._id}`}>
+                        <Link to={`/profile/${fuser?._id}`}>
+                          <img src={preProfile + fuser?.profilePic} alt="asdas" className="profileImgChatBox"/>
                       <span className="chatBoxName">{fuser?.Name}</span>
                       </Link>
                         <span className="chatBoxUsername">@ {fuser?.username}</span>

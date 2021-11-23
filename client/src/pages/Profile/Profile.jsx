@@ -136,9 +136,11 @@ export default function Profile(props) {
             <div className="profileRightTop">
               <div className="profileCover">
                 {loggedUser._id === user._id && (
+                  <div className="UpdatePhoto">
                 <Link to={`/imageupload`}>
                 <FontAwesomeIcon icon={faCamera} className="cameraIcon" />
-                </Link>)}
+                </Link>
+                </div>)}
                 <img
                   src={preCover+user.coverPic}
                   alt="profileCoverImg"

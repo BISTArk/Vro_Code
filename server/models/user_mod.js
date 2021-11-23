@@ -31,11 +31,11 @@ const userSchema = new Schema({
     },
     profilePic: {
         type: String,
-        default: ""
+        default: "default.png"
     },
     coverPic: {
         type: String,
-        default: ""
+        default: "defaultCover.jpeg"
     },
     followers: {
         type: Array,
@@ -57,10 +57,6 @@ const userSchema = new Schema({
         type: Number,
         default: 0
     },
-    socketId: {
-        type: Number,
-        default: Math.random()
-    }
 },
     { timestamps: true });
 
