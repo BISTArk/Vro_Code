@@ -44,7 +44,7 @@ function Feed(props) {
             onChange={(e) => {
               setPostDesc(e.target.value);
             }}
-            placeholder="Start a Post"
+            placeholder="Hey there! I am using VroCode"
           ></textarea>
         </div>
         <div className="post-btns">

@@ -73,7 +73,7 @@ class Login extends Component {
                     <div className="login-names">
                       <div className="form-field">
                         <label htmlFor="username" className="input-text">
-                          Username
+                          Username *
                         </label>
                         <input
                           type="text"
@@ -91,7 +91,7 @@ class Login extends Component {
 
                     <div className="form-field">
                       <label htmlFor="password" className="input-text">
-                        Password
+                        Password *
                       </label>
                       <div className="show-pass">
                         <input

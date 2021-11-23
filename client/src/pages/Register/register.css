@@ -13,7 +13,10 @@
     align-items: center;
     justify-content: center;
   }
-
+.required{
+    content: " *";
+    color: red;
+}
   .CreateAccount {
 
     font-size: 3.5rem;

@@ -3,6 +3,11 @@
     box-sizing: border-box;
     font-family:'Poppins', sans-serif;
 }
+.circleMor{
+    background-color: aqua;
+    border-radius: 50%;
+    padding: 2px;
+}
 .profile-nav{
     display: flex;
     flex-direction: row;
@@ -113,22 +118,22 @@
                 margin-right: 25px;
                 cursor: pointer;
                 transform: scale(1.2);
-                .topbarNotConut{
-                    font-family: 'Poppins', sans-serif;
-                    width: 15px;
-                    height: 15px;
-                    position: absolute;
-                    background-color: red;
-                    color: white;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: 12px;
-                    top:-5px;
-                    right: -5px;
-                    font-size: 0.6  rem;
-                }
+                // .topbarNotConut{
+                //     font-family: 'Poppins', sans-serif;
+                //     width: 15px;
+                //     height: 15px;
+                //     position: absolute;
+                //     background-color: red;
+                //     color: white;
+                //     border-radius: 50%;
+                //     display: flex;
+                //     align-items: center;
+                //     justify-content: center;
+                //     font-size: 12px;
+                //     top:-5px;
+                //     right: -5px;
+                //     font-size: 0.6  rem;
+                // }
             }
         }
 

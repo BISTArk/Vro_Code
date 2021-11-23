@@ -165,7 +165,9 @@ export default function Post(props) {
               setCanComment(!canComment);
             }}
           /> */}
+          <Link to ={`/postpage/${props.postID}` } style={{ textDecoration: "none", color: "black" }}>
           <FontAwesomeIcon icon={faShareAlt} />
+          </Link>
         </div>
 
         {props.gitLink ? (

@@ -27,6 +27,23 @@ const fileFilter = (req, file, cb) => {
 
 let upload = multer({ storage, fileFilter });
 
+//Get a single post
+// router.get("/postpage/:id", async (req, res) => {
+//   try {
+//     const currPost = await post.findById(req.params.id);
+//     if(currPost){
+//       res.status(200).json(currPost);
+//     }else{
+//       res.status(404).json("No posts found");
+//     }
+
+//   }
+//   catch (err){
+//     console.log(err)
+//     res.status(500).json(err);
+//   }
+// })
+
 
 //Get all Timeline Post
 
@@ -192,8 +209,17 @@ router.get("/bookmark/:id",async(req,res)=>{
 router.get("/:id", async (req, res) => {
   try {
     const currPost = await post.findById(req.params.id);
+    console.log(currPost)
     if (currPost) {
-      res.status(200).json(finalPost);
+      const currUser = await user.findById(currPost.userid);
+      const result = ({...currPost._doc, profilePic: currUser.profilePic, username: currUser.username, Name: currUser.Name})
+      console.log(result)
+      
+      // currPost[profilePic] = currUser.profilePic
+      // currPost[Name] = currUser.Name
+      // currPost[username] = currUser.username
+      // console.log(currPost);
+      res.status(200).json(result);
     } else {
       res.status(403).json("Post not Found");
     }

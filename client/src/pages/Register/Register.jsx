@@ -17,12 +17,12 @@ class Register extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     const re = /^\S+@\S+\.\S+$/;
-    if(this.state.name.length<2)alert("name should be a minimum of 2 characters long")
-    else if(this.state.name.length>50)alert("name should be a maximum of 50 characters long")
-    else if(this.state.username.length<3)alert("username should be a minimum of 3 characters long")
-    else if (this.state.username.length > 20) alert("username should be a maximum of 20 characters long")
+    if (this.state.name.length < 2) alert("Name should be a minimum of 2 characters long")
+    else if(this.state.name.length>50)alert("Name should be a maximum of 50 characters long")
+    else if(this.state.username.length<3)alert("Username should be atleast of 3 characters long")
+    else if (this.state.username.length > 20) alert("Username should be a maximum of 20 characters long")
     else if (this.state.role.length<3)alert("Role should be a minimum of 3 characters long")
-    else if(this.state.password.length<6)alert("password should be a minimum of 6 characters long")
+    else if(this.state.password.length<6)alert("Password should be a minimum of 6 characters long")
     else if(!re.test(this.state.email))alert("Enter a Valid Email id")
     else{
     const data = {
@@ -62,7 +62,7 @@ class Register extends Component {
               <div className="Reg-names">
                 <div className="form-field-reg">
                   <label htmlFor="name" className="input-text">
-                    Name
+                    Name *
                   </label>
                   <input
                     type="text"
@@ -76,8 +76,8 @@ class Register extends Component {
                   />
                 </div>
                 <div className="form-field-reg">
-                  <label htmlFor="username" className="input-text">
-                    Username
+                  <label htmlFor="username" className="input-text ">
+                    Username * 
                   </label>
                   <input
                     type="text"
@@ -93,7 +93,7 @@ class Register extends Component {
               </div>
               <div className="form-field-reg">
                 <label htmlFor="email" className="input-text">
-                  Email address
+                 Email address *
                 </label>
                 <input
                   type="email"
@@ -123,7 +123,7 @@ class Register extends Component {
               </div>
               <div className="form-field-reg">
                 <label htmlFor="password" className="input-text">
-                  Password
+                  Password *
                 </label>
                 <input
                   type="password"

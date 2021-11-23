@@ -60,7 +60,7 @@ function TopBar(props) {
               style={{ textDecoration: "none", color: "black" }}
             >
               <Notifications />
-              <span className="topbarNotConut">5</span>
+              {/* <span className="topbarNotConut">5</span> */}
             </Link>
           </div>
           <div className="topbarIconItem">
@@ -74,14 +74,14 @@ function TopBar(props) {
               style={{ textDecoration: "none", color: "black" }}
             >
               <Person />
-              <span className="topbarNotConut">1</span>
+              {/* <span className="topbarNotConut">1</span> */}
             </Link>
           </div>
 
           <div className="topbarIconItem">
             <Link to="/chat" style={{ textDecoration: "none", color: "black" }}>
               <FontAwesomeIcon icon={faFacebookMessenger} />
-              <span className="topbarNotConut">1</span>
+              {/* <span className="topbarNotConut">1</span> */}
             </Link>
           </div>
 

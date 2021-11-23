@@ -1,0 +1,42 @@
+.shareBody{
+    min-height: 100vh;
+}
+.shareTopdetails{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+.shareDetails{
+    display: flex;
+    flex-direction: column;
+}
+.shareContent{
+
+}
+.postContainerShare{
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 40%;
+    position: relative;
+    margin: auto;
+    top: 300px;
+
+}
+.shareName{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.shareUsername{
+    font-size: 0.9rem;
+}
+.dpShare{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}

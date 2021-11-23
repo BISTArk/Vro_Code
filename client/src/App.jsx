@@ -20,6 +20,7 @@ import Forget from "./pages/ForgetPassword/ForgetPassword";
 import Suggestion from "./pages/Suggestion/Suggestion"
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
+import postContainer from "./pages/PostContainer/PostContainer";
 
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
           <Register />
         </Route>
         <Route exact path="/imageupload">
-          <ImageUpload />
+        {user ? <Home /> : <ImageUpload />} 
         </Route>
         <Route path="/profile/:id" component={user ? Profile : Register}
         />
@@ -54,9 +55,7 @@ function App() {
         <Route exact path="/code">
           {user ? <Code /> : <Register />}
         </Route>
-        <Route exact path="/external">
-          {user ? <PostPage /> : <Register />}
-        </Route>
+      
         <Route exact path="/notification">
           {user ? <Notification /> : <Register />}
         </Route>
@@ -82,7 +81,8 @@ function App() {
           {user ? <Following /> : <Register />}
         </Route>
         <Route exact path="/bookmarks" component =  {user ? Bookmark : Register}/>
-        <Route path="/search/:term" component={user ? Search : Register }/>
+        <Route path="/search/:term" component={user ? Search : Register} />
+        <Route path="/postpage/:id" component={PostPage} />
       </Switch>
     </Router>
   );

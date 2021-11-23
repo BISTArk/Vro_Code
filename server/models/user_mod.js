@@ -21,7 +21,8 @@ const userSchema = new Schema({
     },
     role: {
         type: String,
-        required: true,
+        required: false,
+        default: "VroCoder",
         minlength: 3
     },
     password: {

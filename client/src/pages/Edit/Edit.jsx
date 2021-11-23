@@ -110,11 +110,11 @@ class Edit extends Component {
                       />
                     </div>
                     <div className="formElement">
-                      <label htmlFor="" className="labelEdit">
+                      <label htmlFor="emailid" className="labelEdit">
                         E-mail :{" "}
                       </label>
                       <input
-                        type="text"
+                        type="email"
                         className="editInput"
                         placeholder="Enter new email.."
                         value={this.state.email}
