@@ -127,14 +127,19 @@ router.put("/:id", async (req, res) => {
 router.put("/like/:id", async (req, res) => {
   try {
     const currPost = await post.findById(req.params.id);
+    console.log(currPost);
+    if(currPost){
     if (!currPost.likes.includes(req.body.id)) {
       await currPost.updateOne({ $push: { likes: req.body.id } });
       res.status(200).json("You have liked this post");
     } else {
       await currPost.updateOne({ $pull: { likes: req.body.id } });
       res.status(200).json("You have unliked this post");
+    }}else{
+      res.status(404).json("Cant find this post");
     }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

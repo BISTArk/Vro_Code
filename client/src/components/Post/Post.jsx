@@ -1,8 +1,6 @@
 import "./Post.scss";
-import { useState, useContext} from "react";
-import {
-  GitHub,
-} from "@material-ui/icons";
+import { useState, useContext } from "react";
+import { GitHub } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import { NavLink as Link } from "react-router-dom";
@@ -13,14 +11,13 @@ import {
 import { AuthContext } from "../../context/AuthContext";
 
 export default function Post(props) {
-  const {user,dispatch} = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
   // const [comment, setComment] = useState("");
   // const [canComment, setCanComment] = useState(false);
   const [clicked, setClicked] = useState(false);
   const preimg = "http://localhost:3030/images/";
 
   const preProfile = "http://localhost:3030/images/profile/";
-
 
   const otherComments = [
     {
@@ -30,9 +27,27 @@ export default function Post(props) {
     },
   ];
 
+  const handleLike = async () => {
+    setClicked(!clicked);
+      const data = { id:user._id };
+      const options = {
+        method: "PUT",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(data),
+      };
+      let response = await fetch(
+        `http://localhost:3030/api/post/like/${props.postID}`,
+        options
+      );
+  };
+
   const handlePostDelete = async () => {
     if (window.confirm("Do you want to delete this post?")) {
-      const data = { id: props.userID };
+      const data = { id: user._id };
       const options = {
         method: "DELETE",
         mode: "cors",
@@ -49,7 +64,7 @@ export default function Post(props) {
         );
         let confirm = await response.json();
         // console.log(response);
-        if (response.status==200)
+        if (response.status == 200)
           dispatch({ type: "DELETE_POST", payload: user.postCount - 1 });
         window.alert(confirm);
         window.location.reload();
@@ -89,7 +104,7 @@ export default function Post(props) {
               <span className="username"> . @ {props.username}</span>
             </div>
           </Link>
-          {console.log("date hai : " + props.postedon)}
+          {/* {console.log("date hai : " + props.postedon)} */}
           <div className="postedon">Posted on {props.postedon}</div>
         </div>
 
@@ -100,21 +115,28 @@ export default function Post(props) {
         />
       </div>
       <div className="content">{props.content}</div>
-      {props.img ? <img src={preimg+props.img} alt="Post Media" className="postImageHome"/> : <div />}
+      {props.img ? (
+        <img
+          src={preimg + props.img}
+          alt="Post Media"
+          className="postImageHome"
+        />
+      ) : (
+        <div />
+      )}
       <div className="reactions">
         <div className="react">
           <FontAwesomeIcon
-            icon={!clicked ? farHeart : faHeart} style={{}}
-            onClick={() => {
-              setClicked(!clicked);
-            }}
+            icon={!clicked ? farHeart : faHeart}
+            style={{}}
+            onClick={handleLike}
           />
           {/* <CommentOutlined
             onClick={() => {
               setCanComment(!canComment);
             }}
           /> */}
-         <FontAwesomeIcon icon ={faShareAlt}/>
+          <FontAwesomeIcon icon={faShareAlt} />
         </div>
 
         {props.gitLink ? (
