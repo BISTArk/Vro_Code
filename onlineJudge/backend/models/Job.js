@@ -29,7 +29,5 @@ const JobSchema = mongoose.Schema({
     enum: ["pending", "success", "error"],
   },
 });
-
 const Job = new mongoose.model("job", JobSchema);
-
 module.exports = Job;
