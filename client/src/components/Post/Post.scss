@@ -12,6 +12,13 @@
   padding-bottom: 20px;
   border-radius: 5px;
 }
+.likeHeart{
+  transition: 0.5s all;
+}
+.likeHeart:hover{
+  font-size: 1.3rem;
+  color: rgb(255, 85, 85);
+}
 .topIcons{
   display: flex;
   flex-direction: row;

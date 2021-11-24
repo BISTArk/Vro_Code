@@ -13,8 +13,9 @@ function Notification() {
         async function fetchNot(){
             const response = await fetch("http://localhost:3030/api/user/notify/"+user._id);
             const jso = await response.json();
+            
             setnotificationsarr(jso);
-            console.log(jso);
+            // console.log(jso);
         }
 
         fetchNot();

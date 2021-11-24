@@ -10,16 +10,17 @@ export default function Code() {
   return (
     <div>
       <TopBar />
+      <div className="courseFull">
       <div>
         <h1 className="courses-head">Courses: Learn and keep growing!</h1>
-        <hr className="hrCode" />
+   
       </div>
-      <h2>Development Courses</h2>
+      <h2 className="courseH2">Development Courses</h2>
 
       {/* https://www.udemy.com/topic/web-development/ */}
 
       <div className="grid-container">
-        <div className="PracticeCard">
+        <div className="CourseCard">
           <div className="Title-container">
             <h1 className="PracticeTitle">Udemy Courses</h1>
             <img src={udemy} alt="udemy" />
@@ -34,7 +35,7 @@ export default function Code() {
           </div>
         </div>
 
-        <div className="PracticeCard">
+        <div className="CourseCard">
           <div className="Title-container">
             <h1 className="PracticeTitle">Free coding camp</h1>
             <img src={fcc} alt="free-coding-camp" />
@@ -52,7 +53,7 @@ export default function Code() {
           </div>
         </div>
 
-        <div className="PracticeCard">
+        <div className="CourseCard">
           <div className="Title-container">
             <h1 className="PracticeTitle">Coursera Courses</h1>
             <img src={coursera} alt="cousera" />
@@ -71,10 +72,10 @@ export default function Code() {
         </div>
       </div>
 
-      <hr />
-      <h2>Machine Learning Courses</h2>
+     
+      <h2 className="courseH2">Machine Learning Courses</h2>
       <div className="grid-container">
-        <div className="PracticeCard">
+        <div className="CourseCard">
           <div className="Title-container">
             <h1 className="PracticeTitle">Coursera ML Courses</h1>
             <img src={coursera} alt="coursera" />
@@ -91,7 +92,7 @@ export default function Code() {
           </div>
         </div>
 
-        <div className="PracticeCard">
+        <div className="CourseCard">
           <div className="Title-container">
             <h1 className="PracticeTitle">EdX ML Courses</h1>
             <img src={edx} alt="edx" />
@@ -106,7 +107,7 @@ export default function Code() {
           </div>
         </div>
 
-        <div className="PracticeCard">
+        <div className="CourseCard">
           <div className="Title-container">
             <h1 className="PracticeTitle">Udacity ML Courses</h1>
             <img src={udacity} alt="udacity" />
@@ -122,7 +123,8 @@ export default function Code() {
               <button className="solveBtn">Learn Now!</button>
             </Link>
           </div>
-        </div>
+          </div>
+          </div>
       </div>
     </div>
   );

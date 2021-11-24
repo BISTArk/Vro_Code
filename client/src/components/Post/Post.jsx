@@ -163,6 +163,8 @@ export default function Post(props) {
             icon={!clicked ? farHeart : faHeart}
             style={{}}
             onClick={handleLike}
+            className="likeHeart"
+
           />
           <span>{like}</span>
           {/* <CommentOutlined

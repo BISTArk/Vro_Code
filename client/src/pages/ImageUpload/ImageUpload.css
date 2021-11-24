@@ -14,6 +14,7 @@
     font-weight: 500;
     cursor: pointer;
     color: #1E3163;
+    transition: 0.2s all;
     
 }
 .formElementUpload{
@@ -23,6 +24,9 @@
     cursor: pointer;
     margin-right: 20px;
     transform: scale(2);
+}
+.labelUpload:hover{
+color: #4168cc;
 }
 .uploadForm{
     display: flex;
