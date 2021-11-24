@@ -17,16 +17,14 @@ h1{
   background: transparent;
 }
 body{
-  background-image: linear-gradient(#C4A4F6, #A890FB);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 100vh;
+  background: rgb(195,148,255);
+  background: linear-gradient(291deg, rgba(195,148,255,1) 0%, rgba(151,131,228,1) 75%, rgba(151,131,228,1) 100%);
 }
 h2{
     text-align: center;
     font-family: 'Poppins';
     font-weight: 800;
-    color: #332A3E;
+    color: #fff;
     margin: 2px 0 80px 0;
     margin-top: 2px;
     
