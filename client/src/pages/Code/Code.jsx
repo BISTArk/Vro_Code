@@ -17,16 +17,17 @@ export default function Code() {
       }
     return(
         <div>
-            <TopBar/>
+            <TopBar />
+            <div className="codeFullContainer">
              <div>
                  <div className="heading-prac">
-                    <h1 classame="practice-heading">Practice Time!</h1>
+                    <h1 classame="practice-heading" style={{color: "#fff", fontSize:"3rem"}}>Practice Time!</h1>
                     
                  </div>
-                <hr className="hrCode" />
+                {/* <hr className="hrCode" /> */}
               
              </div>
-            <h2>Competitive Programming</h2>
+            <h2 className="competitive">Competitive Programming</h2>
             
              
             <div className="grid-container">
@@ -122,8 +123,8 @@ export default function Code() {
 
              </div>
 
-            <hr />
-             <h2>Development Practice</h2>
+         
+             <h2 className="competitive">Development Practice</h2>
              <div className = "grid-container">
                <div className = "PracticeCard">
                    <div className="Title-container">
@@ -164,7 +165,8 @@ export default function Code() {
                        Practice Now
                     </button>
                     </Link>
-                    </div>
+                        </div>
+                        </div>
               </div>
 
              </div>

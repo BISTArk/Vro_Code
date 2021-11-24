@@ -1,14 +1,23 @@
 .courses-head{
     font-family: 'Poppins',sans-serif;
     font-weight: 700;
-    margin-top: 50px;
+    padding-top: 50px;
     text-align: center;
+    color: #fff;
 }
-h2{
+.courseFull{
+    position: relative;
+    background-size: cover;
+    background: rgb(0,59,88);
+    background: linear-gradient(229deg, rgba(0,59,88,1) 0%, rgba(29,33,50,1) 35%, rgba(15,47,64,1) 100%);
+    min-height: 100vh;
+}
+h2.courseH2{
     font-family: 'Poppins',sans-serif;
     font-weight: 600;
     margin-top: 30px;
     text-align: center;
+    color: #fff;
 }
 .hrCode{
     width: 20%;
@@ -24,24 +33,25 @@ h2{
     gap:60px;
     row-gap: 70px;
 }
-.PracticeCard{
+.CourseCard{
     background-color: #fff;
     border-radius: 20px;
     width: 380px;
     padding: 40px;
     background: rgba( 255, 255, 255, 0.25 );    
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.17 );
-    backdrop-filter: blur( 5.5px );
-    -webkit-backdrop-filter: blur( 5.5px );
-    border: 1px solid rgba( 255, 255, 255, 0.08 );
-    transition: 0.4s;
-}
-.PracticeCard:hover{
-    background: rgba( 255, 255, 255, 0.25 );    
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.57 );
     backdrop-filter: blur( 5.5px );
     -webkit-backdrop-filter: blur( 5.5px );
     border: 1px solid rgba( 255, 255, 255, 0.38 );
+    transition: 0.4s;
+}
+.CourseCard:hover{
+    background: rgba(255, 255, 255, 0.363);    
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.17 );
+    backdrop-filter: blur( 5.5px );
+    -webkit-backdrop-filter: blur( 5.5px );
+   
+    border: 1px solid rgba( 255, 255, 255, 0.08 );
 }
 .PracticeTitle{
 margin: 10px  !important;

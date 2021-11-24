@@ -146,7 +146,8 @@ export default function Post(props) {
         </div>
         </div>
       {!props.details.code?<div className="content">{props.details.content}</div>:
-      <pre className="content" >{props.details.content}</pre>}
+      
+        <code className="contentCode" >{props.details.content}</code>}
       {props.details.img ? (
         <img
           src={preimg + props.details.img}
@@ -162,6 +163,8 @@ export default function Post(props) {
             icon={!clicked ? farHeart : faHeart}
             style={{}}
             onClick={handleLike}
+            className="likeHeart"
+
           />
           <span>{like}</span>
           {/* <CommentOutlined

@@ -50,15 +50,18 @@ let upload = multer({ storage, fileFilter });
 router.get("/all/:userId", async (req, res) => {
   try {
     const currUser = await user.findById(req.params.userId);
-    const myPosts = await post.find({ userid: currUser._id }).sort({time : -1 }).exec();
+    const timeAtt = new Date(currUser.createdAt).toLocaleDateString();
+    console.log("Tiem: " + timeAtt)
+    const myPosts = await post.find({ userid: currUser._id }).sort({createdAt: -1 }).exec();
    
     const otherPosts = await Promise.all(
       currUser.following.map((fid) => {
         
-        return post.find({ userid: fid }).sort({time: -1}).exec();
+        return post.find({ userid: fid }).sort({createdAt: -1}).exec();
       })
     );
-    res.status(200).json(myPosts.concat(...otherPosts));
+    const result2 = myPosts.concat(...otherPosts).sort().reverse(); //wow
+    res.status(200).json(result2);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

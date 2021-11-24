@@ -6,6 +6,10 @@
 .ImageUploadButton{
   cursor: pointer;
 }
+.codeIcon{
+  margin-right: 5px;
+  cursor: pointer;
+}
 .svg-icon{
   cursor: auto;
   transform: scale(0.9);
@@ -53,10 +57,29 @@
         margin: 0 2%;
         height: auto;
         resize: none;
-        
+        transition: 0.5s;
       }
       .posttext:focus{
         outline: none;
+      }
+      .postcode {
+        background-color: #333;
+        flex: 11;
+        border-radius: 20px;
+        padding: 2%;
+        margin: 0 2%;
+        height: 200px;
+        resize: none;
+        transition: 0.5s;
+        
+      }
+      .postcode:focus{
+        outline: none;
+      }
+      .postcode::placeholder{
+        font-weight: 400;
+        font-size: 0.9rem;
+        vertical-align: middle;
       }
     }
     .post-btns {
