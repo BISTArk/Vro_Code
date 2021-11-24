@@ -3,6 +3,7 @@ const multer = require("multer");
 const user = require("../models/user_mod");
 const post = require("../models/post_mod");
 const fs = require("fs");
+const { findById } = require("../models/user_mod");
 
 //set up multer
 
@@ -26,21 +27,41 @@ const fileFilter = (req, file, cb) => {
 
 let upload = multer({ storage, fileFilter });
 
+//Get a single post
+// router.get("/postpage/:id", async (req, res) => {
+//   try {
+//     const currPost = await post.findById(req.params.id);
+//     if(currPost){
+//       res.status(200).json(currPost);
+//     }else{
+//       res.status(404).json("No posts found");
+//     }
+
+//   }
+//   catch (err){
+//     console.log(err)
+//     res.status(500).json(err);
+//   }
+// })
+
 
 //Get all Timeline Post
 
 router.get("/all/:userId", async (req, res) => {
   try {
     const currUser = await user.findById(req.params.userId);
-    const myPosts = await post.find({ userid: currUser._id }).sort({time : -1 }).exec();
+    const timeAtt = new Date(currUser.createdAt).toLocaleDateString();
+    console.log("Tiem: " + timeAtt)
+    const myPosts = await post.find({ userid: currUser._id }).sort({createdAt: -1 }).exec();
    
     const otherPosts = await Promise.all(
       currUser.following.map((fid) => {
         
-        return post.find({ userid: fid }).sort({time: -1}).exec();
+        return post.find({ userid: fid }).sort({createdAt: -1}).exec();
       })
     );
-    res.status(200).json(myPosts.concat(...otherPosts));
+    const result2 = myPosts.concat(...otherPosts).sort().reverse(); //wow
+    res.status(200).json(result2);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -132,6 +153,12 @@ router.put("/like/:id", async (req, res) => {
     if(currPost){
     if (!currPost.likes.includes(req.body.id)) {
       await currPost.updateOne({ $push: { likes: req.body.id } });
+      const notiUser = await user.findById(currPost.userid);
+      const likedUser = await user.findById(req.body.id);
+      if(notiUser){
+        console.log(notiUser);
+        await notiUser.updateOne({$push: {notifi:{post:currPost,likedUser:likedUser}}})
+      }
       res.status(200).json("You have liked this post");
     } else {
       await currPost.updateOne({ $pull: { likes: req.body.id } });
@@ -145,13 +172,66 @@ router.put("/like/:id", async (req, res) => {
   }
 });
 
+
+router.post("/bookmark/:id", async (req, res) => {
+  try {
+    const userBook = await user.findById(req.body.id);
+    console.log("userBOok " + userBook)
+    if (userBook) {
+      if (!userBook.savedArray.includes(req.params.id)) {
+      await userBook.updateOne({ $push: { savedArray: req.params.id } });
+      } else {
+        await userBook.updateOne({ $pull: { savedArray: req.params.id } });
+      }  
+      res.status(200).json(userBook.savedArray)
+    }
+    else {
+      res.status(503).json("Cannot bookmark")
+    }
+
+  } catch (err) {
+    console.log(err)
+    res.status(404).json("Cant find this post");
+  }
+})
+
+router.get("/bookmark/:id",async(req,res)=>{
+  let result=[];
+  try{
+    const currUser = await user.findById(req.params.id);
+    if(currUser){
+      const saved = currUser.savedArray;
+      for (const x of saved) {
+        const currPost = await post.findById(x);
+        result.push(currPost);
+      }
+      res.status(200).json(result);
+    }else{
+      res.status(404).json("Who are you");
+    }
+  }
+  catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
 //Get a Post
 
 router.get("/:id", async (req, res) => {
   try {
     const currPost = await post.findById(req.params.id);
+    console.log(currPost)
     if (currPost) {
-      res.status(200).json(finalPost);
+      const currUser = await user.findById(currPost.userid);
+      const result = ({...currPost._doc, profilePic: currUser.profilePic, username: currUser.username, Name: currUser.Name})
+      console.log(result)
+      
+      // currPost[profilePic] = currUser.profilePic
+      // currPost[Name] = currUser.Name
+      // currPost[username] = currUser.username
+      // console.log(currPost);
+      res.status(200).json(result);
     } else {
       res.status(403).json("Post not Found");
     }

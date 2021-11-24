@@ -53,9 +53,11 @@ export default function Profile(props) {
           Name: user.Name,
           username: user.username,
           profilePic: user.profilePic,
+          savedArray:user.savedArray
         };
       });
       setPosts(jso2);
+      console.log(jso2);
     }
 
     if (user) fetchData();
@@ -202,7 +204,7 @@ export default function Profile(props) {
                 <div className="FollowItemList-profile">
                   <span className="followers-title">Posts</span>
                   <span className="numberFollowers">
-                    {user.following.length}
+                    {user.postCount}
                   </span>
                 </div>
                 <hr />
@@ -227,6 +229,7 @@ export default function Profile(props) {
                 class="feed"
                 user={user}
                 posts={posts}
+                bookmarks={false}
                 createPost={createPost}
               />
             </div>

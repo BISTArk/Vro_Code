@@ -21,7 +21,8 @@ const userSchema = new Schema({
     },
     role: {
         type: String,
-        required: true,
+        required: false,
+        default: "VroCoder",
         minlength: 3
     },
     password: {
@@ -57,6 +58,15 @@ const userSchema = new Schema({
         type: Number,
         default: 0
     },
+    notifi:{
+        type:Array,
+        default:[]
+    },
+    savedArray:{
+        type: Array,
+        default:[]
+    }
+
 },
     { timestamps: true });
 

@@ -1,53 +1,45 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./NotFeed.scss";
+const preimg = "http://localhost:3030/images/";
+const preProfile = "http://localhost:3030/images/profile/";
+function NotFeed(props) {
 
-function NotFeed() {
-  // const [postDesc, setPostDesc] = useState("");
-
-  const notificationsarr = [
-    {
-      ppic: "./images/profile-sample.png",
-      pname: "Ishan",
-      message: "Notification 1",
-      link: "",
-    },
-    {
-      ppic: "./images/profile-sample.png",
-      pname: "Ishan",
-      message: "Notification 2",
-      link: "",
-    },
-    {
-      ppic: "./images/profile-sample.png",
-      pname: "Ishan",
-      message: "Notification 3",
-      link: "",
-    },
-    {
-      ppic: "./images/profile-sample.png",
-      pname: "Ishan",
-      message: "Notification 4",
-      link: "",
-    },
-    {
-      ppic: "./images/profile-sample.png",
-      pname: "Ishan",
-      message: "Notification 5",
-      link: "",
-    }
-  ];
-
+  
   const showNotifications = () => {
-    return notificationsarr.map(({ ppic, pname, message, link }) => {
+    return props.notificationsarr.map((x) => {
       return (
-        <Link to="/post" className="notifi">
+        
+        <div className="notifi" key="">
+          <div className="leftContainerNotif">
           <div className="profilepic-container">
-            <img src={ppic} alt={pname} className="profilepic" />
+           
+            <img src={preProfile+x.likedUser.profilePic} alt="d" className="profilepic" />
           </div>
-          <div className="msg">{message}</div>
-          {/* <div className="delet-btn"></div> Add Later maybe */}
-        </Link>
+          <div className="notifMsg">
+            <Link to={`/profile/${x.likedUser._id}`} style={{color: "black"}}>
+            <span className="notifName">{x.likedUser.Name}</span>
+            <span className="notifUsername">. @ {x.likedUser.username}</span>
+            </Link>
+          <div className="msg">❤ Liked your post</div>
+            </div>
+            </div>
+          <Link to = {`/postpage/${x.post._id}`} style={{color: "black"}}>
+         
+          
+     <div  className="notifContentPost"> <div className="contentShare">{x.post.content}</div>{x.post.img ? (
+        <img
+          src={preimg + x.post.img}
+          alt="Post Media"
+          className="imageNotif"
+        />
+      ) : (
+        <div />
+         )}</div>
+     
+        
+          </Link>
+        </div>
       );
     });
   };

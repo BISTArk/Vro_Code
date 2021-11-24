@@ -1,7 +1,6 @@
 .post {
   background-color: white;
   border-radius: 12px;
-  
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -13,6 +12,18 @@
   padding-bottom: 20px;
   border-radius: 5px;
 }
+.likeHeart{
+  transition: 0.5s all;
+}
+.likeHeart:hover{
+  font-size: 1.3rem;
+  color: rgb(255, 85, 85);
+}
+.topIcons{
+  display: flex;
+  flex-direction: row;
+  gap:20px;
+}
   .details {
     height: 20%;
     width: 100%;
@@ -21,14 +32,15 @@
     justify-content: center;
 
     .profilepic-container {
-      flex: 1;
+      flex: 0;
       width: 100%;
+      align-items: center;
       padding: 1% 0%;
       border-radius: 50%;
       cursor: pointer;
     .profilepic {
-        width: 75px;
-        height: 75px;
+        width: 50px;
+        height: 50px;
         overflow: hidden;
         object-fit: cover;
         z-index: -1;
@@ -75,7 +87,33 @@
   .content {
     margin: 3% 0%;
   }
-
+  .contentCode{ 
+    margin: 3% 0%;
+    background-color: #333;
+    color: #6cc644;
+    font-weight: 600;
+    padding: 30px;
+    letter-spacing: 0.2rem;
+    font-family: "Courier Prime", monospace;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    white-space: pre-line;
+    background: rgba(0, 0, 0, 0.774);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+backdrop-filter: blur( 4.5px );
+-webkit-backdrop-filter: blur( 4.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+transition: 0.5s;
+  }
+  .contentCode:hover{
+    background: rgba(0, 0, 0, 0.938);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
   .reactions {
     display: flex;
     justify-content: space-between;

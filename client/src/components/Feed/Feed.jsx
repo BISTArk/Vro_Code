@@ -3,7 +3,7 @@ import Post from "../Post/Post";
 import img from "../../assets/images/profile-sample.jfif";
 import "./Feed.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
+import { faCode, faFont} from "@fortawesome/free-solid-svg-icons";
 import { GitHub, Image } from "@material-ui/icons";
 import { NavLink as Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -13,6 +13,7 @@ function Feed(props) {
   const { user } = useContext(AuthContext);
   const [postDesc, setPostDesc] = useState("");
   const [gitLink, setGitLink] = useState("");
+  const [code, setCode] = useState(false);
   const [imag, setImag] = useState("");
   const preProfile = "http://localhost:3030/images/profile/";
 
@@ -29,14 +30,20 @@ function Feed(props) {
     }
   };
 
+  const switchMode = ()=>{
+    setCode(!code);
+  }
+
+  console.log(props.posts);
+
   return (
     <div className="feed">
-      {user._id===props.user._id?<div className="makepost">
+      {(user._id===props.user._id && !props.bookmarks)?<div className="makepost">
         <div className="post-details">
           <Link to={`/profile/${user._id}`} className="profilepic-container">
             <img src={preProfile+user.profilePic} alt="Ishan" className="profilepic" />
           </Link>
-          <textarea
+          {!code?<textarea
             name="postDesc"
             id="postDesc"
             className="posttext"
@@ -44,15 +51,26 @@ function Feed(props) {
             onChange={(e) => {
               setPostDesc(e.target.value);
             }}
-            placeholder="Start a Post"
-          ></textarea>
+            placeholder="Hey there! I am using VroCode (This is a text box)"
+          ></textarea>:<textarea
+          name="postDesc"
+          id="postDesc"
+          className="postcode"
+          value={postDesc}
+          onChange={(e) => {
+            setPostDesc(e.target.value);
+              }}
+              onkeydown={(e) => { if (e.keyCode === 13) return true;}}
+          placeholder="//Enter your code (Eg: #include<iostream.h>)"
+          style={{color:"#6cc644", letterSpacing:"0.2rem" , fontFamily: "Courier Prime", fontWeight: "600", fontSize: "1.1rem"}}
+        ></textarea>}
         </div>
         <div className="post-btns">
           <div className="post-upload">
-            <div className="upload-option">
-              <FontAwesomeIcon icon={faCode} />
-              <label htmlFor="postCode"> Code</label>
-              <input type="file" id="postCode" style={{ display: "none" }} />
+            <div className="upload-option" onClick={switchMode}>
+              <FontAwesomeIcon icon={!code ? faCode : faFont} className="codeIcon"/>
+              {code ? <label htmlFor="postCode" style={{cursor: "pointer"}}> Text</label>:
+              <label htmlFor="postCode" style={{cursor: "pointer"}}> Code</label>}
             </div>
             <div className="upload-option"  style={{ cursor: "pointer" }}>
               <Image className="svg-icon" />
@@ -73,7 +91,7 @@ function Feed(props) {
           <div
             className="post-btn"
             onClick={() => {
-              props.createPost({ postDesc, gitLink, imag });
+              props.createPost({ postDesc, gitLink, imag, code });
             }}
           >
             {" "}
@@ -85,22 +103,10 @@ function Feed(props) {
       <div className="posts">
         {props.posts.length > 0 ? (
           props.posts.map((x) => {
+            console.log(x)
             return (
               <Post
-                postName={x.Name}
-                
-                postID={x._id}
-                userID={x.userid}
-                postedon={x.createdAt}
-                username={x.username}
-                gitLink={x.githubLink}
-                content={x.content}
-                img={x.img}
-                profilePic={preProfile+x.profilePic}
-                key={x._id}
-                imgType={x.imgType}
-                imgFile={x.imgFile}
-                likes={x.likes}
+                details={x}
               />
             );
           })

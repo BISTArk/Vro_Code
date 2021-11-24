@@ -187,4 +187,23 @@ router.put("/unfollow/:id", async (req, res) => {
   }
 });
 
+//notify
+
+router.get("/notify/:id",async(req,res)=>{
+  try{
+    const currUser = await user.findById(req.params.id);
+    if(currUser){
+      const notifications = currUser.notifi.slice(0,15);
+     
+      res.status(200).json(notifications);
+    }else{
+      res.status(404).json("Who are you");
+    }
+  }
+  catch(err){
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
 module.exports = router;

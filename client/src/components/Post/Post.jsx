@@ -2,36 +2,34 @@ import "./Post.scss";
 import { useState, useContext } from "react";
 import { GitHub } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faShareAlt } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark, faHeart, faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import { NavLink as Link } from "react-router-dom";
+import {} from "@fortawesome/free-regular-svg-icons"
 import {
   faHeart as farHeart,
   faTrashAlt,
+  faBookmark as farBookmark,
 } from "@fortawesome/free-regular-svg-icons";
 import { AuthContext } from "../../context/AuthContext";
 
 export default function Post(props) {
-  const { user, dispatch } = useContext(AuthContext);
-  // const [comment, setComment] = useState("");
-  // const [canComment, setCanComment] = useState(false);
-  const [clicked, setClicked] = useState(props.likes.includes(user._id));
-  const [like, setLike] = useState(props.likes.length);
-  const preimg = "http://localhost:3030/images/";
+  const {  user, dispatch } = useContext(AuthContext);
 
+  console.log(props);
+  const [clickedAgain, setClickedAgain] = useState(user.savedArray.includes(props.details._id));
+  const [clicked, setClicked] = useState(props.details.likes.includes(user._id));
+  const [like, setLike] = useState(props.details.likes.length);
+  const preimg = "http://localhost:3030/images/";
   const preProfile = "http://localhost:3030/images/profile/";
 
-  const otherComments = [
-    {
-      ppic: "./images/profile-sample.png",
-      pname: "Ishan",
-      content: "HELLO SAAAAAR",
-    },
-  ];
 
+  const handleShare = () => {
+    alert(`Copy the URL:  http://localhost:3000/postpage/${props.details._id}`)
+  }
   const handleLike = async () => {
     setClicked(!clicked);
     if (clicked) {
-      setLike(like -1)
+      setLike(like -1);
     }
     else setLike(like + 1);
       const data = { id:user._id };
@@ -45,10 +43,35 @@ export default function Post(props) {
         body: JSON.stringify(data),
       };
       let response = await fetch(
-        `http://localhost:3030/api/post/like/${props.postID}`,
+        `http://localhost:3030/api/post/like/${props.details._id}`,
         options
       );
   };
+  const handleBookmarks = async () => {
+    setClickedAgain(!clickedAgain)
+    const data = { id: user._id}
+    const options = {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify(data),
+    };
+    let response = await fetch(
+      `http://localhost:3030/api/post/bookmark/${props.details._id}`,
+      options
+    );
+    console.log(response.status);
+    console.log(clickedAgain);
+    if(response.status===200 && !clickedAgain)
+    dispatch({type:"BOOK",payload:props.details._id})
+    if(response.status===200 && clickedAgain)
+    dispatch({type:"UNBOOK",payload:props.details._id})
+
+  };
+
 
   const handlePostDelete = async () => {
     if (window.confirm("Do you want to delete this post?")) {
@@ -64,7 +87,7 @@ export default function Post(props) {
       };
       try {
         let response = await fetch(
-          `http://localhost:3030/api/post/${props.postID}`,
+          `http://localhost:3030/api/post/${props.details._id}`,
           options
         );
         let confirm = await response.json();
@@ -97,32 +120,37 @@ export default function Post(props) {
     <div className="post">
       <div className="details">
         <div className="profilepic-container">
-          <img src={props.profilePic} alt="Ishan" className="profilepic" />
+          <img src={preProfile + props.details.profilePic} alt="Ishan" className="profilepic" />
         </div>
         <div className="details-text">
           <Link
-            to={`/profile/${props.userID}`}
+            to={`/profile/${props.details.userid}`}
             style={{ textDecoration: "none", color: "black" }}
           >
             <div className="postTitleContainer">
-              <div className="Name">{props.postName}</div>
-              <span className="username"> . @ {props.username}</span>
+              <div className="Name">{props.details.Name}</div>
+              <span className="username"> . @ {props.details.username}</span>
             </div>
           </Link>
-          {console.log("date hai : " + props.postedon)}
-          <div className="postedon">Posted on {new Date(props.postedon).toLocaleString()}</div>
+          {console.log("date hai : " + props.details.createdAt)}
+          <div className="postedon">Posted on {new Date(props.details.createdAt).toLocaleString()}</div>
         </div>
-
-        <FontAwesomeIcon
+        <div className="topIcons">
+          <FontAwesomeIcon icon={!clickedAgain ? farBookmark : faBookmark} style={{ cursor: "pointer" }} onClick={handleBookmarks} />
+          {(props.details.userid === user._id) ? <FontAwesomeIcon
           icon={faTrashAlt}
           onClick={handlePostDelete}
-          style={{ cursor: "pointer" }}
-        />
-      </div>
-      <div className="content">{props.content}</div>
-      {props.img ? (
+          style={{ cursor: "pointer", color: "red" }}
+        />:<div></div>}
+       
+        </div>
+        </div>
+      {!props.details.code?<div className="content">{props.details.content}</div>:
+      
+        <code className="contentCode" >{props.details.content}</code>}
+      {props.details.img ? (
         <img
-          src={preimg + props.img}
+          src={preimg + props.details.img}
           alt="Post Media"
           className="postImageHome"
         />
@@ -130,11 +158,13 @@ export default function Post(props) {
         <div />
       )}
       <div className="reactions">
-        <div className="react"  onClick={handleLike}>
+        <div className="react">
           <FontAwesomeIcon
             icon={!clicked ? farHeart : faHeart}
             style={{}}
-            onClick={()=>setLike(like+1)}
+            onClick={handleLike}
+            className="likeHeart"
+
           />
           <span>{like}</span>
           {/* <CommentOutlined
@@ -142,13 +172,15 @@ export default function Post(props) {
               setCanComment(!canComment);
             }}
           /> */}
-          <FontAwesomeIcon icon={faShareAlt} />
+          {/* <Link to ={`/postpage/${props.details._id}` } style={{ textDecoration: "none", color: "black" }}> */}
+          <FontAwesomeIcon icon={faShareAlt} onClick={handleShare}/>
+          {/* </Link> */}
         </div>
 
         {props.gitLink ? (
           <a
             className="github"
-            href={props.gitLink}
+            href={props.details.githubLink}
             target="_blank"
             rel="noreferrer"
             style={{ textDecoration: "none", color: "black" }}

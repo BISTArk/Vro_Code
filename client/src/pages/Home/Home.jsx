@@ -12,7 +12,7 @@ function Home() {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
 
-  const createPost = async ({ postDesc, gitLink, imag }) => {
+  const createPost = async ({ postDesc, gitLink, imag, code }) => {
     const formData = new FormData();
     
     formData.append("userid", user._id);
@@ -20,6 +20,7 @@ function Home() {
     formData.append("content", postDesc);
     formData.append("img", imag.name||"");
     formData.append("imag", imag);
+    formData.append("code", code);
 
     const response = await axios.post(
       "http://localhost:3030/api/post",
@@ -65,6 +66,7 @@ function Home() {
         jso[i] = { ...jso[i], ...posts[i] };
       }
       setUsers(jso);
+      console.log(jso);
     }
 
     if (posts.length > 0) fetchUsers();
@@ -75,7 +77,7 @@ function Home() {
       <TopBar />
       <div className="main-page">
         <LeftBarHome class="left" user={user} />
-        <Feed class="feed" user={user} posts={users} createPost={createPost} />
+        <Feed class="feed" user={user} posts={users} bookmarks={false} createPost={createPost} />
         <RightBarHome class="right" />
       </div>
     </div>
