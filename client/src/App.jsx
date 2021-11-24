@@ -45,7 +45,7 @@ function App() {
           <Register />
         </Route>
         <Route exact path="/imageupload">
-        {user ? <Home /> : <ImageUpload />} 
+        {user ? <ImageUpload /> : <Register />} 
         </Route>
         <Route path="/profile/:id" component={user ? Profile : Register}
         />
