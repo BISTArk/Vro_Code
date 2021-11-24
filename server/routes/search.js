@@ -1,23 +1,18 @@
 const router = require("express").Router();
 const user = require("../models/user_mod");
 
-router.get("/:term", async(req, res) => {
-  let re = new RegExp(req.params.term, 'i')
+router.get("/:term", async (req, res) => {
+  let re = new RegExp(req.params.term, "i");
   try {
-     
-      let users = [];
-      
-      // let x = await user.find({ Name: re });
-      // users = users.concat(x);
-      x = await user.find({ username: re });
-     users = users.concat(x);
+    let users = [];
+    x = await user.find({ username: re });
+    users = users.concat(x);
     console.log(x);
-       res.status(200).json(users);   
-    } catch (err) {
-      console.log(err);
-      res.redirect("/home");
-    }
-  });
-  
+    res.status(200).json(users);
+  } catch (err) {
+    console.log(err);
+    res.redirect("/home");
+  }
+});
 
 module.exports = router;

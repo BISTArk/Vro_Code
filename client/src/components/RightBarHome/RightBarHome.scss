@@ -34,9 +34,6 @@
 .ide-head{
   cursor: pointer;
 }
-// .ide-cross:hover{
-//   box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.7);
-// }
 .ide-img{
   width: 160px;
   height: 160px;
@@ -62,8 +59,6 @@
     transition: 0.7s;
     color: #000;
     transition: box-shadow 5s;
-   
-
     h1 {
       margin-top: 1%;
       font-size: 1.4rem;
@@ -89,7 +84,6 @@
           object-fit: cover;
         }
       }
-
       .details {
         flex: 8;
         display: flex;
@@ -116,11 +110,4 @@
       }
     }
   }
-//  .leaderboard:hover{
- 
-
-//   background: #f1f4f6;
-//   box-shadow:  6px 6px 11px #d6d9db,
-//                -6px -6px 11px #ffffff;
-//  }
 }

@@ -11,7 +11,6 @@ import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import y from "../../assets/helper/ranks";
-// import { Search } from "@material-ui/icons";
 
 export default function Profile(props) {
   const x = useContext(AuthContext);
@@ -53,7 +52,7 @@ export default function Profile(props) {
           Name: user.Name,
           username: user.username,
           profilePic: user.profilePic,
-          savedArray:user.savedArray
+          savedArray: user.savedArray,
         };
       });
       setPosts(jso2);
@@ -131,7 +130,6 @@ export default function Profile(props) {
       window.location.href = "http://localhost:3000/chat/";
     } catch (err) {
       console.log(err);
-      // console.log("A");
     }
   };
 
@@ -186,26 +184,24 @@ export default function Profile(props) {
               )}
               <div className="followInformation">
                 <div className="FollowItemList-profile">
-                  <Link to = {`/friends`}>
-                  <span className="followers-title">Followers</span>
-                  <span className="numberFollowers">
-                    {user.followers.length}
-                  </span>
+                  <Link to={`/friends`}>
+                    <span className="followers-title">Followers</span>
+                    <span className="numberFollowers">
+                      {user.followers.length}
+                    </span>
                   </Link>
                 </div>
                 <div className="FollowItemList-profile">
-                <Link to = {`/friends/following`}>
-                  <span className="followers-title">Following</span>
-                  <span className="numberFollowers">
-                    {user.following.length}
-                  </span>
+                  <Link to={`/friends/following`}>
+                    <span className="followers-title">Following</span>
+                    <span className="numberFollowers">
+                      {user.following.length}
+                    </span>
                   </Link>
                 </div>
                 <div className="FollowItemList-profile">
                   <span className="followers-title">Posts</span>
-                  <span className="numberFollowers">
-                    {user.postCount}
-                  </span>
+                  <span className="numberFollowers">{user.postCount}</span>
                 </div>
                 <hr />
                 <div className="RankListProfile">

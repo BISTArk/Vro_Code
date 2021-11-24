@@ -3,7 +3,6 @@ import "./Edit.css";
 import { NavLink as Link } from "react-router-dom";
 import { Component } from "react";
 import { AuthContext } from "../../context/AuthContext";
-
 class Edit extends Component {
   state = {
     username: null,
@@ -16,6 +15,13 @@ class Edit extends Component {
   handleSubmit = async (e, user, dispatch) => {
     e.preventDefault();
     const reg = /^\S+@\S+\.\S+$/;
+    if (!reg.test(this.state.email)) alert("Enter a Valid Email id")
+    else if (this.state.name.length < 2) alert("Name should be a minimum of 2 characters long")
+    else if(this.state.name.length>50)alert("Name should be a maximum of 50 characters long")
+    else if(this.state.username.length<3)alert("Username should be atleast of 3 characters long")
+    else if (this.state.username.length > 20) alert("Username should be a maximum of 20 characters long")
+    else if (this.state.role.length<3)alert("Role should be a minimum of 3 characters long")
+    else if(this.state.password.length<6)alert("Password should be a minimum of 6 characters long")
     const data = {
       username: this.state.username || user.username,
       Name: this.state.name || user.name,
@@ -45,7 +51,6 @@ class Edit extends Component {
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: err });
     }
-    // console.log(response)
     alert("Updated successfully!");
     window.location.href = `/profile/${user._id}`;
   };

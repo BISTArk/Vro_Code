@@ -1,10 +1,3 @@
-
-/*@font-face {
-    font-family: poppins;
-    src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800;900&display=swap');
-    
-}*/
-
 *{
     margin: 0;
     padding: 0;
@@ -20,7 +13,6 @@
     width: 100vw;
     height: 100vh;
     background-image: url(../../assets/bgs/bg2.png);
-    /* background-size: 100% 100%; */
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
@@ -28,17 +20,13 @@
   }
 
   .loginLogo {
-
     font-size: 3.5rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
     text-align: left;
     color: #fff;
     margin-bottom: 75px;
-    
-    
   }
-  
   .loginBox{
       height: 60%;
       width: 60%;
@@ -50,19 +38,15 @@
       backdrop-filter: blur( 10px );
       -webkit-backdrop-filter: blur( 10px );
       border: 1px solid rgba( 255, 255, 255, 0.18 );
-
       display: flex;
   }
-
-  .login-left{
+ .login-left{
       width: 50%;
       height: 100%;
       display: flex;
       flex-direction: column;
-      /* justify-content: center; */
-  }
-
-  .login-right{
+}
+.login-right{
     width: 50%;
     height: 100%;
 }
@@ -78,7 +62,6 @@
 }
 
 .form-field{
-    
     display: flex;
     flex-direction: column;
     padding: 1.2%;
@@ -95,9 +78,7 @@
     display: flex;
     flex-direction: column;
     width: 60%;
-   
 }
-  
   .loginInput{
       height: 35px;
       width: 65%;
@@ -106,7 +87,6 @@
       border: none;
       outline: none;
       align-items: center;
-      /* border: 1px solid #1E3163; */
       font-size: 15px;
       font-family: poppins;
       font-weight: 300;
@@ -114,28 +94,17 @@
       margin: 3px;
       padding-left: 20px;
       transition: 0.2s all;
-      
-  }
+ }
   .loginInput::placeholder{
       color: rgba(255, 255, 255, 0.356);
   }
   .loginInput:hover{
     background-color: #ff009957;
   }
-
-
-  .login-names .loginInput{
-      /* width:100%; */
-      
-     
-  }
-  
   .loginInput:focus{
       outline: none;
   }
-
-
-  .vroCode{
+ .vroCode{
       text-align: right;
       font-family: 'Bukhari Script', sans-serif;
       font-size: 60px;
@@ -143,10 +112,7 @@
       font-weight: 500;
       position: relative;
       top: 0px;
-    
-  }
-
-  
+}
   .alreadyMember{
       margin-top: 2%;
       text-align: center;
@@ -164,8 +130,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
-      
   }
   .SignUp{
       height: 50px;
@@ -223,11 +187,7 @@
     cursor: pointer;
     width: 50%;
     text-align: center;
-    
 }
-
-
-  
   .input-text{
       font-size: 15px;
       font-family: poppins;
@@ -257,13 +217,10 @@
     color: #EF37A5;
   }
   .NewMember{
-    /* margin-top: 2%; */
-    /* text-align: center; */
     align-items: center;
     color: #fff;
     font-family: poppins;
     font-weight: 400;
     font-size: 80%;
     margin-left: 15px;
-   
-  }
+}

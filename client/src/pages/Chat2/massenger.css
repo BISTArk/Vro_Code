@@ -8,12 +8,6 @@
     display: flex;
    
   }
-
-  /* .chatSidebar {
-    background-color: white;
-    flex: 2.5;
-    padding: 5px;
-  } */
   .chatHeadBox{
     display: flex;
     flex-direction: column;
@@ -84,16 +78,6 @@
     flex: 3;
     padding: 5px;
   }
-  
-  /* .chatMenuInput {
-    top: 10px;
-    width: 100%;
-    padding: 20px;
-    border: none;
-    border-bottom: 1px solid gray;
-    border-radius: 10px 10px 10px 10px;
-  } */
-  
   .chatBox {
     background-color: #f1f4f6;
     flex: 12;
@@ -103,7 +87,6 @@
   }
   
   .chatBoxWrapper {
-    /* display: flex; */
     flex-direction: column;
     justify-content: space-between;
     padding: 0 10px 0 10px;
@@ -131,13 +114,10 @@
   }
   
   .chatBoxBottom {
- 
-
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 30px;
-
   }
   
   .chatMessageInput {
@@ -185,13 +165,6 @@
   .chatMenuWrapper{
     padding: 0 30px 0 30px;
   }
-
-
-  .chatOnlineWrapper {
-    /* padding: 10px; */
-    /* background-color: #231f20; */
-   
-  }
   .emptyImg{
     width: 30%;
   }
@@ -219,10 +192,6 @@
       flex: 10;
      
     }
-  
-    /* .chatOnline{
-      flex: 1px;
-    } */
   }
   
 

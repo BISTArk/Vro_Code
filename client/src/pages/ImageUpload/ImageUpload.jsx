@@ -4,10 +4,10 @@ import { NavLink as Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleUp } from "@fortawesome/free-solid-svg-icons";
 import { AuthContext } from "../../context/AuthContext";
-import axios from"axios";
+import axios from "axios";
 
 class ImageUpload extends Component {
-  state = { profileImag: "", coverImag: "", profilePic:"", coverPic:"" };
+  state = { profileImag: "", coverImag: "", profilePic: "", coverPic: "" };
 
   onProfilePic = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -21,13 +21,13 @@ class ImageUpload extends Component {
     if (e.target.files && e.target.files[0]) {
       const img = e.target.files[0];
       console.log(img);
-      this.setState({ coverImag: img, coverPic:img.name });
+      this.setState({ coverImag: img, coverPic: img.name });
     }
   };
 
-  sendPics = async (e,user,dispatch ) => {
+  sendPics = async (e, user, dispatch) => {
     const formData = new FormData();
-    
+
     formData.append("coverPic", this.state.profilePic);
     formData.append("coverImag", this.state.coverImag);
     formData.append("profilePic", this.state.profilePic);
@@ -38,10 +38,16 @@ class ImageUpload extends Component {
       "http://localhost:3030/api/user/pics",
       formData
     );
-    
-    if(response.status===200)dispatch({ type: "UPLOAD_PICS", payload: {profilePic:response.data.profilePic,coverPic:response.data.coverPic} });
-    // console.log(response);
-    window.location.href="/profile/"+user._id;
+
+    if (response.status === 200)
+      dispatch({
+        type: "UPLOAD_PICS",
+        payload: {
+          profilePic: response.data.profilePic,
+          coverPic: response.data.coverPic,
+        },
+      });
+    window.location.href = "/profile/" + user._id;
   };
 
   render() {
@@ -87,7 +93,14 @@ class ImageUpload extends Component {
                 </div>
                 <div className="buttonsEdit">
                   <div>
-                    <button className="cancelUpload" onClick={(e)=>{this.sendPics(e,user,dispatch)}}>Submit</button>
+                    <button
+                      className="cancelUpload"
+                      onClick={(e) => {
+                        this.sendPics(e, user, dispatch);
+                      }}
+                    >
+                      Submit
+                    </button>
                   </div>
                 </div>
               </div>

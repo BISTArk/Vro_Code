@@ -67,9 +67,13 @@ export default function Friends() {
               result.map((x) => {
                 return (
                   <div className="friendCard">
-                    <Link to={`/profile/${x._id}`} style={{ textDecoration: "none", color: "black" }} className="followBox">
+                    <Link
+                      to={`/profile/${x._id}`}
+                      style={{ textDecoration: "none", color: "black" }}
+                      className="followBox"
+                    >
                       <img
-                        src={preProfile+x.profilePic}
+                        src={preProfile + x.profilePic}
                         alt="peopleImage"
                         className="FriendsProfilePicture"
                       />

@@ -10,10 +10,6 @@ import PostContainer from "../PostContainer/PostContainer";
 export default function PostPage(props) {
   const user = useContext(AuthContext);
   const [post, setPost] = useState({});
-
-  //postpage/postid
-  // console.log(props)
-
   useEffect(() => {
     async function fetchData() {
       console.log("hello");
@@ -31,9 +27,7 @@ export default function PostPage(props) {
 
   return (
     <div className="shareBody">
-     
              <PostContainer data={post} />
       </div>
-    
   );
 }

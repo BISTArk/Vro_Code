@@ -5,7 +5,6 @@ import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
 import Messenger from "./pages/Chat2/massenger";
-import Chat from "./pages/Chat/Chat"
 import Code from "./pages/Code/Code";
 import Notification from "./pages/Notification/Notification";
 import Courses from "./pages/Courses/Courses";
@@ -17,10 +16,9 @@ import ImageUpload from "./pages/ImageUpload/ImageUpload";
 import Following from "./pages/Friends/Following"
 import Edit from "./pages/Edit/Edit"
 import Forget from "./pages/ForgetPassword/ForgetPassword";
-import Suggestion from "./pages/Suggestion/Suggestion"
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
-import postContainer from "./pages/PostContainer/PostContainer";
+
 
 
 function App() {
@@ -73,9 +71,6 @@ function App() {
         </Route>
         <Route exact path="/edit">
           {user ? <Edit /> : <Register />}
-        </Route>
-        <Route exact path="/suggestion">
-          {user ? <Suggestion /> : <Register />}
         </Route>
         <Route exact path="/friends/following">
           {user ? <Following /> : <Register />}

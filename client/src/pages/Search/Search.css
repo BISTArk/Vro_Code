@@ -14,7 +14,6 @@
     cursor: pointer;
     transition: 0.3s;
     box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.3);
-
 }
 .searchBoxInfo{
 transition: 0.2s;
@@ -40,9 +39,6 @@ transition: 0.2s;
     transition: 0.4s ease-in-out;
     cursor: pointer;
 }
-/* .searchProfilePicture:hover{
-    width: 140px;
-} */
 .searchProfileInfo{
     display: flex;
     flex-direction: column;
@@ -70,10 +66,6 @@ transition: 0.2s;
     cursor: pointer;
     white-space: nowrap;
 }
-/* .searchProfileName:hover{
-    border-bottom: 1px solid black;
-    border-width: 50%;
-} */
 .followSearch{
     margin-left: 150px;
 }
@@ -84,7 +76,6 @@ transition: 0.2s;
        display: flex;
        flex-direction: row;
        align-items: center;
-       /* justify-content: center; */
    }
 .searchDivider{
 width: 50%;

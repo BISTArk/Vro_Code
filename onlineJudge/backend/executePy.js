@@ -6,13 +6,6 @@ const executePy = (filepath) => {
       error && reject({ error, stderr });
       stderr && reject({ stderr });
       resolve(stdout);
-      // if(error)
-      //   {
-      //     console.log(`exec error: ${error}`);
-      //     return;
-      //   }
-      //   console.log(`stdout: ${stdout}`);
-      //   console.error(`stderr: ${stderr}`);
     });
   });
 };

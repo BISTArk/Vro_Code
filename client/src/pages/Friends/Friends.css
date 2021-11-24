@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    
 }
 
 .followerHeading{
@@ -11,7 +10,6 @@
 .leftbar-friends{
     margin-top: 80px;
     flex: 2;
-    
 }
 .followBox{
     display: flex;
@@ -27,8 +25,6 @@
 .rightFriends{
     position: relative;
     margin: auto;
-
-
 }
 .buttonsFollow{
     display: flex;
@@ -76,31 +72,15 @@ box-shadow: -74px -3px 35px -7px rgba(0,0,0,0.27);
     align-items: center;
     gap: 10px;
 }
-/* .followButtonFriends{
-    padding: 8px 25px;
-    border-radius: 20px;
-    border: 2px solid #000000;
-    color: #000000;
-    background-color: transparent;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 10px 9px 25px -8px rgba(0,0,0,0.3);
-
-} */
 .flexContainerFriends{
     min-height: calc(100vh - 50px);
     display: flex;
     box-sizing: border-box;
     flex-direction: row;
-    
-
 }
 .followButtonFriends:hover{
     background-color: #000000;
     color: #fff;
-
 }
 .FriendsProfilePicture{
     border-radius: 50%;
@@ -110,7 +90,6 @@ box-shadow: -74px -3px 35px -7px rgba(0,0,0,0.27);
     height: 100px;
     transition: 0.4s ease-in-out;
     cursor: pointer;
-
 }
 .friendList{
     width: 1000px;

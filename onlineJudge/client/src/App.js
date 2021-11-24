@@ -31,9 +31,6 @@ function App() {
 
     let result = "";
     let { sumbittedAt, completedAt, startedAt } = jobDetails;
-
-    // sumbittedAt = moment(sumbittedAt).toString();
-    // result += `Submitted At: ${sumbittedAt}`;
     if (!completedAt || !startedAt) {
       return result;
     }
@@ -43,7 +40,6 @@ function App() {
     result += `${execTime}s`;
 
     return result;
-    // return JSON.stringify(jobDetails);
   };
 
   const handleSubmit = async () => {
@@ -108,7 +104,6 @@ function App() {
                 "WARNING! Switching to other language will result in loss of code, Do want us to switch?"
               );
               if (response) setLanguage(e.target.value);
-              // console.log(e.target.value);
             }}
           >
             <option value="cpp">C++</option>
@@ -142,8 +137,7 @@ function App() {
             <input placeholder="My title" className="codeTitleInput"></input>
           </div>
         </div>
-
-        <br />
+      <br />
         <div className="CodeEditor">
           <textarea
             rows="30"
@@ -157,20 +151,15 @@ function App() {
           ></textarea>
         </div>
       </div>
-
       <br />
       <div className="output">
         <p className="outputText">Output: </p>
         <p className="Output">{output}</p>
         <br/>
-        
         <hr/>
         <p className="exec">Execution Time: {renderTimedetails()}</p>
         <p className="status">Status: {status}</p>
         <p className="jobId">ID: {jobId && `${jobId}`}</p>
-        
-
-      
       </div>
       <footer>
       Made with React | Team VroCode 💪
