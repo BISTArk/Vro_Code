@@ -8,42 +8,20 @@ function NotFeed(props) {
     return props.notificationsarr.map((x) => {
       return (
         <div className="notifi" key="">
-          <div className="leftContainerNotif">
-            <div className="profilepic-container">
-              <img
-                src={preProfile + x.likedUser.profilePic}
-                alt="d"
-                className="profilepic"
-              />
-            </div>
-            <div className="notifMsg">
-              <Link
-                to={`/profile/${x.likedUser._id}`}
-                style={{ color: "black" }}
-              >
-                <span className="notifName">{x.likedUser.Name}</span>
-                <span className="notifUsername">
-                  . @ {x.likedUser.username}
-                </span>
-              </Link>
-              <div className="msg">❤ Liked your post</div>
-            </div>
+          <div className="profilepic-container">
+            <img
+              src={preProfile + x.likedUser.profilePic}
+              alt="user"
+              className="profilepic"
+            />
           </div>
-          <Link to={`/postpage/${x.post._id}`} style={{ color: "black" }}>
-            <div className="notifContentPost">
-              {" "}
-              <div className="contentShare">{x.post.content}</div>
-              {x.post.img ? (
-                <img
-                  src={preimg + x.post.img}
-                  alt="Post Media"
-                  className="imageNotif"
-                />
-              ) : (
-                <div />
-              )}
-            </div>
-          </Link>
+          <div className="notifMsg">
+            <Link to={`/profile/${x.likedUser._id}`} style={{ color: "black" }}>
+              <span className="notifName">{x.likedUser.Name}</span>
+              <span className="notifUsername">. @ {x.likedUser.username}</span>
+            </Link>
+            <div className="msg">❤ Liked your post</div>
+          </div>
         </div>
       );
     });
