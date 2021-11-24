@@ -11,7 +11,6 @@ const storage = multer.diskStorage({
     }
   },
   filename: function (req, file, callback) {
-    console.log(file);
     if (file.fieldname === "profileImag")
       callback(null, "profile" + file.originalname);
     else callback(null, "cover" + file.originalname);
@@ -33,7 +32,6 @@ router.put(
     },
   ]),
   async (req, res) => {
-    console.log(req.files);
     try {
       const currUser = await user.findById(req.body.id);
       await currUser.update({
@@ -48,10 +46,8 @@ router.put(
         msg: "Updated sucessfully",
         hel:"hello",
       };
-      console.log("hello");
       res.status(200).json(ret);
     } catch (err) {
-      console.log(err);
       res.status(500).json(err);
     }
   }
@@ -70,7 +66,6 @@ router.get("/leader", async (req, res) => {
 
 //update user
 router.put("/:id", async (req, res) => {
-  console.log(req.body);
   if (req.params.id === req.body.id) {
     if (req.body.password) {
       try {
@@ -134,7 +129,6 @@ router.post("/multiple", async (req, res) => {
     }
     res.status(200).json(result);
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -165,7 +159,6 @@ router.put("/follow/:id", async (req, res) => {
 //unfolow user
 
 router.put("/unfollow/:id", async (req, res) => {
-  console.log("hello");
   if (req.body.id !== req.params.id) {
     try {
       const currUser = await user.findById(req.body.id);
@@ -193,7 +186,7 @@ router.get("/notify/:id",async(req,res)=>{
   try{
     const currUser = await user.findById(req.params.id);
     if(currUser){
-      const notifications = currUser.notifi.slice(0,15);
+      const notifications = currUser.notifi.slice(0,5);
      
       res.status(200).json(notifications);
     }else{
@@ -201,7 +194,6 @@ router.get("/notify/:id",async(req,res)=>{
     }
   }
   catch(err){
-    console.log(err);
     res.status(500).json(err);
   }
 })

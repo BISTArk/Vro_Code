@@ -1,8 +1,4 @@
 import "./LeftBarHome.css";
-import image from "../../pages/Login/images/profile-sample.jfif";
-import courseLogo1 from "../../assets/images/udemy.png"
-import courseLogo2 from "../../assets/images/coursera.png";
-import img from "../../assets/rank-img/white/image (1).png"
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { NavLink as Link } from "react-router-dom";

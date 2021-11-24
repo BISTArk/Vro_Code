@@ -1,8 +1,5 @@
 import { Component } from "react";
 import TopBar from "../../components/TopBar/TopBar";
-import m1 from "../../assets/profileImages/m1.jpg";
-
-
 import { NavLink as Link } from "react-router-dom";
 import "./Search.css";
 import x from "../../assets/helper/ranks";

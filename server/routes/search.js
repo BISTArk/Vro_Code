@@ -11,10 +11,8 @@ router.get("/:term", async(req, res) => {
       // users = users.concat(x);
       x = await user.find({ username: re });
      users = users.concat(x);
-    console.log(x);
        res.status(200).json(users);   
     } catch (err) {
-      console.log(err);
       res.redirect("/home");
     }
   });

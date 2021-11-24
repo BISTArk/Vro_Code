@@ -15,7 +15,7 @@ import y from "../../assets/helper/ranks";
 
 export default function Profile(props) {
   const x = useContext(AuthContext);
-  const loggedUser = x.user;
+  const     loggedUser = x.user;
   const dispatch = x.dispatch;
 
   const ranks = y.ranks;
@@ -28,7 +28,7 @@ export default function Profile(props) {
   useEffect(() => {
     async function fetchData() {
       if (props.match.params.id === loggedUser._id) {
-        setUser(loggedUser);
+        setUser( loggedUser);
       } else {
         let response = await fetch(
           `http://localhost:3030/api/user/${props.match.params.id}`
@@ -39,7 +39,7 @@ export default function Profile(props) {
     }
 
     fetchData();
-  }, [loggedUser, props.match.params.id]);
+  }, [ loggedUser, props.match.params.id]);
 
   useEffect(() => {
     async function fetchData() {
@@ -57,7 +57,6 @@ export default function Profile(props) {
         };
       });
       setPosts(jso2);
-      console.log(jso2);
     }
 
     if (user) fetchData();
@@ -79,14 +78,13 @@ export default function Profile(props) {
 
     if (response.status === 200)
       dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
-    console.log(response);
     window.location.reload();
   };
 
   const follow = async () => {
     const job = loggedUser.following.includes(user._id) ? "unfollow" : "follow";
     const data = {
-      id: loggedUser._id,
+      id:loggedUser._id,
     };
     const options = {
       method: "PUT",
@@ -96,12 +94,10 @@ export default function Profile(props) {
       },
       body: JSON.stringify(data),
     };
-    let response = await fetch(
+    await fetch(
       `http://localhost:3030/api/user/${job}/${props.match.params.id}`,
       options
     );
-    let jso = await response.json();
-    console.log(jso);
     dispatch({ type: job.toUpperCase(), payload: props.match.params.id });
     window.location.reload();
   };
@@ -123,15 +119,13 @@ export default function Profile(props) {
     };
 
     try {
-      const res = await fetch(
+      await fetch(
         `http://localhost:3030/api/conversations/`,
         options
       );
-      console.log(res);
       window.location.href = "http://localhost:3000/chat/";
     } catch (err) {
-      console.log(err);
-      // console.log("A");
+      alert(err);
     }
   };
 
@@ -144,7 +138,7 @@ export default function Profile(props) {
           <div className="profileRight">
             <div className="profileRightTop">
               <div className="profileCover">
-                {loggedUser._id === user._id && (
+                {    loggedUser._id === user._id && (
                   <div className="UpdatePhoto">
                     <Link to={`/imageupload`}>
                       <FontAwesomeIcon icon={faCamera} className="cameraIcon" />
@@ -172,10 +166,10 @@ export default function Profile(props) {
                 </span>
                 <span className="profileInfoDesc">{user.role}</span>
               </div>
-              {loggedUser._id !== user._id && (
+              {    loggedUser._id !== user._id && (
                 <div className="follow-button">
                   <button className="follow-btn" onClick={follow}>
-                    {loggedUser.following.includes(user._id)
+                    {    loggedUser.following.includes(user._id)
                       ? "Unfollow"
                       : "Follow"}
                   </button>

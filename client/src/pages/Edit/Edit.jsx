@@ -6,11 +6,11 @@ import { AuthContext } from "../../context/AuthContext";
 
 class Edit extends Component {
   state = {
-    username: null,
-    name: null,
-    role: null,
-    email: null,
-    password: null,
+    username: "",
+    name: "",
+    role: "",
+    email: "",
+    password: "",
   };
 
   handleSubmit = async (e, user, dispatch) => {
@@ -39,7 +39,6 @@ class Edit extends Component {
         options
       );
       const jso = await response.json();
-      console.log(jso);
       dispatch({ type: "LOGIN_SUCCESS", payload: jso });
       window.location.href = "/home";
     } catch (err) {

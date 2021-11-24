@@ -1,15 +1,9 @@
-import { StayCurrentPortraitSharp } from "@material-ui/icons";
 import React from "react";
-import TopBar from "../../components/TopBar/TopBar";
-import { useContext } from "react";
-import PostPage from "../PostPage/PostPage";
 import "./PostContainer.css";
-import g1 from "../../assets/profileImages/g1.jpg";
 const preimg = "http://localhost:3030/images/";
 const preProfile = "http://localhost:3030/images/profile/";
 
 function PostContainer(props) {
-    console.log(props)
    return (
     
       <div className="postContainerShare">
@@ -21,7 +15,9 @@ function PostContainer(props) {
           </div>
         </div>
         <div className="shareContent">
-        <div className="contentShare">{props.data.content}</div>
+        {!props.details.code?<div className="content">{props.details.content}</div>:
+      
+        <code className="contentCode" >{props.details.content}</code>}
       {props.data.img ? (
         <img
           src={preimg + props.data.img}

@@ -51,7 +51,6 @@ router.get("/all/:userId", async (req, res) => {
   try {
     const currUser = await user.findById(req.params.userId);
     const timeAtt = new Date(currUser.createdAt).toLocaleDateString();
-    console.log("Tiem: " + timeAtt)
     const myPosts = await post.find({ userid: currUser._id }).sort({createdAt: -1 }).exec();
    
     const otherPosts = await Promise.all(
@@ -63,7 +62,6 @@ router.get("/all/:userId", async (req, res) => {
     const result2 = myPosts.concat(...otherPosts).sort().reverse(); //wow
     res.status(200).json(result2);
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -76,7 +74,6 @@ router.get("/my/:userId", async (req, res) => {
     const myPosts = await post.find({ userid: currUser._id });
     res.status(200).json(myPosts);
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -84,10 +81,8 @@ router.get("/my/:userId", async (req, res) => {
 //Create a Post
 
 router.post("/", upload.single('imag'), async (req, res) => {
-  console.log("got a new post");
   let newPost;
   if(req.file!==undefined){
-    console.log(req.body.img);
   newPost = new post({...req.body,img:req.file.filename});}
   else
   newPost = new post(req.body)
@@ -99,7 +94,6 @@ router.post("/", upload.single('imag'), async (req, res) => {
     const currPost = await newPost.save();
     res.status(200).json(currPost);
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -115,7 +109,6 @@ router.delete("/:id", async (req, res) => {
       await curruser.updateOne({ $set: { postCount: x-1 } })
       await currPost.deleteOne();
       fs.unlink("images/"+currPost.img,(err)=>{
-        console.log(err);
         return
       });
       res.status(200).json("Post has been successfully deleted");
@@ -123,7 +116,6 @@ router.delete("/:id", async (req, res) => {
       res.status(403).json("You cannot delete the posts you didn't create");
     }
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -149,14 +141,12 @@ router.delete("/:id", async (req, res) => {
 router.put("/like/:id", async (req, res) => {
   try {
     const currPost = await post.findById(req.params.id);
-    console.log(currPost);
     if(currPost){
     if (!currPost.likes.includes(req.body.id)) {
       await currPost.updateOne({ $push: { likes: req.body.id } });
       const notiUser = await user.findById(currPost.userid);
       const likedUser = await user.findById(req.body.id);
       if(notiUser){
-        console.log(notiUser);
         await notiUser.updateOne({$push: {notifi:{post:currPost,likedUser:likedUser}}})
       }
       res.status(200).json("You have liked this post");
@@ -167,7 +157,6 @@ router.put("/like/:id", async (req, res) => {
       res.status(404).json("Cant find this post");
     }
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -176,7 +165,6 @@ router.put("/like/:id", async (req, res) => {
 router.post("/bookmark/:id", async (req, res) => {
   try {
     const userBook = await user.findById(req.body.id);
-    console.log("userBOok " + userBook)
     if (userBook) {
       if (!userBook.savedArray.includes(req.params.id)) {
       await userBook.updateOne({ $push: { savedArray: req.params.id } });
@@ -190,7 +178,6 @@ router.post("/bookmark/:id", async (req, res) => {
     }
 
   } catch (err) {
-    console.log(err)
     res.status(404).json("Cant find this post");
   }
 })
@@ -211,7 +198,6 @@ router.get("/bookmark/:id",async(req,res)=>{
     }
   }
   catch(err){
-    console.log(err);
     res.status(500).json(err);
   }
 })
@@ -221,11 +207,9 @@ router.get("/bookmark/:id",async(req,res)=>{
 router.get("/:id", async (req, res) => {
   try {
     const currPost = await post.findById(req.params.id);
-    console.log(currPost)
     if (currPost) {
       const currUser = await user.findById(currPost.userid);
       const result = ({...currPost._doc, profilePic: currUser.profilePic, username: currUser.username, Name: currUser.Name})
-      console.log(result)
       
       // currPost[profilePic] = currUser.profilePic
       // currPost[Name] = currUser.Name
@@ -236,7 +220,6 @@ router.get("/:id", async (req, res) => {
       res.status(403).json("Post not Found");
     }
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });

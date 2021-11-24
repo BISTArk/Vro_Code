@@ -1,6 +1,5 @@
-import { useEffect, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import Post from "../Post/Post";
-import img from "../../assets/images/profile-sample.jfif";
 import "./Feed.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode, faFont} from "@fortawesome/free-solid-svg-icons";
@@ -25,7 +24,6 @@ function Feed(props) {
   const postmediaChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       const img = e.target.files[0];
-      console.log(img);
       setImag(img);
     }
   };
@@ -33,8 +31,6 @@ function Feed(props) {
   const switchMode = ()=>{
     setCode(!code);
   }
-
-  console.log(props.posts);
 
   return (
     <div className="feed">
@@ -103,10 +99,10 @@ function Feed(props) {
       <div className="posts">
         {props.posts.length > 0 ? (
           props.posts.map((x) => {
-            console.log(x)
             return (
               <Post
                 details={x}
+                key={x._id}
               />
             );
           })

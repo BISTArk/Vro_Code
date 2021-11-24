@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEye,
   faEyeSlash,
-  faToggleOff,
 } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -43,7 +42,6 @@ class Login extends Component {
         options
       );
       const jso = await response.json();
-      console.log(jso);
       // const newUser = await jso.user.json();
       // console.log(user);
       if (jso.user) {

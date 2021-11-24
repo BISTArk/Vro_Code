@@ -4,7 +4,6 @@ import { GitHub } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faHeart, faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import { NavLink as Link } from "react-router-dom";
-import {} from "@fortawesome/free-regular-svg-icons"
 import {
   faHeart as farHeart,
   faTrashAlt,
@@ -15,7 +14,6 @@ import { AuthContext } from "../../context/AuthContext";
 export default function Post(props) {
   const {  user, dispatch } = useContext(AuthContext);
 
-  console.log(props);
   const [clickedAgain, setClickedAgain] = useState(user.savedArray.includes(props.details._id));
   const [clicked, setClicked] = useState(props.details.likes.includes(user._id));
   const [like, setLike] = useState(props.details.likes.length);
@@ -42,7 +40,7 @@ export default function Post(props) {
         },
         body: JSON.stringify(data),
       };
-      let response = await fetch(
+      await fetch(
         `http://localhost:3030/api/post/like/${props.details._id}`,
         options
       );
@@ -63,8 +61,6 @@ export default function Post(props) {
       `http://localhost:3030/api/post/bookmark/${props.details._id}`,
       options
     );
-    console.log(response.status);
-    console.log(clickedAgain);
     if(response.status===200 && !clickedAgain)
     dispatch({type:"BOOK",payload:props.details._id})
     if(response.status===200 && clickedAgain)
@@ -92,7 +88,7 @@ export default function Post(props) {
         );
         let confirm = await response.json();
         // console.log(response);
-        if (response.status == 200)
+        if (response.status === 200)
           dispatch({ type: "DELETE_POST", payload: user.postCount - 1 });
         window.alert(confirm);
         window.location.reload();
@@ -132,7 +128,6 @@ export default function Post(props) {
               <span className="username"> . @ {props.details.username}</span>
             </div>
           </Link>
-          {console.log("date hai : " + props.details.createdAt)}
           <div className="postedon">Posted on {new Date(props.details.createdAt).toLocaleString()}</div>
         </div>
         <div className="topIcons">
@@ -146,7 +141,6 @@ export default function Post(props) {
         </div>
         </div>
       {!props.details.code?<div className="content">{props.details.content}</div>:
-      
         <code className="contentCode" >{props.details.content}</code>}
       {props.details.img ? (
         <img
@@ -177,7 +171,7 @@ export default function Post(props) {
           {/* </Link> */}
         </div>
 
-        {props.gitLink ? (
+        {props.details.githubLink ? (
           <a
             className="github"
             href={props.details.githubLink}

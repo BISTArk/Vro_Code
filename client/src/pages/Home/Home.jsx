@@ -28,7 +28,6 @@ function Home() {
     );
     
     if(response.status===200)dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
-    console.log(response);
     window.location.reload();
 
   };
@@ -66,7 +65,6 @@ function Home() {
         jso[i] = { ...jso[i], ...posts[i] };
       }
       setUsers(jso);
-      console.log(jso);
     }
 
     if (posts.length > 0) fetchUsers();

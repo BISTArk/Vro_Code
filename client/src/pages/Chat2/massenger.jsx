@@ -1,9 +1,6 @@
 import "./massenger.css";
-import TopBar from "../../components/TopBar/TopBar";
-import Leftbar from "../../components/Leftbar/Leftbar";
 import Conversation from "../../components/Chat2/conversations/Conversation";
 import Message from "../../components/Chat2/message/Message";
-import ChatOnline from "../../components/Chat2/chatOnline/ChatOnline";
 import { useContext, useEffect, useRef, useState } from "react";
 import { NavLink as Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -20,9 +17,7 @@ export default function Messenger() {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   // const [search, NewSearch] = useState("");
-  const [otherId, setotherId] = useState(null);
   const [arrivalMessage, setArrivalMessage] = useState(null);
-  const [onlineUsers, setOnlineUsers] = useState([]);
   const socket = useRef();
   const { user } = useContext(AuthContext);
   const scrollRef = useRef();
@@ -39,9 +34,6 @@ export default function Messenger() {
       currentChat?.members.includes(arrivalMessage.sender) &&
       setMessages((prev) => [...prev, arrivalMessage]);
   }, [arrivalMessage, currentChat]);
-
-  console.log()
-
 
   useEffect(() => {
     const getConversations = async () => {
@@ -78,10 +70,6 @@ export default function Messenger() {
       text: newMessage,
       conversationId: currentChat._id,
     };
-
-    const receiverId = currentChat.members.find(
-      (member) => member !== user._id
-    );
 
     socket.current.emit("chat", {
       senderId: user._id,
@@ -166,7 +154,7 @@ export default function Messenger() {
           <div className="conversation2" onClick={redirectVro}><FontAwesomeIcon icon={faAngleDoubleLeft }/> VroCode</div>
           <div className="chatMenuWrapper">
             {conversations.map((c) => (
-              <div onClick={() => handleConv(c)}>
+              <div onClick={() => handleConv(c)} key={c._id}>
                 <Conversation conversation={c} currentUser={user} />
               </div>
             ))}
@@ -194,8 +182,8 @@ export default function Messenger() {
                     
                   </div>
                   {messages.map((m) => (
-                    <div ref={scrollRef}>
-                      <Message message={m} own={m.sender === user._id} />
+                    <div ref={scrollRef} key={m._id}>
+                      <Message message={m} own={m.sender === user._id}/>
                     </div>
                   ))}
                 </div>

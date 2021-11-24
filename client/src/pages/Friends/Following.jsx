@@ -1,6 +1,5 @@
 import TopBar from "../../components/TopBar/TopBar";
 import "./Friends.css";
-import g1 from "../../assets/profileImages/g1.jpg";
 import { NavLink as Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
@@ -31,7 +30,7 @@ export default function Following() {
     }
 
     fetchData();
-  }, []);
+  }, [user.following]);
 
   return (
     <div>

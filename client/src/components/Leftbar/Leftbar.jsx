@@ -39,7 +39,6 @@ export default function Leftbar(props) {
           options
         );
         let confirm = await response.json();
-        console.log(confirm);
         dispatch({ type: "LOGIN_FAILURE" });
         window.location.href = "/login";
       } catch (err) {

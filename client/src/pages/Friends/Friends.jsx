@@ -1,15 +1,5 @@
 import TopBar from "../../components/TopBar/TopBar";
 import "./Friends.css";
-import LeftBar from "../../components/Leftbar/Leftbar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheckCircle,
-  faTimesCircle,
-} from "@fortawesome/free-solid-svg-icons";
-import g1 from "../../assets/profileImages/g1.jpg";
-import g2 from "../../assets/profileImages/g2.jpg";
-import m1 from "../../assets/profileImages/m1.jpg";
-import m3 from "../../assets/profileImages/m3.jpg";
 import { NavLink as Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
@@ -22,7 +12,6 @@ export default function Friends() {
   useEffect(() => {
     async function fetchData() {
       const data = { list: user.followers };
-      console.log(data);
       const options = {
         method: "POST",
         mode: "cors",
@@ -41,7 +30,7 @@ export default function Friends() {
     }
 
     fetchData();
-  }, []);
+  }, [user.followers]);
 
   return (
     <div>

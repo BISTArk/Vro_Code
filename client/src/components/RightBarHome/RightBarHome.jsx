@@ -1,5 +1,4 @@
 import "./RightBarHome.scss";
-import arr from "./dummy";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ide from "../../assets/images/vrocode-ide.png";
 import { useContext, useState, useEffect } from "react";
@@ -59,7 +58,7 @@ function Rightbar() {
                   <span className="elo">{rank}</span>
                 </div>
               </div>
-              <img src={rankImg[Math.floor(rank/100)]} alt={username} className="rankBoard" alt={user.rank}/>
+              <img src={rankImg[Math.floor(rank/100)]} className="rankBoard" alt={user.rank}/>
             </div>
           );
          

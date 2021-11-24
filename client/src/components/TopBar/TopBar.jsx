@@ -6,7 +6,6 @@ import {
   Search,
   MenuBookOutlined,
 } from "@material-ui/icons";
-import profile from "../../pages/Login/images/profile-sample.jfif";
 import "./topbar.scss";
 import { NavLink as Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
