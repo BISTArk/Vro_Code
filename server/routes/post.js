@@ -33,7 +33,6 @@ router.get("/all/:userId", async (req, res) => {
   try {
     const currUser = await user.findById(req.params.userId);
     const timeAtt = new Date(currUser.createdAt).toLocaleDateString();
-    console.log("Tiem: " + timeAtt);
     const myPosts = await post
       .find({ userid: currUser._id })
       .sort({ createdAt: -1 })
@@ -171,7 +170,6 @@ router.get("/bookmark/:id", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const currPost = await post.findById(req.params.id);
-    console.log(currPost);
     if (currPost) {
       const currUser = await user.findById(currPost.userid);
       const result = {
@@ -180,7 +178,6 @@ router.get("/:id", async (req, res) => {
         username: currUser.username,
         Name: currUser.Name,
       };
-      console.log(result);
       res.status(200).json(result);
     } else {
       res.status(403).json("Post not Found");
