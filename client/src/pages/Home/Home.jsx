@@ -14,11 +14,11 @@ function Home() {
 
   const createPost = async ({ postDesc, gitLink, imag, code }) => {
     const formData = new FormData();
-    
+
     formData.append("userid", user._id);
     formData.append("githubLink", gitLink);
     formData.append("content", postDesc);
-    formData.append("img", imag.name||"");
+    formData.append("img", imag.name || "");
     formData.append("imag", imag);
     formData.append("code", code);
 
@@ -26,10 +26,10 @@ function Home() {
       "http://localhost:3030/api/post",
       formData
     );
-    
-    if(response.status===200)dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
-    window.location.reload();
 
+    if (response.status === 200)
+      dispatch({ type: "CREATE_POST", payload: user.postCount + 1 });
+    window.location.reload();
   };
 
   useEffect(() => {
@@ -75,7 +75,13 @@ function Home() {
       <TopBar />
       <div className="main-page">
         <LeftBarHome class="left" user={user} />
-        <Feed class="feed" user={user} posts={users} bookmarks={false} createPost={createPost} />
+        <Feed
+          class="feed"
+          user={user}
+          posts={users}
+          bookmarks={false}
+          createPost={createPost}
+        />
         <RightBarHome class="right" />
       </div>
     </div>

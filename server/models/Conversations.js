@@ -1,4 +1,3 @@
-
 const mongoose = require("mongoose");
 
 const ConversationSchema = new mongoose.Schema(
@@ -9,7 +8,7 @@ const ConversationSchema = new mongoose.Schema(
     socketId: {
       type: Number,
       default: Math.random(),
-      unique: true
+      unique: true,
     },
   },
   { timestamps: true }

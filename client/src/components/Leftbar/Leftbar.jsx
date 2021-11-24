@@ -14,7 +14,7 @@ import {
 import { NavLink as Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import side from "../../assets/svgs/sidebars.svg"
+import side from "../../assets/svgs/sidebars.svg";
 
 export default function Leftbar(props) {
   const { user, dispatch } = useContext(AuthContext);
@@ -30,7 +30,7 @@ export default function Leftbar(props) {
           "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify(data),
-      }; 
+      };
 
       dispatch({ type: "LOGIN_START" });
       try {
@@ -49,21 +49,15 @@ export default function Leftbar(props) {
 
   return (
     <div className="leftbar">
-       <img src={side} style={{width: "100%", marginTop: "38px"}}alt="" />
+      <img src={side} style={{ width: "100%", marginTop: "38px" }} alt="" />
       <div className="leftbarWrapper">
-        
         <ul className="leftbarlist">
-          {/* <li className="leftbarListItem">
-            <ExploreOutlined className="leftbarIcon" />
-            <span className="leftbarListText">Explore</span>
-          </li> */}
-           <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-          <li className="leftbarListItem">
-            <Home className="leftbarIcon" />
-           
+          <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+            <li className="leftbarListItem">
+              <Home className="leftbarIcon" />
+
               <span className="leftbarListText">Home</span>
-           
-          </li>
+            </li>
           </Link>
           <Link to="/edit" style={{ textDecoration: "none", color: "black" }}>
             <li className="leftbarListItem-alt">
@@ -73,23 +67,20 @@ export default function Leftbar(props) {
             </li>
           </Link>
           <Link
-              to="/Courses"
-              style={{ textDecoration: "none", color: "black" }}
-            >
-          <li className="leftbarListItem">
-            <MenuBookOutlined className="leftbarIcon" />
-          
+            to="/Courses"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <li className="leftbarListItem">
+              <MenuBookOutlined className="leftbarIcon" />
               <span className="leftbarListText">Courses</span>
-           
-          </li>
+            </li>
           </Link>
           <Link to="/Code" style={{ textDecoration: "none", color: "black" }}>
-          <li className="leftbarListItem">
-            <FontAwesomeIcon icon={faCode} className="leftbarIcon1" />
-           
+            <li className="leftbarListItem">
+              <FontAwesomeIcon icon={faCode} className="leftbarIcon1" />
+
               <span className="leftbarListText">Challenges</span>
-         
-          </li>
+            </li>
           </Link>
           <Link
             to="/bookmarks"
@@ -103,11 +94,10 @@ export default function Leftbar(props) {
           <li
             className="leftbarListItem"
             onClick={() => {
-              if (window.confirm('Do you want to logout?')) {
+              if (window.confirm("Do you want to logout?")) {
                 localStorage.clear();
                 window.location.href = "/login";
               }
-            
             }}
           >
             <FontAwesomeIcon icon={faPowerOff} className="leftbarIcon1" />
@@ -121,17 +111,12 @@ export default function Leftbar(props) {
               style={{ color: "#d11a2a" }}
             />
 
-            <span
-              className="leftbarListText"
-              style={{ color: "#d11a2a" }}
-              
-            >
+            <span className="leftbarListText" style={{ color: "#d11a2a" }}>
               {" "}
               Delete Profile
             </span>
           </li>
         </ul>
-       
       </div>
     </div>
   );

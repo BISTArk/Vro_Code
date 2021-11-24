@@ -4,14 +4,7 @@ import { NavLink as Link } from "react-router-dom";
 import { Component } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEye,
-  faEyeSlash,
-} from "@fortawesome/free-solid-svg-icons";
-
-
-// import { Redirect } from "react-router-dom";
-
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -42,14 +35,12 @@ class Login extends Component {
         options
       );
       const jso = await response.json();
-      // const newUser = await jso.user.json();
-      // console.log(user);
+
       if (jso.user) {
         dispatch({ type: "LOGIN_SUCCESS", payload: jso.user });
         window.location.href = "/home";
       } else {
         dispatch({ type: "LOGIN_FAILURE", payload: jso.error });
-        // alert(jso.error);
         alert("ERROR: Entered credentials are incorrect!");
         window.location.href = "/login";
       }
@@ -73,7 +64,7 @@ class Login extends Component {
                         <label htmlFor="username" className="input-text">
                           Username *
                         </label>
-                        
+
                         <input
                           type="text"
                           name="username"
@@ -94,7 +85,7 @@ class Login extends Component {
                       </label>
                       <div className="show-pass">
                         <input
-                          type={this.state.see?"text":"password"}
+                          type={this.state.see ? "text" : "password"}
                           name="password"
                           placeholder="Enter a password "
                           className="loginInput"
@@ -103,17 +94,22 @@ class Login extends Component {
                             this.setState({ password: e.target.value });
                           }}
                         />
-                        <FontAwesomeIcon icon={!this.state.see?faEye:faEyeSlash} className="eye" onClick={()=>{this.setState({see:!(this.state.see)})}}/>
+                        <FontAwesomeIcon
+                          icon={!this.state.see ? faEye : faEyeSlash}
+                          className="eye"
+                          onClick={() => {
+                            this.setState({ see: !this.state.see });
+                          }}
+                        />
                       </div>
                     </div>
                     <div className="form-btns">
-                              <button
-                          className="SignUp"
-                          onClick={(e) => this.handleSubmit(e, user, dispatch)}
-                        >
-                          Log In
-                        </button>
-                   
+                      <button
+                        className="SignUp"
+                        onClick={(e) => this.handleSubmit(e, user, dispatch)}
+                      >
+                        Log In
+                      </button>
 
                       <div className="login-btn">
                         <Link to="/register">
@@ -123,8 +119,9 @@ class Login extends Component {
                     </div>
                     <div className="title-read">
                       <Link to="/forget">
-                      <span className="forgot-pass">Forgot password?</span>
-                     </Link> <span className="NewMember">New to VroCode?</span>
+                        <span className="forgot-pass">Forgot password?</span>
+                      </Link>{" "}
+                      <span className="NewMember">New to VroCode?</span>
                     </div>
                   </form>
                 </div>
@@ -135,8 +132,6 @@ class Login extends Component {
                 </div>
               </div>
             </div>
-            // ) : (
-            //   <Redirect to="/home" />
           );
         }}
       </AuthContext.Consumer>

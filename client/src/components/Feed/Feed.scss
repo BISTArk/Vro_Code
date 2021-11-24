@@ -22,24 +22,19 @@
   justify-content: center;
 
   .makepost {
-    // flex: 2;
     border-radius: 15px;
     background-color: white;
     width: 90%;
     padding: 3%;
     margin: 2% 5%;
-
     .post-details {
       display: flex;
-
       .profilepic-container {
         flex: 1;
         width: 2%;
         height: 2%;
         padding: 1% 0%;
-
         cursor: pointer;
-
         .profilepic {
           width: 50px;
           height: 50px;
@@ -49,7 +44,6 @@
           object-fit: cover;
         }
       }
-
       .posttext {
         flex: 11;
         border-radius: 20px;
@@ -103,7 +97,6 @@
           }
         }
       }
-
       .post-btn {
         flex: 2;
         border-radius: 20px;
@@ -120,7 +113,6 @@
         border: none;
       }
       .post-btn:hover{
-      
         background-color: #fff;
         box-shadow: 0px 3px 40px -5px rgba(0, 0, 0, 0.287);
         color:  #9431b8;
@@ -128,7 +120,6 @@
       }
     }
   }
-
   .divider {
     margin: 0px 10px;
     background-color: #af94ee;
@@ -136,13 +127,10 @@
     display: flex;
     height: 1px;
   }
-
   .posts {
     display: flex;
     flex-direction: column;
     margin: 0px 10px;
     width: 100%;
-  //  align-items: center;
-  //   justify-content: center ;
   }
 }

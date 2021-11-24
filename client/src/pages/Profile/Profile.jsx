@@ -11,11 +11,10 @@ import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import y from "../../assets/helper/ranks";
-// import { Search } from "@material-ui/icons";
 
 export default function Profile(props) {
   const x = useContext(AuthContext);
-  const     loggedUser = x.user;
+  const loggedUser = x.user;
   const dispatch = x.dispatch;
 
   const ranks = y.ranks;
@@ -28,7 +27,7 @@ export default function Profile(props) {
   useEffect(() => {
     async function fetchData() {
       if (props.match.params.id === loggedUser._id) {
-        setUser( loggedUser);
+        setUser(loggedUser);
       } else {
         let response = await fetch(
           `http://localhost:3030/api/user/${props.match.params.id}`
@@ -39,7 +38,7 @@ export default function Profile(props) {
     }
 
     fetchData();
-  }, [ loggedUser, props.match.params.id]);
+  }, [loggedUser, props.match.params.id]);
 
   useEffect(() => {
     async function fetchData() {
@@ -53,7 +52,7 @@ export default function Profile(props) {
           Name: user.Name,
           username: user.username,
           profilePic: user.profilePic,
-          savedArray:user.savedArray
+          savedArray: user.savedArray,
         };
       });
       setPosts(jso2);
@@ -84,7 +83,7 @@ export default function Profile(props) {
   const follow = async () => {
     const job = loggedUser.following.includes(user._id) ? "unfollow" : "follow";
     const data = {
-      id:loggedUser._id,
+      id: loggedUser._id,
     };
     const options = {
       method: "PUT",
@@ -119,10 +118,7 @@ export default function Profile(props) {
     };
 
     try {
-      await fetch(
-        `http://localhost:3030/api/conversations/`,
-        options
-      );
+      await fetch(`http://localhost:3030/api/conversations/`, options);
       window.location.href = "http://localhost:3000/chat/";
     } catch (err) {
       alert(err);
@@ -138,7 +134,7 @@ export default function Profile(props) {
           <div className="profileRight">
             <div className="profileRightTop">
               <div className="profileCover">
-                {    loggedUser._id === user._id && (
+                {loggedUser._id === user._id && (
                   <div className="UpdatePhoto">
                     <Link to={`/imageupload`}>
                       <FontAwesomeIcon icon={faCamera} className="cameraIcon" />
@@ -166,10 +162,10 @@ export default function Profile(props) {
                 </span>
                 <span className="profileInfoDesc">{user.role}</span>
               </div>
-              {    loggedUser._id !== user._id && (
+              {loggedUser._id !== user._id && (
                 <div className="follow-button">
                   <button className="follow-btn" onClick={follow}>
-                    {    loggedUser.following.includes(user._id)
+                    {loggedUser.following.includes(user._id)
                       ? "Unfollow"
                       : "Follow"}
                   </button>
@@ -180,26 +176,24 @@ export default function Profile(props) {
               )}
               <div className="followInformation">
                 <div className="FollowItemList-profile">
-                  <Link to = {`/friends`}>
-                  <span className="followers-title">Followers</span>
-                  <span className="numberFollowers">
-                    {user.followers.length}
-                  </span>
+                  <Link to={`/friends`}>
+                    <span className="followers-title">Followers</span>
+                    <span className="numberFollowers">
+                      {user.followers.length}
+                    </span>
                   </Link>
                 </div>
                 <div className="FollowItemList-profile">
-                <Link to = {`/friends/following`}>
-                  <span className="followers-title">Following</span>
-                  <span className="numberFollowers">
-                    {user.following.length}
-                  </span>
+                  <Link to={`/friends/following`}>
+                    <span className="followers-title">Following</span>
+                    <span className="numberFollowers">
+                      {user.following.length}
+                    </span>
                   </Link>
                 </div>
                 <div className="FollowItemList-profile">
                   <span className="followers-title">Posts</span>
-                  <span className="numberFollowers">
-                    {user.postCount}
-                  </span>
+                  <span className="numberFollowers">{user.postCount}</span>
                 </div>
                 <hr />
                 <div className="RankListProfile">

@@ -2,7 +2,6 @@ import "./register.css";
 import vectorArt from "./images/login-paint.svg";
 import { NavLink as Link } from "react-router-dom";
 import { Component } from "react";
-// import { useHistory } from "react-router-dom";
 
 class Register extends Component {
   state = {
@@ -13,42 +12,46 @@ class Register extends Component {
     password: "",
   };
 
-
   handleSubmit = async (e) => {
     e.preventDefault();
     const re = /^\S+@\S+\.\S+$/;
-    if (this.state.name.length < 2) alert("Name should be a minimum of 2 characters long")
-    else if(this.state.name.length>50)alert("Name should be a maximum of 50 characters long")
-    else if(this.state.username.length<3)alert("Username should be atleast of 3 characters long")
-    else if (this.state.username.length > 20) alert("Username should be a maximum of 20 characters long")
-    else if (this.state.role.length<3)alert("Role should be a minimum of 3 characters long")
-    else if(this.state.password.length<6)alert("Password should be a minimum of 6 characters long")
-    else if(!re.test(this.state.email))alert("Enter a Valid Email id")
-    else{
-    const data = {
-      Name:this.state.name,
-      username: this.state.username,
-      email: this.state.email,
-      role: this.state.role,
-      password: this.state.password,
-    };
-    const options = {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify(data),
-    };
+    if (this.state.name.length < 2)
+      alert("Name should be a minimum of 2 characters long");
+    else if (this.state.name.length > 50)
+      alert("Name should be a maximum of 50 characters long");
+    else if (this.state.username.length < 3)
+      alert("Username should be atleast of 3 characters long");
+    else if (this.state.username.length > 20)
+      alert("Username should be a maximum of 20 characters long");
+    else if (this.state.role.length < 3)
+      alert("Role should be a minimum of 3 characters long");
+    else if (this.state.password.length < 6)
+      alert("Password should be a minimum of 6 characters long");
+    else if (!re.test(this.state.email)) alert("Enter a Valid Email id");
+    else {
+      const data = {
+        Name: this.state.name,
+        username: this.state.username,
+        email: this.state.email,
+        role: this.state.role,
+        password: this.state.password,
+      };
+      const options = {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(data),
+      };
 
-    const response = await fetch(
-      "http://localhost:3030/api/auth/register",
-      options
-    );
-    console.log(response);
-    // const json = await response.json();   //check form validation and check response is proper then redirect
-    window.location.href = "/login";
+      const response = await fetch(
+        "http://localhost:3030/api/auth/register",
+        options
+      );
+      console.log(response);
+      window.location.href = "/login";
     }
   };
 
@@ -77,7 +80,7 @@ class Register extends Component {
                 </div>
                 <div className="form-field-reg">
                   <label htmlFor="username" className="input-text ">
-                    Username * 
+                    Username *
                   </label>
                   <input
                     type="text"
@@ -93,7 +96,7 @@ class Register extends Component {
               </div>
               <div className="form-field-reg">
                 <label htmlFor="email" className="input-text">
-                 Email address *
+                  Email address *
                 </label>
                 <input
                   type="email"
@@ -106,9 +109,9 @@ class Register extends Component {
                   }}
                 />
               </div>
-               <div className="form-field-reg">
+              <div className="form-field-reg">
                 <label htmlFor="role" className="input-text">
-                  Role 
+                  Role
                 </label>
                 <input
                   type="text"
@@ -137,7 +140,12 @@ class Register extends Component {
                 />
               </div>
               <div className="form-btns">
-                <button className="SignUp" form="registerForm" value="Submit" onClick={this.handleSubmit}>
+                <button
+                  className="SignUp"
+                  form="registerForm"
+                  value="Submit"
+                  onClick={this.handleSubmit}
+                >
                   Sign Up
                 </button>
                 <div className="login-btn">

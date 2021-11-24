@@ -44,7 +44,7 @@ router.put(
         profilePic: req.files.profileImag[0].filename,
         coverPic: req.files.coverImag[0].filename,
         msg: "Updated sucessfully",
-        hel:"hello",
+        hel: "hello",
       };
       res.status(200).json(ret);
     } catch (err) {
@@ -57,7 +57,6 @@ router.get("/leader", async (req, res) => {
   try {
     const currUser = await user.find({}).sort({ rank: -1 }).limit(5);
 
-    // console.log("Leader boi" + currUser)
     res.status(200).json(currUser);
   } catch (err) {
     res.status(500).json(err);
@@ -107,7 +106,7 @@ router.delete("/:id", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const currUser = await user.findById(req.params.id); //Test this and remove password and that jazz
+    const currUser = await user.findById(req.params.id);
     const { password, updatedAt, ...other } = currUser._doc;
     res.status(200).json(other);
   } catch (err) {
@@ -147,7 +146,7 @@ router.put("/follow/:id", async (req, res) => {
         await currUser.updateOne({ $push: { following: req.params.id } });
         await otherUser.updateOne({ $push: { followers: req.body.id } });
 
-        res.status(200).json("This account has been successfully followed"); //TEST
+        res.status(200).json("This account has been successfully followed");
       }
     } catch (err) {
       res.status(500).json("error" + err);
@@ -182,20 +181,19 @@ router.put("/unfollow/:id", async (req, res) => {
 
 //notify
 
-router.get("/notify/:id",async(req,res)=>{
-  try{
+router.get("/notify/:id", async (req, res) => {
+  try {
     const currUser = await user.findById(req.params.id);
-    if(currUser){
-      const notifications = currUser.notifi.slice(0,5);
-     
+    if (currUser) {
+      const notifications = currUser.notifi.slice(0, 5);
+
       res.status(200).json(notifications);
-    }else{
+    } else {
       res.status(404).json("Who are you");
     }
-  }
-  catch(err){
+  } catch (err) {
     res.status(500).json(err);
   }
-})
+});
 
 module.exports = router;

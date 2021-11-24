@@ -5,16 +5,12 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const cors = require("cors");
-// const multer = require("multer");
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/post");
 const searchRoute = require("./routes/search");
 const conversationRoute = require("./routes/conversations");
 const messageRoute = require("./routes/messages");
-// const router = express.Router();
-// const path = require("path");
-// const { MongoClient } = require('mongodb');
 
 dotenv.config();
 
@@ -28,7 +24,7 @@ mongoose.connect(
   }
 );
 
-//middleware
+//middlewares
 app.use(express.json());
 app.use(cors({origin: true, credentials: true}));
 app.use(helmet());

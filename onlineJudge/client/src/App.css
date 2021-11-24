@@ -13,8 +13,8 @@ h1{
       color: #332A3E;
 }
 ::-webkit-scrollbar {
-  width: 0;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
+  width: 0;
+  background: transparent;
 }
 body{
   background-image: linear-gradient(#C4A4F6, #A890FB);
@@ -35,7 +35,6 @@ h2{
   color:#29CC40;
 
   }
-
   .redIcon{
     color:#F96057;
     }
@@ -82,7 +81,6 @@ input::placeholder{
   gap: 10px;
   cursor: pointer;
 }
-
 .codeHeading{
   position: relative;
   margin: auto;
@@ -90,13 +88,10 @@ input::placeholder{
 }
 .codeHeading:focus{
   outline: none;
- 
 }
 .TopBar{
-  
   display: flex;
   flex-direction: row;
-  
 }
 .codeTitleInput{
   margin-top: 15px;
@@ -113,14 +108,12 @@ input::placeholder{
   width: 45%;
   position: relative;
   margin: auto;
-  /* right: -450px; */
   background: rgba( 51, 42, 62, 0.8 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 9px );
   -webkit-backdrop-filter: blur( 9px );
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
- 
 }
 
 .selectLanguage{

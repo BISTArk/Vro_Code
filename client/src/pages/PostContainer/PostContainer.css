@@ -11,9 +11,6 @@
     display: flex;
     flex-direction: column;
 }
-.shareContent{
-
-}
 .postImageShare{
     width: 100%;
 }
@@ -29,7 +26,8 @@
     margin: auto;
     top: 20px;
 
-}.contentShare{
+}
+.contentShare{
     padding: 10px;
 }
 .shareName{

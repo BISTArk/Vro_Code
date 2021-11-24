@@ -77,13 +77,11 @@
         color: gray;
       }
     }
-
-    .savepost {
+   .savepost {
       cursor: pointer;
       flex: 1;
     }
   }
-
   .content {
     margin: 3% 0%;
   }
@@ -99,12 +97,12 @@
     font-size: 1.1rem;
     white-space: pre-line;
     background: rgba(0, 0, 0, 0.774);
-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-backdrop-filter: blur( 4.5px );
--webkit-backdrop-filter: blur( 4.5px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
-transition: 0.5s;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4.5px );
+    -webkit-backdrop-filter: blur( 4.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    transition: 0.5s;
   }
   .contentCode:hover{
     background: rgba(0, 0, 0, 0.938);
@@ -118,13 +116,9 @@ transition: 0.5s;
     display: flex;
     justify-content: space-between;
     align-items: center;
- 
     .react {
       flex: 11;
       vertical-align: middle;
-      
-    
-
       * {
         cursor: pointer;
         margin-right: 3%;
@@ -135,7 +129,6 @@ transition: 0.5s;
       cursor: pointer;
     }
   }
-
   .putComment {
     margin-top: 30px;
     width: 100%;
@@ -167,7 +160,6 @@ transition: 0.5s;
       height: auto;
       outline: none;
       border-width: 1px;
-     
     }
     .commentinput[type="text"]{
       font-size:1rem;

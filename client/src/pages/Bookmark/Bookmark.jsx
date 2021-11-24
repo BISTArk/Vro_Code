@@ -3,7 +3,7 @@ import { BookmarkBorderOutlined } from "@material-ui/icons";
 import TopBar from "../../components/TopBar/TopBar";
 import { AuthContext } from "../../context/AuthContext";
 import Feed from "../../components/Feed/Feed";
-import {useContext, useEffect,useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function Bookmark() {
   const { user } = useContext(AuthContext);
@@ -48,7 +48,6 @@ export default function Bookmark() {
     if (posts.length > 0) fetchUsers();
   }, [posts]);
 
-  
   return (
     <div>
       <TopBar />
@@ -56,11 +55,15 @@ export default function Bookmark() {
         <span className="headingBM">
           Bookmarks <BookmarkBorderOutlined className="leftbarIcon-bm" />
         </span>
-        {/* <hr className="BM-hr" /> */}
         <div className="bookmarkBody">
           <div>
-          <Feed class="feedBookmark" user={user} posts={users} bookmarks={true}  />
-        </div>
+            <Feed
+              class="feedBookmark"
+              user={user}
+              posts={users}
+              bookmarks={true}
+            />
+          </div>
         </div>
       </div>
     </div>

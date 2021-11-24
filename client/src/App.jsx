@@ -13,13 +13,11 @@ import Friends from "./pages/Friends/Friends";
 import Bookmark from "./pages/Bookmark/Bookmark";
 import Search from "./pages/Search/Search";
 import ImageUpload from "./pages/ImageUpload/ImageUpload";
-import Following from "./pages/Friends/Following"
-import Edit from "./pages/Edit/Edit"
+import Following from "./pages/Friends/Following";
+import Edit from "./pages/Edit/Edit";
 import Forget from "./pages/ForgetPassword/ForgetPassword";
-import Suggestion from "./pages/Suggestion/Suggestion"
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
-
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -43,17 +41,16 @@ function App() {
           <Register />
         </Route>
         <Route exact path="/imageupload">
-        {user ? <ImageUpload /> : <Register />} 
+          {user ? <ImageUpload /> : <Register />}
         </Route>
-        <Route path="/profile/:id" component={user ? Profile : Register}
-        />
+        <Route path="/profile/:id" component={user ? Profile : Register} />
         <Route exact path="/chat">
-          {user ? <Messenger/> : <Register />}
+          {user ? <Messenger /> : <Register />}
         </Route>
         <Route exact path="/code">
           {user ? <Code /> : <Register />}
         </Route>
-      
+
         <Route exact path="/notification">
           {user ? <Notification /> : <Register />}
         </Route>
@@ -72,13 +69,10 @@ function App() {
         <Route exact path="/edit">
           {user ? <Edit /> : <Register />}
         </Route>
-        <Route exact path="/suggestion">
-          {user ? <Suggestion /> : <Register />}
-        </Route>
         <Route exact path="/friends/following">
           {user ? <Following /> : <Register />}
         </Route>
-        <Route exact path="/bookmarks" component =  {user ? Bookmark : Register}/>
+        <Route exact path="/bookmarks" component={user ? Bookmark : Register} />
         <Route path="/search/:term" component={user ? Search : Register} />
         <Route path="/postpage/:id" component={PostPage} />
       </Switch>

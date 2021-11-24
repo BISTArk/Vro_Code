@@ -7,10 +7,6 @@
 .leftbar{
     flex: 2;
     background-color: #fff;
-    /* height: calc(100vh - 100px); */
-    /* position:sticky; */
-  
-
 }
 ::-webkit-scrollbar {
     width: 5px;

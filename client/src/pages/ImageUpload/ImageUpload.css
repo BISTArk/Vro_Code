@@ -2,8 +2,7 @@
     height: 100vh;
     background-image: url('../Login/images/bg3.jpg');
     background-repeat: no-repeat;
-   background-size:cover ;
-
+    background-size:cover ;
 }
 .uploadPicH1{
     text-align: center;
@@ -15,7 +14,6 @@
     cursor: pointer;
     color: #1E3163;
     transition: 0.2s all;
-    
 }
 .formElementUpload{
     padding: 20px;

@@ -1,37 +1,36 @@
-const  {Schema, model} = require("mongoose");
+const { Schema, model } = require("mongoose");
 
-const postSchema = new Schema({
-    userid:{
-        type:String,
-        required:true
+const postSchema = new Schema(
+  {
+    userid: {
+      type: String,
+      required: true,
     },
-    content:{
-        type:String,
-        max:200,
-        default:"",
-        required:true
+    content: {
+      type: String,
+      max: 200,
+      default: "",
+      required: true,
     },
-    img:{
-        type:String,
-        default:""
+    img: {
+      type: String,
+      default: "",
     },
-    likes:{
-        type:Array,
-        default:[]
+    likes: {
+      type: Array,
+      default: [],
     },
     githubLink: {
-        type: String,
+      type: String,
     },
-    code:{
-        type:Boolean,
-        default:false
-    }
-   
-    
-},
-{
-    timestamps:true
-}
-)
+    code: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-module.exports = model("post",postSchema);
+module.exports = model("post", postSchema);
