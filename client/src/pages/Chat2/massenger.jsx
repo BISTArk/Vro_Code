@@ -99,7 +99,7 @@ export default function Messenger() {
       setMessages([...messages, res.data]);
       setNewMessage("");
       }else{
-        console.alert("Bhosdike message likh pahle X(");
+        console.log("Message empty");
       }
     } catch (err) {
       console.log(err);
