@@ -177,7 +177,7 @@ export default function Post(props) {
           {/* </Link> */}
         </div>
 
-        {props.gitLink ? (
+        {props.details.gitLink ? (
           <a
             className="github"
             href={props.details.githubLink}
