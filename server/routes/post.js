@@ -32,7 +32,6 @@ let upload = multer({ storage, fileFilter });
 router.get("/all/:userId", async (req, res) => {
   try {
     const currUser = await user.findById(req.params.userId);
-    const timeAtt = new Date(currUser.createdAt).toLocaleDateString();
     const myPosts = await post
       .find({ userid: currUser._id })
       .sort({ createdAt: -1 })
@@ -46,7 +45,7 @@ router.get("/all/:userId", async (req, res) => {
     const result2 = myPosts
       .concat(...otherPosts)
       .sort()
-      .reverse(); //wow
+      .reverse(); 
     res.status(200).json(result2);
   } catch (err) {
     res.status(500).json(err);
@@ -105,7 +104,7 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// Like a post
 router.put("/like/:id", async (req, res) => {
   try {
     const currPost = await post.findById(req.params.id);
@@ -120,8 +119,11 @@ router.put("/like/:id", async (req, res) => {
           });
         }
       } else {
-        res.status(404).json("Cant find this post");
-      }
+        await currPost.updateOne({ $pull: { likes: req.body.id } });
+       }
+    }
+    else {
+      res.status(404).json("Cant find this post");
     }
   } catch (err) {
     res.status(500).json(err);
