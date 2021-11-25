@@ -45,7 +45,7 @@ router.get("/all/:userId", async (req, res) => {
     const result2 = myPosts
       .concat(...otherPosts)
       .sort()
-      .reverse(); 
+      .reverse();
     res.status(200).json(result2);
   } catch (err) {
     res.status(500).json(err);
@@ -57,7 +57,7 @@ router.get("/all/:userId", async (req, res) => {
 router.get("/my/:userId", async (req, res) => {
   try {
     const currUser = await user.findById(req.params.userId);
-    const myPosts = await post.find({ userid: currUser._id });
+    const myPosts = await post.find({ userid: currUser._id }).sort({ createdAt: -1 }).exec();
     res.status(200).json(myPosts);
   } catch (err) {
     res.status(500).json(err);
@@ -120,9 +120,8 @@ router.put("/like/:id", async (req, res) => {
         }
       } else {
         await currPost.updateOne({ $pull: { likes: req.body.id } });
-       }
-    }
-    else {
+      }
+    } else {
       res.status(404).json("Cant find this post");
     }
   } catch (err) {
