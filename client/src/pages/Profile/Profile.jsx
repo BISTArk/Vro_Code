@@ -119,7 +119,7 @@ export default function Profile(props) {
 
     try {
        await fetch(`http://localhost:3030/api/conversations/`, options);
-      //  window.location.href = "http://localhost:3000/chat/";
+       window.location.href = "http://localhost:3000/chat/";
     } catch (err) {
       alert(err);
     }

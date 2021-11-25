@@ -105,18 +105,19 @@ router.post("/", async (req, res) => {
     let mem = [req.body.senderId, req.body.receiverId];
     const newConversation = new Conversation({
         members: mem,
+        socketId: Math.random()
     });
-  //   const searchConv = await Conversation.find({ members: mem });
-  // console.log(searchConv)
+    const searchConv = await Conversation.find({ members: mem });
+  console.log(searchConv)
   
     try {
-        // if (searchConv.length == 0) {
+        if (searchConv.length == 0) {
             const savedConversation = await newConversation.save();
             res.status(200).json(savedConversation)
-        // }else{
-        //     res.status(200).json(searchConv)
+        }else{
+            res.status(200).json(searchConv)
          
-        // }
+        }
 
     } catch (err) {
         res.status(500).json(err)
@@ -137,23 +138,6 @@ router.get("/:userId", async (req, res) => {
         res.status(500).json(err)
     }
 })
-
-// router.get("/:term", async (req, res) => {
-//     let re = new RegExp(req.params.term, 'i')
-//     try {
-
-//         let users = [];
-
-//         x = await User.find({ username: re });
-//         users = users.concat(x);
-//         console.log(users);
-//         res.status(200).json(users);
-//     } catch (err) {
-//         console.log(err);
-//         console.log("B");
-//     }
-// });
-
 
 router.get("/find/:firstUserId/:secondUserId", async (req, res) => {
     try {
