@@ -1,6 +1,5 @@
 # Vro_Code
 #### A social media application for programmers
-<hr>
 ## Installation
 ### `Clone or download`
 ``` terminal
