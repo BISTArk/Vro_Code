@@ -8,6 +8,7 @@ $ git clone https://github.com/BISTArk/Vro_Code.git
 ```
 ### npm install
 Make sure you have npm installed, and cd to the below directories and install.
-#### 1. `cd server`, ### `npm install` and #### `npm start`.
+#### 1. `cd server`,  `npm install` and  `npm start`.
+#### 2. `cd client`, `npm install` and `npm start`. (Runs on port 3000)
 
 
