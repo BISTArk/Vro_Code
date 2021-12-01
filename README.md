@@ -1,2 +1,7 @@
 # Vro_Code
-<center> A social Media app for Developers </center>
+#### A social media application for programmers
+<hr>
+## Installation
+### `Clone or download`
+``` terminal
+$ git clone https://github.com/BISTArk/Vro_Code.git
