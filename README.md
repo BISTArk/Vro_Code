@@ -1,4 +1,5 @@
-# VroCode
+# VroCode ![VroCode-favi-dark](https://user-images.githubusercontent.com/40259745/150183306-2b9667cf-2230-4a5b-af51-3781ca6fefae.png)
+
 #### A social media application for programmers
 [![React Badge](http://img.shields.io/badge/Client%20-React-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![React Badge](http://img.shields.io/badge/Backend%20-Node-green?style=for-the-badge&logo=node.js)](https://reactjs.org/)
