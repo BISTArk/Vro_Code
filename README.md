@@ -1,8 +1,9 @@
-# Vro_Code - MERN
+# VroCode
 #### A social media application for programmers
-[![React Badge](http://img.shields.io/badge/Powered%20By-React-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
+[![React Badge](http://img.shields.io/badge/Client%20-React-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![React Badge](http://img.shields.io/badge/Backend%20-Node-green?style=for-the-badge&logo=node.js)](https://reactjs.org/)
 [![React Badge](http://img.shields.io/badge/Database%20-MongoDB-darkgreen?style=for-the-badge&logo=mongodb)](https://reactjs.org/)
+[![React Badge](http://img.shields.io/badge/Server%20-Express-black?style=for-the-badge&logo=express)](https://reactjs.org/)
 
 
 ## Installation
