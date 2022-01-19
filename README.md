@@ -1,7 +1,7 @@
 # Vro_Code - MERN
 #### A social media application for programmers
 [![React Badge](http://img.shields.io/badge/Powered%20By-React-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
-[![React Badge](http://img.shields.io/badge/Backend%20-Node-blue?style=for-the-badge&logo=node)](https://reactjs.org/)
+[![React Badge](http://img.shields.io/badge/Backend%20-Node-green?style=for-the-badge&logo=node.js)](https://reactjs.org/)
 
 ## Installation
 ### `Clone or download`
