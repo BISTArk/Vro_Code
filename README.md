@@ -1,10 +1,15 @@
-# VroCode ![VroCode-favi-dark](https://user-images.githubusercontent.com/40259745/150183306-2b9667cf-2230-4a5b-af51-3781ca6fefae.png = 8x8)
+#  VroCode <img src="https://user-images.githubusercontent.com/40259745/150183306-2b9667cf-2230-4a5b-af51-3781ca6fefae.png " height="25px" width = "28px"/>
+[![Mongo Badge](http://img.shields.io/badge/Database%20-MongoDB-darkgreen?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
+&emsp;
+[![Express Badge](http://img.shields.io/badge/Server%20-Express-black?style=for-the-badge&logo=express)](https://expressjs.com/)
+&emsp;
+[![Reactjs Badge](http://img.shields.io/badge/Client%20-React-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
+&emsp;
+[![Node Badge](http://img.shields.io/badge/Backend%20-Node-green?style=for-the-badge&logo=node.js)](https://nodejs.org/en/)
+&emsp;
 
-#### A social media application for programmers
-[![React Badge](http://img.shields.io/badge/Client%20-React-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
-[![React Badge](http://img.shields.io/badge/Backend%20-Node-green?style=for-the-badge&logo=node.js)](https://reactjs.org/)
-[![React Badge](http://img.shields.io/badge/Database%20-MongoDB-darkgreen?style=for-the-badge&logo=mongodb)](https://reactjs.org/)
-[![React Badge](http://img.shields.io/badge/Server%20-Express-black?style=for-the-badge&logo=express)](https://reactjs.org/)
+## Overview
+### VroCode - A social media application for programmers
 
 
 ## Installation
