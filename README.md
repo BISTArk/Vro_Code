@@ -2,7 +2,7 @@
 #### A social media application for programmers
 [![React Badge](http://img.shields.io/badge/Powered%20By-React-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![React Badge](http://img.shields.io/badge/Backend%20-Node-green?style=for-the-badge&logo=node.js)](https://reactjs.org/)
-[![React Badge](http://img.shields.io/badge/Database%20-Node-rgb(71, 162, 72)?style=for-the-badge&logo=mongodb)](https://reactjs.org/)
+[![React Badge](http://img.shields.io/badge/Database%20-Node-darkgreen?style=for-the-badge&logo=mongodb)](https://reactjs.org/)
 
 
 ## Installation
