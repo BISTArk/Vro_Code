@@ -9,7 +9,7 @@
 &emsp;
 
 ## Overview
-### A social media application for programmers
+### 👨‍💻 A social media application for programmers! 
 VroCode is a social media web application where our target users are programmers and developers. In this project we developed an application that can bring developers from different places together.
 <br>
 
@@ -43,20 +43,55 @@ In this application, developers and programmers can find people with whom they c
 
 
 
-## Installation
-### `Clone or download`
-Download the zip or copy the command from below
-``` terminal
-$ git clone https://github.com/BISTArk/Vro_Code.git
+## 📂 Installation - Run Locally 
 ```
-### `npm install`
-Make sure you have node and npm installed, change the directories to the following:
-#### 1. `cd server`,  `npm install` and  `npm start`. (Runs on port 3030)
-#### 2. `cd client`, `npm install` and `npm start`. (Runs on port 3000)
-#### 3. `cd onlineJudge`, `cd backend`,`npm install` and `npm start`. (Runs on port 5000)
-#### 4. `cd onlineJudge`, `cd client`,`npm install` and `npm start`. (Runs on port 4000)
+> Clone the repo or download zip
+    >> For Windows: Git Bash
+    >> For Linux: Terminal
+    >> $ git clone https://github.com/BISTArk/Vro_Code.git
+    
+> Change directories for Client [PORT: 3000]
+    >> cd Vro_Code\client 
+    >> npm install
+    >> npm start
+    
+> Start server [PORT: 3030]
+    >> cd Vro_Code\server 
+    >> npm install
+    >> npm start
+ 
+> Start IDE backend [PORT: 5000]
+    >> cd Vro_Code\onlineJudge\backend
+    >> npm install
+    >> npm start
 
-## Watch Demo
+> Start IDE client [PORT: 4000]
+    >> cd Vro_Code\onlineJudge\client
+    >> npm install
+    >> npm start
+
+```
+The application runs on  `http://localhost:PORT` as "PORT" is mentioned above
+
+## ▶️ Watch Demo
 
 # <a href="https://drive.google.com/file/d/11l-Pl86BqOASVXCe6NB8r6zF9wdRIEux/view"><img src="https://user-images.githubusercontent.com/40259745/150282924-be6113d1-a0d0-40b4-a259-6405bdd13a07.png"  height="400px" width = " 700px"></a>
 
+## 🧑‍🔧 Work in Progress
+* Make entire application responsive
+* Host the app on NETLIFY 
+* Make password recovery sent to emails
+* Dark Mode
+* Fix minor bugs and loopholes
+
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn how to setup a local MongoDB instance for testing, check out how to [Connect to MongoDB](https://docs.mongodb.com/guides/server/drivers/).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+[![Express Badge](http://img.shields.io/badge/Documentation%20-Open-red?style=for-the-badge&logo=)](https://drive.google.com/file/d/1gocjgZvCYp3HrYwRkDoAnXjXg6RG1hGy/view?usp=sharing)
+&emsp;
