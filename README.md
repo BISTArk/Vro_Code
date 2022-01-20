@@ -95,3 +95,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 [![Express Badge](http://img.shields.io/badge/Documentation%20-Open-red?style=for-the-badge&logo=)](https://drive.google.com/file/d/1gocjgZvCYp3HrYwRkDoAnXjXg6RG1hGy/view?usp=sharing)
 &emsp;
+
+## ✨ Credits
+### 1. <a href="https://github.com/BISTArk" target="_blank"> Akshay Bistagond </a>
+### 2. <a href="https://github.com/abhishekchavannn" target="_blank"> Abhishek Chavan </a>
+### 3. <a href="https://github.com/bdiptesh99" target="_blank"> Diptesh Banerjee</a>
