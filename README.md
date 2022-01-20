@@ -19,6 +19,27 @@ VroCode is a social media web application where our target users are programmers
 
 In this application, developers and programmers can find people with whom they can collaborate, interact, share developed programs and they also get the opportunity to showcase their skills and get better exposure in the respective community. This application can also act as a human resource for recruiters.
 
+### Features
+* 🔒 Authentication (Login, Logout and Register)
+* ✳️ Password recovery
+* 🙍‍♂️ Default avatar for new login
+* 👨‍💻 Profile management
+* 🖊️ Edit and delete profile
+* ➕ Follow other users
+* 💬 Chat with other users
+* 🤳 Post code, text and image
+* 🔗 GitLink features for projects
+* 🔖 Bookmark posts
+* 📲 Share posts
+* 💓 Like posts
+* 📰 Feed
+* 🔎 Search users
+* 📚 Practice coding and learn 
+* 💻 VroCoder - IDE (C++ and python)
+* 📑 Random course suggestor 
+* 🏆 Rank system and leaderboard
+* 📸 Change profile and cover images
+* 🔔 Notifications
 
 
 
